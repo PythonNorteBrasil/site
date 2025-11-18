@@ -1,63 +1,51 @@
-name: Deploy website 🚀
+name: Build and Deploy
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
+    branches: [main]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
-  group: 'pages'
-  cancel-in-progress: true
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    if: github.repository == 'PythonNorteBrasil/site'
-    environment:
-      name: production
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
-    outputs:
-      artifact_id: ${{ steps.upload-artifact.outputs.artifact-id }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install --force
+        run: npm ci --force
 
-      - name: Build
-        run: npm run build
+      - name: Build & Export static Next.js
+        env:
+          NEXT_PUBLIC_BASE_PATH: /site
+        run: |
+          npx next build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        id: upload-artifact
+      - name: Upload build output
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist repository
-          path: './.next/dist'
-          name: 'github-pages'
-          retention-days: "1"
+          path: ./out
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: 'github-pages'
