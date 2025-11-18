@@ -52,7 +52,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist repository
-          path: './dist'
+          path: './.next/dist'
           name: 'github-pages'
           retention-days: "1"
 
