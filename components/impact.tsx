@@ -212,14 +212,14 @@ cidades = Object.values(
 
     if (!acc[key]) {
       acc[key] = {
-        cidade: nomeBruto,
+        quantidade: nomeBruto,
         count: 0,
       };
     }
 
     acc[key].count += item.count;
     return acc;
-  }, {} as Record<string, { cidade: string; count: number }>)
+  }, {} as Record<string, { quantidade: string; count: number }>)
 ).sort((a, b) => b.count - a.count);
 
 export function Impact() {
@@ -331,8 +331,8 @@ export function Impact() {
                       border: "1px solid hsl(var(--border))",
                       backgroundColor: "hsl(var(--card))",
                     }}
-                    formatter={(value) => [`${value} participantes`, "Total"]}
-                    labelFormatter={(label) => `Ano: ${label}`}
+                    formatter={(value: number | string) => [`${value} participantes`, "Total"]}
+                    labelFormatter={(label: string) => `Ano: ${label}`}
                   />
                   <Bar
                     dataKey="participantes"
@@ -379,8 +379,8 @@ export function Impact() {
                       border: "1px solid hsl(var(--border))",
                       backgroundColor: "hsl(var(--card))",
                     }}
-                    formatter={(value) => [`${value} participantes`, "Total"]}
-                    labelFormatter={(label) => `Cidade: ${label}`}
+                    formatter={(value: number | string) => [`${value} participantes`, "Total"]}
+                    labelFormatter={(label: string) => `Cidade: ${label}`}
                   />
                   <Bar
                     dataKey="count"
