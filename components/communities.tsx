@@ -1,14 +1,15 @@
-import { Card } from "@/components/ui/card"
+import { Card } from "@/components/ui/card";
 
 export function Communities() {
-  const communities = [
-    { name: "Python Rio", logo: "/python-rio-logo.jpg" },
-]
+  const communities = [{ name: "Python Rio", logo: "/python-rio-logo.jpg" }];
 
   return (
-    <section id="comunidades" className="py-20 md:py-28 bg-background relative overflow-hidden">
+    <section
+      id="comunidades"
+      className="py-20 md:py-28 bg-background relative overflow-hidden"
+    >
       {/* Background pattern */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-10">
         <div
           className="absolute inset-0"
           style={{
@@ -20,9 +21,14 @@ export function Communities() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">Comunidades Apoiadoras</h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Comunidades são pontes e não muros. Conheça algumas das comunidades que apoiam a Python Norte e tornam este evento lindo maravilhoso e cada vez mais forte!
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
+            Comunidades Apoiadoras
+          </h2>
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-pretty">
+            <strong>Comunidades são pontes e não muros.</strong>
+            <br></br>Conheça algumas das comunidades que apoiam e ajudam a
+            Python Norte e tornam este evento lindo, maravilhoso e cada vez mais
+            forte!
           </p>
         </div>
 
@@ -54,5 +60,5 @@ export function Communities() {
         </div>
       </div>
     </section>
-  )
+  );
 }

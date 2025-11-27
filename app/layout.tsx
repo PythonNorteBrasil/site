@@ -9,31 +9,31 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Python Norte — A maior conferência da comunidade Python do Norte do Brasil",
   description:
-    "Desde 2015: conectando desenvolvedores, compartilhando conhecimento e celebrando a comunidade Python Nortista. Feito pela comunidade e para a comunidade.",
+    "desde 2017: conectando desenvolvedores, compartilhando conhecimento e celebrando a comunidade Python Amazônida e nortista.",
   generator: "v0.app",
   keywords: ["Python", "conferência", "Norte", "Brasil", "programação", "desenvolvimento", "comunidade"],
   openGraph: {
-    title: "Python Norte — A maior conferência Python do Norte",
+    title: "Python Norte — A maior conferência Python do Norte do Brasil",
     description:
-      "Desde 2015: conectando desenvolvedores, compartilhando conhecimento e celebrando a comunidade Python Nortista.",
+      "desde 2017: conectando desenvolvedores, compartilhando conhecimento e celebrando a comunidade Python Amazônida e nortista.",
     type: "website",
   },
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/favico.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: "/favico.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.svg",
+        url: "/favico.png",
         type: "image/svg+xml",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: "/favico.png",
   },
 }
 

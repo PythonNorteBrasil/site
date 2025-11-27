@@ -1,6 +1,8 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
+import { Objetivo } from "@/components/objetivo"
+import {ProximoEventoPage} from "@/components/proximo"
 import { Impact } from "@/components/impact"
 import { Communities } from "@/components/communities"
 import { Sponsorship } from "@/components/sponsorship"
@@ -17,13 +19,14 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <ProximoEventoPage />
+        <Objetivo />
         <Impact />
         <Communities />
         <Sponsorship />
         <Editions />
         <Gallery />
         <FAQ />
-        <Contact />
       </main>
       <Footer />
     </div>

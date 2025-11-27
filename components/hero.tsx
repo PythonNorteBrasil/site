@@ -179,17 +179,17 @@ export function Hero() {
             O maior evento da comunidade Python do Norte do Brasil
           </p>
 
-          <p className="text-base md:text-lg text-white/95 max-w-3xl mx-auto drop-shadow-md bg-black/25 px-5 py-3 rounded-lg border border-white/15">
+          <p className="text-base md:text-lg text-white/95 max-w-3xl mx-auto drop-shadow-md bg-black/50 px-5 py-3 rounded-lg border border-white/15">
             Próxima edição:{" "}
             <strong>Anaindeua/PA, de 3 a 5 de julho de 2026</strong>.
           </p>
 
-          <p className="text-base md:text-lg text-white/95 max-w-3xl mx-auto drop-shadow-md bg-black/25 px-5 py-3 rounded-lg border border-white/15">
-            Desde 2023: conectando desenvolvedores, compartilhando conhecimento
-            e celebrando a comunidade Python nortista.
+          <p className="text-base md:text-lg text-white/95 max-w-3xl mx-auto drop-shadow-md bg-black/50 px-5 py-3 rounded-lg border border-white/15">
+            Desde 2017: conectando desenvolvedores, compartilhando conhecimento
+            e celebrando a comunidade Python Amazônida e Nortista
             <br />
             <span className="font-semibold text-white">
-              Feito pela comunidade e para a comunidade 💙🏳️‍🌈
+              Um evento feito pela comunidade e para a comunidade 💙🏳️‍🌈
             </span>
           </p>
 

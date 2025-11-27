@@ -2,8 +2,8 @@ import { Calendar, MapPinned, Heart } from "lucide-react"
 
 export function About() {
   const highlights = [
-    { icon: MapPinned, label: "Itinerante", description: "Rodando por todo o Norte o Brasil!" },
-    { icon: Calendar, label: "3 dias", description: "Tutoriais, palestras, workshops e cultura" },
+    { icon: MapPinned, label: "Itinerante", description: "A cada nova edição, exploramos uma cidade diferente na região Norte" },
+    { icon: Calendar, label: "3 dias", description: "Tutoriais, palestras, workshops e um ambiente de aprendizado colaborativo" },
     { icon: Heart, label: "100% voluntária", description: "Feito pela comunidade e para a comunidade 💙🏳️‍🌈" },
   ]
 
@@ -16,23 +16,23 @@ export function About() {
       {/* background decorativo */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[url('/background_bottom.png')] bg-repeat opacity-20"
+        className="pointer-events-none absolute inset-0 bg-[url('/background_bottom.png')] bg-repeat opacity-40"
       />
 
       <div className="container relative z-10 mx-auto px-4">
         <div className="mx-auto max-w-5xl">
           <h2
             id="sobre-heading"
-            className="text-balance text-center text-4xl md:text-6xl py-30 font-bold text-primary tracking-tight"
+            className="text-balance text-center text-4xl md:text-6xl pb-40 font-bold text-primary tracking-tight"
           >
-            Sobre a Python Norte
+            O que é a Python Norte?
           </h2>
 
           <div className="mt-8 md:mt-10 rounded-3xl border border-border/70 bg-background/10 p-6 md:p-10 shadow-xl backdrop-blur-md transition-shadow motion-safe:hover:shadow-2xl">
             <div className="prose prose-lg max-w-none text-center">
               <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/100">
-                Python Norte é o maior evento sobre a linguagem de programação Python voltado para a região Norte do Brasil,
-                apoiado pela Associação Python Brasil (ApyB) e pela Python Software Foundation (PSF).
+                <strong>Python Norte</strong> é a maior conferência sobre a linguagem de programação <strong>Python</strong> voltado para a região Norte do Brasil,
+                apoiado pela <strong>Associação Python Brasil</strong> (ApyB) e pela <strong>Python Software Foundation</strong> (PSF).
               </p>
               <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/90">
                 Nossa missão é clara: democratizar o acesso à tecnologia, fortalecer as comunidades locais e criar
