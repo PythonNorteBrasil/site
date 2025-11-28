@@ -55,23 +55,43 @@ export function Impact() {
   return (
     <section
       id="impacto"
-      className="py-20 md:py-28 bg-gradient-to-br from-primary/5 to-secondary/5 "
+      className="
+        py-20 md:py-28
+        bg-gradient-to-br from-primary/5 to-secondary/5
+        bg-[url('/assets/bg-norte.png')]
+        bg-no-repeat
+        bg-contain md:bg-cover
+        bg-center
+      "
     >
-      <div className="container mx-auto ">
+      {/* 👇 padding lateral pra evitar qualquer “estouro” nas bordas */}
+      <div className="container mx-auto px-4">
         {/* Cabeçalho da seção */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
+          <h2 className="text-3xl pt-20 md:text-5xl font-bold mb-4 text-primary">
             Impacto e transformação
           </h2>
 
-          <h1 className="text-lg md:text-xl text-muted-foreground max-w-1xl mx-auto text-pretty py-3">
-            Ao longo de nossas edições, a Python Norte tem sido um catalisador
-            de transformação e crescimento na região Norte do Brasil, e um
-            expoente da cultura de código aberto e colaboração. Através do nosso
-            compromisso com a democratização do acesso à tecnologia, temos
-            alcançado marcos significativos que refletem nosso impacto positivo
-            na comunidade.
-          </h1>
+          <h1
+  className="
+    text-lg md:text-xl text-muted-foreground
+    max-w-6xl mx-auto text-pretty
+    py-4 px-6
+    bg-background/80 dark:bg-background/70
+    border border-border/60
+    rounded-xl
+    shadow-sm
+    backdrop-blur
+  "
+>
+  Ao longo de nossas edições, a Python Norte tem sido um catalisador
+  de transformação e crescimento na região Norte do Brasil, e um
+  expoente da cultura de código aberto e colaboração. Através do nosso
+  compromisso com a democratização do acesso à tecnologia, temos
+  alcançado marcos significativos que refletem nosso impacto positivo
+  na comunidade.
+</h1>
+
         </div>
 
         {/* Cards de métricas */}
@@ -100,7 +120,7 @@ export function Impact() {
         </div>
 
         {/* Gráfico de participantes por ano */}
-        <div className=" mx-auto">
+        <div className="max-w-5xl mx-auto">
           <Card className="p-6 md:p-8 bg-card/80 backdrop-blur border-2">
             <h3 className="text-xl md:text-2xl font-semibold mb-4 text-center text-foreground">
               Participação ao longo dos anos

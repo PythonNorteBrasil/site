@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 
 export function Communities() {
-  const communities = [{ name: "Python Rio", logo: "/python-rio-logo.jpg" }];
+  const communities = [  ];
 
   return (
     <section

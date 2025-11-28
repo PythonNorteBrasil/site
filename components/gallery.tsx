@@ -13,19 +13,25 @@ type ImageItem = {
 
 export function Gallery() {
   const images: ImageItem[] = [
-    { year: "2023", city: "Fortaleza, CE", query: "python conference audience attendees", src: "/54031670507_d1e7fb8bb9_b.jpg" },
-    { year: "2024", city: "Recife, PE", query: "tech conference keynote speaker", src: "/foto-2024-1.jpg" },
-    { year: "2022", city: "Natal, RN", query: "developers networking at conference", src: "/foto-2022-1.jpg" },
-    { year: "2019", city: "Recife, PE", query: "python programming workshop", src: "/foto-2019-1.jpg" },
-    { year: "2023", city: "Fortaleza, CE", query: "tech community meetup group photo", src: "/foto-2023-2.jpg" },
-    { year: "2024", city: "Recife, PE", query: "conference exhibition booths", src: "/foto-2024-2.jpg" },
+    { year: "2022", city: "Manaus/AM", query: "Python Brasil 2022", src: "/assets/gallery/2022/52456365547_5231fc970d_o.png" },
+    { year: "2022", city: "Manaus/AM", query: "Python Brasil 2022", src: "/assets/gallery/2022/52456380027_5e28d38fee_o.jpg" },
+
+    { year: "2023", city: "Manaus/AM", query: "Python Norte 2023", src: "/assets/gallery/2023/53231412486_a64dbe8281_b.jpg" },
+    { year: "2023", city: "Manaus/AM", query: "Python Norte 2023", src: "/assets/gallery/2023/53231714689_894bb89745_b.jpg" },
+    { year: "2023", city: "Manaus/AM", query: "Python Norte 2023", src: "/assets/gallery/2023/53230498102_b4c637890a_b.jpg" },
+    { year: "2023", city: "Manaus/AM", query: "Python Norte 2023", src: "/assets/gallery/2023/53231941755_7c37d6e477_b.jpg" },
+
+    { year: "2024", city: "Itacoatiara/AM", query: "Python Norte 2024", src: "/assets/gallery/2024/54032804453_cfef802556_b.jpg" },
+    { year: "2024", city: "Itacoatiara/AM", query: "Python Norte 2024", src: "/assets/gallery/2024/54032877279_5eaa5ea969_b.jpg" },
+    { year: "2024", city: "Itacoatiara/AM", query: "Python Norte 2024", src: "/assets/gallery/2024/54033003810_5a4fa2cd61_b.jpg" },
   ]
 
   const [activeImage, setActiveImage] = useState<ImageItem | null>(null)
+  const [isMoreOpen, setIsMoreOpen] = useState(false)
 
-  // (Opcional) bloquear scroll quando o modal estiver aberto
+  // (Opcional) bloquear scroll quando algum modal estiver aberto
   useEffect(() => {
-    if (activeImage) {
+    if (activeImage || isMoreOpen) {
       document.body.style.overflow = "hidden"
     } else {
       document.body.style.overflow = ""
@@ -33,12 +39,15 @@ export function Gallery() {
     return () => {
       document.body.style.overflow = ""
     }
-  }, [activeImage])
+  }, [activeImage, isMoreOpen])
 
   // (Opcional) fechar com ESC
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") setActiveImage(null)
+      if (e.key === "Escape") {
+        setActiveImage(null)
+        setIsMoreOpen(false)
+      }
     }
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
@@ -81,14 +90,20 @@ export function Gallery() {
         </div>
 
         <div className="text-center">
-          <Button size="lg" variant="outline" className="border-2 bg-transparent">
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-2 bg-transparent"
+            type="button"
+            onClick={() => setIsMoreOpen(true)}
+          >
             <ExternalLink className="w-5 h-5 mr-2" />
             Ver mais fotos
           </Button>
         </div>
       </div>
 
-      {/* Modal de zoom */}
+      {/* Modal de zoom da imagem */}
       {activeImage && (
         <div
           className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 md:p-8"
@@ -114,6 +129,76 @@ export function Gallery() {
 
             <div className="mt-3 text-center text-sm text-muted-foreground">
               {activeImage.year} • {activeImage.city}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal "Ver mais fotos" com links do Flickr */}
+      {isMoreOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 md:p-8"
+          onClick={() => setIsMoreOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-lg rounded-lg bg-background border shadow-xl p-6 md:p-8"
+            onClick={(e) => e.stopPropagation()} // não fechar ao clicar dentro
+          >
+            <button
+              type="button"
+              onClick={() => setIsMoreOpen(false)}
+              className="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-black/70 hover:bg-black text-white p-1.5 rounded-full shadow-lg"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary text-center">
+              Ver mais fotos no Flickr
+            </h3>
+            <p className="text-sm md:text-base text-muted-foreground mb-6 text-center">
+              Confira as galerias completas das edições da Python Norte no Flickr.
+            </p>
+
+            <div className="space-y-3">
+              <a
+                href="https://www.flickr.com/photos/pythonbrasil/albums/72177720303213577/" // TODO: substituir link real
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between w-full rounded-md border px-4 py-3 text-sm md:text-base hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                <span>Python Brasil 2022 – Manaus/AM</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://www.flickr.com/photos/199250629@N02/albums/72177720311661136/" // TODO: substituir link real
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between w-full rounded-md border px-4 py-3 text-sm md:text-base hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                <span>Python Norte 2023 – Manaus/AM</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://www.flickr.com/photos/199250629@N02/albums/72177720320720177" // TODO: substituir link real
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between w-full rounded-md border px-4 py-3 text-sm md:text-base hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                <span>Python Norte 2024 – Itacoatiara/AM</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://www.flickr.com/photos/203114989@N04/albums/72177720327337621/" // TODO: substituir link real
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between w-full rounded-md border px-4 py-3 text-sm md:text-base hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                <span>Python Norte 2025 – Belém/PA</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>

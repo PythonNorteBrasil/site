@@ -185,12 +185,8 @@ export function Hero() {
           </p>
 
           <p className="text-base md:text-lg text-white/95 max-w-3xl mx-auto drop-shadow-md bg-black/50 px-5 py-3 rounded-lg border border-white/15">
-            Desde 2017: conectando desenvolvedores, compartilhando conhecimento
-            e celebrando a comunidade Python Amazônida e Nortista
-            <br />
-            <span className="font-semibold text-white">
-              Um evento feito pela comunidade e para a comunidade 💙🏳️‍🌈
-            </span>
+            Desde 2017, reunindo pessoas com vontade de aprender, crescer e compartilhar afeto através da tecnologia na Amazônia e no Norte do Brasil.
+A Python Norte é um encontro feito com carinho, diversidade e cuidado — um espaço onde cada pessoa é recebida com respeito, alegria e pertencimento. 💙🏳️‍🌈🔥
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
