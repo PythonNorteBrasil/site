@@ -132,14 +132,14 @@ export function Hero() {
           className="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white p-3 rounded-full transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 shadow-lg border border-white/25"
           aria-label="Foto anterior"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-3 h-3" />
         </button>
         <button
           onClick={next}
           className="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white p-3 rounded-full transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 shadow-lg border border-white/25"
           aria-label="Próxima foto"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-3 h-3" />
         </button>
       </nav>
 
