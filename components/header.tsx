@@ -19,6 +19,7 @@ export function Header() {
 
   const navLinks = [
     { href: "#sobre", label: "O que é a Python Norte?" },
+    { href: "#codigo-de-conduta", label: "Código de conduta" },
     { href: "#impacto", label: "Impacto e transformação" },
     { href: "#comunidades", label: "Comunidades Apoiadoras" },
     { href: "#apoiar", label: "Apoie a Python Norte!" },
