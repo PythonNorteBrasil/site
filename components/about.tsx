@@ -2,9 +2,9 @@ import { Calendar, MapPinned, Heart } from "lucide-react"
 
 export function About() {
   const highlights = [
-    { icon: MapPinned, label: "Itinerante", description: "A cada nova edição, exploramos uma cidade diferente na região Norte" },
-    { icon: Calendar, label: "3 dias", description: "Tutoriais, palestras, workshops e um ambiente de aprendizado colaborativo" },
-    { icon: Heart, label: "100% voluntária", description: "Feito pela comunidade e para a comunidade 💙🏳️‍🌈" },
+    { icon: MapPinned, label: "Itinerante", description: "A cada nova edição, exploramos uma cidade diferente na região Norte para celebrar a diversidade e a inovação tecnológica." },
+    { icon: Calendar, label: "3 dias", description: "Durante três dias, oferecemos uma programação diversificada com tutoriais, palestras, workshops e sessões de networking." },
+    { icon: Heart, label: "100% voluntária", description: "A Python Norte é um evento 100% voluntário, feito pela comunidade e para a comunidade, promovendo a colaboração e o espírito de união e inclusão." },
   ]
 
   return (
@@ -28,23 +28,30 @@ export function About() {
             O que é a Python Norte?
           </h2>
 
-          <div className="mt-8 md:mt-10 rounded-3xl border border-border/70 bg-background/10 p-6 md:p-10 shadow-xl backdrop-blur-md transition-shadow motion-safe:hover:shadow-2xl">
+          <div className="rounded-3xl border border-border/70 bg-background/10 p-6 md:p-10 shadow-xl backdrop-blur-md transition-shadow motion-safe:hover:shadow-2xl mb-20">
             <div className="prose prose-lg max-w-none text-center">
               <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/100">
                 <strong>Python Norte</strong> é a maior conferência sobre a linguagem de programação <strong>Python</strong> voltado para a região Norte do Brasil,
                 apoiado pela <strong>Associação Python Brasil</strong> (ApyB) e pela <strong>Python Software Foundation</strong> (PSF).
               </p>
-              <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/90">
+              <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/90 mt-5">
                 Nossa missão é clara: democratizar o acesso à tecnologia, fortalecer as comunidades locais e criar
                 oportunidades reais de crescimento e conexão na região Norte. Acreditamos que o conhecimento
                 compartilhado transforma vidas e impulsiona o desenvolvimento tecnológico em toda a região.
+              </p>
+              <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/90 mt-5">
+                O evento reúne entusiastas, profissionais, estudantes e especialistas de diversas áreas para
+                compartilhar experiências, aprender novas habilidades e colaborar em projetos inovadores.
+              </p>
+              <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/90 mt-5">
+                A Python Norte é dividida em três dias repletos de atividades, incluindo tutoriais, palestras, lightlarks, workshops e muitas sessões de networking,
               </p>
             </div>
           </div>
 
           {/* Destaques */}
           <h3 className="sr-only">Destaques do evento</h3>
-          <ul className="mt-8 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-3 md:gap-8">
+          <ul className="mt-28 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-3 md:gap-8">
             {highlights.map((item) => (
               <li
                 key={item.label}

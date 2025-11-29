@@ -9,7 +9,8 @@ import { Sponsorship } from "@/components/sponsorship"
 import { Editions } from "@/components/editions"
 import { Gallery } from "@/components/gallery"
 import { FAQ } from "@/components/faq"
-import { Contact } from "@/components/contact"
+import { PraQuemE } from "@/components/PraQuemE"
+import {CodigoDeConduta} from "@/components/CDC"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -19,8 +20,10 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <PraQuemE />
         <ProximoEventoPage />
         <Objetivo />
+        <CodigoDeConduta />
         <Impact />
         <Communities />
         <Sponsorship />

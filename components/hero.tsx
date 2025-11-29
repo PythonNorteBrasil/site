@@ -117,7 +117,7 @@ export function Hero() {
         ))}
         {/* gradiente para legibilidade */}
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/75"
+          className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/75"
           aria-hidden="true"
         />
       </div>
@@ -185,15 +185,19 @@ export function Hero() {
           </p>
 
           <p className="text-base md:text-lg text-white/95 max-w-3xl mx-auto drop-shadow-md bg-black/50 px-5 py-3 rounded-lg border border-white/15">
-            Desde 2017, reunindo pessoas com vontade de aprender, crescer e compartilhar afeto através da tecnologia na Amazônia e no Norte do Brasil.
-A Python Norte é um encontro feito com carinho, diversidade e cuidado — um espaço onde cada pessoa é recebida com respeito, alegria e pertencimento. 💙🏳️‍🌈🔥
+            Desde 2017, reunindo pessoas com vontade de aprender, crescer e
+            compartilhar afeto através da tecnologia na Amazônia e no Norte do
+            Brasil. A Python Norte é um encontro feito com carinho, diversidade
+            e cuidado — um espaço onde cada pessoa é recebida com respeito,
+            alegria e pertencimento. 💙🏳️‍🌈🔥
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
             <Button
+              variant="norte"
               asChild
               size="lg"
-              className="text-base md:text-lg px-7 md:px-8 py-5 bg-accent hover:bg-accent/90 text-accent-foreground shadow-xl border border-white/20 focus-visible:ring-2 focus-visible:ring-white/80"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-10 py-6 mt-3"
             >
               <a
                 href="https://www.even3.com.br/python-norte-2026-631670?cp=pybr2025"
@@ -204,13 +208,16 @@ A Python Norte é um encontro feito com carinho, diversidade e cuidado — um es
               </a>
             </Button>
           </div>
-          <iframe
-            src="https://open.spotify.com/embed/playlist/5NVFaRIQ6MzLpwYSA29ptm?autoplay=1"
-            width="80%"
-            height="152"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy" />
+          <div className="text-center">
+            <iframe
+              src="https://open.spotify.com/embed/playlist/5NVFaRIQ6MzLpwYSA29ptm?autoplay=1"
+              width="100%"
+              height="152"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>

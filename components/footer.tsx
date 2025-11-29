@@ -5,26 +5,23 @@ export function Footer() {
 
   const quickLinks = [
     { href: "#sobre", label: "Sobre" },
-    { href: "#impacto", label: "Impacto" },
-    { href: "#comunidades", label: "Comunidades" },
     { href: "#apoiar", label: "Apoiar" },
-    { href: "#edicoes", label: "Edições" },
     { href: "#contato", label: "Contato" },
   ]
 
   return (
-    <footer className="relative text-foreground bg-background pt-16 pb-10 mt-20 border-t border-border/40">
-      {/* imagem de fundo com opacidade, atrás de tudo */}
+    <footer className="relative text-foreground bg-background pt-14 pb-8 mt-20 border-t border-border/30">
+      {/* pattern de fundo mais sutil */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[url('/abstract-1.e4a9f9c0.svg')] bg-repeat opacity-30"
+        className="pointer-events-none absolute inset-0 bg-[url('/abstract-1.e4a9f9c0.svg')] bg-repeat opacity-15"
       />
 
-      {/* Faixa superior com cores da identidade */}
+      {/* Faixa superior */}
       <div
         aria-hidden="true"
         className="
-          absolute top-0 left-0 right-0 h-[10px]
+          absolute top-0 left-0 right-0 h-[6px]
           bg-[linear-gradient(
             to_right,
             oklch(0.57_0.20_27)_0%,
@@ -37,20 +34,20 @@ export function Footer() {
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-3 gap-10 mb-12">
-          {/* LOGO */}
+        <div className="grid md:grid-cols-2 gap-10 mb-10 items-start">
+          {/* LOGO + descrição + redes */}
           <div>
-            <h3 className="text-3xl font-bold mb-4 text-primary drop-shadow-sm">
+            <h3 className="text-2xl md:text-3xl font-bold mb-3 text-primary">
               Python Norte
             </h3>
-            <p className="text-muted-foreground text-pretty mb-5">
-              A maior conferência da comunidade Python no Norte do Brasil.
-              Organização totalmente voluntária e sem fins lucrativos.
+            <p className="text-sm md:text-base text-muted-foreground text-pretty mb-4 max-w-md">
+              A conferência da comunidade Python no Norte do Brasil, organizada de forma
+              voluntária e sem fins lucrativos.
             </p>
 
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <a
-                href="https://instagram.com/pythonnorte"
+                href="https://instagram.com/pythonnortebrasil"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -60,7 +57,7 @@ export function Footer() {
               </a>
 
               <a
-                href="https://t.me/pythonnorte"
+                href="https://t.me/###"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Telegram"
@@ -71,54 +68,56 @@ export function Footer() {
             </div>
           </div>
 
-          {/* LINKS RÁPIDOS */}
-          <div>
-            <h4 className="font-bold mb-4 text-lg text-foreground">
-              Links rápidos
-            </h4>
-            <ul className="space-y-2">
-              {quickLinks.map((l) => (
-                <li key={l.href}>
+          {/* Navegação enxuta + contato */}
+          <div className="flex flex-col gap-6 md:items-end md:text-right">
+            <div>
+              <h4 className="font-semibold mb-3 text-sm uppercase tracking-[0.18em] text-muted-foreground">
+                Navegação
+              </h4>
+              <ul className="space-y-2 text-sm">
+                {quickLinks.map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-3 text-sm uppercase tracking-[0.18em] text-muted-foreground">
+                Contato
+              </h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
+                <li>
                   <a
-                    href={l.href}
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    href="mailto:contato@pythonnorte.org"
+                    className="hover:text-primary transition-colors"
                   >
-                    {l.label}
+                    contato@pythonnorte.org
                   </a>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CONTATO */}
-          <div>
-            <h4 className="font-bold mb-4 text-lg text-foreground">Contato</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>
-                <a
-                  href="mailto:contato@pythonnorte.org"
-                  className="hover:text-primary transition-colors"
-                >
-                  contato@pythonnorte.org
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://t.me/pythonnorte"
-                  className="hover:text-primary transition-colors"
-                >
-                  @pythonnorte
-                </a>
-              </li>
-            </ul>
+                <li>
+                  <a
+                    href="https://t.me/pythonnorte"
+                    className="hover:text-primary transition-colors"
+                  >
+                    @pythonnorte
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Rodapé final */}
-        <div className="pt-6 border-t border-border/30 text-center text-sm text-muted-foreground">
+        <div className="pt-4 border-t border-border/20 text-center text-xs md:text-sm text-muted-foreground">
           <p>
-            © {currentYear} Python Norte — Organização voluntária, sem fins
-            lucrativos. Construído com 💙 pela comunidade.
+            © {currentYear} Python Norte — Organização voluntária, sem fins lucrativos.
           </p>
         </div>
       </div>

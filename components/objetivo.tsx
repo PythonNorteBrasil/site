@@ -6,20 +6,20 @@ export function Objetivo() {
       icon: Code2,
       label: "Promover o uso da linguagem Python",
       description:
-        "Divulgar a linguagem, boas práticas e seu ecossistema na região Norte.",
+        "Divulgar a linguagem, boas práticas de uso e suas aplicações em diversas áreas. Além de ajudar a fortalecer as comunidades locais na região Norte do Brasil.",
     },
     {
       icon: Users,
-      label: "Compartilhar experiências e conhecimento",
+      label: "Compartilhar conhecimento e experiências",
       description:
-        "Criar um espaço seguro e colaborativo para troca de ideias entre pessoas de diferentes níveis.",
+        "Conhecimento é liberdade! As comunidades devem ser pontes e não muros. Buscamos sempre promover a troca de experiências entre os participantes.",
     },
     {
       icon: TrendingUp,
       label:
-        "Incentivar o crescimento da comunidade, impactando a região econômica e socialmente",
+        "Incentivar e crescer junto com a comunidade local",
       description:
-        "Fortalecer a comunidade, estimular oportunidades locais e gerar impacto real nas cidades da região.",
+        "Acreditamos no crescimento conjunto. Nosso objetivo é fortalecer a comunidade Python na região Norte do Brasil, promovendo o compartilhamento de conhecimento, networking e o crescimento profissional dos participantes.",
     },
   ]
 

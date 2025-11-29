@@ -1,32 +1,31 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { href: "#sobre", label: "Sobre a Python Norte" },
-    { href: "#impacto", label: "Impacto" },
-    { href: "#comunidades", label: "Comunidades" },
-    { href: "#apoiar", label: "Por que apoiar?" },
-    { href: "#edicoes", label: "Edições" },
-    { href: "#galeria", label: "Galeria" },
+    { href: "#sobre", label: "O que é a Python Norte?" },
+    { href: "#impacto", label: "Impacto e transformação" },
+    { href: "#comunidades", label: "Comunidades Apoiadoras" },
+    { href: "#apoiar", label: "Apoie a Python Norte!" },
+    { href: "#edicoes", label: "Nossa história" },
+    { href: "#galeria", label: "Galeria de Momentos" },
     { href: "#faq", label: "FAQ" },
-    { href: "#contato", label: "Contato" },
-  ]
+  ];
 
   return (
     <header
@@ -67,7 +66,7 @@ export function Header() {
               src="/favico.png"
               alt="Python Norte"
             />
-            <span className="hidden sm:inline text-base md:text-lg font-bold text-primary tracking-tight">
+            <span className="hidden sm:inline text-xl md:text-lg  font-bold text-secondary tracking-tight">
               Python Norte
             </span>
           </Link>
@@ -78,7 +77,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-foreground/90 hover:text-primary transition-colors"
+                className="text-medium hover:text-secondary transition-colors"
               >
                 {link.label}
               </a>
@@ -87,7 +86,10 @@ export function Header() {
 
           {/* CTA Desktop */}
           <div className="hidden lg:block">
-            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button
+              asChild
+              className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-10 mt-3" variant="norte"
+            >
               <a href="#contato">Quero ser apoiador</a>
             </Button>
           </div>
@@ -98,7 +100,11 @@ export function Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Alternar menu"
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 
@@ -109,16 +115,13 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors py-1.5"
+                className="text-sm font-medium hover:text-primary transition-colors py-1.5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <Button
-              asChild
-              className="bg-accent hover:bg-accent/90 text-accent-foreground w-full mt-2"
-            >
+            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-10 py-6 mt-3" variant="norte">
               <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}>
                 Quero ser apoiador
               </a>
@@ -127,5 +130,5 @@ export function Header() {
         )}
       </div>
     </header>
-  )
+  );
 }
