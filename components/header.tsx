@@ -51,27 +51,55 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex flex-col w-full">
       {/* Countdown banner */}
-      <div className="bg-green-deep text-white text-xs md:text-sm font-medium">
-        <div className="container mx-auto px-4 flex items-center justify-center gap-4 py-2">
-          <Clock className="w-4 h-4 text-yellow hidden sm:block" />
-          <span className="uppercase tracking-wider font-bold">Faltam</span>
-          <div className="flex items-center gap-1">
-            <span className="bg-white/15 px-2 py-0.5 rounded font-bold">{countdown.days}<span className="text-[10px] ml-0.5 opacity-70">d</span></span>
-            <span className="text-yellow font-bold">:</span>
-            <span className="bg-white/15 px-2 py-0.5 rounded font-bold">{countdown.hours}<span className="text-[10px] ml-0.5 opacity-70">h</span></span>
-            <span className="text-yellow font-bold">:</span>
-            <span className="bg-white/15 px-2 py-0.5 rounded font-bold">{countdown.minutes}<span className="text-[10px] ml-0.5 opacity-70">m</span></span>
-            <span className="text-yellow font-bold">:</span>
-            <span className="bg-white/15 px-2 py-0.5 rounded font-bold">{countdown.seconds}<span className="text-[10px] ml-0.5 opacity-70">s</span></span>
+      <div className="bg-green-deep text-white py-2 shadow-sm border-b border-white/5">
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-1.5">
+          <span className="text-[10px] md:text-xs uppercase tracking-widest font-extrabold text-white/95">
+            Faltam apenas:
+          </span>
+          <div className="flex items-center gap-2">
+            {/* Days */}
+            <div className="flex flex-col items-center justify-center bg-white/10 border border-white/5 rounded-md px-3 py-1 min-w-[54px]">
+              <span className="text-base md:text-lg font-black text-white leading-tight">
+                {String(countdown.days).padStart(2, "0")}
+              </span>
+              <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-white/70 leading-none mt-0.5">
+                dias
+              </span>
+            </div>
+            {/* Divider */}
+            <span className="text-white/40 font-bold text-sm -mt-2.5">:</span>
+            {/* Hours */}
+            <div className="flex flex-col items-center justify-center bg-white/10 border border-white/5 rounded-md px-3 py-1 min-w-[54px]">
+              <span className="text-base md:text-lg font-black text-white leading-tight">
+                {String(countdown.hours).padStart(2, "0")}
+              </span>
+              <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-white/70 leading-none mt-0.5">
+                horas
+              </span>
+            </div>
+            {/* Divider */}
+            <span className="text-white/40 font-bold text-sm -mt-2.5">:</span>
+            {/* Minutes */}
+            <div className="flex flex-col items-center justify-center bg-white/10 border border-white/5 rounded-md px-3 py-1 min-w-[54px]">
+              <span className="text-base md:text-lg font-black text-white leading-tight">
+                {String(countdown.minutes).padStart(2, "0")}
+              </span>
+              <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-white/70 leading-none mt-0.5">
+                min
+              </span>
+            </div>
+            {/* Divider */}
+            <span className="text-white/40 font-bold text-sm -mt-2.5">:</span>
+            {/* Seconds */}
+            <div className="flex flex-col items-center justify-center bg-white/10 border border-white/5 rounded-md px-3 py-1 min-w-[54px]">
+              <span className="text-base md:text-lg font-black text-white leading-tight">
+                {String(countdown.seconds).padStart(2, "0")}
+              </span>
+              <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-white/70 leading-none mt-0.5">
+                seg
+              </span>
+            </div>
           </div>
-          <a
-            href="https://www.even3.com.br/python-norte-2026-631670"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-1 bg-orange text-white font-bold text-xs px-3 py-1 rounded-full hover:bg-orange-hover transition-colors"
-          >
-            Garanta o seu ingresso com desconto →
-          </a>
         </div>
       </div>
 
