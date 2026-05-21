@@ -5,7 +5,10 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-inter"
+});
 
 export const metadata: Metadata = {
   title: "Python Norte — A maior conferência...",
@@ -45,7 +48,7 @@ export default function RootLayout({
         {/* End Google Tag Manager */}
       </head>
 
-      <body className={`${inter.className} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

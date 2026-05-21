@@ -1,284 +1,203 @@
 "use client";
 
+import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Eye, Users, Handshake, Heart, Briefcase } from "lucide-react";
+import { Eye, Users, Handshake, Heart, Briefcase, Award } from "lucide-react";
 
 export function Sponsorship() {
   const benefits = [
     {
       icon: Eye,
       title: "Visibilidade Regional",
-      description:
-        "Exposição da marca como apoiadora de tecnologia na Amazônia e na regirão Norte do Brasil.",
+      description: "Sua marca em destaque como apoiadora de tecnologia e inovação na Amazônia e em todo o Norte."
     },
     {
       icon: Users,
       title: "Público Qualificado",
-      description:
-        "Além de pessoas mais iniciantes, alcançamos desenvolvedores experientes e líderes de comunidade.",
+      description: "Conexão com desenvolvedores juniores, seniores, líderes de tecnologia e formadores de opinião."
     },
     {
       icon: Handshake,
-      title: "Networking",
-      description:
-        "Conexão direta com profissionais, entusiastas e líderes da comunidade Python, criadores de conteúdo, e influenciadores locais, regionais e nacionais.",
+      title: "Networking Ativo",
+      description: "Relacionamento direto com profissionais locais e palestrantes renomados de todo o país."
     },
     {
       icon: Heart,
       title: "Responsabilidade Social",
-      description:
-        "Sua marca ficará associada a um evento que promove a inclusão, diversidade e o crescimento tecnológico na região Norte.",
+      description: "Associe sua marca à inclusão, diversidade e democratização da tecnologia fora dos eixos tradicionais."
     },
     {
       icon: Briefcase,
-      title: "Recrutamento",
-      description:
-        "Oportunidade de atrair talentos locais para sua empresa, fortalecendo sua equipe com profissionais engajados e capacitados.",
+      title: "Recrutamento (Employer Branding)",
+      description: "Acesso a talentos comprometidos da região para reforçar sua equipe com profissionais engajados."
     },
     {
-      icon: Users,
-      title: "Formentador de inovação e tecnologia local",
-      description:
-        "Apoiar a Python Norte é investir no desenvolvimento tecnológico da região Norte do Brasil, fomentando a inovação e o crescimento econômico local.",
-    },
+      icon: Award,
+      title: "Fomento à Inovação Local",
+      description: "Investir na Python Norte é impulsionar a economia criativa e o empreendedorismo regional."
+    }
   ];
 
-  const sponsorshipTiers = [
+  const mainTiers = [
     {
       name: "Diamante 💎",
-      highlight: "Maior visibilidade",
-      color: "from-primary to-primary/90",
-      benefits: [
+      color: "border-brand-yellow bg-gradient-to-b from-brand-yellow/10 to-brand-bg/50 text-foreground",
+      badge: "Cota Master",
+      perks: [
         "6 PyTickets* + 3 PyDiversity** + 4 PyAmazônida***",
-        "Logotipo com maior destaque no site do evento com link para o site da empresa",
-        "4 posts em mídias sociais + 2 reels + 2 vídeos",
-        "Vídeo publicitário antes de keynote presencial (até 30s)",
-        "Stand Premium (localização privilegiada)",
-        "Material promocional no kit do participante",
-        "Logo com maior destaque em materiais impressos e digitais (banners, backdrops, crachás)",
-        "Menção com maior destaque em redes sociais",
-        "Agradecimento na abertura e encerramento",
-        "3 sessões de feira de empregos",
-        "Desconto nas próximas edições do evento",
-      ],
+        "Logo Master no site e em todos os banners/crachás",
+        "4 posts dedicados + 2 reels + 2 vídeos em redes sociais",
+        "Vídeo publicitário na abertura de Keynotes (até 30s)",
+        "Stand Premium em local estratégico",
+        "Material físico inserido no kit dos participantes"
+      ]
     },
     {
       name: "Ouro 🥇",
-      highlight: "Destaque garantido",
-      color: "from-secondary to-secondary/80",
-      benefits: [
+      color: "border-brand-orange/30 bg-gradient-to-b from-brand-orange/5 to-brand-bg/50 text-foreground",
+      badge: "Destaque Alto",
+      perks: [
         "4 PyTickets* + 2 PyDiversity** + 3 PyAmazônida***",
-        "Logotipo com destaque no site do evento com link para o site da empresa",
-        "3 posts em mídias sociais + 2 reels + 2 vídeos",
-        "Stand privilegiado (no salão de eventos)",
-        "Material promocional no kit do participante",
-        "Logo com destaque em materiais impressos e digitais (banners, backdrops, crachás)",
-        "Menção com destaque em redes sociais",
-        "Agradecimento na abertura e encerramento",
-        "3 sessões de feira de empregos",
-      ],
+        "Logo Ouro no site e nos painéis do evento",
+        "3 posts dedicados + 2 reels em redes sociais",
+        "Stand no salão de exposições principal",
+        "Material físico inserido no kit dos participantes"
+      ]
     },
     {
       name: "Prata 🥈",
-      highlight: "Boa exposição",
-      color: "from-accent to-accent/70",
-      benefits: [
+      color: "border-brand-green/30 bg-gradient-to-b from-brand-green/5 to-brand-bg/50 text-foreground",
+      badge: "Média Exposição",
+      perks: [
         "2 PyTickets* + 1 PyDiversity** + 2 PyAmazônida***",
-        "Logotipo no site do evento com link para o site da empresa",
-        "2 posts em mídias sociais + 2 reels",
-        "Logo em materiais impressos e digitais (banners, backdrops, crachás)",
-        "Menção nas redes sociais",
-        "Agradecimento na abertura e encerramento",
-        "2 sessões de feira de empregos",
-      ],
+        "Logo Prata no site e na área de credenciamento",
+        "2 posts dedicados em redes sociais",
+        "Espaço para banner físico na área de convivência",
+        "Material no kit físico dos participantes"
+      ]
     },
     {
       name: "Bronze 🥉",
-      highlight: "Entrada no ecossistema",
-      color: "from-muted to-muted/80",
-      benefits: [
+      color: "border-black/5 bg-white text-foreground",
+      badge: "Presença Inicial",
+      perks: [
         "4 PyTickets*",
-        "Logotipo no site do evento com link para o site da empresa",
-        "2 posts em mídias sociais",
-        "Logo em materiais impressos e digitais (banners, backdrops, crachás)",
-        "Menção nas redes sociais",
-        "Agradecimento na abertura e encerramento",
-      ],
-    },
-    {
-      name: "Apoio - Gratuito! 🙌",
-      color: "from-background to-muted/60",
-      benefits: [
-        "Logo no site do evento",
-        "Menção nas redes sociais",
-        "Agradecimento na abertura e encerramento",
-      ],
-    },
+        "Logo Bronze no site oficial com link direto",
+        "1 post coletivo em redes sociais",
+        "Menção de agradecimento nos telões do evento"
+      ]
+    }
   ];
 
-  const mainTiers = sponsorshipTiers.slice(0, 4);
-  const supportTier = sponsorshipTiers[4];
-
   return (
-    <section id="apoiar" className="relative py-20 md:py-28">
-      {/* Imagem de fundo */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[url('/54635610770_b2cbf396d6_b.jpg')] bg-cover bg-center"
-      />
-      {/* Overlay com gradiente + leve blur para legibilidade */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-background/10 via-background/10 to-background/0 "
-      />
+    <section
+      id="patrocinio"
+      className="relative py-20 md:py-32 bg-slate-50 text-brand-text overflow-hidden"
+      aria-label="Patrocínio"
+    >
+      <div className="absolute inset-0 bg-[url('/quadradinho.png')] opacity-5 bg-repeat pointer-events-none" />
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto max-w-10xl">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-6xl md:text-6xl font-bold mb-4 tracking-tight">
-              Apoie a Python Norte!
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-6xl mx-auto space-y-16">
+          
+          {/* Header */}
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight font-oferta text-brand-green">
+              Patrocínio & Apoio
             </h2>
-            <p className="text-lg md:text-xl mx-auto text-pretty max-w-7xl leading-relaxed">
-              Pessoas + tecnologia = muito suporte!
-              <br />
-              Para que esse evento aconteça com a qualidade que todos merecem,
-              contamos com empresas que acreditam no potencial da região Norte.
-              Venha fazer parte desse movimento e fortalecer a comunidade Python
-              na Amazônia.
+            <div className="w-24 h-1.5 bg-brand-orange mx-auto rounded-full" />
+            <p className="text-base md:text-lg max-w-2xl mx-auto text-foreground/80 font-medium pt-2">
+              Junte-se à Python Norte 2026. Ajude-nos a tornar este evento inesquecível e posicione sua marca no ecossistema de tecnologia da Amazônia.
             </p>
           </div>
 
-          {/* Benefícios gerais */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
-                className="p-6 h-full border-border/70 bg-background/85 backdrop-blur-sm shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all"
+                className="group relative rounded-3xl border border-black/5 bg-white p-8 flex flex-col justify-between shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5"
               >
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-4 center">
-                    <benefit.icon className="w-6 h-6 text-primary" />
+                <div className="space-y-4 text-center">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-bg border border-black/5 text-foreground/75 transition-transform duration-300 group-hover:scale-110">
+                    <benefit.icon className="h-6 w-6 text-brand-orange" />
                   </div>
+                  <h3 className="text-base md:text-lg font-bold text-foreground font-oferta leading-tight">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-xs md:text-sm text-foreground/75 leading-relaxed font-medium">
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 className="text-lg text-center font-semibold mb-2 text-foreground">
-                  {benefit.title}
-                </h3>
-                <p className="text-sm text-center leading-relaxed">
-                  {benefit.description}
-                </p>
               </Card>
             ))}
           </div>
 
-          {/* Planos principais com elevação */}
-          <div className="relative">
-            {/* Glow / sombra suave atrás do card principal */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-6 -inset-y-4 rounded-[32px] bg-black/20 blur-3xl"
-            />
+          {/* Plans section */}
+          <div className="space-y-8">
+            <div className="text-center">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground font-oferta">
+                Nossas Cotas de Patrocínio
+              </h3>
+              <p className="text-xs md:text-sm text-foreground/60 font-medium mt-1">
+                Escolha o plano que melhor atende aos objetivos estratégicos de sua empresa.
+              </p>
+            </div>
 
-            <Card className="relative p-8 md:p-10 bg-background/95 border-border/70 shadow-[0_30px_80px_rgba(15,23,42,0.55)] backdrop-blur-xl mb-8 rounded-3xl">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
-                <div>
-                  <h3 className="text-2xl md:text-4xl font-bold text-foreground">
-                    Planos de apoio e patrocínio
-                  </h3>
-                  <p className="mt-2 text-sm md:text-base text-muted-foreground max-w-xl">
-                    Escolha a categoria que melhor se conecta com a estratégia
-                    da sua empresa e garanta presença em um dos maiores
-                    encontros de Python da região Norte.
-                  </p>
-                </div>
-                <div className="text-sm md:text-base text-muted-foreground md:text-right">
-                  <p>
-                    Todos os planos oferecem visibilidade, conexão com a
-                    comunidade e oportunidades de negócio.
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
-                {mainTiers.map((tier, index) => (
-                  <div
-                    key={tier.name}
-                    className={`
-                      relative flex flex-col h-full rounded-2xl overflow-hidden
-                      bg-gradient-to-br ${tier.color}
-                      text-primary-foreground shadow-xl
-                    `}
-                  >
-                    {/* selo destaque */}
-                    {index === 0 && (
-                      <div className="absolute right-3 top-3 rounded-full bg-black/30 px-3 py-1 text-xs font-semibold">
-                        Mais completo
-                      </div>
-                    )}
-
-                    <div className="p-6 flex flex-col gap-4 h-full bg-black/15">
-                      <div>
-                        <h4 className="text-lg font-bold leading-tight">
-                          {tier.name}
-                        </h4>
-                        {tier.highlight && (
-                          <p className="text-xs mt-1 text-primary-foreground/90 text-4xl">
-                            {tier.highlight}
-                          </p>
-                        )}
-                      </div>
-
-                      <ul className="mt-2 space-y-2  leading-relaxed">
-                        {tier.benefits.map((benefit, bIndex) => (
-                          <li key={bIndex} className="flex gap-1">
-                            <span className="mt-1 text-[10px]">•</span>
-                            <span>{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
+            {/* Grid of tiers */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {mainTiers.map((tier, idx) => (
+                <div
+                  key={idx}
+                  className={`rounded-3xl border p-6 flex flex-col justify-between shadow-md hover:shadow-xl transition-all duration-300 ${tier.color}`}
+                >
+                  <div className="space-y-6">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-brand-orange/10 text-brand-orange">
+                        {tier.badge}
+                      </span>
                     </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 rounded-2xl border border-dashed border-border/70 bg-muted/40 p-5 md:p-6">
-                <h4 className="text-base md:text-lg font-semibold text-foreground mb-2">
-                  {supportTier.name}
-                </h4>
-                <p className="text-sm mb-3">
-                  Para marcas e comunidades que querem começar a apoiar a
-                  comunidade de forma simples e acessível.
-                </p>
-                <ul className="space-y-1 text-sm text-muted-foreground">
-                  {supportTier.benefits.map((benefit, index) => (
-                    <li key={index}>• {benefit}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-8 space-y-4">
-                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                  (*) <strong>PyTickets</strong>: ingressos gratuitos.
-                  <br />
-                  (**) <strong>PyDiversity</strong>: ingressos patrocinados para
-                  pessoas LGBTQIAPN+ e pessoas negras.
-                  <br />
-                  (***) <strong>PyAmazônida</strong>: ingressos patrocinados
-                  para povos amazônicos que vivem em estados do interior da
-                  Região Norte.
-                </p>
 
-                <div className="text-center">
-                  <Button
-                    variant="norte"
-                    asChild
-                    size="lg"
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-10 py-6 mt-3"
-                  >
-                    <a href="#contato">Quero ser apoiador</a>
-                  </Button>
+                    <h4 className="text-2xl font-bold font-oferta text-foreground border-b border-black/5 pb-3">
+                      {tier.name}
+                    </h4>
+
+                    <ul className="space-y-3.5">
+                      {tier.perks.map((perk, pIdx) => (
+                        <li key={pIdx} className="text-xs font-medium text-foreground/80 flex items-start gap-2">
+                          <span className="text-brand-orange font-bold mt-0.5">•</span>
+                          <span>{perk}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pt-8">
+                    <Button
+                      variant="norte"
+                      className="w-full font-bold text-xs"
+                      asChild
+                    >
+                      <a href="#contato">Quero Patrocinar</a>
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              ))}
+            </div>
+
+            {/* Footnote / glossary */}
+            <div className="rounded-3xl bg-white border border-black/5 p-6 space-y-4">
+              <p className="text-[10px] md:text-xs text-foreground/60 leading-relaxed font-semibold">
+                (*) <strong>PyTickets</strong>: ingressos padrão do evento.
+                <br />
+                (**) <strong>PyDiversity</strong>: ingressos de ação afirmativa doados para grupos sub-representados no setor de tecnologia.
+                <br />
+                (***) <strong>PyAmazônida</strong>: ingressos destinados especificamente a incentivar e apoiar a participação de estudantes e profissionais do interior da região Norte.
+              </p>
+            </div>
           </div>
+
         </div>
       </div>
     </section>

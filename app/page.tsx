@@ -1,37 +1,33 @@
-import { Header } from "@/components/header"
-import { Hero } from "@/components/hero"
-import { About } from "@/components/about"
-import { Objetivo } from "@/components/objetivo"
-import {ProximoEventoPage} from "@/components/proximo"
-import { Impact } from "@/components/impact"
-import { Communities } from "@/components/communities"
-import { Sponsorship } from "@/components/sponsorship"
-import { Editions } from "@/components/editions"
-import { Gallery } from "@/components/gallery"
-import { FAQ } from "@/components/faq"
-import { PraQuemE } from "@/components/PraQuemE"
-import {CodigoDeConduta} from "@/components/CDC"
-import { Footer } from "@/components/footer"
+import { Header } from "@/components/header";
+import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
+import { Activities } from "@/components/activities";
+import { Tickets } from "@/components/tickets";
+import { Schedule } from "@/components/schedule";
+import { Editions } from "@/components/editions";
+import { Sponsors } from "@/components/sponsors";
+import { Media } from "@/components/media";
+import { Location } from "@/components/location";
+import { FAQ } from "@/components/faq";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white flex flex-col">
       <Header />
-      <main>
+      <main className="flex-grow">
         <Hero />
         <About />
-        <PraQuemE />
-        <ProximoEventoPage />
-        <Objetivo />
-        <CodigoDeConduta />
-        <Impact />
-        <Communities />
-        <Sponsorship />
+        <Activities />
+        <Tickets />
+        <Schedule />
         <Editions />
-        <Gallery />
+        <Sponsors />
+        <Media />
+        <Location />
         <FAQ />
       </main>
       <Footer />
     </div>
-  )
+  );
 }

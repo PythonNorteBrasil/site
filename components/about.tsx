@@ -1,79 +1,83 @@
-import { Calendar, MapPinned, Heart } from "lucide-react"
+"use client";
+
+import { Terminal, Users, Sprout } from "lucide-react";
 
 export function About() {
-  const highlights = [
-    { icon: MapPinned, label: "Itinerante", description: "A cada nova edição, exploramos uma cidade diferente na região Norte para celebrar a diversidade e a inovação tecnológica." },
-    { icon: Calendar, label: "3 dias", description: "Durante três dias, oferecemos uma programação diversificada com tutoriais, palestras, workshops e sessões de networking." },
-    { icon: Heart, label: "100% voluntária", description: "A Python Norte é um evento 100% voluntário, feito pela comunidade e para a comunidade, promovendo a colaboração e o espírito de união e inclusão." },
-  ]
+  const pillars = [
+    {
+      icon: Terminal,
+      title: "Processos e Python",
+      description: "Aprenda sobre boas práticas, arquitetura, frameworks e tudo que há de mais moderno no ecossistema Python.",
+      color: "text-green-deep",
+      bg: "bg-green-deep/10",
+    },
+    {
+      icon: Users,
+      title: "Compartilhar Conhecimento",
+      description: "Espaço para troca de experiências, networking e conexões reais entre profissionais, estudantes e entusiastas.",
+      color: "text-orange",
+      bg: "bg-orange/10",
+    },
+    {
+      icon: Sprout,
+      title: "Crescer a Comunidade",
+      description: "Contribua para o fortalecimento do ecossistema de tecnologia da região Norte, gerando impacto social.",
+      color: "text-green-light",
+      bg: "bg-green-light/10",
+    },
+  ];
 
   return (
-    <section
-      id="sobre"
-      aria-labelledby="sobre-heading"
-      className="relative overflow-hidden py-14 md:py-28 bg-gradient-to-br from-muted/20 via-muted/40 to-muted/20"
-    >
-      {/* background decorativo */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[url('/background_bottom.png')] bg-repeat opacity-40"
-      />
-
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto max-w-5xl">
-          <h2
-            id="sobre-heading"
-            className="text-balance text-center text-4xl md:text-6xl pb-40 font-bold text-primary tracking-tight"
-          >
-            O que é a Python Norte?
-          </h2>
-
-          <div className="rounded-3xl border border-border/70 bg-background/10 p-6 md:p-10 shadow-xl backdrop-blur-md transition-shadow motion-safe:hover:shadow-2xl mb-20">
-            <div className="prose prose-lg max-w-none text-center">
-              <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/100">
-                <strong>Python Norte</strong> é a maior conferência sobre a linguagem de programação <strong>Python</strong> voltado para a região Norte do Brasil,
-                apoiado pela <strong>Associação Python Brasil</strong> (ApyB) e pela <strong>Python Software Foundation</strong> (PSF).
-              </p>
-              <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/90 mt-5">
-                Nossa missão é clara: democratizar o acesso à tecnologia, fortalecer as comunidades locais e criar
-                oportunidades reais de crescimento e conexão na região Norte. Acreditamos que o conhecimento
-                compartilhado transforma vidas e impulsiona o desenvolvimento tecnológico em toda a região.
-              </p>
-              <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/90 mt-5">
-                O evento reúne entusiastas, profissionais, estudantes e especialistas de diversas áreas para
-                compartilhar experiências, aprender novas habilidades e colaborar em projetos inovadores.
-              </p>
-              <p className="text-pretty text-lg md:text-xl leading-relaxed text-foreground/90 mt-5">
-                A Python Norte é dividida em três dias repletos de atividades, incluindo tutoriais, palestras, lightlarks, workshops e muitas sessões de networking,
-              </p>
-            </div>
+    <section id="sobre" className="py-20 md:py-28 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Section header */}
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-green-deep" style={{ fontFamily: "var(--font-display)" }}>
+              Sobre a Python Norte
+            </h2>
+            <div className="w-20 h-1 bg-orange mx-auto rounded-full" />
           </div>
 
-          {/* Destaques */}
-          <h3 className="sr-only">Destaques do evento</h3>
-          <ul className="mt-28 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-3 md:gap-8">
-            {highlights.map((item) => (
-              <li
-                key={item.label}
-                className="group rounded-2xl border-2 border-border/60 bg-background/10 p-7 text-center shadow-lg backdrop-blur-xl transition-all motion-safe:hover:-translate-y-1.5 motion-safe:hover:shadow-2xl motion-safe:hover:border-primary/50"
+          {/* Pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {pillars.map((pillar, i) => (
+              <div
+                key={i}
+                className="bg-cream-card border border-yellow/20 rounded-2xl p-8 space-y-4 hover:shadow-lg transition-shadow duration-300"
               >
-                <div
-                  aria-hidden="true"
-                  className="mx-auto mb-5 inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary/15 to-accent/15 shadow-md transition-transform motion-safe:group-hover:scale-105"
-                >
-                  <item.icon className="h-10 w-10 text-primary transition-colors group-hover:text-accent" />
+                <div className={`w-14 h-14 rounded-xl ${pillar.bg} flex items-center justify-center`}>
+                  <pillar.icon className={`w-7 h-7 ${pillar.color}`} />
                 </div>
-                <p className="text-2xl font-bold text-foreground transition-colors group-hover:text-primary">
-                  {item.label}
-                </p>
-                <p className="mt-2 text-base text-muted-foreground transition-colors group-hover:text-foreground/85">
-                  {item.description}
-                </p>
-              </li>
+                <h3 className="text-lg font-bold text-gray-900">{pillar.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{pillar.description}</p>
+              </div>
             ))}
-          </ul>
+          </div>
+
+          {/* Main context box */}
+          <div className="bg-green-deep rounded-3xl p-8 md:p-12 text-white">
+            <div className="max-w-3xl mx-auto space-y-6 text-center">
+              <h3 className="text-2xl md:text-4xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                O Maior Evento Python da Região Norte
+              </h3>
+              <p className="text-white/80 text-sm md:text-base leading-relaxed">
+                A Python Norte é uma conferência sem fins lucrativos, organizada inteiramente
+                por voluntários da comunidade Python. Nosso objetivo é democratizar o acesso ao
+                conhecimento em tecnologia na região amazônica, promovendo inclusão, diversidade
+                e inovação. Desde programadores iniciantes até especialistas em inteligência
+                artificial, todos encontram espaço para aprender e contribuir.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 pt-4">
+                <span className="bg-white/15 text-white text-xs font-bold px-4 py-2 rounded-full">🌿 Comunidade</span>
+                <span className="bg-white/15 text-white text-xs font-bold px-4 py-2 rounded-full">🤖 Inteligência Artificial</span>
+                <span className="bg-white/15 text-white text-xs font-bold px-4 py-2 rounded-full">♿ Acessibilidade</span>
+                <span className="bg-white/15 text-white text-xs font-bold px-4 py-2 rounded-full">🐍 Open Source</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,68 +1,86 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+"use client";
+
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+
+const faqs = [
+  {
+    question: "O que é a Python Norte?",
+    answer: "A Python Norte é a maior conferência da linguagem de programação Python da região Norte do Brasil. Organizada por voluntários da comunidade, o evento reúne desenvolvedores, estudantes e entusiastas para três dias de palestras, workshops, hackathons e networking.",
+  },
+  {
+    question: "Quando e onde será o evento?",
+    answer: "A Python Norte 2026 acontecerá nos dias 27, 28 e 29 de agosto de 2026, na UNAMA Campus Ananindeua, em Ananindeua - PA.",
+  },
+  {
+    question: "Como compro meu ingresso?",
+    answer: "Os ingressos estão disponíveis na plataforma Even3. Basta acessar o link de inscrição, escolher a modalidade desejada (meia-entrada, social ou inteira) e realizar o pagamento.",
+  },
+  {
+    question: "O evento é presencial ou online?",
+    answer: "O evento é 100% presencial. Não haverá transmissão online nesta edição.",
+  },
+  {
+    question: "Posso submeter uma palestra?",
+    answer: "Sim! A chamada de trabalhos (Call for Papers) será aberta em breve. Fique atento às nossas redes sociais para não perder o prazo de submissão.",
+  },
+  {
+    question: "Há vagas para voluntários?",
+    answer: "Sim! Precisamos de voluntários para ajudar na organização do evento. Se você tem interesse, entre em contato pelo e-mail contato@pythonnorte.org.",
+  },
+  {
+    question: "Quais são as formas de pagamento aceitas?",
+    answer: "A plataforma Even3 aceita cartão de crédito, boleto bancário e PIX para pagamento dos ingressos.",
+  },
+  {
+    question: "Tem estacionamento no local?",
+    answer: "Sim, a UNAMA Campus Ananindeua dispõe de estacionamento gratuito para os participantes do evento.",
+  },
+];
 
 export function FAQ() {
-  const faqs = [
-    {
-      question: "Como funciona o patrocínio?",
-      answer:
-        "O patrocínio é totalmente flexível e adaptado às necessidades da sua empresa. Você pode escolher entre diferentes categorias (Diamante, Ouro, Prata) ou optar por apoios específicos como coffee break, credenciamento ou brindes. Entre em contato conosco para discutirmos a melhor opção.",
-    },
-    {
-      question: "Quais são as categorias de patrocínio disponíveis?",
-      answer:
-        "Oferecemos três categorias principais: Diamante (máxima visibilidade), Ouro (alta visibilidade) e Prata (visibilidade regional). Além disso, você pode patrocinar itens específicos do evento como coffee break, credenciamento, lanches ou brindes personalizados.",
-    },
-    {
-      question: "O patrocínio vale para uma edição ou para todas?",
-      answer:
-        "Por padrão, o patrocínio é válido para uma edição específica da Python Norte. No entanto, oferecemos condições especiais para empresas que desejam apoiar múltiplas edições ou estabelecer parcerias de longo prazo com a conferência.",
-    },
-    {
-      question: "Posso patrocinar apenas uma parte específica do evento?",
-      answer:
-        "Sim! Além das categorias tradicionais, você pode escolher patrocinar elementos específicos como: coffee break, credenciamento, brindes, camisetas, sacolas, área de networking, ou qualquer outro item que faça sentido para a sua marca.",
-    },
-    {
-      question: "Qual é o retorno esperado do patrocínio?",
-      answer:
-        "O retorno inclui visibilidade regional em 7 estados, acesso a um público qualificado de desenvolvedores e gestores de TI, networking com líderes de comunidade, posicionamento de marca como apoiadora da tecnologia no Norte, e oportunidades de recrutamento de talentos.",
-    },
-    {
-      question: "A Python Norte emite nota fiscal?",
-      answer:
-        "Sim, trabalhamos com parceiros que emitem nota fiscal para todos os patrocínios. Os detalhes fiscais e contratuais são definidos durante o processo de formalização do patrocínio.",
-    },
-  ]
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-gradient-to-br from-primary/5 to-accent/5">
+    <section id="faq" className="py-20 md:py-28 bg-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">Perguntas Frequentes</h2>
-            <p className="text-lg md:text-xl text-muted-foreground text-pretty">
-              Tudo o que você precisa saber sobre apoiar a Python Norte
-            </p>
+        <div className="max-w-3xl mx-auto space-y-12">
+          {/* Header */}
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-green-deep" style={{ fontFamily: "var(--font-display)" }}>
+              Perguntas Frequentes
+            </h2>
+            <div className="w-20 h-1 bg-orange mx-auto rounded-full" />
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="bg-card border-2 rounded-lg px-6 data-[state=open]:shadow-lg transition-all"
+          {/* FAQ items */}
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                className="border border-yellow/20 rounded-2xl overflow-hidden bg-cream-card"
               >
-                <AccordionTrigger className="text-left font-semibold text-lg hover:text-primary hover:no-underline py-5">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5 text-base leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <button
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                  className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-cream transition-colors"
+                >
+                  <span className="text-sm md:text-base font-bold text-gray-900 pr-4">{faq.question}</span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-orange flex-shrink-0 transition-transform duration-300 ${
+                      openIndex === i ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openIndex === i && (
+                  <div className="px-6 pb-5">
+                    <p className="text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
             ))}
-          </Accordion>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
