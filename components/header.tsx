@@ -31,7 +31,7 @@ function useCountdown(targetDate: Date) {
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const eventDate = new Date("2026-08-27T08:00:00");
+  const eventDate = new Date("2026-07-03T09:00:00");
   const countdown = useCountdown(eventDate);
 
   useEffect(() => {
@@ -107,21 +107,17 @@ export function Header() {
       <div
         className={`w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-md py-3"
-            : "bg-white/90 backdrop-blur-sm py-4"
+            ? "bg-[#FAF6EE]/95 backdrop-blur-md shadow-md py-2.5"
+            : "bg-[#FAF6EE]/90 backdrop-blur-sm py-3.5"
         }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center group">
             <img
-              className="h-8 w-8 object-contain"
-              src="/favico.png"
+              className="h-9 md:h-11 w-auto object-contain"
+              src="/logo_desktop.png"
               alt="Python Norte Logo"
             />
-            <span className="text-lg font-bold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-              <span className="text-green-deep">PYTHON</span>
-              <span className="text-orange">NORTE</span>
-            </span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -157,7 +153,7 @@ export function Header() {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="lg:hidden w-full bg-white border-t border-gray-100 px-4 py-4 flex flex-col gap-2 shadow-lg">
+          <div className="lg:hidden w-full bg-[#FAF6EE] border-t border-gray-100 px-4 py-4 flex flex-col gap-2 shadow-lg">
             {navLinks.map((link) => (
               <a
                 key={link.href}
