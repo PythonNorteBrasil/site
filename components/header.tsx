@@ -51,51 +51,53 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex flex-col w-full">
       {/* Countdown banner */}
-      <div className="bg-green-deep text-white py-2 shadow-sm border-b border-white/5">
-        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-1.5">
-          <span className="text-[10px] md:text-xs uppercase tracking-widest font-extrabold text-white/95">
+      <div className="bg-green-deep text-white py-2.5 shadow-sm border-b border-white/5">
+        <div className="container mx-auto px-4 flex flex-row items-center justify-center gap-3 md:gap-5">
+          <span className="text-xs md:text-sm font-semibold text-white/90">
             Faltam apenas:
           </span>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 md:gap-3">
             {/* Days */}
-            <div className="flex flex-col items-center justify-center bg-white/10 border border-white/5 rounded-md px-3 py-1 min-w-[54px]">
-              <span className="text-base md:text-lg font-black text-white leading-tight">
-                {String(countdown.days).padStart(2, "0")}
-              </span>
-              <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-white/70 leading-none mt-0.5">
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center bg-green-medium rounded-xl h-8 w-11 md:h-10 md:w-14 shadow-sm">
+                <span className="text-sm md:text-lg font-black text-white leading-none">
+                  {String(countdown.days).padStart(2, "0")}
+                </span>
+              </div>
+              <span className="text-[9px] md:text-[10px] text-white/80 lowercase mt-1 leading-none">
                 dias
               </span>
             </div>
-            {/* Divider */}
-            <span className="text-white/40 font-bold text-sm -mt-2.5">:</span>
             {/* Hours */}
-            <div className="flex flex-col items-center justify-center bg-white/10 border border-white/5 rounded-md px-3 py-1 min-w-[54px]">
-              <span className="text-base md:text-lg font-black text-white leading-tight">
-                {String(countdown.hours).padStart(2, "0")}
-              </span>
-              <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-white/70 leading-none mt-0.5">
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center bg-green-medium rounded-xl h-8 w-11 md:h-10 md:w-14 shadow-sm">
+                <span className="text-sm md:text-lg font-black text-white leading-none">
+                  {String(countdown.hours).padStart(2, "0")}
+                </span>
+              </div>
+              <span className="text-[9px] md:text-[10px] text-white/80 lowercase mt-1 leading-none">
                 horas
               </span>
             </div>
-            {/* Divider */}
-            <span className="text-white/40 font-bold text-sm -mt-2.5">:</span>
             {/* Minutes */}
-            <div className="flex flex-col items-center justify-center bg-white/10 border border-white/5 rounded-md px-3 py-1 min-w-[54px]">
-              <span className="text-base md:text-lg font-black text-white leading-tight">
-                {String(countdown.minutes).padStart(2, "0")}
-              </span>
-              <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-white/70 leading-none mt-0.5">
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center bg-green-medium rounded-xl h-8 w-11 md:h-10 md:w-14 shadow-sm">
+                <span className="text-sm md:text-lg font-black text-white leading-none">
+                  {String(countdown.minutes).padStart(2, "0")}
+                </span>
+              </div>
+              <span className="text-[9px] md:text-[10px] text-white/80 lowercase mt-1 leading-none">
                 min
               </span>
             </div>
-            {/* Divider */}
-            <span className="text-white/40 font-bold text-sm -mt-2.5">:</span>
             {/* Seconds */}
-            <div className="flex flex-col items-center justify-center bg-white/10 border border-white/5 rounded-md px-3 py-1 min-w-[54px]">
-              <span className="text-base md:text-lg font-black text-white leading-tight">
-                {String(countdown.seconds).padStart(2, "0")}
-              </span>
-              <span className="text-[8px] md:text-[9px] uppercase tracking-wider text-white/70 leading-none mt-0.5">
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center bg-green-medium rounded-xl h-8 w-11 md:h-10 md:w-14 shadow-sm">
+                <span className="text-sm md:text-lg font-black text-white leading-none">
+                  {String(countdown.seconds).padStart(2, "0")}
+                </span>
+              </div>
+              <span className="text-[9px] md:text-[10px] text-white/80 lowercase mt-1 leading-none">
                 seg
               </span>
             </div>
