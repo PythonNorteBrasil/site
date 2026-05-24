@@ -17,6 +17,13 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <Hero />
+        <div 
+          className="w-full h-8 md:h-12 lg:h-16 bg-repeat-x bg-center"
+          style={{ 
+            backgroundImage: "url('/pattern-divider.png')",
+            backgroundSize: "auto 100%"
+          }}
+        />
         <About />
         <Activities />
         <Tickets />
