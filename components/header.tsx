@@ -31,7 +31,7 @@ function useCountdown(targetDate: Date) {
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const eventDate = new Date("2026-07-03T09:00:00");
+  const eventDate = new Date("2026-07-03T08:00:00-03:00");
   const countdown = useCountdown(eventDate);
 
   useEffect(() => {
@@ -136,7 +136,7 @@ export function Header() {
 
           <div className="hidden lg:block">
             <a
-              href="https://www.even3.com.br/python-norte-2026-631670"
+              href="https://www.even3.com.br/python-norte-2026-631670/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-orange hover:bg-orange-hover text-white font-bold px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 text-sm"
@@ -168,7 +168,7 @@ export function Header() {
             ))}
             <div className="h-px bg-gray-100 my-2" />
             <a
-              href="https://www.even3.com.br/python-norte-2026-631670"
+              href="https://www.even3.com.br/python-norte-2026-631670/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full bg-orange hover:bg-orange-hover text-white font-bold py-3 rounded-full shadow-md text-center text-sm"

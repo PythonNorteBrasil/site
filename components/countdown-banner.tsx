@@ -12,7 +12,7 @@ export function CountdownBanner() {
   } | null>(null);
 
   useEffect(() => {
-    const targetDate = new Date("2026-07-03T09:00:00-03:00").getTime();
+    const targetDate = new Date("2026-07-03T08:00:00-03:00").getTime();
 
     const updateTimer = () => {
       const now = new Date().getTime();
@@ -78,7 +78,7 @@ export function CountdownBanner() {
       </div>
       <div className="hidden md:block w-[1px] h-4 bg-white/20" />
       <a 
-        href="https://www.even3.com.br/python-norte-2026-631670?cp=pybr2025" 
+        href="https://www.even3.com.br/python-norte-2026-631670/" 
         target="_blank" 
         rel="noopener noreferrer"
         className="group flex items-center gap-1 text-xs md:text-sm font-semibold text-brand-yellow hover:text-white transition-colors duration-200"

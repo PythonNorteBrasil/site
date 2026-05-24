@@ -37,7 +37,7 @@ export function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a
-                href="https://www.even3.com.br/python-norte-2026-631670"
+                href="https://www.even3.com.br/python-norte-2026-631670/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-orange hover:bg-orange-hover text-white font-bold text-base px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all text-center"
@@ -56,11 +56,11 @@ export function Hero() {
             <div className="flex flex-wrap gap-4 pt-2">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 px-4 py-2.5 rounded-xl text-white text-sm">
                 <Calendar className="w-4 h-4 text-orange" />
-                <span className="font-semibold">27 a 29 de Agosto 2026</span>
+                <span className="font-semibold">03 a 05 de Julho 2026</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 px-4 py-2.5 rounded-xl text-white text-sm">
                 <MapPin className="w-4 h-4 text-yellow" />
-                <span className="font-semibold">UNAMA Ananindeua - PA</span>
+                <span className="font-semibold">UNAMA - Ananindeua - PA</span>
               </div>
             </div>
 

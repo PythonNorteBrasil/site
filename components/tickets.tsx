@@ -121,7 +121,7 @@ export function Tickets() {
 
                 <div className="pt-8">
                   <a
-                    href="https://www.even3.com.br/python-norte-2026-631670"
+                    href="https://www.even3.com.br/python-norte-2026-631670/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`block w-full py-4 rounded-2xl font-bold text-sm text-center shadow-md transition-all ${ticket.buttonStyle}`}

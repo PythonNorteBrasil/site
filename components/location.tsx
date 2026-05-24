@@ -19,7 +19,7 @@ export function Location() {
             {/* Map */}
             <div className="rounded-2xl overflow-hidden shadow-lg border border-yellow/20 h-80 lg:h-auto">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5!2d-48.4!3d-1.37!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sUNAMA+Ananindeua!5e0!3m2!1spt-BR!2sbr!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.646468638551!2d-48.417078924361974!3d-1.3886986985981782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48ac3fd3b0361%3A0x6a489ad6fc3de18e!2sUNAMA%20-%20Ananindeua!5e0!3m2!1spt-BR!2sbr!4v1779635675756!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: "320px" }}
@@ -40,8 +40,8 @@ export function Location() {
                   <div>
                     <h3 className="text-base font-bold text-gray-900">UNAMA - Campus Ananindeua</h3>
                     <p className="text-sm text-gray-600 mt-1">
-                      Rod. Augusto Montenegro, Km 8 — Coqueiro,<br />
-                      Ananindeua - PA, 67030-000
+                      Rodovia BR-316, Km 03 — Coqueiro,<br />
+                      Ananindeua - Pará - Brasil, 67113-901
                     </p>
                   </div>
                 </div>
@@ -66,7 +66,7 @@ export function Location() {
               </div>
 
               <a
-                href="https://maps.app.goo.gl/"
+                href="https://maps.app.goo.gl/8N5L7b1CYZutaGtB9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-deep hover:bg-green-medium text-white font-bold text-sm px-6 py-3 rounded-full shadow-md transition-all"

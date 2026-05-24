@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Github, Linkedin, Globe } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function Speakers() {
   const speakers = [
@@ -179,7 +180,7 @@ export function Speakers() {
                 className="py-6 px-8 rounded-2xl font-bold shadow-md transform hover:-translate-y-0.5 active:translate-y-0 transition-all"
                 asChild
               >
-                <a href="https://even3.com.br/python-norte-2026-631670?" target="_blank" rel="noreferrer">
+                <a href="https://www.even3.com.br/python-norte-2026-631670/" target="_blank" rel="noreferrer">
                   Submeter Proposta (Call for Papers)
                 </a>
               </Button>
