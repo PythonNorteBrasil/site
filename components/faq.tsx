@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: "Como compro meu ingresso?",
-    answer: "Os ingressos estão disponíveis na plataforma Even3. Basta acessar o link de inscrição, escolher a modalidade desejada (meia-entrada, social ou inteira) e realizar o pagamento.",
+    answer: "Os ingressos estão disponíveis na plataforma Even3. Basta acessar o link de inscrição, escolher a modalidade desejada (meia-entrada ou inteira) e realizar o pagamento.",
   },
   {
     question: "O evento é presencial ou online?",
