@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full flex items-center overflow-hidden pt-28 pb-16 md:pt-32 md:pb-24 bg-[#061306]"
+      className="relative min-h-screen w-full flex items-start lg:items-center overflow-hidden pt-44 pb-16 md:pt-48 md:pb-24 lg:pt-36 bg-[#061306]"
     >
       {/* Forest background */}
       <div
@@ -24,7 +24,7 @@ export function Hero() {
           {/* Left column - 7 cols wide on lg */}
           <div className="flex flex-col items-start space-y-6 md:space-y-8 lg:col-span-7">
             <h1
-              className="text-5xl md:text-7xl lg:text-[5.5rem] font-black text-white leading-[0.95] md:leading-[0.85] italic uppercase tracking-wider"
+              className="text-5xl md:text-6xl lg:text-[5.5rem] font-black text-white leading-[0.95] md:leading-[0.9] lg:leading-[0.85] italic uppercase tracking-wider"
               style={{ fontFamily: "var(--font-display)" }}
             >
               A MAIOR
