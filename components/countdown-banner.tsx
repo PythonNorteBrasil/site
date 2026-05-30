@@ -25,7 +25,7 @@ export function CountdownBanner() {
 
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
       const hours = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
       );
       const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((difference % (1000 * 60)) / 1000);
@@ -41,8 +41,8 @@ export function CountdownBanner() {
 
   if (!timeLeft) {
     return (
-      <div className="w-full bg-brand-green text-white py-3 px-4 text-center font-medium text-sm md:text-base flex items-center justify-center gap-2 animate-fade-in shadow-md">
-        <Clock className="w-4 h-4 animate-pulse text-brand-yellow" />
+      <div className="fixed top-0 left-0 right-0 z-[60] w-full bg-green-900 text-white py-2 px-4 text-center font-medium text-sm flex items-center justify-center gap-2 animate-fade-in">
+        <Clock className="w-4 h-4 animate-pulse text-yellow-400" />
         <span>🔥 A Python Norte 2026 já começou! Acompanhe a programação.</span>
       </div>
     );
@@ -51,41 +51,62 @@ export function CountdownBanner() {
   const formatNumber = (num: number) => String(num).padStart(2, "0");
 
   return (
-    <div className="w-full bg-gradient-to-r from-brand-green-dark via-brand-green to-brand-green-dark text-white py-2.5 px-4 text-center font-medium text-sm md:text-base shadow-lg border-b border-white/10 z-50 relative flex flex-col sm:flex-row items-center justify-center gap-3">
-      <div className="flex items-center gap-2">
-        <span className="inline-flex h-2 w-2 rounded-full bg-brand-yellow animate-ping" />
-        <Clock className="w-4 h-4 text-brand-yellow" />
-        <span>Faltam</span>
-        <div className="flex items-center gap-1 font-mono font-bold text-brand-yellow bg-black/20 px-2 py-0.5 rounded">
-          <span>{timeLeft.days}</span>
-          <span className="text-[10px] font-sans font-medium text-white/70 uppercase">d</span>
-        </div>
-        <span>:</span>
-        <div className="flex items-center gap-1 font-mono font-bold text-brand-yellow bg-black/20 px-2 py-0.5 rounded">
-          <span>{formatNumber(timeLeft.hours)}</span>
-          <span className="text-[10px] font-sans font-medium text-white/70 uppercase">h</span>
-        </div>
-        <span>:</span>
-        <div className="flex items-center gap-1 font-mono font-bold text-brand-yellow bg-black/20 px-2 py-0.5 rounded">
-          <span>{formatNumber(timeLeft.minutes)}</span>
-          <span className="text-[10px] font-sans font-medium text-white/70 uppercase">m</span>
-        </div>
-        <span>:</span>
-        <div className="flex items-center gap-1 font-mono font-bold text-brand-yellow bg-black/20 px-2 py-0.5 rounded">
-          <span>{formatNumber(timeLeft.seconds)}</span>
-          <span className="text-[10px] font-sans font-medium text-white/70 uppercase">s</span>
+    <div className="fixed top-0 left-0 right-0 z-[60] w-full bg-green-900 text-white py-1 px-3 border-b border-green-800">
+      <div className="container mx-auto flex flex-wrap items-center justify-center gap-3 md:gap-4">
+        <span className="text-xs md:text-sm font-medium text-white/90">
+          Faltam apenas:
+        </span>
+
+        <div className="flex items-center gap-2 md:gap-2.5">
+          {/* Days */}
+          <div className="flex flex-col items-center">
+            <div className="bg-green-800 rounded px-2 py-1 min-w-[32px] md:min-w-[40px] flex items-center justify-center">
+              <span className="text-lg md:text-xl font-bold text-white tabular-nums">
+                {timeLeft.days}
+              </span>
+            </div>
+            <span className="text-[9px] md:text-[10px] text-white/70 mt-0.5 font-medium">
+              dias
+            </span>
+          </div>
+
+          {/* Hours */}
+          <div className="flex flex-col items-center">
+            <div className="bg-green-800 rounded px-2 py-1 min-w-[32px] md:min-w-[40px] flex items-center justify-center">
+              <span className="text-lg md:text-xl font-bold text-white tabular-nums">
+                {formatNumber(timeLeft.hours)}
+              </span>
+            </div>
+            <span className="text-[9px] md:text-[10px] text-white/70 mt-0.5 font-medium">
+              horas
+            </span>
+          </div>
+
+          {/* Minutes */}
+          <div className="flex flex-col items-center">
+            <div className="bg-green-800 rounded px-2 py-1 min-w-[32px] md:min-w-[40px] flex items-center justify-center">
+              <span className="text-lg md:text-xl font-bold text-white tabular-nums">
+                {formatNumber(timeLeft.minutes)}
+              </span>
+            </div>
+            <span className="text-[9px] md:text-[10px] text-white/70 mt-0.5 font-medium">
+              min
+            </span>
+          </div>
+
+          {/* Seconds */}
+          <div className="flex flex-col items-center">
+            <div className="bg-green-800 rounded px-2 py-1 min-w-[32px] md:min-w-[40px] flex items-center justify-center">
+              <span className="text-lg md:text-xl font-bold text-white tabular-nums">
+                {formatNumber(timeLeft.seconds)}
+              </span>
+            </div>
+            <span className="text-[9px] md:text-[10px] text-white/70 mt-0.5 font-medium">
+              seg
+            </span>
+          </div>
         </div>
       </div>
-      <div className="hidden md:block w-[1px] h-4 bg-white/20" />
-      <a 
-        href="https://www.even3.com.br/python-norte-2026-631670/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="group flex items-center gap-1 text-xs md:text-sm font-semibold text-brand-yellow hover:text-white transition-colors duration-200"
-      >
-        Garanta o seu ingresso com desconto
-        <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
-      </a>
     </div>
   );
 }
