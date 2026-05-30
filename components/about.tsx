@@ -28,7 +28,10 @@ export function About() {
   ];
 
   return (
-    <section id="sobre" className="py-10 md:py-20 bg-[#FAF7F0]">
+    <section
+      id="sobre"
+      className="py-10 md:py-20 bg-[#FAF7F0] scroll-mt-[40px] md:scroll-mt-[20px]"
+    >
       <div className="container mx-auto px-5 md:px-4">
         <div className="max-w-6xl mx-auto space-y-8 md:space-y-10">
           {/* Header */}
