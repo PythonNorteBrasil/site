@@ -50,7 +50,7 @@ export function Hero() {
           {/* LEFT */}
           <div className="flex flex-col items-center lg:items-start justify-center w-full lg:max-w-2xl text-center lg:text-left pt-6 lg:pt-0">
             <h1
-              className="text-[2.5rem] leading-[0.9] md:text-5xl lg:text-[3.5rem] xl:text-[5rem] lg:leading-[0.85] font-black text-white italic uppercase tracking-wider font-display mb-3 lg:mb-4"
+              className="text-[2.5rem] leading-[0.9] md:text-5xl lg:text-[3.5rem] xl:text-[5rem] lg:leading-[0.85] font-black text-white italic uppercase tracking-wider font-display mb-3 lg:mb-8"
               style={{
                 textShadow:
                   "0 4px 20px rgba(0,0,0,.7), 0 8px 40px rgba(0,0,0,.5)",
@@ -66,7 +66,7 @@ export function Hero() {
             </h1>
 
             <p
-              className="text-xs md:text-base lg:text-base text-white max-w-xl leading-relaxed font-medium mb-3 lg:mb-6"
+              className="text-xs md:text-base lg:text-base text-white max-w-xl leading-relaxed font-medium mb-3 lg:mb-10"
               style={{
                 textShadow:
                   "0 2px 12px rgba(0,0,0,.95), 0 4px 24px rgba(0,0,0,.8)",
@@ -116,7 +116,7 @@ export function Hero() {
 xl:max-w-[600px] lg:ml-auto"
           >
             {/* Collage */}
-            <div className="relative w-full max-w-[460px] lg:max-w-[500px] xl:max-w-[540px] aspect-square -mt-4 lg:mt-0 mb-2 mx-auto">
+            <div className="relative w-full max-w-[460px] lg:max-w-[420px] xl:max-w-[460px] aspect-square -mt-4 lg:mt-0 mb-2 mx-auto">
               <Image
                 src="/collage.jpg"
                 alt="Python Norte"
@@ -127,7 +127,7 @@ xl:max-w-[600px] lg:ml-auto"
             </div>
 
             {/* Data e Local */}
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 w-full -mt-10">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 w-full -mt-10 lg:-mt-12">
               <div className="bg-black/35 backdrop-blur-sm border border-accent/50 rounded-lg p-3 lg:p-3.5 flex items-center gap-2">
                 <Calendar className="w-6 h-6 text-accent shrink-0" />
 
