@@ -6,7 +6,7 @@ export function Tickets() {
   const tickets = [
     {
       name: "Meia-Entrada",
-      price: "R$ 60",
+      price: "R$ 70",
       period: "/ único",
       description: "Estudantes, professores, PCDs, idosos e doadores de sangue.",
       features: [
@@ -24,18 +24,18 @@ export function Tickets() {
       textColor: "text-white/80",
     },
     {
-      name: "Ingresso Social",
-      price: "R$ 80",
+      name: "PySquad / Meia",
+      price: "R$ 187",
       period: "/ único",
-      description: "Mediante entrega de 1kg de alimento não perecível no credenciamento.",
+      description:
+        "Monte um squad com 4 pessoas e aproveite 30% de desconto em cada ingresso.",
       features: [
+        "4 ingressos meia-entrada",
+        "Cada ingresso sai por R$ 46,75",
+        "Acessos enviados por e-mail ou WhatsApp",
         "Acesso aos 3 dias de evento",
-        "Todas as palestras e keynotes",
         "Workshops (vagas limitadas)",
-        "Kit de boas-vindas",
         "Certificado digital",
-        "Coffee break incluso",
-        "Ação solidária para Ananindeua",
       ],
       popular: true,
       buttonStyle: "bg-orange hover:bg-orange-hover text-white",
@@ -44,18 +44,18 @@ export function Tickets() {
       textColor: "text-gray-600",
     },
     {
-      name: "Inteira",
-      price: "R$ 120",
+      name: "Dupla Pythonica - Meia",
+      price: "R$ 109",
       period: "/ único",
-      description: "Para profissionais e empresas que desejam apoiar o evento.",
+      description:
+        "Vá em dupla e economize mais. Garanta 2 ingressos com 20% de desconto em cada um.",
       features: [
+        "2 ingressos meia-entrada",
+        "Parceiro com código próprio",
+        "Segundo PyAccess enviado por e-mail ou WhatsApp",
         "Acesso aos 3 dias de evento",
-        "Todas as palestras e keynotes",
         "Workshops (vagas limitadas)",
-        "Kit de boas-vindas",
         "Certificado digital",
-        "Coffee break incluso",
-        "Apoio à comunidade local",
       ],
       popular: false,
       buttonStyle: "bg-green-deep hover:bg-green-medium text-white",
@@ -81,7 +81,7 @@ export function Tickets() {
           </div>
 
           {/* Ticket cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch max-w-6xl mx-auto">
             {tickets.map((ticket, i) => (
               <div
                 key={i}
@@ -131,6 +131,17 @@ export function Tickets() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="flex justify-center">
+            <a
+              href="https://www.even3.com.br/python-norte-2026-631670/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-2xl border-2 border-green-deep px-8 py-4 text-sm font-bold text-green-deep transition-colors hover:bg-green-deep hover:text-white"
+            >
+              Ver Todos os Ingressos
+            </a>
           </div>
         </div>
       </div>
