@@ -47,12 +47,14 @@ def main():
     for num in get_referenced_issues_and_prs(commit_message):
         related_issues.add(num)
 
-    if github_token and sha:
+    if sha:
         headers = {
             "Accept": "application/vnd.github+json",
-            "Authorization": f"Bearer {github_token}",
             "User-Agent": "python-requests/github-actions-discord-notifier"
         }
+        if github_token:
+            headers["Authorization"] = f"Bearer {github_token}"
+            
         url = f"https://api.github.com/repos/{repo}/commits/{sha}/pulls"
         try:
             response = requests.get(url, headers=headers, timeout=10)
@@ -71,9 +73,32 @@ def main():
                     for num in get_referenced_issues_and_prs(pr_title + " " + pr_body, pr_num):
                         related_issues.add(num)
             else:
-                print(f"Aviso: Não foi possível obter PRs da API do GitHub. Status: {response.status_code}")
+                print(f"Aviso: Não foi possível obter PRs da API do GitHub (Status: {response.status_code}). Tentando fallback por parsing do commit...")
         except Exception as e:
-            print(f"Erro ao buscar Pull Requests da API do GitHub: {e}")
+            print(f"Erro ao buscar Pull Requests da API do GitHub: {e}. Tentando fallback por parsing do commit...")
+
+    # Fallback caso a API não retorne PRs (rate limits, falta de token ou repositório privado)
+    if not prs_info:
+        first_line = commit_message.split('\n')[0] if commit_message else ""
+        # Caso 1: Merge pull request #123
+        pr_match = re.search(r'Merge pull request #(\d+)', first_line, re.IGNORECASE)
+        # Caso 2: Squash merge "Title (#123)"
+        if not pr_match:
+            pr_match = re.search(r'\(#(\d+)\)$', first_line)
+            
+        if pr_match:
+            pr_num = int(pr_match.group(1))
+            # Remover dos issues relacionados para não duplicar
+            related_issues.discard(pr_num)
+            
+            # Limpa o título do commit para aproximar o título do PR
+            pr_title = first_line.replace(f"Merge pull request #{pr_num}", "").strip()
+            pr_title = re.sub(r'\s\(#\d+\)$', '', pr_title).strip()
+            if not pr_title:
+                pr_title = "Pull Request"
+                
+            pr_url = f"{server_url}/{repo}/pull/{pr_num}"
+            prs_info.append(f"[#{pr_num} - {pr_title}]({pr_url})")
 
     embed = {
         "title": "🚀 Deploy realizado com sucesso!",
