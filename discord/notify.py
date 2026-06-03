@@ -1,7 +1,18 @@
 import os
 import sys
 import subprocess
+import re
 import requests
+
+def get_referenced_issues_and_prs(text, current_pr_number=None):
+    # Encontra padrões como #123
+    matches = re.findall(r'#(\d+)', text)
+    numbers = set()
+    for m in matches:
+        num = int(m)
+        if current_pr_number is None or num != current_pr_number:
+            numbers.add(num)
+    return sorted(list(numbers))
 
 def main():
     webhook_url = os.environ.get("WEBHOOK_DISCORD_CHANNEL_SITE")
@@ -15,6 +26,7 @@ def main():
     actor = os.environ.get("GITHUB_ACTOR", "github-actions")
     run_id = os.environ.get("GITHUB_RUN_ID", "")
     server_url = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
+    github_token = os.environ.get("GITHUB_TOKEN")
 
     # Tenta obter os detalhes do último commit
     try:
@@ -26,6 +38,42 @@ def main():
     run_url = f"{server_url}/{repo}/actions/runs/{run_id}" if run_id else ""
 
     short_sha = sha[:7] if sha else "unknown"
+
+    # Mapear PRs e Issues
+    prs_info = []
+    related_issues = set()
+
+    # Puxar informações do commit_message
+    for num in get_referenced_issues_and_prs(commit_message):
+        related_issues.add(num)
+
+    if github_token and sha:
+        headers = {
+            "Accept": "application/vnd.github+json",
+            "Authorization": f"Bearer {github_token}",
+            "User-Agent": "python-requests/github-actions-discord-notifier"
+        }
+        url = f"https://api.github.com/repos/{repo}/commits/{sha}/pulls"
+        try:
+            response = requests.get(url, headers=headers, timeout=10)
+            if response.status_code == 200:
+                pulls = response.json()
+                for pr in pulls:
+                    pr_num = pr.get("number")
+                    pr_title = pr.get("title")
+                    pr_url = pr.get("html_url")
+                    pr_user = pr.get("user", {}).get("login", "")
+                    
+                    prs_info.append(f"[#{pr_num} - {pr_title}]({pr_url}) por @{pr_user}")
+                    
+                    # Adiciona issues referenciadas no título ou corpo do PR
+                    pr_body = pr.get("body") or ""
+                    for num in get_referenced_issues_and_prs(pr_title + " " + pr_body, pr_num):
+                        related_issues.add(num)
+            else:
+                print(f"Aviso: Não foi possível obter PRs da API do GitHub. Status: {response.status_code}")
+        except Exception as e:
+            print(f"Erro ao buscar Pull Requests da API do GitHub: {e}")
 
     embed = {
         "title": "🚀 Deploy realizado com sucesso!",
@@ -57,6 +105,23 @@ def main():
             "text": f"Workflow Run #{os.environ.get('GITHUB_RUN_NUMBER', '0')}"
         }
     }
+
+    # Adicionar campo de Pull Requests se houver
+    if prs_info:
+        embed["fields"].append({
+            "name": "Pull Request(s) Associado(s)",
+            "value": "\n".join(prs_info),
+            "inline": False
+        })
+
+    # Adicionar campo de Issues se houver
+    if related_issues:
+        issues_list = [f"[#{issue_num}]({server_url}/{repo}/issues/{issue_num})" for issue_num in sorted(related_issues)]
+        embed["fields"].append({
+            "name": "Issue(s) Relacionada(s)",
+            "value": ", ".join(issues_list),
+            "inline": False
+        })
 
     if run_url:
         embed["fields"].append({

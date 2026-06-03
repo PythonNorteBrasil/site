@@ -75,4 +75,5 @@ jobs:
       - name: Send Discord Notification
         env:
           WEBHOOK_DISCORD_CHANNEL_SITE: ${{ secrets.WEBHOOK_DISCORD_CHANNEL_SITE }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python discord/notify.py
