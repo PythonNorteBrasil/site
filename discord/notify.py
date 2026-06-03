@@ -4,6 +4,8 @@ import subprocess
 import re
 import requests
 
+
+
 def get_referenced_issues_and_prs(text, current_pr_number=None):
     # Encontra padrões como #123
     matches = re.findall(r'#(\d+)', text)
