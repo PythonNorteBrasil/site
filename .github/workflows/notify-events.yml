@@ -1,0 +1,25 @@
+name: Discord Notifications 📢
+
+on:
+  pull_request:
+    types: [opened, closed, reopened]
+  issues:
+    types: [opened, closed, reopened]
+
+jobs:
+  notify:
+    if: github.repository == 'PythonNorteBrasil/site'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Send Discord Notification
+        env:
+          WEBHOOK_DISCORD_CHANNEL_SITE: ${{ secrets.WEBHOOK_DISCORD_CHANNEL_SITE }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python discord/notify.py
