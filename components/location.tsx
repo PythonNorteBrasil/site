@@ -8,11 +8,14 @@ export function Location() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Header */}
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-green-deep" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="text-center space-y-2 md:space-y-3">
+            <h2
+              className="text-2xl md:text-4xl font-bold text-green-deep"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               Mapa de acesso à Python Norte 2026
             </h2>
-            <div className="w-20 h-1 bg-orange mx-auto rounded-full" />
+            <div className="w-14 md:w-16 h-1 bg-orange mx-auto rounded-full" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -38,9 +41,12 @@ export function Location() {
                     <MapPin className="w-5 h-5 text-green-deep" />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-gray-900">UNAMA - Campus Ananindeua</h3>
+                    <h3 className="text-base font-bold text-gray-900">
+                      UNAMA - Campus Ananindeua
+                    </h3>
                     <p className="text-sm text-gray-600 mt-1">
-                      Rodovia BR-316, Km 03 — Coqueiro,<br />
+                      Rodovia BR-316, Km 03 — Coqueiro,
+                      <br />
                       Ananindeua - Pará - Brasil, 67113-901
                     </p>
                   </div>
@@ -52,15 +58,21 @@ export function Location() {
                 <ul className="space-y-3 text-sm text-gray-600">
                   <li className="flex items-start gap-2">
                     <span className="text-orange font-bold">🚌</span>
-                    <span>Ônibus: Linhas que passam pela Rod. Augusto Montenegro</span>
+                    <span>
+                      Ônibus: Linhas que passam pela Rod. Augusto Montenegro
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-orange font-bold">🚗</span>
-                    <span>Carro: Estacionamento gratuito disponível no campus</span>
+                    <span>
+                      Carro: Estacionamento gratuito disponível no campus
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-orange font-bold">🛩️</span>
-                    <span>Aeroporto: Aeroporto Internacional de Belém (25km)</span>
+                    <span>
+                      Aeroporto: Aeroporto Internacional de Belém (25km)
+                    </span>
                   </li>
                 </ul>
               </div>

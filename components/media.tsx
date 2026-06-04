@@ -18,7 +18,8 @@ export function Media() {
       image: "/54031670507_d1e7fb8bb9_b.jpg",
     },
     {
-      title: "Evento de tecnologia em Ananindeua atrai desenvolvedores de todo o Norte",
+      title:
+        "Evento de tecnologia em Ananindeua atrai desenvolvedores de todo o Norte",
       source: "Portal Amazônia",
       url: "#",
       image: "/53231441451_36d2be88e1_b.jpg",
@@ -30,11 +31,14 @@ export function Media() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Header */}
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-green-deep" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="text-center space-y-2 md:space-y-3">
+            <h2
+              className="text-2xl md:text-4xl font-bold text-green-deep"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               Saiu na Mídia
             </h2>
-            <div className="w-20 h-1 bg-orange mx-auto rounded-full" />
+            <div className="w-14 md:w-16 h-1 bg-orange mx-auto rounded-full" />
           </div>
 
           {/* Media cards */}
@@ -54,7 +58,9 @@ export function Media() {
                   />
                 </div>
                 <div className="p-5 space-y-2">
-                  <span className="text-xs font-bold text-orange">{article.source}</span>
+                  <span className="text-xs font-bold text-orange">
+                    {article.source}
+                  </span>
                   <h3 className="text-sm font-bold text-gray-900 leading-snug group-hover:text-green-deep transition-colors">
                     {article.title}
                   </h3>

@@ -8,7 +8,8 @@ export function Tickets() {
       name: "Meia-Entrada",
       price: "R$ 70",
       period: "/ único",
-      description: "Estudantes, professores, PCDs, idosos e doadores de sangue.",
+      description:
+        "Estudantes, professores, PCDs, idosos e doadores de sangue.",
       features: [
         "Acesso aos 3 dias de evento",
         "Todas as palestras e keynotes",
@@ -70,13 +71,17 @@ export function Tickets() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Header */}
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-green-deep" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="text-center space-y-2 md:space-y-3">
+            <h2
+              className="text-2xl md:text-4xl font-bold text-green-deep"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               Corrente Sem Igual
             </h2>
-            <div className="w-20 h-1 bg-orange mx-auto rounded-full" />
+            <div className="w-14 md:w-16 h-1 bg-orange mx-auto rounded-full" />
             <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-              Escolha o ingresso ideal para você. A Python Norte é um evento sem fins lucrativos feito 100% por voluntários.
+              Escolha o ingresso ideal para você. A Python Norte é um evento sem
+              fins lucrativos feito 100% por voluntários.
             </p>
           </div>
 
@@ -99,20 +104,30 @@ export function Tickets() {
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold">{ticket.name}</h3>
                     <div className="flex items-baseline gap-1">
-                      <span className={`text-4xl font-black ${ticket.popular ? "text-green-deep" : "text-white"}`}>
+                      <span
+                        className={`text-4xl font-black ${ticket.popular ? "text-green-deep" : "text-white"}`}
+                      >
                         {ticket.price}
                       </span>
-                      <span className={`text-xs ${ticket.textColor}`}>{ticket.period}</span>
+                      <span className={`text-xs ${ticket.textColor}`}>
+                        {ticket.period}
+                      </span>
                     </div>
-                    <p className={`text-xs ${ticket.textColor}`}>{ticket.description}</p>
+                    <p className={`text-xs ${ticket.textColor}`}>
+                      {ticket.description}
+                    </p>
                   </div>
 
-                  <div className={`w-full h-px ${ticket.popular ? "bg-gray-200" : "bg-white/15"}`} />
+                  <div
+                    className={`w-full h-px ${ticket.popular ? "bg-gray-200" : "bg-white/15"}`}
+                  />
 
                   <ul className="space-y-3">
                     {ticket.features.map((feat, j) => (
                       <li key={j} className="flex items-start gap-3 text-sm">
-                        <Check className={`w-5 h-5 flex-shrink-0 ${ticket.checkColor}`} />
+                        <Check
+                          className={`w-5 h-5 flex-shrink-0 ${ticket.checkColor}`}
+                        />
                         <span className={ticket.textColor}>{feat}</span>
                       </li>
                     ))}

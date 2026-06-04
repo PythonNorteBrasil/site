@@ -5,9 +5,18 @@ import Image from "next/image";
 
 const editions = {
   "2024": [
-    { src: "/assets/gallery/2024/54032804453_cfef802556_b.jpg", alt: "Python Norte 2024 - 1" },
-    { src: "/assets/gallery/2024/54032877279_5eaa5ea969_b.jpg", alt: "Python Norte 2024 - 2" },
-    { src: "/assets/gallery/2024/54033003810_5a4fa2cd61_b.jpg", alt: "Python Norte 2024 - 3" },
+    {
+      src: "/assets/gallery/2024/54032804453_cfef802556_b.jpg",
+      alt: "Python Norte 2024 - 1",
+    },
+    {
+      src: "/assets/gallery/2024/54032877279_5eaa5ea969_b.jpg",
+      alt: "Python Norte 2024 - 2",
+    },
+    {
+      src: "/assets/gallery/2024/54033003810_5a4fa2cd61_b.jpg",
+      alt: "Python Norte 2024 - 3",
+    },
   ],
   "2025": [
     { src: "/54635610770_b2cbf396d6_b.jpg", alt: "Python Norte 2025 - 1" },
@@ -24,8 +33,11 @@ export function Editions() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-10">
           {/* Header */}
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="text-center space-y-2 md:space-y-3">
+            <h2
+              className="text-2xl md:text-4xl font-bold text-white"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               Edições que marcaram a comunidade
             </h2>
           </div>
@@ -50,7 +62,10 @@ export function Editions() {
           {/* Gallery grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {editions[activeYear].map((img, i) => (
-              <div key={i} className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group">
+              <div
+                key={i}
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group"
+              >
                 <Image
                   src={img.src}
                   alt={img.alt}

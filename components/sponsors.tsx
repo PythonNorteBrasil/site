@@ -6,9 +6,7 @@ export function Sponsors() {
       name: "Diamante",
       color: "text-green-deep",
       borderColor: "border-green-deep/20",
-      logos: [
-        { name: "UNAMA", placeholder: "UNAMA" },
-      ],
+      logos: [{ name: "UNAMA", placeholder: "UNAMA" }],
     },
     {
       name: "Ouro",
@@ -45,20 +43,27 @@ export function Sponsors() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Header */}
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-green-deep" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="text-center space-y-2 md:space-y-3">
+            <h2
+              className="text-2xl md:text-4xl font-bold text-green-deep"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               Patrocinadores
             </h2>
-            <div className="w-20 h-1 bg-orange mx-auto rounded-full" />
+            <div className="w-14 md:w-16 h-1 bg-orange mx-auto rounded-full" />
             <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-              A Python Norte só existe graças ao apoio de patrocinadores, apoiadores e comunidades parceiras.
+              A Python Norte só existe graças ao apoio de patrocinadores,
+              apoiadores e comunidades parceiras.
             </p>
           </div>
 
           {/* Tiers */}
           {tiers.map((tier, i) => (
             <div key={i} className="space-y-4">
-              <h3 className={`text-center text-lg font-bold ${tier.color}`} style={{ fontFamily: "var(--font-display)" }}>
+              <h3
+                className={`text-center text-lg font-bold ${tier.color}`}
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 {tier.name}
               </h3>
               <div className={`flex flex-wrap justify-center gap-6`}>
@@ -67,7 +72,9 @@ export function Sponsors() {
                     key={j}
                     className={`flex items-center justify-center border-2 ${tier.borderColor} rounded-2xl px-12 py-8 bg-cream-card min-w-[200px]`}
                   >
-                    <span className="text-sm text-gray-400 font-medium">{logo.placeholder}</span>
+                    <span className="text-sm text-gray-400 font-medium">
+                      {logo.placeholder}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -76,11 +83,16 @@ export function Sponsors() {
 
           {/* CTA */}
           <div className="bg-green-deep rounded-3xl p-8 md:p-12 text-center text-white space-y-4">
-            <h3 className="text-2xl md:text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+            <h3
+              className="text-2xl md:text-3xl font-bold"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               Quer patrocinar a Python Norte 2026?
             </h3>
             <p className="text-white/80 text-sm md:text-base max-w-xl mx-auto">
-              Entre em contato com nossa equipe para conhecer os planos de patrocínio e ter sua marca associada ao maior evento Python do Norte.
+              Entre em contato com nossa equipe para conhecer os planos de
+              patrocínio e ter sua marca associada ao maior evento Python do
+              Norte.
             </p>
             <a
               href="mailto:contato@pythonnorte.org?subject=Patrocínio Python Norte 2026"
@@ -92,7 +104,10 @@ export function Sponsors() {
 
           {/* Supporters */}
           <div className="space-y-6">
-            <h3 className="text-center text-lg font-bold text-green-deep" style={{ fontFamily: "var(--font-display)" }}>
+            <h3
+              className="text-center text-lg font-bold text-green-deep"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               Comunidades e Apoiadores
             </h3>
             <div className="flex flex-wrap justify-center gap-4">

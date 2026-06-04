@@ -6,35 +6,43 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     question: "O que é a Python Norte?",
-    answer: "A Python Norte é a maior conferência da linguagem de programação Python da região Norte do Brasil. Organizada por voluntários da comunidade, o evento reúne desenvolvedores, estudantes e entusiastas para três dias de palestras, workshops, hackathons e networking.",
+    answer:
+      "A Python Norte é a maior conferência da linguagem de programação Python da região Norte do Brasil. Organizada por voluntários da comunidade, o evento reúne desenvolvedores, estudantes e entusiastas para três dias de palestras, workshops, hackathons e networking.",
   },
   {
     question: "Quando e onde será o evento?",
-    answer: "A Python Norte 2026 acontecerá nos dias 03, 04 e 05 de julho de 2026, das 08:00 às 17:00 (GMT-3), de forma presencial na UNAMA - Campus Ananindeua, em Ananindeua - Pará - Brasil.",
+    answer:
+      "A Python Norte 2026 acontecerá nos dias 03, 04 e 05 de julho de 2026, das 08:00 às 17:00 (GMT-3), de forma presencial na UNAMA - Campus Ananindeua, em Ananindeua - Pará - Brasil.",
   },
   {
     question: "Como compro meu ingresso?",
-    answer: "Os ingressos estão disponíveis na plataforma Even3. Basta acessar o link de inscrição, escolher a modalidade desejada (meia-entrada ou inteira) e realizar o pagamento.",
+    answer:
+      "Os ingressos estão disponíveis na plataforma Even3. Basta acessar o link de inscrição, escolher a modalidade desejada (meia-entrada ou inteira) e realizar o pagamento.",
   },
   {
     question: "O evento é presencial ou online?",
-    answer: "O evento é 100% presencial. Não haverá transmissão online nesta edição.",
+    answer:
+      "O evento é 100% presencial. Não haverá transmissão online nesta edição.",
   },
   {
     question: "Posso submeter uma palestra?",
-    answer: "Sim! A chamada de trabalhos (Call for Papers) será aberta em breve. Fique atento às nossas redes sociais para não perder o prazo de submissão.",
+    answer:
+      "Sim! A chamada de trabalhos (Call for Papers) será aberta em breve. Fique atento às nossas redes sociais para não perder o prazo de submissão.",
   },
   {
     question: "Há vagas para voluntários?",
-    answer: "Sim! Precisamos de voluntários para ajudar na organização do evento. Se você tem interesse, entre em contato pelo e-mail contato@pythonnorte.org.",
+    answer:
+      "Sim! Precisamos de voluntários para ajudar na organização do evento. Se você tem interesse, entre em contato pelo e-mail contato@pythonnorte.org.",
   },
   {
     question: "Quais são as formas de pagamento aceitas?",
-    answer: "A plataforma Even3 aceita cartão de crédito, boleto bancário e PIX para pagamento dos ingressos.",
+    answer:
+      "A plataforma Even3 aceita cartão de crédito, boleto bancário e PIX para pagamento dos ingressos.",
   },
   {
     question: "Tem estacionamento no local?",
-    answer: "Sim, a UNAMA Campus Ananindeua dispõe de estacionamento gratuito para os participantes do evento.",
+    answer:
+      "Sim, a UNAMA Campus Ananindeua dispõe de estacionamento gratuito para os participantes do evento.",
   },
 ];
 
@@ -46,11 +54,14 @@ export function FAQ() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto space-y-12">
           {/* Header */}
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-green-deep" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="text-center space-y-2 md:space-y-3">
+            <h2
+              className="text-2xl md:text-4xl font-bold text-green-deep"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               Perguntas Frequentes
             </h2>
-            <div className="w-20 h-1 bg-orange mx-auto rounded-full" />
+            <div className="w-14 md:w-16 h-1 bg-orange mx-auto rounded-full" />
           </div>
 
           {/* FAQ items */}
@@ -64,7 +75,9 @@ export function FAQ() {
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-cream transition-colors"
                 >
-                  <span className="text-sm md:text-base font-bold text-gray-900 pr-4">{faq.question}</span>
+                  <span className="text-sm md:text-base font-bold text-gray-900 pr-4">
+                    {faq.question}
+                  </span>
                   <ChevronDown
                     className={`w-5 h-5 text-orange flex-shrink-0 transition-transform duration-300 ${
                       openIndex === i ? "rotate-180" : ""
@@ -73,7 +86,9 @@ export function FAQ() {
                 </button>
                 {openIndex === i && (
                   <div className="px-6 pb-5">
-                    <p className="text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </div>
                 )}
               </div>
