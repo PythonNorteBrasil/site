@@ -7,23 +7,26 @@ export function About() {
     {
       icon: Code,
       title: "Promover o Python",
-      mobileDescription: "Python na academia, mercado e pesquisa.",
+      mobileDescription:
+        "Incentivar o uso de Python na academia, mercado e pesquisa.",
       desktopDescription:
-        "Fomentar Python em contextos acadêmicos e profissionais.",
+        "Fomentar a adoção e o uso da linguagem Python em contextos acadêmicos, profissionais e de pesquisa.",
     },
     {
       icon: Users,
       title: "Compartilhar Conhecimento",
-      mobileDescription: "Troca entre devs, estudantes e comunidade.",
+      mobileDescription:
+        "Conectar profissionais, estudantes e entusiastas da região.",
       desktopDescription:
-        "Troca de experiências entre profissionais e estudantes.",
+        "Promover troca de experiências entre profissionais, estudantes e entusiastas de tecnologia da região.",
     },
     {
       icon: Award,
       title: "Crescer a Comunidade",
-      mobileDescription: "Fortalecer Python na Amazônia.",
+      mobileDescription:
+        "Fortalecer a comunidade Python e a tecnologia na Amazônia.",
       desktopDescription:
-        "Fortalecer o ecossistema Python na região amazônica.",
+        "Impactar econômica e socialmente a Amazônia através do fortalecimento da comunidade Python local.",
     },
   ];
 
@@ -90,26 +93,22 @@ export function About() {
                 O Maior Evento Python da Região Norte
               </h3>
 
-              <div className="space-y-2 md:space-y-3 text-white/90 text-xs md:text-sm leading-snug md:leading-relaxed">
+              <div className="space-y-3 text-white/90 text-xs md:text-sm leading-snug md:leading-relaxed">
                 <p>
-                  A Python Norte reúne pessoas interessadas em Python, de
-                  estudantes a profissionais.
+                  A Python Norte é o principal encontro da comunidade Python da
+                  Região Norte, reunindo estudantes, profissionais e entusiastas
+                  de tecnologia em um ambiente de aprendizado, colaboração e
+                  networking.
                 </p>
-
                 <p>
-                  São <strong>3 dias de evento</strong> com foco em aprendizado,
-                  networking e troca de experiências.
+                  Durante <strong>3 dias de programação</strong>, os
+                  participantes exploram temas como{" "}
+                  <strong>desenvolvimento de software</strong>,
+                  <strong> ciência de dados</strong> e{" "}
+                  <strong>inteligência artificial</strong>, fortalecendo a
+                  comunidade tecnológica da Amazônia e impulsionando novas
+                  conexões e oportunidades.
                 </p>
-
-                <p>
-                  A programação aborda{" "}
-                  <strong>desenvolvimento de software</strong>,{" "}
-                  <strong>ciência de dados</strong> e <strong>IA</strong>.
-                </p>
-
-                <p>O evento fortalece a comunidade tech na região amazônica.</p>
-
-                <p>Conteúdo para todos os níveis, do iniciante ao avançado.</p>
               </div>
             </div>
           </div>
