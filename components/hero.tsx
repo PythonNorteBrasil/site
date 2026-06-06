@@ -22,17 +22,17 @@ export function Hero() {
       />
 
       {/* Camada verde */}
-      <div className="absolute inset-0 bg-green-900/55" />
+      <div className="absolute inset-0 bg-green-900/45 lg:bg-green-900/55" />
 
       {/* Escurecimento geral */}
-      <div className="absolute inset-0 bg-black/10" />
+      <div className="absolute inset-0 bg-black/5 lg:bg-black/10" />
 
       {/* Mobile: escurece o topo */}
       <div
         className="absolute inset-0 lg:hidden"
         style={{
           background:
-            "linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.20) 35%, rgba(0,0,0,.08) 65%, rgba(0,0,0,0) 100%)",
+            "linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.12) 35%, rgba(0,0,0,.05) 65%, rgba(0,0,0,0) 100%)",
         }}
       />
 
