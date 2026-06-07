@@ -5,13 +5,19 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter"
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
   title: "Python Norte — A maior conferência...",
+  description: "A maior conferência de Python da região Norte do Brasil",
+  icons: {
+    icon: "/favico.png",
+    shortcut: "/favico.png",
+    apple: "/favico.png",
+  },
 };
 
 export default function RootLayout({

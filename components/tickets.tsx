@@ -1,162 +1,207 @@
 "use client";
 
+import { useState } from "react";
 import { Check } from "lucide-react";
+import { ButtonLink } from "@/design-system/components/Button";
 
 export function Tickets() {
+  const [ticketType, setTicketType] = useState<"meia" | "inteira">("meia");
+
   const tickets = [
     {
-      name: "Meia-Entrada",
-      price: "R$ 70",
-      period: "/ único",
-      description:
-        "Estudantes, professores, PCDs, idosos e doadores de sangue.",
-      features: [
-        "Acesso aos 3 dias de evento",
-        "Todas as palestras e keynotes",
-        "Workshops (vagas limitadas)",
-        "Kit de boas-vindas",
-        "Certificado digital",
-        "Coffee break incluso",
-      ],
+      name: "Individual",
+      prices: {
+        meia: "R$ 70",
+        inteira: "R$ 135",
+      },
+      description: "Ideal para quem deseja participar sozinho.",
+      details: ["1 ingresso", "Acesso completo ao evento"],
+
       popular: false,
-      buttonStyle: "bg-green-deep hover:bg-green-medium text-white",
-      cardStyle: "bg-green-deep text-white",
-      checkColor: "text-yellow",
-      textColor: "text-white/80",
     },
     {
-      name: "PySquad / Meia",
-      price: "R$ 187",
-      period: "/ único",
-      description:
-        "Monte um squad com 4 pessoas e aproveite 30% de desconto em cada ingresso.",
-      features: [
-        "4 ingressos meia-entrada",
-        "Cada ingresso sai por R$ 46,75",
-        "Acessos enviados por e-mail ou WhatsApp",
-        "Acesso aos 3 dias de evento",
-        "Workshops (vagas limitadas)",
-        "Certificado digital",
-      ],
+      name: "Dupla Pythonica",
+      prices: {
+        meia: "R$ 109",
+        inteira: "R$ 213",
+      },
+      description: "Leve alguém com você e economize.",
+      details: ["2 ingressos", "20% de desconto por ingresso"],
       popular: true,
-      buttonStyle: "bg-orange hover:bg-orange-hover text-white",
-      cardStyle: "bg-white text-gray-900 border-2 border-orange",
-      checkColor: "text-green-deep",
-      textColor: "text-gray-600",
     },
     {
-      name: "Dupla Pythonica - Meia",
-      price: "R$ 109",
-      period: "/ único",
-      description:
-        "Vá em dupla e economize mais. Garanta 2 ingressos com 20% de desconto em cada um.",
-      features: [
-        "2 ingressos meia-entrada",
-        "Parceiro com código próprio",
-        "Segundo PyAccess enviado por e-mail ou WhatsApp",
-        "Acesso aos 3 dias de evento",
-        "Workshops (vagas limitadas)",
-        "Certificado digital",
-      ],
+      name: "PySquad",
+      prices: {
+        meia: "R$ 187",
+        inteira: "R$ 369",
+      },
+      description: "Monte um squad com 4 pessoas.",
+      details: ["4 ingressos", "30% de desconto por ingresso"],
       popular: false,
-      buttonStyle: "bg-green-deep hover:bg-green-medium text-white",
-      cardStyle: "bg-green-deep text-white",
-      checkColor: "text-yellow",
-      textColor: "text-white/80",
     },
   ];
 
+  const benefits = [
+    "3 dias de evento",
+    "Palestras e keynotes",
+    "Workshops",
+    "Acesso completo ao evento",
+    "Certificado digital",
+    "Kit de boas-vindas",
+    "Coffee break",
+  ];
+
   return (
-    <section id="ingressos" className="py-20 md:py-28 bg-cream">
+    <section id="ingressos" className="py-12 md:py-14 bg-cream scroll-mt-10">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto space-y-12">
+        <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center space-y-2 md:space-y-3">
+          <div className="text-center mb-6">
             <h2
-              className="text-2xl md:text-4xl font-bold text-green-deep"
+              className="text-2xl md:text-3xl font-bold text-[#1F5506]"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Corrente Sem Igual
+              Garanta sua Vaga
             </h2>
-            <div className="w-14 md:w-16 h-1 bg-orange mx-auto rounded-full" />
-            <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-              Escolha o ingresso ideal para você. A Python Norte é um evento sem
-              fins lucrativos feito 100% por voluntários.
+
+            <div className="w-12 h-1 bg-primary mx-auto rounded-full mt-2 mb-3" />
+
+            <p className="text-sm md:text-base text-neutral-600 max-w-xl mx-auto">
+              Escolha a modalidade ideal para participar da Python Norte.
             </p>
           </div>
 
-          {/* Ticket cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch max-w-6xl mx-auto">
-            {tickets.map((ticket, i) => (
+          {/* Toggle */}
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex rounded-2xl bg-white p-1 shadow-md border border-neutral-200">
+              <button
+                onClick={() => setTicketType("meia")}
+                className={`px-4 md:px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                  ticketType === "meia"
+                    ? "bg-[#1F5506] text-white"
+                    : "text-neutral-600"
+                }`}
+              >
+                Meia Entrada
+              </button>
+
+              <button
+                onClick={() => setTicketType("inteira")}
+                className={`px-4 md:px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                  ticketType === "inteira"
+                    ? "bg-[#1F5506] text-white"
+                    : "text-neutral-600"
+                }`}
+              >
+                Inteira
+              </button>
+            </div>
+          </div>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {tickets.map((ticket, index) => (
               <div
-                key={i}
-                className={`relative rounded-3xl p-8 flex flex-col justify-between shadow-lg ${ticket.cardStyle} ${
-                  ticket.popular ? "md:scale-105 md:z-10" : ""
+                key={index}
+                className={`relative rounded-3xl p-5 flex flex-col shadow-lg transition-all ${
+                  ticket.popular
+                    ? "bg-white border-2 border-primary shadow-xl scale-[1.02]"
+                    : "bg-[#1F5506] text-white"
                 }`}
               >
                 {ticket.popular && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange text-white text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow-md">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold uppercase tracking-wide px-4 py-1 rounded-full">
                     Mais Popular
                   </span>
                 )}
 
-                <div className="space-y-6">
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold">{ticket.name}</h3>
-                    <div className="flex items-baseline gap-1">
-                      <span
-                        className={`text-4xl font-black ${ticket.popular ? "text-green-deep" : "text-white"}`}
-                      >
-                        {ticket.price}
-                      </span>
-                      <span className={`text-xs ${ticket.textColor}`}>
-                        {ticket.period}
-                      </span>
-                    </div>
-                    <p className={`text-xs ${ticket.textColor}`}>
-                      {ticket.description}
-                    </p>
+                <div className="flex-1">
+                  <h3
+                    className={`text-lg font-bold mb-2 ${
+                      ticket.popular ? "text-[#1F5506]" : "text-white"
+                    }`}
+                  >
+                    {ticket.name}
+                  </h3>
+
+                  <p
+                    className={`text-sm mb-4 ${
+                      ticket.popular ? "text-neutral-600" : "text-white/80"
+                    }`}
+                  >
+                    {ticket.description}
+                  </p>
+
+                  <div className="mb-4 flex items-end gap-1">
+                    <span
+                      className={`text-3xl md:text-4xl font-black ${
+                        ticket.popular ? "text-[#1F5506]" : "text-white"
+                      }`}
+                    >
+                      {ticket.prices[ticketType]}
+                    </span>
+
+                    <span
+                      className={`text-xs mb-1 ${
+                        ticket.popular ? "text-neutral-500" : "text-white/60"
+                      }`}
+                    >
+                      / único
+                    </span>
                   </div>
 
-                  <div
-                    className={`w-full h-px ${ticket.popular ? "bg-gray-200" : "bg-white/15"}`}
-                  />
-
-                  <ul className="space-y-3">
-                    {ticket.features.map((feat, j) => (
-                      <li key={j} className="flex items-start gap-3 text-sm">
+                  <ul className="space-y-2">
+                    {ticket.details.map((item) => (
+                      <li
+                        key={item}
+                        className={`flex items-start gap-2 text-sm ${
+                          ticket.popular ? "text-neutral-700" : "text-white/90"
+                        }`}
+                      >
                         <Check
-                          className={`w-5 h-5 flex-shrink-0 ${ticket.checkColor}`}
+                          className={`w-4 h-4 mt-0.5 shrink-0 ${
+                            ticket.popular ? "text-[#1F5506]" : "text-accent"
+                          }`}
                         />
-                        <span className={ticket.textColor}>{feat}</span>
+
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="pt-8">
-                  <a
-                    href="https://www.even3.com.br/python-norte-2026-631670/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`block w-full py-4 rounded-2xl font-bold text-sm text-center shadow-md transition-all ${ticket.buttonStyle}`}
-                  >
-                    Comprar Ingresso
-                  </a>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="flex justify-center">
-            <a
+          {/* Benefícios */}
+          <div className="mt-5 text-center">
+            <p className="text-sm text-neutral-500 mb-2">
+              Todos os ingressos incluem:
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
+              {benefits.map((benefit) => (
+                <span
+                  key={benefit}
+                  className="text-sm text-[#1F5506] font-medium"
+                >
+                  ✓ {benefit}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="flex justify-center mt-6">
+            <ButtonLink
               href="https://www.even3.com.br/python-norte-2026-631670/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-2xl border-2 border-green-deep px-8 py-4 text-sm font-bold text-green-deep transition-colors hover:bg-green-deep hover:text-white"
+              variant="primary"
+              size="lg"
             >
-              Ver Todos os Ingressos
-            </a>
+              Garantir meu ingresso
+            </ButtonLink>
           </div>
         </div>
       </div>
