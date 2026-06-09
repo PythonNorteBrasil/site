@@ -50,10 +50,10 @@ export function Hero() {
           {/* LEFT */}
           <div className="flex flex-col items-center lg:items-start justify-center w-full lg:max-w-2xl text-center lg:text-left pt-6 lg:pt-0">
             <h1
-              className="text-[2.5rem] leading-[0.9] md:text-5xl lg:text-[3.5rem] xl:text-[5rem] lg:leading-[0.85] font-black text-white italic uppercase tracking-wider font-display mb-3 lg:mb-8"
+              className="text-[3rem] leading-[0.9] md:text-7xl lg:text-[3.5rem] xl:text-[5rem] lg:leading-[0.85] font-black text-white italic uppercase tracking-wider font-display mb-3 lg:mb-8"
               style={{
                 textShadow:
-                  "0 4px 20px rgba(0,0,0,.7), 0 8px 40px rgba(0,0,0,.5)",
+                  "0 2px 15px rgba(0,0,0,.2), 0 4px 15px rgba(0,0,0,.5)",
               }}
             >
               A <span>MAIOR</span>

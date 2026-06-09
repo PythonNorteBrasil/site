@@ -1,20 +1,50 @@
 "use client";
 
+import Image from "next/image";
+
+type SponsorLogo = {
+  name: string;
+  src?: string;
+  placeholder?: string;
+  href?: string;
+};
+
+type SponsorTier = {
+  name: string;
+  color: string;
+  borderColor: string;
+  logos: SponsorLogo[];
+};
+
 export function Sponsors() {
-  const tiers = [
+  const tiers: SponsorTier[] = [
     {
       name: "Diamante",
       color: "text-green-deep",
       borderColor: "border-green-deep/20",
-      logos: [{ name: "UNAMA", placeholder: "UNAMA" }],
+      logos: [
+        {
+          name: "Fly.io",
+          src: "/assets/sponsors/flyio.png",
+          href: "https://fly.io",
+        },
+      ],
     },
     {
       name: "Ouro",
       color: "text-orange",
       borderColor: "border-orange/20",
       logos: [
-        { name: "Sponsor 1", placeholder: "Sua marca aqui" },
-        { name: "Sponsor 2", placeholder: "Sua marca aqui" },
+        {
+          name: "Inteceleri",
+          src: "/assets/sponsors/inteceleri.png",
+          href: "https://inteceleri.com.br",
+        },
+        {
+          name: "NIC.br",
+          src: "/assets/sponsors/nicbr.svg",
+          href: "https://nic.br",
+        },
       ],
     },
     {
@@ -68,14 +98,27 @@ export function Sponsors() {
               </h3>
               <div className={`flex flex-wrap justify-center gap-6`}>
                 {tier.logos.map((logo, j) => (
-                  <div
+                  <a
                     key={j}
-                    className={`flex items-center justify-center border-2 ${tier.borderColor} rounded-2xl px-12 py-8 bg-cream-card min-w-[200px]`}
+                    href={logo.href}
+                    target={logo.href ? "_blank" : undefined}
+                    rel={logo.href ? "noopener noreferrer" : undefined}
+                    className={`flex items-center justify-center border-2 ${tier.borderColor} rounded-2xl px-12 py-8 bg-cream-card min-w-50`}
                   >
-                    <span className="text-sm text-gray-400 font-medium">
-                      {logo.placeholder}
-                    </span>
-                  </div>
+                    {logo.src ? (
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        width={220}
+                        height={80}
+                        className="h-14 w-auto object-contain"
+                      />
+                    ) : (
+                      <span className="text-sm text-gray-400 font-medium">
+                        {logo.placeholder}
+                      </span>
+                    )}
+                  </a>
                 ))}
               </div>
             </div>
