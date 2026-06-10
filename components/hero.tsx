@@ -238,12 +238,14 @@ xl:max-w-[600px] lg:ml-auto"
             {/* Botão secundário - Abaixo dos stats no mobile */}
             <div className="flex flex-col lg:hidden gap-2 w-full mt-2">
               <ButtonLink
-                href="#programacao"
+                href="https://talks.python.org.br/python-norte-2026/"
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="tertiary"
                 size="md"
                 className="w-full shadow-xl"
               >
-                Ver Programação
+                Submeter Proposta
               </ButtonLink>
             </div>
           </div>
