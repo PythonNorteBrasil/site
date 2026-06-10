@@ -103,8 +103,14 @@ export function Hero() {
                   Garantir Ingressos
                 </ButtonLink>
 
-                <ButtonLink href="#programacao" variant="tertiary" size="md">
-                  Ver Programação
+                <ButtonLink
+                  href="https://talks.python.org.br/python-norte-2026/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="tertiary"
+                  size="md"
+                >
+                  Submeter Proposta
                 </ButtonLink>
               </div>
             </div>

@@ -750,7 +750,7 @@ export function Schedule() {
 
             <div className="pt-2">
               <a
-                href="https://www.even3.com.br/python-norte-2026-631670/"
+                href="https://talks.python.org.br/python-norte-2026/"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#FFB800] hover:bg-[#FFB800]/90 text-black font-bold py-3.5 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 text-sm"
