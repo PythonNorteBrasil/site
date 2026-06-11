@@ -448,7 +448,7 @@ export function Schedule() {
           </div>
 
           {/* Keynotes Subtitle */}
-          <div className="flex items-center gap-2 pt-8">
+          {/*   <div className="flex items-center gap-2 pt-8">
             <Star
               className="w-6 h-6 text-[#004B23] fill-none"
               strokeWidth={2}
@@ -459,97 +459,12 @@ export function Schedule() {
             >
               Keynotes
             </h3>
-          </div>
+          </div> */}
 
           {/* Keynotes Carousel */}
-          <div className="relative flex items-center justify-between gap-4">
-            {/* Left arrow */}
-            <button
-              onClick={handlePrevKeynote}
-              className="hidden md:flex w-12 h-12 items-center justify-center rounded-full border border-[#FF6B00]/30 hover:bg-[#FF6B00]/10 transition-colors flex-shrink-0"
-              aria-label="Anterior"
-            >
-              <ChevronLeft className="w-8 h-8 text-[#FF6B00]" />
-            </button>
-
-            {/* Carousel Container */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-6">
-              {keynotes.map((keynote, idx) => {
-                const isActiveOnMobile = idx === activeKeynote;
-                return (
-                  <div
-                    key={keynote.id}
-                    className={`${
-                      isActiveOnMobile ? "flex" : "hidden md:flex"
-                    } relative flex-col h-[440px] w-full rounded-[24px] overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group`}
-                  >
-                    {/* Background speaker image */}
-                    <div className="absolute inset-0 bg-black/55 z-10 transition-colors group-hover:bg-black/45" />
-                    <img
-                      src={keynote.image}
-                      alt={keynote.name}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-
-                    {/* Dark gradient bottom */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-15" />
-
-                    {/* Content */}
-                    <div className="relative z-20 h-full p-6 flex flex-col justify-end space-y-3 text-white">
-                      {/* Tag */}
-                      <div>
-                        <span className="inline-block bg-[#FFB800] text-black text-[10px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider">
-                          {keynote.tag}
-                        </span>
-                      </div>
-
-                      {/* Name */}
-                      <div>
-                        <h4 className="text-lg md:text-xl font-bold leading-tight">
-                          {keynote.name}
-                        </h4>
-                        <p className="text-[10px] text-[#FFB800] font-semibold tracking-wider uppercase">
-                          {keynote.role}
-                        </p>
-                      </div>
-
-                      {/* Title */}
-                      <h5 className="text-sm font-semibold text-white/90 italic">
-                        &ldquo;{keynote.title}&rdquo;
-                      </h5>
-
-                      {/* Description */}
-                      <p className="text-xs text-white/80 leading-relaxed line-clamp-4">
-                        {keynote.description}
-                      </p>
-
-                      {/* Details Link */}
-                      <div className="pt-2">
-                        <a
-                          href="#programacao"
-                          className="inline-flex items-center gap-1 text-[11px] font-bold text-[#FFB800] hover:underline"
-                        >
-                          Ver cronograma <ArrowRight className="w-3 h-3" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Right arrow */}
-            <button
-              onClick={handleNextKeynote}
-              className="hidden md:flex w-12 h-12 items-center justify-center rounded-full border border-[#FF6B00]/30 hover:bg-[#FF6B00]/10 transition-colors flex-shrink-0"
-              aria-label="Próximo"
-            >
-              <ChevronRight className="w-8 h-8 text-[#FF6B00]" />
-            </button>
-          </div>
 
           {/* Mobile Indicators */}
-          <div className="flex md:hidden items-center justify-center gap-6 pt-2">
+          {/*   <div className="flex md:hidden items-center justify-center gap-6 pt-2">
             <button
               onClick={handlePrevKeynote}
               className="w-10 h-10 flex items-center justify-center rounded-full border border-[#FF6B00]/30 active:bg-[#FF6B00]/10"
@@ -575,9 +490,9 @@ export function Schedule() {
               <ChevronRight className="w-6 h-6 text-[#FF6B00]" />
             </button>
           </div>
-
+ */}
           {/* Day Switcher */}
-          <div className="flex justify-center gap-4 pt-12">
+          {/*   <div className="flex justify-center gap-4 pt-12">
             {scheduleData.map((day, idx) => {
               const isActive = idx === activeDay;
               return (
@@ -597,10 +512,10 @@ export function Schedule() {
                 </button>
               );
             })}
-          </div>
+          </div> */}
 
           {/* Legend/Filter Badges */}
-          <div className="flex flex-wrap justify-center gap-3 pt-4 pb-8">
+          {/*   <div className="flex flex-wrap justify-center gap-3 pt-4 pb-8">
             {filterTypes.map((item) => {
               const isSelected = activeFilter === item.type;
               return (
@@ -618,118 +533,8 @@ export function Schedule() {
               );
             })}
           </div>
-
+ */}
           {/* Schedule List */}
-          <div className="space-y-4">
-            {filteredSessions.map((session, index) => {
-              let rowBg = "bg-white";
-              let borderLeft = "border-l-4 border-gray-300";
-              let badgeBg = "bg-gray-500 text-white";
-
-              switch (session.type) {
-                case "Keynote":
-                  rowBg = "bg-[#F4FAF5]";
-                  borderLeft = "border-l-[6px] border-[#004B23]";
-                  badgeBg = "bg-[#004B23] text-white";
-                  break;
-                case "Palestra":
-                  rowBg = "bg-[#FFFDF0]";
-                  borderLeft = "border-l-[6px] border-[#FFB800]";
-                  badgeBg = "bg-[#FFB800] text-white";
-                  break;
-                case "Tutorial":
-                  rowBg = "bg-[#FFF6F2]";
-                  borderLeft = "border-l-[6px] border-[#FF6B00]";
-                  badgeBg = "bg-[#FF6B00] text-white";
-                  break;
-                case "Credenciamento":
-                  rowBg = "bg-[#FFF5F5]";
-                  borderLeft = "border-l-[6px] border-[#9E2A2B]";
-                  badgeBg = "bg-[#9E2A2B] text-white";
-                  break;
-                case "Intervalo":
-                  rowBg = "bg-[#F5F7F8]";
-                  borderLeft = "border-l-[6px] border-[#7F8C8D]";
-                  badgeBg = "bg-[#7F8C8D] text-white";
-                  break;
-              }
-
-              return (
-                <div
-                  key={index}
-                  className={`flex flex-col sm:flex-row sm:items-start justify-between p-4 sm:p-5 rounded-2xl ${rowBg} ${borderLeft} shadow-sm border border-[#004B23]/5 transition-all duration-200 gap-4`}
-                >
-                  {/* Left part: Time, Badge, Title, Track, Learning outcomes */}
-                  <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6 flex-grow">
-                    <span className="text-sm font-bold text-[#4A5D4E] min-w-[90px] pt-1">
-                      {session.time}
-                    </span>
-
-                    <div className="flex flex-col gap-2 flex-grow">
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span
-                          className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${badgeBg}`}
-                        >
-                          {session.type}
-                        </span>
-                        <span className="text-sm sm:text-base font-bold text-[#004B23] tracking-tight">
-                          {session.title}
-                        </span>
-                      </div>
-
-                      {session.track && (
-                        <div className="text-[11px] font-semibold text-[#8B5E3C] bg-[#FFF5EE] border border-[#8B5E3C]/10 px-2.5 py-0.5 rounded-md inline-flex items-center gap-1.5 self-start">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C]" />
-                          Trilha: {session.track}
-                        </div>
-                      )}
-
-                      {session.learningOutcomes && (
-                        <p className="text-xs text-[#5D6B60] leading-relaxed font-sans max-w-3xl">
-                          <span className="font-semibold text-[#3D4C40]">
-                            O que os participantes irão aprender ao final da
-                            atividade:
-                          </span>{" "}
-                          {session.learningOutcomes}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Right part: Target, Location, Registration Status */}
-                  <div className="flex items-center gap-3 flex-wrap self-start sm:self-auto pt-1">
-                    {session.target && (
-                      <span
-                        className={`text-[10px] font-bold px-3 py-0.5 rounded-full ${
-                          session.target === "Todos"
-                            ? "bg-[#E2F0D9] text-[#385723]"
-                            : session.target === "Iniciante"
-                              ? "bg-[#DDEBF7] text-[#1F4E79]"
-                              : session.target === "Intermediário"
-                                ? "bg-[#FCE4D6] text-[#C65911]"
-                                : "bg-[#E1D5E7] text-[#6C3483]"
-                        }`}
-                      >
-                        {session.target}
-                      </span>
-                    )}
-
-                    {session.location && (
-                      <span className="text-xs text-[#4A5D4E] font-semibold bg-black/5 px-2.5 py-0.5 rounded-md">
-                        {session.location}
-                      </span>
-                    )}
-
-                    {session.registrationRequired && (
-                      <span className="text-[10px] font-bold text-[#C65911] border border-[#C65911]/30 px-2.5 py-0.5 rounded-full bg-[#FFF2EB]">
-                        Inscrição obrigatória
-                      </span>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
 
           {/* CTA Submit Talk */}
           <div className="bg-[#004B23] rounded-[24px] p-8 md:p-12 text-white shadow-xl text-center space-y-6 flex flex-col items-center max-w-4xl mx-auto pt-16 mt-8">
@@ -750,7 +555,7 @@ export function Schedule() {
 
             <div className="pt-2">
               <a
-                href="https://www.even3.com.br/python-norte-2026-631670/"
+                href="https://talks.python.org.br/python-norte-2026/"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#FFB800] hover:bg-[#FFB800]/90 text-black font-bold py-3.5 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 text-sm"
