@@ -116,13 +116,20 @@ export function Tickets() {
                 )}
 
                 <div className="flex-1">
-                  <h3
-                    className={`text-lg font-bold mb-2 ${
-                      ticket.popular ? "text-[#1F5506]" : "text-white"
-                    }`}
-                  >
-                    {ticket.name}
-                  </h3>
+                  <div className="flex justify-between items-center mb-2 gap-2">
+                    <h3
+                      className={`text-lg font-bold ${
+                        ticket.popular ? "text-[#1F5506]" : "text-white"
+                      }`}
+                    >
+                      {ticket.name}
+                    </h3>
+                    {ticket.popular && (
+                      <span className="bg-gradient-to-r from-red-600 to-orange-500 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded shadow-[0_0_12px_rgba(239,68,68,0.5)] border border-red-500 animate-pulse shrink-0">
+                        Últimas Vagas
+                      </span>
+                    )}
+                  </div>
 
                   <p
                     className={`text-sm mb-4 ${
