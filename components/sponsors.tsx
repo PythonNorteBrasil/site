@@ -100,6 +100,7 @@ export function Sponsors() {
             >
               Patrocinadores
             </h2>
+            <div className="w-14 md:w-16 h-1 mx-auto rounded-full bg-gradient-to-r from-[#004B23] to-[#FF6B00]" />
             <p className="mx-auto max-w-xl text-sm text-green-deep/70 md:text-base">
               Empresas e comunidades que tornam a Python Norte 2026 possivel
             </p>
