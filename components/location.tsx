@@ -59,7 +59,7 @@ export function Location() {
                   <li className="flex items-start gap-2">
                     <span className="text-orange font-bold">🚌</span>
                     <span>
-                      Ônibus: Linhas que passam pela Rod. Augusto Montenegro
+                      Ônibus: Linhas que passam pela BR-316
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
