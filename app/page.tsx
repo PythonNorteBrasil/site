@@ -28,10 +28,10 @@ export default function Home() {
           }}
         />
         <About />
+        <Editions />
         <Activities />
         <Tickets />
         <Schedule />
-        <Editions />
         <Sponsors />
         <Media />
         <Location />
