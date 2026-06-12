@@ -28,6 +28,7 @@ def main():
     event_name = os.environ.get("GITHUB_EVENT_NAME", "push")
     event_path = os.environ.get("GITHUB_EVENT_PATH")
     github_token = os.environ.get("GITHUB_TOKEN")
+    run_id = os.environ.get("GITHUB_RUN_ID", "")
 
     # Carregar o payload do evento do GitHub
     event_data = {}
@@ -167,7 +168,6 @@ def main():
     else:
         branch = os.environ.get("GITHUB_REF_NAME", "main")
         sha = os.environ.get("GITHUB_SHA", "")
-        run_id = os.environ.get("GITHUB_RUN_ID", "")
 
         try:
             commit_message = subprocess.check_output(["git", "log", "-1", "--pretty=%B"]).decode("utf-8").strip()
