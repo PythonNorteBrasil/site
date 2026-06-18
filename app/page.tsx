@@ -4,7 +4,7 @@ import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Activities } from "@/components/activities";
 import { Tickets } from "@/components/tickets";
-import { Schedule } from "@/components/schedule";
+import { Keynotes } from "@/components/keynotes";
 import { Editions } from "@/components/editions";
 import { Sponsors } from "@/components/sponsors";
 import { Media } from "@/components/media";
@@ -17,7 +17,7 @@ export default function Home() {
     <div className="min-h-screen bg-white flex flex-col">
       <CountdownBanner />
       <Header />
-      <main className="flex-grow">
+      <main className="grow">
         <Hero />
 
         <div
@@ -30,7 +30,7 @@ export default function Home() {
         <About />
         <Activities />
         <Tickets />
-        <Schedule />
+        <Keynotes />
         <Editions />
         <Sponsors />
         <Media />

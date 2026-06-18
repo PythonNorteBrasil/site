@@ -13,7 +13,9 @@ export function Header() {
     { href: "#sobre", label: "Sobre" },
     { href: "#atividades", label: "Atividades" },
     { href: "#ingressos", label: "Ingressos" },
-    { href: "#programacao", label: "Programação" },
+    { href: "#keynotes", label: "Keynotes" },
+    { href: "/programacao", label: "Programação" },
+    { href: "/minha-agenda", label: "Minha Agenda" },
     { href: "#patrocinadores", label: "Patrocinadores" },
     { href: "#localizacao", label: "Localização" },
   ];
