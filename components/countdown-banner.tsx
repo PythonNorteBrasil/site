@@ -10,6 +10,17 @@ export function CountdownBanner() {
     minutes: number;
     seconds: number;
   } | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Esconde o banner quando rolar mais de 100px
+      setIsVisible(window.scrollY < 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const targetDate = new Date("2026-07-03T08:00:00-03:00").getTime();
@@ -41,7 +52,11 @@ export function CountdownBanner() {
 
   if (!timeLeft) {
     return (
-      <div className="fixed top-0 left-0 right-0 z-[60] w-full bg-green-900 text-white py-2 px-4 text-center font-medium text-sm flex items-center justify-center gap-2 animate-fade-in">
+      <div
+        className={`fixed top-0 left-0 right-0 z-[60] w-full bg-green-900 text-white py-2 px-4 text-center font-medium text-sm flex items-center justify-center gap-2 transition-transform duration-300 ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <Clock className="w-4 h-4 animate-pulse text-yellow-400" />
         <span>🔥 A Python Norte 2026 já começou! Acompanhe a programação.</span>
       </div>
@@ -51,7 +66,11 @@ export function CountdownBanner() {
   const formatNumber = (num: number) => String(num).padStart(2, "0");
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] w-full bg-green-900 text-white py-1 px-3 border-b border-green-800">
+    <div
+      className={`fixed top-0 left-0 right-0 z-[60] w-full bg-green-900 text-white py-1 px-3 border-b border-green-800 transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="container mx-auto flex flex-wrap items-center justify-center gap-3 md:gap-4">
         <span className="text-xs md:text-sm font-medium text-white/90">
           Faltam apenas:

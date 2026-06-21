@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "Samira Rabelo",
+    "role": "Fundadora do Instituto SaMaker",
+    "tag": "Keynote — Dia 1 - 08:45",
+    "title": "Inovação através da tecnologia, educação e cultura maker",
+    "description": "Mestra em Computação pela UFPA, especialista em educação e robótica. Fundadora do Instituto SaMaker, atua com inovação e cultura maker na educação.",
+    "image": "/image.png",
+    "socials": {
+      "instagram": "https://instagram.com",
+      "linkedin": "https://www.linkedin.com/in/profa-samira-rabelo-2705a1141/"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Marcelo Palladino",
+    "role": "Senior Developer Advocate @ AWS",
+    "tag": "Keynote — Dia 1 - 15:30",
+    "title": "Expandindo os limites do código",
+    "description": "Especialista em cloud, arquitetura e modernização de sistemas. Com mais de 30 anos de experiência, ajuda empresas a escalar soluções com tecnologia.",
+    "image": "/image2.png",
+    "socials": {
+      "instagram": "https://www.instagram.com/palla.tech/",
+      "linkedin": "https://www.linkedin.com/in/mfpalladino/"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Tatiana Pará",
+    "role": "Professora IFPA • Presidente OSGEO Brasil",
+    "tag": "Keynote — Dia 2 - 08:30",
+    "title": "Tecnologias livres e inovação social na Amazônia",
+    "description": "Professora do IFPA e referência em geotecnologias. Atua com tecnologias livres, inclusão digital e inovação social na Amazônia.",
+    "image": "/tatiana.png",
+    "socials": {
+      "instagram": "hhttps://www.instagram.com/tati.para/",
+      "linkedin": "https://www.linkedin.com/in/tatianapara/"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Luciano Martin",
+    "role": "Machine Learning Engineer @ Google DeepMind",
+    "tag": "Keynote — Dia 3 - 09:00",
+    "title": "O futuro da IA e dos dados",
+    "description": "Engenheiro de Machine Learning no Google DeepMind. Atua com IA e Cloud, desenvolvendo soluções aplicadas em escala global.",
+    "image": "/luciano.png",
+    "socials": {
+      "instagram": "https://www.instagram.com/lmm_br/",
+      "linkedin": "https://www.linkedin.com/in/lucianommartins/"
+    }
+  }
+]

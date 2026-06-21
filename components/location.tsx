@@ -4,7 +4,7 @@ import { MapPin, ExternalLink } from "lucide-react";
 
 export function Location() {
   return (
-    <section id="localizacao" className="py-20 md:py-28 bg-cream">
+    <section id="localizacao" className="py-16 md:py-28 bg-cream scroll-mt-0">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Header */}
@@ -58,9 +58,7 @@ export function Location() {
                 <ul className="space-y-3 text-sm text-gray-600">
                   <li className="flex items-start gap-2">
                     <span className="text-orange font-bold">🚌</span>
-                    <span>
-                      Ônibus: Linhas que passam pela BR-316
-                    </span>
+                    <span>Ônibus: Linhas que passam pela BR-316</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-orange font-bold">🚗</span>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { ButtonLink } from "@/design-system/components/Button";
@@ -8,21 +8,33 @@ import { colors } from "@/design-system/tokens/colors";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCountdownVisible, setIsCountdownVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsCountdownVisible(window.scrollY < 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { href: "#sobre", label: "Sobre" },
-    { href: "#atividades", label: "Atividades" },
+    /*   { href: "#atividades", label: "Atividades" }, */
     { href: "#ingressos", label: "Ingressos" },
     { href: "#keynotes", label: "Keynotes" },
-    { href: "/programacao", label: "Programação" },
-    { href: "/minha-agenda", label: "Minha Agenda" },
+    /* { href: "/programacao", label: "Programação" }, */
+    /* { href: "/minha-agenda", label: "Minha Agenda" }, */
     { href: "#patrocinadores", label: "Patrocinadores" },
     { href: "#localizacao", label: "Localização" },
   ];
 
   return (
     <header
-      className="fixed top-[60px] z-50 w-full border-b"
+      className={`fixed z-50 w-full border-b transition-all duration-300 ${
+        isCountdownVisible ? "top-[60px]" : "top-0"
+      }`}
       style={{
         backgroundColor: colors.background.header,
         borderColor: colors.border.light,

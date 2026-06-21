@@ -52,7 +52,7 @@ export function Tickets() {
   ];
 
   return (
-    <section id="ingressos" className="py-12 md:py-14 bg-cream scroll-mt-10">
+    <section id="ingressos" className="py-12 md:py-14 bg-cream scroll-mt-2">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}

@@ -1,14 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {
-  ArrowRight,
-  Mail,
-  UsersRound,
-  Gem,
-  Trophy,
-  Award
-} from "lucide-react";
+import { ArrowRight, Mail, UsersRound, Gem, Trophy, Award } from "lucide-react";
 
 type SponsorLogo = {
   name: string;
@@ -58,11 +51,11 @@ export function Sponsors() {
     {
       name: "Prata",
       logos: [
-        { 
+        {
           name: "Easygestor",
           src: "/assets/sponsors/easygestor.png",
           href: "https://easygestor.com",
-        }
+        },
       ],
     },
   ];
@@ -76,7 +69,10 @@ export function Sponsors() {
   ];
 
   return (
-    <section id="patrocinadores" className="bg-[#f4efdd] py-20 md:py-28">
+    <section
+      id="patrocinadores"
+      className="bg-[#f4efdd] py-20 md:py-12 scroll-mt-0"
+    >
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-5xl space-y-14">
           <div className="space-y-2 text-center md:space-y-3">
@@ -112,11 +108,13 @@ export function Sponsors() {
               if (tier.name === "Diamante") {
                 tierHeadingClass = "text-[#A33D06] dark:text-[#E37700]"; // Gold/Orange theme
                 gridClass = "flex flex-wrap justify-center gap-8";
-                cardClass = "relative overflow-hidden w-full max-w-[380px] rounded-3xl border-2 border-[#FFB000] bg-white p-8 shadow-[0_16px_36px_rgba(255,176,0,0.18)] hover:-translate-y-1.5 hover:shadow-[0_24px_48px_rgba(255,176,0,0.28)] transition-all duration-300";
+                cardClass =
+                  "relative overflow-hidden w-full max-w-[380px] rounded-3xl border-2 border-[#FFB000] bg-white p-8 shadow-[0_16px_36px_rgba(255,176,0,0.18)] hover:-translate-y-1.5 hover:shadow-[0_24px_48px_rgba(255,176,0,0.28)] transition-all duration-300";
                 logoHeightClass = "h-20 md:h-24";
                 logoContainerMinHeightClass = "min-h-[110px]";
                 badgeClass = "bg-[#FEF5E9] text-[#E37700] border-[#FDE7C2]";
-                insigniaBgClass = "bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-[#FFB000] shadow-[0_0_12px_rgba(255,176,0,0.6)]";
+                insigniaBgClass =
+                  "bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-[#FFB000] shadow-[0_0_12px_rgba(255,176,0,0.6)]";
                 insigniaIconClass = "text-[#E37700] animate-pulse";
                 InsigniaIcon = Gem;
                 imageWidth = 300;
@@ -124,23 +122,29 @@ export function Sponsors() {
               } else if (tier.name === "Ouro") {
                 tierHeadingClass = "text-[#C49A28]"; // Gold theme
                 gridClass = "flex flex-wrap justify-center gap-6";
-                cardClass = "relative overflow-hidden w-full max-w-[300px] rounded-2xl border border-[#FDE7C2] bg-white p-6 shadow-[0_10px_24px_rgba(242,195,79,0.1)] hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(242,195,79,0.18)] transition-all duration-300";
+                cardClass =
+                  "relative overflow-hidden w-full max-w-[300px] rounded-2xl border border-[#FDE7C2] bg-white p-6 shadow-[0_10px_24px_rgba(242,195,79,0.1)] hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(242,195,79,0.18)] transition-all duration-300";
                 logoHeightClass = "h-14 md:h-16";
                 logoContainerMinHeightClass = "min-h-[85px]";
                 badgeClass = "bg-amber-50 text-amber-700 border-amber-200";
-                insigniaBgClass = "bg-gradient-to-br from-amber-50 to-[#fffbeb] border border-[#FDE7C2] shadow-[0_0_10px_rgba(196,154,40,0.5)]";
+                insigniaBgClass =
+                  "bg-gradient-to-br from-amber-50 to-[#fffbeb] border border-[#FDE7C2] shadow-[0_0_10px_rgba(196,154,40,0.5)]";
                 insigniaIconClass = "text-amber-600";
                 InsigniaIcon = Trophy;
                 imageWidth = 220;
                 imageHeight = 80;
-              } else { // Prata e outros
+              } else {
+                // Prata e outros
                 tierHeadingClass = "text-neutral-500"; // Silver/Neutral theme
                 gridClass = "flex flex-wrap justify-center gap-5";
-                cardClass = "relative overflow-hidden w-full max-w-[220px] rounded-xl border border-neutral-200 bg-white p-5 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-300";
+                cardClass =
+                  "relative overflow-hidden w-full max-w-[220px] rounded-xl border border-neutral-200 bg-white p-5 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-300";
                 logoHeightClass = "h-10 md:h-11";
                 logoContainerMinHeightClass = "min-h-[65px]";
-                badgeClass = "bg-neutral-50 text-neutral-600 border-neutral-200";
-                insigniaBgClass = "bg-neutral-50 border border-neutral-200 shadow-[0_0_8px_rgba(115,115,115,0.4)]";
+                badgeClass =
+                  "bg-neutral-50 text-neutral-600 border-neutral-200";
+                insigniaBgClass =
+                  "bg-neutral-50 border border-neutral-200 shadow-[0_0_8px_rgba(115,115,115,0.4)]";
                 insigniaIconClass = "text-neutral-500";
                 InsigniaIcon = Award;
                 imageWidth = 160;
@@ -152,7 +156,9 @@ export function Sponsors() {
                   {/* Divisor/Título do Nível */}
                   <div className="flex items-center justify-center gap-3">
                     <div className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-transparent to-neutral-300" />
-                    <span className={`text-[10px] md:text-xs font-black uppercase tracking-widest ${tierHeadingClass}`}>
+                    <span
+                      className={`text-[10px] md:text-xs font-black uppercase tracking-widest ${tierHeadingClass}`}
+                    >
                       Patrocínio {tier.name}
                     </span>
                     <div className="h-px flex-1 max-w-[120px] bg-gradient-to-l from-transparent to-neutral-300" />
@@ -172,12 +178,18 @@ export function Sponsors() {
                       >
                         {/* Insígnia do Patrocinador */}
                         <div className="absolute top-3 right-3 flex items-center justify-center z-10">
-                          <div className={`flex h-7 w-7 items-center justify-center rounded-full ${insigniaBgClass}`}>
-                            <InsigniaIcon className={`h-4 w-4 ${insigniaIconClass}`} />
+                          <div
+                            className={`flex h-7 w-7 items-center justify-center rounded-full ${insigniaBgClass}`}
+                          >
+                            <InsigniaIcon
+                              className={`h-4 w-4 ${insigniaIconClass}`}
+                            />
                           </div>
                         </div>
 
-                        <div className={`flex flex-1 items-center justify-center w-full ${logoContainerMinHeightClass} mb-4`}>
+                        <div
+                          className={`flex flex-1 items-center justify-center w-full ${logoContainerMinHeightClass} mb-4`}
+                        >
                           {logo.src ? (
                             <Image
                               src={logo.src}
@@ -196,7 +208,9 @@ export function Sponsors() {
                           <p className="text-xs font-bold text-neutral-800 leading-tight">
                             {logo.name}
                           </p>
-                          <span className={`mt-1.5 inline-block text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded border ${badgeClass}`}>
+                          <span
+                            className={`mt-1.5 inline-block text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded border ${badgeClass}`}
+                          >
                             {tier.name}
                           </span>
                         </div>
@@ -208,50 +222,50 @@ export function Sponsors() {
             })}
           </div>
 
-            {pyeguaBadges.length > 0 && (
-              <div className="mx-auto w-full max-w-[340px] rounded-xl border border-[#b6cc92] bg-[#d8e5bd] px-6 py-4 text-center">
-                <p className="text-sm font-black text-green-deep">PyEgua</p>
-                {pyeguaBadges.map((badge, idx) => (
-                  <p
-                    key={`${badge}-${idx}`}
-                    className="text-[10px] leading-tight text-green-deep/80"
+          {pyeguaBadges.length > 0 && (
+            <div className="mx-auto w-full max-w-[340px] rounded-xl border border-[#b6cc92] bg-[#d8e5bd] px-6 py-4 text-center">
+              <p className="text-sm font-black text-green-deep">PyEgua</p>
+              {pyeguaBadges.map((badge, idx) => (
+                <p
+                  key={`${badge}-${idx}`}
+                  className="text-[10px] leading-tight text-green-deep/80"
+                >
+                  {badge}
+                </p>
+              ))}
+            </div>
+          )}
+
+          {communityBadges.length > 0 && (
+            <div className="space-y-3">
+              <div className="flex items-center justify-center gap-2 text-green-deep">
+                <UsersRound className="h-3.5 w-3.5" />
+                <h3
+                  className="text-base font-bold"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Comunidades Apoiadoras
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-3">
+                {communityBadges.map((badge) => (
+                  <a
+                    key={badge.id}
+                    href={badge.href ?? "#"}
+                    target={badge.href ? "_blank" : undefined}
+                    rel={badge.href ? "noopener noreferrer" : undefined}
+                    className="w-[148px] rounded-lg border border-[#d5dbcc] bg-[#f6f8f0] px-3 py-2.5 text-center"
                   >
-                    {badge}
-                  </p>
+                    <div className="mx-auto h-4 w-10 rounded bg-[#dbe2d4]" />
+                    <p className="mt-1.5 text-[10px] font-semibold leading-tight text-green-deep/80">
+                      {badge.name}
+                    </p>
+                  </a>
                 ))}
               </div>
-            )}
-
-            {communityBadges.length > 0 && (
-              <div className="space-y-3">
-                <div className="flex items-center justify-center gap-2 text-green-deep">
-                  <UsersRound className="h-3.5 w-3.5" />
-                  <h3
-                    className="text-base font-bold"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    Comunidades Apoiadoras
-                  </h3>
-                </div>
-
-                <div className="flex flex-wrap justify-center gap-3">
-                  {communityBadges.map((badge) => (
-                    <a
-                      key={badge.id}
-                      href={badge.href ?? "#"}
-                      target={badge.href ? "_blank" : undefined}
-                      rel={badge.href ? "noopener noreferrer" : undefined}
-                      className="w-[148px] rounded-lg border border-[#d5dbcc] bg-[#f6f8f0] px-3 py-2.5 text-center"
-                    >
-                      <div className="mx-auto h-4 w-10 rounded bg-[#dbe2d4]" />
-                      <p className="mt-1.5 text-[10px] font-semibold leading-tight text-green-deep/80">
-                        {badge.name}
-                      </p>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
+            </div>
+          )}
 
           <div className="mx-auto max-w-4xl rounded-2xl border border-[#e3b11a] bg-[#ffc61e] p-7 text-center shadow-[0_20px_38px_rgba(0,0,0,0.24)] md:p-10">
             <h3

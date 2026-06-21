@@ -63,10 +63,7 @@ export function Activities() {
   ];
 
   return (
-    <section
-      id="atividades"
-      className="py-8 md:py-10 bg-[#FAF7F0] scroll-mt-20"
-    >
+    <section id="atividades" className="py-8 md:py-10 bg-[#FAF7F0] scroll-mt-2">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-6 md:space-y-10">
           {/* Header */}
