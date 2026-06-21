@@ -98,7 +98,7 @@ export function About() {
                   networking.
                 </p>
                 <p>
-                  Durante <strong>3 dias de programação</strong>, os
+                  Durante <strong>2 dias de programação</strong>, os
                   participantes exploram temas como{" "}
                   <strong>desenvolvimento de software</strong>,
                   <strong> ciência de dados</strong> e{" "}

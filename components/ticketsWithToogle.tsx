@@ -42,7 +42,7 @@ export function Tickets() {
   ];
 
   const benefits = [
-    "3 dias de evento",
+    "2 dias de evento",
     "Palestras e keynotes",
     "Workshops",
     "Acesso completo ao evento",
