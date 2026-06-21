@@ -136,7 +136,7 @@ xl:max-w-[600px] lg:ml-auto"
                     </p>
 
                     <p className="text-sm lg:text-base text-white font-bold whitespace-nowrap overflow-hidden text-ellipsis">
-                      03–05 de Julho de 2026
+                      3 e 4 de Julho de 2026
                     </p>
                   </div>
 
@@ -149,7 +149,7 @@ xl:max-w-[600px] lg:ml-auto"
                           "Três dias de imersão em tecnologia, inovação e conexão",
                         location: "UNAMA Ananindeua - PA",
                         startDate: "20260703T080000",
-                        endDate: "20260705T180000",
+                        endDate: "20260704T180000",
                       };
 
                       const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(

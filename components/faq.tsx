@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "Quando e onde será o evento?",
     answer:
-      "A Python Norte 2026 acontecerá nos dias 03, 04 e 05 de julho de 2026, das 08:00 às 17:00 (GMT-3), de forma presencial na UNAMA - Campus Ananindeua, em Ananindeua - Pará - Brasil.",
+      "A Python Norte 2026 acontecerá nos dias 03 e 04 de julho de 2026, das 08:00 às 17:00 (GMT-3), de forma presencial na UNAMA - Campus Ananindeua, em Ananindeua - Pará - Brasil.",
   },
   {
     question: "Como compro meu ingresso?",

@@ -242,7 +242,7 @@ export function InfoCard() {
       }}
     >
       <h3 className="text-xl font-bold text-white mb-2">Quando</h3>
-      <p className="text-white/90">03-05 de Julho de 2026</p>
+      <p className="text-white/90">03 e 04 de Julho de 2026</p>
     </div>
   );
 }
