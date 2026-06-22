@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Samira Rabelo",
-    "role": "Fundadora do Instituto SaMaker",
+    "role": "Professora e Fundadora do Instituto SaMaker",
     "tag": "Keynote — Dia 1 - 08:45",
     "title": "Inovação através da tecnologia, educação e cultura maker",
     "description": "Mestra em Computação pela UFPA, especialista em educação e robótica. Fundadora do Instituto SaMaker, atua com inovação e cultura maker na educação.",
@@ -15,11 +15,11 @@
   {
     "id": 2,
     "name": "Marcelo Palladino",
-    "role": "Senior Developer Advocate @ AWS",
+    "role": "Diretor de AI & Modernization @ Dati",
     "tag": "Keynote — Dia 1 - 15:30",
     "title": "Expandindo os limites do código",
     "description": "Especialista em cloud, arquitetura e modernização de sistemas. Com mais de 30 anos de experiência, ajuda empresas a escalar soluções com tecnologia.",
-    "image": "/image2.png",
+    "image": "/marcelo.png",
     "socials": {
       "instagram": "https://www.instagram.com/palla.tech/",
       "linkedin": "https://www.linkedin.com/in/mfpalladino/"
@@ -28,7 +28,7 @@
   {
     "id": 3,
     "name": "Tatiana Pará",
-    "role": "Professora IFPA • Presidente OSGEO Brasil",
+    "role": "Professora no IFPA e Presidente OSGeo Brasil",
     "tag": "Keynote — Dia 2 - 08:30",
     "title": "Tecnologias livres e inovação social na Amazônia",
     "description": "Professora do IFPA e referência em geotecnologias. Atua com tecnologias livres, inclusão digital e inovação social na Amazônia.",
@@ -41,7 +41,7 @@
   {
     "id": 4,
     "name": "Luciano Martin",
-    "role": "Machine Learning Engineer @ Google DeepMind",
+    "role": "Engenheiro de Machine Learning @ Google DeepMind",
     "tag": "Keynote — Dia 3 - 09:00",
     "title": "O futuro da IA e dos dados",
     "description": "Engenheiro de Machine Learning no Google DeepMind. Atua com IA e Cloud, desenvolvendo soluções aplicadas em escala global.",

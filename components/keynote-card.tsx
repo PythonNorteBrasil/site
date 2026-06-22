@@ -73,9 +73,7 @@ export function KeynoteCard({
           {name}
         </h3>
 
-        <p className="mt-1 text-[10px] sm:text-[12px] text-gray-500 line-clamp-1">
-          {role}
-        </p>
+        <p className="mt-1 text-[10px] sm:text-[12px] text-gray-500 ">{role}</p>
 
         <p
           className="
