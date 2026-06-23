@@ -29,8 +29,8 @@ export function Editions() {
   const [activeYear, setActiveYear] = useState<"2024" | "2025">("2025");
 
   return (
-    <section className="py-20 md:py-28 bg-orange">
-      <div className="container mx-auto px-4">
+    <section className="min-h-[100vh] lg:min-h-[calc(100vh-3.5rem)] flex items-center py-20 md:py-28 bg-orange">
+      <div className="container mx-auto px-4 w-full">
         <div className="max-w-6xl mx-auto space-y-10">
           {/* Header */}
           <div className="text-center space-y-2 md:space-y-3">

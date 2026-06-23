@@ -14,15 +14,19 @@ export function Hero() {
         className="relative min-h-[100vh] lg:min-h-[calc(100vh-3.5rem)] w-full flex items-center overflow-x-hidden overflow-y-hidden pt-[136px] pb-8 lg:pt-[136px] lg:pb-12 scroll-mt-[128px] lg:px-10"
       >
         {/* Background */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/forest.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
+        <div className="absolute inset-0">
+          <Image
+            src="/forest.jpg"
+            alt="Floresta Amazônica"
+            fill
+            priority
+            quality={85}
+            sizes="100vw"
+            className="object-cover object-center"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQAAA//9k="
+          />
+        </div>
 
         {/* Camada verde */}
         <div className="absolute inset-0 bg-green-900/45 lg:bg-green-900/55" />
@@ -75,7 +79,7 @@ export function Hero() {
                     "0 2px 12px rgba(0,0,0,.95), 0 4px 24px rgba(0,0,0,.8)",
                 }}
               >
-                Três dias de imersão em tecnologia, inovação e conexão, reunindo
+                Dois dias de imersão em tecnologia, inovação e conexão, reunindo
                 desenvolvedores da Região Norte e de todo o Brasil para
                 aprender, compartilhar experiências e fortalecer a comunidade.
               </p>
@@ -146,7 +150,7 @@ xl:max-w-[600px] lg:ml-auto"
                       const event = {
                         title: "Python Norte 2026",
                         description:
-                          "Três dias de imersão em tecnologia, inovação e conexão",
+                          "Dois dias de imersão em tecnologia, inovação e conexão",
                         location: "UNAMA Ananindeua - PA",
                         startDate: "20260703T080000",
                         endDate: "20260704T180000",

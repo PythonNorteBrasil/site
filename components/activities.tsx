@@ -63,8 +63,11 @@ export function Activities() {
   ];
 
   return (
-    <section id="atividades" className="py-8 md:py-10 bg-[#FAF7F0] scroll-mt-2">
-      <div className="container mx-auto px-4">
+    <section
+      id="atividades"
+      className="min-h-[100vh] lg:min-h-[calc(100vh-3.5rem)] flex items-center py-8 md:py-10 bg-[#FAF7F0] scroll-mt-2"
+    >
+      <div className="container mx-auto px-4 w-full">
         <div className="max-w-6xl mx-auto space-y-6 md:space-y-10">
           {/* Header */}
           <div className="text-center space-y-2 md:space-y-3">
@@ -79,7 +82,7 @@ export function Activities() {
 
             <p className="text-[#004B23]/80 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
               Entenda cada formato de atividade e o que esperar de cada uma
-              durante os três dias de evento
+              durante os dois dias de evento
             </p>
           </div>
 

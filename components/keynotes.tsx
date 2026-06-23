@@ -10,12 +10,12 @@ export function Keynotes() {
   return (
     <section
       id="keynotes"
-      className="relative py-10 md:py-10 bg-brand-bg text-brand-text scroll-mt-0"
+      className="relative min-h-[100vh] lg:min-h-[calc(100vh-3.5rem)] flex items-center py-10 md:py-10 bg-brand-bg text-brand-text scroll-mt-0"
       aria-label="Keynotes"
     >
       <div className="absolute inset-0 bg-[url('/quadradinho.png')] opacity-10 bg-repeat pointer-events-none" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 w-full">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Header */}
           <div className="text-center space-y-2">

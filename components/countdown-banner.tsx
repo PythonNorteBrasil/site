@@ -50,7 +50,7 @@ export function CountdownBanner() {
     return () => clearInterval(interval);
   }, []);
 
-  if (!timeLeft) {
+  /*   if (!timeLeft) {
     return (
       <div
         className={`fixed top-0 left-0 right-0 z-[60] w-full bg-green-900 text-white py-2 px-4 text-center font-medium text-sm flex items-center justify-center gap-2 transition-transform duration-300 ${
@@ -61,7 +61,9 @@ export function CountdownBanner() {
         <span>🔥 A Python Norte 2026 já começou! Acompanhe a programação.</span>
       </div>
     );
-  }
+  } */
+
+  if (!timeLeft) return null;
 
   const formatNumber = (num: number) => String(num).padStart(2, "0");
 

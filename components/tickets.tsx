@@ -15,8 +15,11 @@ export function Tickets() {
   ];
 
   return (
-    <section id="ingressos" className="py-12 md:py-12 bg-cream scroll-mt-0">
-      <div className="container mx-auto px-4">
+    <section
+      id="ingressos"
+      className="min-h-[100vh] lg:min-h-[calc(100vh-3.5rem)] flex items-center py-12 md:py-12 bg-cream scroll-mt-0"
+    >
+      <div className="container mx-auto px-4 w-full">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
