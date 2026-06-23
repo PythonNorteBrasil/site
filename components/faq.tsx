@@ -25,11 +25,6 @@ const faqs = [
       "O evento é 100% presencial. Não haverá transmissão online nesta edição.",
   },
   {
-    question: "Posso submeter uma palestra?",
-    answer:
-      "Sim! A chamada de trabalhos (Call for Papers) será aberta em breve. Fique atento às nossas redes sociais para não perder o prazo de submissão.",
-  },
-  {
     question: "Há vagas para voluntários?",
     answer:
       "Sim! Precisamos de voluntários para ajudar na organização do evento. Se você tem interesse, entre em contato pelo e-mail contato@pythonnorte.org.",
