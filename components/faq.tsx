@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "Tem estacionamento no local?",
     answer:
-      "Sim, a UNAMA Campus Ananindeua dispõe de estacionamento gratuito para os participantes do evento.",
+      "Sim, a UNAMA Campus Ananindeua dispõe de estacionamento pago: R$ 10 para carros e R$ 8 para motos. A taxa é única — só é cobrada novamente se você sair e retornar. O campus também conta com bicicletário gratuito, porém o condutor é responsável pela segurança da sua bicicleta, então leve seu cadeado.",
   },
 ];
 
