@@ -22,7 +22,7 @@ export function Header() {
   const navLinks = [
     { href: "#sobre", label: "Sobre" },
     /*   { href: "#atividades", label: "Atividades" }, */
-    { href: "#ingressos", label: "Ingressos" },
+    /*   { href: "#ingressos", label: "Ingressos" }, */
     { href: "#keynotes", label: "Keynotes" },
     /* { href: "/programacao", label: "Programação" }, */
     /* { href: "/minha-agenda", label: "Minha Agenda" }, */
@@ -67,13 +67,13 @@ export function Header() {
             </nav>
 
             <ButtonLink
-              href="https://www.even3.com.br/python-norte-2026-631670/"
+              href="https://talks.python.org.br/python-norte-2026/featured/"
               target="_blank"
               rel="noopener noreferrer"
               variant="primary"
               size="sm"
             >
-              Garanta sua vaga
+              Ver Programação Inicial
             </ButtonLink>
           </div>
 
@@ -118,7 +118,7 @@ export function Header() {
             </nav>
 
             <ButtonLink
-              href="https://www.even3.com.br/python-norte-2026-631670/"
+              href="https://talks.python.org.br/python-norte-2026/featured/"
               target="_blank"
               rel="noopener noreferrer"
               variant="primary"
@@ -127,7 +127,7 @@ export function Header() {
               className="mt-4"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Garanta sua vaga
+              Ver Programação Inicial
             </ButtonLink>
           </div>
         </div>

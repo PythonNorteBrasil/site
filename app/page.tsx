@@ -27,7 +27,7 @@ export default function Home() {
         />
         <About />
         <Activities />
-        <Tickets />
+        {/* <Tickets /> */}
         <Keynotes />
         <Editions />
         <Sponsors />

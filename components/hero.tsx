@@ -86,28 +86,30 @@ export function Hero() {
 
               {/* Botões - Mobile: CTA em destaque, Desktop: todos juntos */}
               <div className="w-full lg:w-auto">
-                {/* Mobile: Apenas CTA principal */}
-                <ButtonLink
-                  href="https://www.even3.com.br/python-norte-2026-631670/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="primary"
-                  size="md"
-                  className="w-full lg:hidden mb-4"
-                >
-                  Garantir Ingressos
-                </ButtonLink>
+                {/* Mobile: Botões empilhados */}
+                <div className="flex flex-col gap-3 lg:hidden mb-4">
+                  <ButtonLink
+                    href="https://talks.python.org.br/python-norte-2026/featured/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="primary"
+                    size="md"
+                    className="w-full"
+                  >
+                    Ver Programação Inicial
+                  </ButtonLink>
+                </div>
 
-                {/* Desktop: Ambos os botões principais */}
+                {/* Desktop: Botões lado a lado */}
                 <div className="hidden lg:flex gap-4">
                   <ButtonLink
-                    href="https://www.even3.com.br/python-norte-2026-631670/"
+                    href="https://talks.python.org.br/python-norte-2026/featured/"
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="primary"
                     size="md"
                   >
-                    Garantir Ingressos
+                    Ver Programação Inicial
                   </ButtonLink>
                 </div>
               </div>
