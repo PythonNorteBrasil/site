@@ -1,0 +1,296 @@
+[
+  {
+    "ID": "3NFZGC",
+    "Nome": "Brenda Freire",
+    "Biografia": "Brenda Freire \u00e9 engenheira ambiental e de energias renov\u00e1veis que realizou sua transi\u00e7\u00e3o de carreira para a \u00e1rea de An\u00e1lise de Dados em 2024. Atua com Intelig\u00eancia de Neg\u00f3cios (BI), an\u00e1lise de dados e controladoria, unindo vis\u00e3o estrat\u00e9gica e t\u00e9cnica para apoiar a tomada de decis\u00f5es. Ao longo de sua trajet\u00f3ria, participou e ajudou a construir comunidades voltadas para tecnologia, aprendizado e desenvolvimento profissional, contribuindo para a forma\u00e7\u00e3o e o fortalecimento de redes colaborativas. Atualmente, segue aprofundando seus conhecimentos em Engenharia de Dados, com foco em inova\u00e7\u00e3o, educa\u00e7\u00e3o e impacto social/ambiental.",
+    "E-mail": "brendajoycefreire@gmail.com",
+    "Imagem": null,
+    "IDs de proposta": [
+      "VJYLFC"
+    ],
+    "T\u00edtulos das propostas": [
+      "Caminhos para alavancar a sua entrada no mundo tech"
+    ]
+  },
+  {
+    "ID": "7PFJLH",
+    "Nome": "Maria Eduarda",
+    "Biografia": "Maria Eduarda Farias de Sousa \u00e9 graduanda em Engenharia de Software, estagi\u00e1ria de Desenvolvimento de Software e volunt\u00e1ria nas comunidades AWS User Group Manaus, PyLadies Manaus e DevOps Manaus. Atua com Python, automa\u00e7\u00f5es e iniciativas de educa\u00e7\u00e3o e inclus\u00e3o na tecnologia.",
+    "E-mail": "mariaeduardafarias984@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/YFL7EV_lCIisdc.webp",
+    "IDs de proposta": [
+      "8PVRGB",
+      "GKTSZ9"
+    ],
+    "T\u00edtulos das propostas": [
+      "Python como ponto de partida: comunidade, carreira e pertencimento.",
+      "Chicas Digitais: Tr\u00eas idiomas, uma linguagem, muitos futuros"
+    ]
+  },
+  {
+    "ID": "99CX7Y",
+    "Nome": "Beatriz Gomes",
+    "Biografia": "Beatriz Gomes atua na \u00e1rea de Dados desde 2020, com experi\u00eancia em An\u00e1lise de Dados, Business Intelligence e desenvolvimento de solu\u00e7\u00f5es anal\u00edticas voltadas ao apoio \u00e0 tomada de decis\u00f5es.\r\nAtualmente \u00e9 Coordenadora de Produtos na Solus IT\u2060, onde participa da cria\u00e7\u00e3o e evolu\u00e7\u00e3o de produtos e solu\u00e7\u00f5es tecnol\u00f3gicas. Possui certifica\u00e7\u00e3o Microsoft Power BI Data Analyst Associate e experi\u00eancia no desenvolvimento de dashboards, integra\u00e7\u00f5es de APIs com Python e automa\u00e7\u00e3o de processos, transformando dados em informa\u00e7\u00f5es estrat\u00e9gicas para neg\u00f3cios.",
+    "E-mail": "biamota49@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/QSHPAH_KuO1AMp.webp",
+    "IDs de proposta": [
+      "FZVYFX"
+    ],
+    "T\u00edtulos das propostas": [
+      "Li\u00e7\u00f5es do Mundo Real: O que os cursos n\u00e3o te mostram"
+    ]
+  },
+  {
+    "ID": "9JRSXS",
+    "Nome": "Cleber Soares",
+    "Biografia": "Entusiasta de hardware hacking, biohacking e software livre, com mais de 20 anos de experi\u00eancia na \u00e1rea de tecnologia. P\u00f3s-graduado em CyberSecurity e Threat Intelligence, atua em an\u00e1lise de malwares, resposta a incidentes e computa\u00e7\u00e3o forense. Fundador e l\u00edder do OWASP Bel\u00e9m, \u00e9 tamb\u00e9m membro da Devs Norte, Google GDG Bel\u00e9m e do SOC Brazil, al\u00e9m de autor e coautor de livros e revistas sobre ciberseguran\u00e7a.",
+    "E-mail": "cleber.soares@owasp.org",
+    "Imagem": "https://talks.python.org.br/media/avatars/KYW33X_lukf6Iq.webp",
+    "IDs de proposta": [
+      "DQARKY"
+    ],
+    "T\u00edtulos das propostas": [
+      "Threat Intelligence com Python: Enriquecendo IOCs em Tempo Real"
+    ]
+  },
+  {
+    "ID": "A3CNP3",
+    "Nome": "Thalyson W Da Silva",
+    "Biografia": "Programador Python S\u00eanior, com experi\u00eancia em APIs com Django\r\nEntusiasta de tecnologia, criador da comunidade Python Par\u00e1 e volunt\u00e1rio por paix\u00e3o.\r\nTorcedor do Paysandu",
+    "E-mail": "thalison.wilker@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/FMBRXM_ELEXQXT.webp",
+    "IDs de proposta": [
+      "XLQU7P"
+    ],
+    "T\u00edtulos das propostas": [
+      "Qualidade de Sofwate com Django e IA: explorando o futuro desde agora"
+    ]
+  },
+  {
+    "ID": "A9F8VG",
+    "Nome": "Paula SIlva",
+    "Biografia": "M\u00e3e, graduanda em Ci\u00eancia da Computa\u00e7\u00e3o pela UFAM, Analista de Software Trainee no Instituto Eldorado;\r\n\r\nEmbaixadora LinuxTips.local Manaus;\r\n\r\nOrganizadora das comunidades DevOps Manaus, AWS UG Manaus e PyLadies Manaus;\r\n\r\nAtuo como volunt\u00e1ria em projetos que promovem a democratiza\u00e7\u00e3o do ensino de programa\u00e7\u00e3o.",
+    "E-mail": "paulajsilva6@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/FNUDRZ_eN7c81i.webp",
+    "IDs de proposta": [
+      "8PVRGB",
+      "GKTSZ9"
+    ],
+    "T\u00edtulos das propostas": [
+      "Python como ponto de partida: comunidade, carreira e pertencimento.",
+      "Chicas Digitais: Tr\u00eas idiomas, uma linguagem, muitos futuros"
+    ]
+  },
+  {
+    "ID": "BHJ8BN",
+    "Nome": "Profa. Me. Samira Rabelo",
+    "Biografia": "Mestra em Computa\u00e7\u00e3o PPGCOMP UFPA\r\nEspecialista em Tecnologias Digitais Aplicadas a Educa\u00e7\u00e3o\r\nEspecialista em Rob\u00f3tica Educacional",
+    "E-mail": "rabelosamira.sr@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/RXZ77R_LCOGy8c.webp",
+    "IDs de proposta": [
+      "MKBYLD"
+    ],
+    "T\u00edtulos das propostas": [
+      "Muito Al\u00e9m do C\u00f3digo: Uma Professora de Computa\u00e7\u00e3o na Amaz\u00f4nia"
+    ]
+  },
+  {
+    "ID": "EZKCZA",
+    "Nome": "Thayana Mamor\u00e9",
+    "Biografia": "Thayana Mamor\u00e9 \u00e9 Coordenadora de Projetos, engenheira de software e articuladora de comunidades de tecnologia, com atua\u00e7\u00e3o em inova\u00e7\u00e3o, desenvolvimento de talentos e fortalecimento do ecossistema tecnol\u00f3gico na Amaz\u00f4nia. \u00c9 l\u00edder do AWS User Group Bel\u00e9m, organizadora da comunidade Devs Norte e GDG Bel\u00e9m. Atua na promo\u00e7\u00e3o de iniciativas de capacita\u00e7\u00e3o em computa\u00e7\u00e3o em nuvem, intelig\u00eancia artificial e desenvolvimento de software.\r\nFoi reconhecida no AWS LATAM Developer Experience Community Awards 2025 como **Rising Star of the Year**. Como palestrante e instrutora, acredita no compartilhamento de conhecimento como ferramenta para ampliar oportunidades e fortalecer a comunidade de tecnologia na regi\u00e3o Norte do Brasil.",
+    "E-mail": "thayanacmamore@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/PKHRRP_vniJv8u.webp",
+    "IDs de proposta": [
+      "8WGLWW"
+    ],
+    "T\u00edtulos das propostas": [
+      "Python e Desenvolvimento Assistido por IA: Vibe vs Spec no Kiro"
+    ]
+  },
+  {
+    "ID": "FZM9LC",
+    "Nome": "Jamile Menezes",
+    "Biografia": "Discente do 4 semestre do curso de An\u00e1lise e Desenvolvimento de Sistemas no IFPa e estagi\u00e1ria em uma institui\u00e7\u00e3o financeira",
+    "E-mail": "just.code.jam@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/QHRX3A_9CSZcK5.webp",
+    "IDs de proposta": [
+      "E33387"
+    ],
+    "T\u00edtulos das propostas": [
+      "Python, Excel e Power BI: Experi\u00eancia de Est\u00e1gio em Dados em uma Institui\u00e7\u00e3o Financeira"
+    ]
+  },
+  {
+    "ID": "L8CZFN",
+    "Nome": "Bel\u00e9m Ribeiro",
+    "Biografia": "Estudante de Ci\u00eancia da Computa\u00e7\u00e3o | Desenvolvedor Backend | Pesquisador na \u00e1rea de PLN",
+    "E-mail": "belemcampeloribeiro@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/HWRC99_PiLLmFM.webp",
+    "IDs de proposta": [
+      "E33387"
+    ],
+    "T\u00edtulos das propostas": [
+      "Python, Excel e Power BI: Experi\u00eancia de Est\u00e1gio em Dados em uma Institui\u00e7\u00e3o Financeira"
+    ]
+  },
+  {
+    "ID": "LVGKZR",
+    "Nome": "Fernando Masanori",
+    "Biografia": "Professor e entusiasta da comunidade Python. Acredita que ensinar transforma vidas \u2014 a dos alunos e a dele. Costuma tomar decis\u00f5es por impulso que d\u00e3o certo.",
+    "E-mail": "fmasanori@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/TWS3FV_Ks7kXxE.webp",
+    "IDs de proposta": [
+      "ZK7ANH"
+    ],
+    "T\u00edtulos das propostas": [
+      "Se a cabe\u00e7a n\u00e3o usa, atrofia: LLMs e a ilus\u00e3o do saber"
+    ]
+  },
+  {
+    "ID": "Q7HMNP",
+    "Nome": "Ana Lindiner",
+    "Biografia": "Sou paraense, engenheira de dados e movida por caf\u00e9 e desafios complexos. Transformo dados em solu\u00e7\u00f5es pr\u00e1ticas e inovadoras, tendo a estrat\u00e9gia de IA como alavanca para acelerar organiza\u00e7\u00f5es e gerar impacto real.",
+    "E-mail": "almm.analindiner@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/SYUPFE_VR0Zo2I.webp",
+    "IDs de proposta": [
+      "VBXWNM"
+    ],
+    "T\u00edtulos das propostas": [
+      "Mind Over Model: Estrat\u00e9gias de Produtividade Humano-IA"
+    ]
+  },
+  {
+    "ID": "QDKTSW",
+    "Nome": "Pablo Henrique Aguilar",
+    "Biografia": "Pablo Aguilar \u00e9 um engenheiro de software apaixonado, especializado em desenvolvimento backend. Atualmente, como Engenheiro S\u00eanior de Backend, colaborador de projetos de c\u00f3digo aberto e palestrante.",
+    "E-mail": "pablo.aguilar@outlook.com.br",
+    "Imagem": "https://talks.python.org.br/media/avatars/8TYELR_9x6FF9h.webp",
+    "IDs de proposta": [
+      "PAUE9U"
+    ],
+    "T\u00edtulos das propostas": [
+      "Seu pip install custa caro? O Futuro do PyPI"
+    ]
+  },
+  {
+    "ID": "R7WE8P",
+    "Nome": "Jos\u00e9 Roberto da Costa Ferreira",
+    "Biografia": "Jos\u00e9 Roberto da Costa Ferreira \u00e9 profissional de Tecnologia da Informa\u00e7\u00e3o com forma\u00e7\u00e3o em Tecnologia em Processamento de Dados, especialista em desenvolvimento web com Joomla! e atuante em comunidades de Software Livre no Par\u00e1. Tamb\u00e9m \u00e9 fundador do Projeto Agenda TI Par\u00e1 e j\u00e1 ministrou palestras e oficinas em diversos eventos de tecnologia",
+    "E-mail": "joserobertocferreira@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/UZJNMS_V2wVgFg.webp",
+    "IDs de proposta": [
+      "GE8HPJ"
+    ],
+    "T\u00edtulos das propostas": [
+      "Do Vibe Coding \u00e0 produ\u00e7\u00e3o: como constru\u00ed um bot em Python com OpenCode, Docker e workers"
+    ]
+  },
+  {
+    "ID": "SUE3AX",
+    "Nome": "Gustavo Ramos",
+    "Biografia": "Licenciado em matem\u00e1tica, especialista em ci\u00eancia de dados e intelig\u00eancia artificial pela Uninter, mestrando em ci\u00eancia da computa\u00e7\u00e3o pela ufpa e analista de controle na Aqualand Resort",
+    "E-mail": "gustavoramos2596@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/VF8FRX_gbpqIgI.webp",
+    "IDs de proposta": [
+      "PCZUAR"
+    ],
+    "T\u00edtulos das propostas": [
+      "Utilizando python pra detec\u00e7\u00e3o de fissura em concreto"
+    ]
+  },
+  {
+    "ID": "T8KENA",
+    "Nome": "Artem\u00edsia Weyl",
+    "Biografia": "Arquiteta de dados e doutora em F\u00edsica, com atua\u00e7\u00e3o em engenharia de dados e lideran\u00e7a t\u00e9cnica em ambientes de alta complexidade. Desenvolve e sustenta solu\u00e7\u00f5es de dados com foco em confiabilidade, escalabilidade e governan\u00e7a, al\u00e9m de atuar na coordena\u00e7\u00e3o de projetos de infraestrutura para organiza\u00e7\u00f5es do terceiro setor.  \u00c9 tamb\u00e9m l\u00edder de iniciativas voltadas \u00e0 democratiza\u00e7\u00e3o do acesso ao conhecimento em tecnologia na Amaz\u00f4nia, como o A\u00e7a\u00ed com Dados e o Elas na Tecnologia, promovendo forma\u00e7\u00e3o t\u00e9cnica e inclus\u00e3o. Sua trajet\u00f3ria integra ci\u00eancia, engenharia e impacto social, com \u00eanfase na constru\u00e7\u00e3o de solu\u00e7\u00f5es sustent\u00e1veis orientadas por dados.",
+    "E-mail": "artemisia.weyl@basedosdados.org",
+    "Imagem": "https://talks.python.org.br/media/avatars/LQYRNU_kITqHG7.webp",
+    "IDs de proposta": [
+      "GKMKDR"
+    ],
+    "T\u00edtulos das propostas": [
+      "Melhores Pr\u00e1ticas de MLOps Usando Apache Airflow"
+    ]
+  },
+  {
+    "ID": "TKYKSF",
+    "Nome": "Luiz Sanches",
+    "Biografia": "\u00c9 graduado em Sistemas de Informa\u00e7\u00e3o e especialista em Gest\u00e3o \u00c1gil de Projetos. Resumindo: Pernambucano, Paraense, Programador, Professor, Poeta e Palha\u00e7o.",
+    "E-mail": "sanches@nomade.tec.br",
+    "Imagem": "https://talks.python.org.br/media/avatars/VHY33Y_CfgONOF.webp",
+    "IDs de proposta": [
+      "RGEV9Q"
+    ],
+    "T\u00edtulos das propostas": [
+      "Django, jazz e nomadismo intelectual"
+    ]
+  },
+  {
+    "ID": "TT7PMP",
+    "Nome": "Carlos Vitor Cardoso da Silva",
+    "Biografia": "Estudante de Ci\u00eancia da Computa\u00e7\u00e3o | Desenvolvedor Backend | Pesquisador na \u00e1rea de PLN",
+    "E-mail": "cvcardos5@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/7VFUBW_x8MM28s.webp",
+    "IDs de proposta": [
+      "MBZPNR",
+      "TMKTQA"
+    ],
+    "T\u00edtulos das propostas": [
+      "Anonimizando documentos com Python e PLN: dados sens\u00edveis que ficam onde devem",
+      "Avalia\u00e7\u00f5es de Clientes como Dados: Descobrindo Padr\u00f5es com Python e PLN"
+    ]
+  },
+  {
+    "ID": "UBMYJV",
+    "Nome": "Carlos Augusto Oeiras",
+    "Biografia": "Carlos Oeiras \u00e9 Mestrando em Intelig\u00eancia Artificial Generativa, especialista em Engenharia de Dados, Intelig\u00eancia Artificial e Arquiteturas Distribu\u00eddas, com mais de 18 anos de experi\u00eancia em tecnologia. Atua na lideran\u00e7a de equipes e no desenvolvimento de solu\u00e7\u00f5es de dados em larga escala, abrangendo engenharia de dados, machine learning, agentes de IA e sistemas baseados em Large Language Models (LLMs).\r\n\r\nAo longo de sua carreira, trabalhou na constru\u00e7\u00e3o de plataformas de alta disponibilidade utilizando tecnologias como Python, Apache Spark, Kafka e servi\u00e7os em nuvem, al\u00e9m de desenvolver arquiteturas avan\u00e7adas para aplica\u00e7\u00f5es de IA Generativa, Retrieval-Augmented Generation (RAG), agentes aut\u00f4nomos e sistemas de conhecimento corporativo.\r\n\r\n\u00c9 palestrante, pesquisador e autor da newsletter **\"Al\u00e9m do \u00d3bvio\"**, onde publica conte\u00fados t\u00e9cnicos sobre Intelig\u00eancia Artificial, Engenharia de Dados, Machine Learning e Engenharia de Agentes, conectando fundamentos te\u00f3ricos a aplica\u00e7\u00f5es pr\u00e1ticas do mercado. Seu foco atual est\u00e1 na constru\u00e7\u00e3o de sistemas inteligentes orientados por agentes, arquiteturas de conhecimento e aplica\u00e7\u00f5es corporativas com IA Generativa.",
+    "E-mail": "cm.oeiras01@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/WHZMMK_hntP5De.webp",
+    "IDs de proposta": [
+      "UHHWWU"
+    ],
+    "T\u00edtulos das propostas": [
+      "RAG est\u00e1 morto? Como construir sistemas de conhecimento com Agentic RAG em Python"
+    ]
+  },
+  {
+    "ID": "VXEFUK",
+    "Nome": "Ryan Souza",
+    "Biografia": "Estudante de Engenharia de Software pela UEPA. Atualmente desenvolvendo pesquisa sobre uso de vis\u00e3o computacional para auxiliar diagn\u00f3sticos dermatol\u00f3gicos.",
+    "E-mail": "ryansouzasantana00@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/NDB3SF_30ktrsR.webp",
+    "IDs de proposta": [
+      "C7RRCY"
+    ],
+    "T\u00edtulos das propostas": [
+      "Compara\u00e7\u00e3o entre Redes Neurais Convolucionais (CNNs) e Vision Transformers (ViTs) em classifica\u00e7\u00e3o de imagens"
+    ]
+  },
+  {
+    "ID": "WBHZYP",
+    "Nome": "devhugo",
+    "Biografia": "Ol\u00e1! Me chamo Hugo, sou de Bel\u00e9m-PA e estou no T\u00e9cnico em Desenvolvimento de Sistemas pelo Senac \u2014 meu primeiro curso ap\u00f3s o ensino m\u00e9dio.\r\nMinha trajet\u00f3ria come\u00e7ou com Python e foi se expandindo naturalmente para MySQL, Git, MVC e interfaces desktop com CustomTkinter. Hoje desenvolvo projetos open source p\u00fablicos no GitHub, onde pratico boas pr\u00e1ticas de c\u00f3digo, versionamento e arquitetura de software de forma colaborativa e transparente.\r\nUm marco importante foi a Semana S do Senac 2026, onde desenvolvi exerc\u00edcios de debugging em Python e um Jogo da Velha com Tkinter. Este projeto ser\u00e1 apresentado aqui em sua vers\u00e3o atual, e j\u00e1 tenho planejado como pr\u00f3ximo passo a implementa\u00e7\u00e3o de uma tela splash \u2014 \u00e9 um projeto vivo, que continua evoluindo.\r\nAcredito que contribuir com c\u00f3digo aberto \u00e9 uma das formas mais genu\u00ednas de crescer como desenvolvedor e retribuir \u00e0 comunidade. Estou buscando meu primeiro est\u00e1gio e cada projeto open source que entrego \u00e9 um passo nessa dire\u00e7\u00e3o.",
+    "E-mail": "hugosouza09106@gmail.com",
+    "Imagem": null,
+    "IDs de proposta": [
+      "XU8XMY"
+    ],
+    "T\u00edtulos das propostas": [
+      "Debugging em Python (Boas Pr\u00e1ticas)"
+    ]
+  },
+  {
+    "ID": "YQN8XY",
+    "Nome": "Gabriella Soares",
+    "Biografia": "Graduanda em Ci\u00eancia da Computa\u00e7\u00e3o e Analista de TI na Systock. Volunt\u00e1ria no PyLadies e DevOps Manaus, atuo em projetos de ensino de programa\u00e7\u00e3o para jovens e adolescentes.",
+    "E-mail": "gabriella.soaresq@gmail.com",
+    "Imagem": null,
+    "IDs de proposta": [
+      "GKTSZ9",
+      "8PVRGB"
+    ],
+    "T\u00edtulos das propostas": [
+      "Chicas Digitais: Tr\u00eas idiomas, uma linguagem, muitos futuros",
+      "Python como ponto de partida: comunidade, carreira e pertencimento."
+    ]
+  }
+]

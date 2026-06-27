@@ -15,19 +15,36 @@ import {
   MapPin,
   Users,
   Clock,
+  ExternalLink,
+  Info,
+  User,
 } from "lucide-react";
+import sessionsData from "./python-norte-2026_sessions.json";
+import speakersData from "./python-norte-2026_speakers.json";
 
 interface Session {
   id: string;
   time: string;
   title: string;
-  type: "Keynote" | "Palestra" | "Tutorial" | "Credenciamento" | "Intervalo";
+  type: string;
   location?: string;
-  target?: "Todos" | "Iniciante" | "Intermediário" | "Avançado";
+  target?: string;
   registrationRequired?: boolean;
   track?: string;
-  learningOutcomes?: string;
+  description?: string;
   day: number;
+  speakers?: string[];
+  duration?: number;
+}
+
+interface Speaker {
+  ID: string;
+  Nome: string;
+  Biografia: string;
+  "E-mail": string;
+  Imagem: string | null;
+  "IDs de proposta": string[];
+  "Títulos das propostas": string[];
 }
 
 export default function ProgramacaoPage() {
@@ -43,6 +60,46 @@ export default function ProgramacaoPage() {
   });
   const [savedSessions, setSavedSessions] = useState<Set<string>>(new Set());
   const [showFilters, setShowFilters] = useState(false);
+  const [selectedSession, setSelectedSession] = useState<Session | null>(null);
+  const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
+
+  // Create a map of speaker names to speaker data
+  const speakersMap = new Map<string, Speaker>();
+  speakersData.forEach((speaker: any) => {
+    speakersMap.set(speaker.Nome, speaker);
+  });
+
+  // Process JSON data
+  const allSessions: Session[] = sessionsData
+    .filter(
+      (s: any) => s["Início (data)"] && s["Estado da proposta"] === "confirmed",
+    )
+    .map((s: any) => {
+      const startDate = s["Início (data)"];
+      const startTime = s["Início (hora)"]?.substring(0, 5) || "";
+      const endTime = s["Término (hora)"]?.substring(0, 5) || "";
+
+      // Determine day (1 = 03/07, 2 = 04/07)
+      const day = startDate === "2026-07-03" ? 1 : 2;
+
+      return {
+        id: s.ID,
+        time: `${startTime} — ${endTime}`,
+        title: s["Título da proposta"],
+        type: s["Tipo de sessão"]["pt-br"],
+        location: s.Sala?.["pt-br"] || undefined,
+        target: s["Nível da atividade"] || "Todos",
+        track: s.Trilha["pt-br"],
+        description: s.Resumo,
+        day,
+        speakers: s["Nomes de palestrantes"],
+        duration: s.Duração,
+      };
+    })
+    .sort((a, b) => {
+      if (a.day !== b.day) return a.day - b.day;
+      return a.time.localeCompare(b.time);
+    });
 
   // Load saved sessions from localStorage
   useEffect(() => {
@@ -60,438 +117,60 @@ export default function ProgramacaoPage() {
     );
   }, [savedSessions]);
 
-  const allSessions: Session[] = [
-    // Day 1
-    {
-      id: "d1-1",
-      day: 1,
-      time: "08:00 — 08:30",
-      title: "Credenciamento e recepção",
-      type: "Credenciamento",
-    },
-    {
-      id: "d1-2",
-      day: 1,
-      time: "08:30 — 08:45",
-      title: "Abertura Oficial do Evento",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    {
-      id: "d1-3",
-      day: 1,
-      time: "08:45 — 09:45",
-      title: "Keynote I - Abertura",
-      type: "Keynote",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    {
-      id: "d1-4",
-      day: 1,
-      time: "09:45 — 12:00",
-      title: "Atividade Prática 1",
-      type: "Tutorial",
-      location: "Lab 1",
-      target: "Iniciante",
-      registrationRequired: true,
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a criar do zero uma aplicação web completa com banco de dados utilizando Django.",
-    },
-    {
-      id: "d1-5",
-      day: 1,
-      time: "09:45 — 12:00",
-      title: "Atividade Prática 2",
-      type: "Tutorial",
-      location: "Lab 2",
-      target: "Iniciante",
-      registrationRequired: true,
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a carregar, limpar, manipular e visualizar conjuntos de dados reais utilizando a biblioteca Pandas.",
-    },
-    {
-      id: "d1-6",
-      day: 1,
-      time: "09:45 — 10:15",
-      title: "Palestra 01",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Intermediário",
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a estruturar prompts eficazes para otimização de tarefas de desenvolvimento com LLMs.",
-    },
-    {
-      id: "d1-7",
-      day: 1,
-      time: "10:15 — 10:45",
-      title: "Palestra 02",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Avançado",
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão as melhores práticas de performance, concorrência e testes de carga em endpoints assíncronos.",
-    },
-    {
-      id: "d1-8",
-      day: 1,
-      time: "10:45 — 11:00",
-      title: "Coffee Break",
-      type: "Intervalo",
-    },
-    {
-      id: "d1-9",
-      day: 1,
-      time: "11:00 — 11:30",
-      title: "Palestra 03",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-      track: "Comunidades, carreira e liderança Tech",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão estratégias para engajar pessoas, criar conexões duradouras e organizar eventos inclusivos locais.",
-    },
-    {
-      id: "d1-10",
-      day: 1,
-      time: "11:30 — 12:00",
-      title: "Palestra 04",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Iniciante",
-      track: "Open Source, DevOps & Ecossistemas colaborativos",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a empacotar e rodar aplicações em containers isolados de forma simples e rápida.",
-    },
-    {
-      id: "d1-11",
-      day: 1,
-      time: "12:00 — 13:00",
-      title: "Almoço",
-      type: "Intervalo",
-    },
-    {
-      id: "d1-12",
-      day: 1,
-      time: "13:00 — 15:00",
-      title: "Atividade Prática 03",
-      type: "Tutorial",
-      location: "Lab 1",
-      target: "Avançado",
-      registrationRequired: true,
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a orquestrar múltiplos modelos de linguagem para executar ações automatizadas e tomadas de decisão.",
-    },
-    {
-      id: "d1-13",
-      day: 1,
-      time: "13:00 — 15:00",
-      title: "Atividade Prática 04",
-      type: "Tutorial",
-      location: "Lab 2",
-      target: "Intermediário",
-      registrationRequired: true,
-      track: "Open Source, DevOps & Ecossistemas colaborativos",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a estruturar pipelines de teste e deploy automáticos utilizando GitHub Actions.",
-    },
-    {
-      id: "d1-14",
-      day: 1,
-      time: "13:00 — 13:30",
-      title: "Palestra 05",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Avançado",
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a separar responsabilidades, facilitando a manutenção e testes de grandes projetos de software.",
-    },
-    {
-      id: "d1-15",
-      day: 1,
-      time: "13:30 — 14:00",
-      title: "Palestra 06",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-      track: "Open Source, DevOps & Ecossistemas colaborativos",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão como encontrar projetos, abrir issues, e submeter pull requests com confiança.",
-    },
-    {
-      id: "d1-16",
-      day: 1,
-      time: "14:00 — 14:30",
-      title: "Palestra 07",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-      track: "Comunidades, carreira e liderança Tech",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão habilidades de mentoria, delegação de tarefas e planejamento de crescimento profissional.",
-    },
-    {
-      id: "d1-17",
-      day: 1,
-      time: "14:30 — 15:00",
-      title: "Palestra 08",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Iniciante",
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão os conceitos fundamentais de algoritmos de classificação e regressão de forma simples.",
-    },
-    {
-      id: "d1-18",
-      day: 1,
-      time: "15:00 — 15:30",
-      title: "Coffee Break",
-      type: "Intervalo",
-    },
-    {
-      id: "d1-19",
-      day: 1,
-      time: "15:30 — 16:30",
-      title: "Keynote II - Encerramento do Dia 1",
-      type: "Keynote",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    {
-      id: "d1-20",
-      day: 1,
-      time: "16:30 — 17:00",
-      title: "Dinâmica de encerramento primeiro dia",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    // Day 2
-    {
-      id: "d2-1",
-      day: 2,
-      time: "08:00 — 08:30",
-      title: "Credenciamento e recepção",
-      type: "Credenciamento",
-    },
-    {
-      id: "d2-2",
-      day: 2,
-      time: "08:30 — 09:30",
-      title: "Keynote III - Abertura do Dia 2",
-      type: "Keynote",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    {
-      id: "d2-3",
-      day: 2,
-      time: "12:15 — 14:00",
-      title: "Intervalo (Almoço)",
-      type: "Intervalo",
-    },
-    {
-      id: "d2-4",
-      day: 2,
-      time: "14:00 — 14:45",
-      title: "Palestra 09",
-      type: "Palestra",
-      location: "Sala 1",
-      target: "Avançado",
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão estratégias de refatoração e migração segura de infraestrutura legada para provedores de nuvem.",
-    },
-    {
-      id: "d2-5",
-      day: 2,
-      time: "14:00 — 14:45",
-      title: "Palestra 10",
-      type: "Palestra",
-      location: "Sala 2",
-      target: "Intermediário",
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a pré-processar texto, remover ruídos e extrair sentimentos usando spaCy.",
-    },
-    {
-      id: "d2-6",
-      day: 2,
-      time: "14:45 — 15:45",
-      title: "Minicurso 01",
-      type: "Tutorial",
-      location: "Lab 1",
-      target: "Iniciante",
-      registrationRequired: true,
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a criar seu primeiro modelo preditivo básico usando Scikit-Learn.",
-    },
-    {
-      id: "d2-7",
-      day: 2,
-      time: "14:45 — 15:45",
-      title: "Minicurso 02",
-      type: "Tutorial",
-      location: "Lab 2",
-      target: "Intermediário",
-      registrationRequired: true,
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a implementar autenticação JWT e prevenir vulnerabilidades como injeção e CSRF.",
-    },
-    {
-      id: "d2-8",
-      day: 2,
-      time: "14:45 — 15:30",
-      title: "Palestra 11",
-      type: "Palestra",
-      location: "Sala 1",
-      target: "Iniciante",
-      track: "Open Source, DevOps & Ecossistemas colaborativos",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a coletar e transmitir dados físicos usando MicroPython e placas de desenvolvimento.",
-    },
-    {
-      id: "d2-9",
-      day: 2,
-      time: "15:30 — 16:45",
-      title: "Palestra 12",
-      type: "Palestra",
-      location: "Sala 1",
-      target: "Intermediário",
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a construir e gerenciar funções serverless scaláveis integradas com gatilhos de nuvem.",
-    },
-    {
-      id: "d2-10",
-      day: 2,
-      time: "15:30 — 16:45",
-      title: "Palestra 13",
-      type: "Palestra",
-      location: "Sala 2",
-      target: "Todos",
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão como o ecossistema Scipy/Numpy revolucionou as pesquisas científicas e computacionais.",
-    },
-    {
-      id: "d2-11",
-      day: 2,
-      time: "16:15 — 17:00",
-      title: "Palestra 14",
-      type: "Palestra",
-      location: "Sala 1",
-      target: "Avançado",
-      track: "Open Source, DevOps & Ecossistemas colaborativos",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a estruturar portais internos de desenvolvedor (IDPs) para simplificar a criação de serviços.",
-    },
-    {
-      id: "d2-12",
-      day: 2,
-      time: "16:15 — 17:00",
-      title: "Palestra 15",
-      type: "Palestra",
-      location: "Sala 2",
-      target: "Todos",
-      track: "Comunidades, carreira e liderança Tech",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão os bastidores de logística, captação de patrocínios e gestão de voluntariado de eventos regionais.",
-    },
-    {
-      id: "d2-13",
-      day: 2,
-      time: "17:00 — 18:00",
-      title: "Coffee Break & Networking",
-      type: "Intervalo",
-    },
-    // Day 3
-    {
-      id: "d3-1",
-      day: 3,
-      time: "09:00 — 10:00",
-      title: "Keynote IV - Abertura do Dia 3",
-      type: "Keynote",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    {
-      id: "d3-2",
-      day: 3,
-      time: "10:00 — 10:30",
-      title: "Coffee Break",
-      type: "Intervalo",
-    },
-    {
-      id: "d3-3",
-      day: 3,
-      time: "10:30 — 12:00",
-      title: "Mesa redonda",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-      track: "Comunidades, carreira e liderança Tech",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes compreenderão os desafios, potenciais e caminhos práticos para a transformação digital regional.",
-    },
-    {
-      id: "d3-4",
-      day: 3,
-      time: "12:00 — 13:00",
-      title: "Encerramento Geral, Sorteios e Agradecimentos",
-      type: "Credenciamento",
-    },
-  ];
+  // Add session to Google Calendar
+  const addToGoogleCalendar = (session: Session) => {
+    // Parse date and time
+    const [startTime, endTime] = session.time.split(" — ");
+    const dateStr = session.day === 1 ? "2026-07-03" : "2026-07-04";
+
+    // Format: YYYYMMDDTHHmmss
+    const startDateTime = `${dateStr.replace(/-/g, "")}T${startTime.replace(":", "")}00`;
+    const endDateTime = `${dateStr.replace(/-/g, "")}T${endTime.replace(":", "")}00`;
+
+    // Build Google Calendar URL
+    const params = new URLSearchParams({
+      action: "TEMPLATE",
+      text: session.title,
+      dates: `${startDateTime}/${endDateTime}`,
+      details: `${session.description || ""}\n\nTipo: ${session.type}\nTrilha: ${session.track || ""}\nPalestrantes: ${session.speakers?.join(", ") || ""}`,
+      location: session.location || "Python Norte 2026 - Manaus, AM",
+      ctz: "America/Manaus",
+    });
+
+    const url = `https://calendar.google.com/calendar/render?${params.toString()}`;
+    window.open(url, "_blank");
+  };
 
   const days = [
-    { name: "Dia 1", date: "03/07", dayNum: 1 },
-    { name: "Dia 2", date: "04/07", dayNum: 2 },
-    { name: "Dia 3", date: "05/07", dayNum: 3 },
+    { name: "Sexta-feira", date: "03/07", dayNum: 1 },
+    { name: "Sábado", date: "04/07", dayNum: 2 },
   ];
 
   const filterOptions = {
-    type: [
-      { value: "Keynote", label: "Keynote", color: "bg-[#004B23]" },
-      { value: "Palestra", label: "Palestra", color: "bg-[#FFB800]" },
-      { value: "Tutorial", label: "Tutorial", color: "bg-[#FF6B00]" },
-      {
-        value: "Credenciamento",
-        label: "Credenciamento",
-        color: "bg-[#9E2A2B]",
-      },
-      { value: "Intervalo", label: "Intervalo", color: "bg-[#7F8C8D]" },
-    ],
-    target: [
-      { value: "Todos", label: "Todos" },
-      { value: "Iniciante", label: "Iniciante" },
-      { value: "Intermediário", label: "Intermediário" },
-      { value: "Avançado", label: "Avançado" },
-    ],
-    track: [
-      { value: "Web, Cloud & plataforma digitais", label: "Web & Cloud" },
-      {
-        value: "Dados, inteligência artificial e machine learning",
-        label: "IA & ML",
-      },
-      {
-        value: "Open Source, DevOps & Ecossistemas colaborativos",
-        label: "DevOps & Open Source",
-      },
-      {
-        value: "Comunidades, carreira e liderança Tech",
-        label: "Carreira & Liderança",
-      },
-    ],
+    type: Array.from(new Set(allSessions.map((s) => s.type))).map((type) => ({
+      value: type,
+      label: type,
+      color:
+        type === "Keynote"
+          ? "bg-[#004B23]"
+          : type === "Palestra"
+            ? "bg-[#FFB800]"
+            : type === "Tutorial"
+              ? "bg-[#FF6B00]"
+              : "bg-[#7F8C8D]",
+    })),
+    target: Array.from(
+      new Set(allSessions.map((s) => s.target).filter(Boolean)),
+    ).map((target) => ({
+      value: target!,
+      label: target!,
+    })),
+    track: Array.from(
+      new Set(allSessions.map((s) => s.track).filter(Boolean)),
+    ).map((track) => ({
+      value: track!,
+      label: track!.length > 30 ? track!.substring(0, 30) + "..." : track!,
+    })),
   };
 
   const toggleFilter = (
@@ -565,7 +244,7 @@ export default function ProgramacaoPage() {
     activeFilters.target.length > 0 ||
     activeFilters.track.length > 0;
 
-  const getSessionStyle = (type: Session["type"]) => {
+  const getSessionStyle = (type: string) => {
     switch (type) {
       case "Keynote":
         return {
@@ -585,13 +264,7 @@ export default function ProgramacaoPage() {
           border: "border-l-[6px] border-[#FF6B00]",
           badge: "bg-[#FF6B00] text-white",
         };
-      case "Credenciamento":
-        return {
-          bg: "bg-[#FFF5F5]",
-          border: "border-l-[6px] border-[#9E2A2B]",
-          badge: "bg-[#9E2A2B] text-white",
-        };
-      case "Intervalo":
+      default:
         return {
           bg: "bg-[#F5F7F8]",
           border: "border-l-[6px] border-[#7F8C8D]",
@@ -604,7 +277,7 @@ export default function ProgramacaoPage() {
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
 
-      <main className="flex-grow pt-24 pb-16 bg-[#FAF7F0]">
+      <main className="flex-grow pt-14 pb-16 bg-[#FAF7F0]">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto space-y-8">
             {/* Header */}
@@ -617,42 +290,53 @@ export default function ProgramacaoPage() {
               </h1>
               <div className="w-16 h-1 mx-auto rounded-full bg-gradient-to-r from-[#004B23] to-[#FF6B00]" />
               <p className="text-[#4A5D4E] text-base md:text-lg max-w-3xl mx-auto">
-                Explore todas as atividades dos três dias de evento e monte sua
+                Explore todas as atividades dos dois dias de evento e monte sua
                 agenda personalizada
               </p>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-[#004B23]/10">
-                <div className="text-2xl font-bold text-[#004B23]">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
+              <div className="bg-white rounded-xl p-3 md:p-4 text-center shadow-sm border border-[#004B23]/10">
+                <div className="text-xl md:text-2xl font-bold text-[#004B23]">
                   {allSessions.filter((s) => s.type === "Keynote").length}
                 </div>
-                <div className="text-xs text-[#4A5D4E] mt-1">Keynotes</div>
+                <div className="text-[10px] md:text-xs text-[#4A5D4E] mt-0.5 md:mt-1">
+                  Keynotes
+                </div>
               </div>
-              <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-[#004B23]/10">
-                <div className="text-2xl font-bold text-[#FFB800]">
+              <div className="bg-white rounded-xl p-3 md:p-4 text-center shadow-sm border border-[#004B23]/10">
+                <div className="text-xl md:text-2xl font-bold text-[#FFB800]">
                   {allSessions.filter((s) => s.type === "Palestra").length}
                 </div>
-                <div className="text-xs text-[#4A5D4E] mt-1">Palestras</div>
+                <div className="text-[10px] md:text-xs text-[#4A5D4E] mt-0.5 md:mt-1">
+                  Palestras
+                </div>
               </div>
-              <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-[#004B23]/10">
-                <div className="text-2xl font-bold text-[#FF6B00]">
+              <div className="bg-white rounded-xl p-3 md:p-4 text-center shadow-sm border border-[#004B23]/10">
+                <div className="text-xl md:text-2xl font-bold text-[#FF6B00]">
                   {allSessions.filter((s) => s.type === "Tutorial").length}
                 </div>
-                <div className="text-xs text-[#4A5D4E] mt-1">Tutoriais</div>
+                <div className="text-[10px] md:text-xs text-[#4A5D4E] mt-0.5 md:mt-1">
+                  Tutoriais
+                </div>
               </div>
-              <Link
-                href="/minha-agenda"
-                className="bg-gradient-to-br from-[#004B23] to-[#003318] rounded-xl p-4 text-center shadow-sm border border-[#004B23]/10 hover:shadow-md transition-all group"
-              >
-                <div className="text-2xl font-bold text-white">
+              <div className="bg-gradient-to-br from-[#004B23] to-[#003318] rounded-xl p-3 md:p-4 text-center shadow-sm border border-[#004B23]/10">
+                <div className="text-xl md:text-2xl font-bold text-white mb-2">
                   {savedSessions.size}
                 </div>
-                <div className="text-xs text-white/80 mt-1 group-hover:text-[#FFB800] transition-colors">
-                  Na Minha Agenda →
+                <div className="text-[10px] md:text-xs text-white/80 mb-2">
+                  Sessões Favoritas
                 </div>
-              </Link>
+                {savedSessions.size > 0 && (
+                  <Link
+                    href="/minha-agenda"
+                    className="inline-flex items-center gap-1 text-[10px] md:text-xs font-bold text-[#FFB800] hover:text-[#FF6B00] transition-colors"
+                  >
+                    Ver Agenda →
+                  </Link>
+                )}
+              </div>
             </div>
 
             {/* Day Switcher & Actions */}
@@ -776,12 +460,13 @@ export default function ProgramacaoPage() {
                         key={option.value}
                         onClick={() => toggleFilter("track", option.value)}
                         className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-                          activeFilters.track.includes(option.value)
+                          activeFilters.track.includes(option.value!)
                             ? "bg-[#FF6B00] text-white"
                             : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                         }`}
+                        title={option.value!}
                       >
-                        {option.label}
+                        {option.label!}
                       </button>
                     ))}
                   </div>
@@ -812,59 +497,115 @@ export default function ProgramacaoPage() {
                   return (
                     <div
                       key={session.id}
-                      className={`flex flex-col sm:flex-row justify-between p-5 rounded-2xl ${style.bg} ${style.border} shadow-sm border border-[#004B23]/5 transition-all duration-200 gap-4 group hover:shadow-md`}
+                      onClick={() => setSelectedSession(session)}
+                      className={`relative flex flex-col p-5 rounded-2xl ${style.bg} ${style.border} shadow-sm border border-[#004B23]/5 transition-all duration-200 gap-4 group hover:shadow-md cursor-pointer hover:scale-[1.01]`}
                     >
-                      {/* Left: Content */}
-                      <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6 flex-grow">
-                        <div className="flex items-center gap-3">
-                          <span className="text-sm font-bold text-[#4A5D4E] min-w-[110px] flex items-center gap-2">
+                      {/* Action Buttons - Top Right */}
+                      <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleSaveSession(session.id);
+                          }}
+                          className={`p-1.5 rounded-lg transition-all pointer-events-auto ${
+                            isSaved
+                              ? "text-[#FFB800] hover:bg-[#FFB800]/10"
+                              : "text-gray-400 hover:bg-gray-100 hover:text-[#004B23]"
+                          }`}
+                          title={
+                            isSaved
+                              ? "Remover dos favoritos"
+                              : "Adicionar aos favoritos"
+                          }
+                        >
+                          {isSaved ? (
+                            <BookmarkCheck className="w-4 h-4" />
+                          ) : (
+                            <Bookmark className="w-4 h-4" />
+                          )}
+                        </button>
+
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            addToGoogleCalendar(session);
+                          }}
+                          className="p-1.5 rounded-lg hover:bg-[#FFB800]/10 text-[#FFB800] transition-all pointer-events-auto"
+                          title="Adicionar ao Google Calendar"
+                        >
+                          <Calendar className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex flex-col gap-3 pointer-events-none pr-16">
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-bold text-[#4A5D4E] flex items-center gap-2">
                             <Clock className="w-4 h-4" />
                             {session.time}
                           </span>
                         </div>
 
-                        <div className="flex flex-col gap-2 flex-grow">
-                          <div className="flex flex-wrap items-center gap-3">
-                            <span
-                              className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${style.badge}`}
-                            >
-                              {session.type}
-                            </span>
-                            <span className="text-base font-bold text-[#004B23] tracking-tight">
-                              {session.title}
-                            </span>
-                          </div>
-
-                          {session.location && (
-                            <div className="flex items-center gap-1.5 text-xs text-[#4A5D4E]">
-                              <MapPin className="w-3.5 h-3.5" />
-                              {session.location}
-                            </div>
-                          )}
-
-                          {session.track && (
-                            <div className="text-[11px] font-semibold text-[#8B5E3C] bg-[#FFF5EE] border border-[#8B5E3C]/10 px-2.5 py-0.5 rounded-md inline-flex items-center gap-1.5 self-start">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C]" />
-                              Trilha: {session.track}
-                            </div>
-                          )}
-
-                          {session.learningOutcomes && (
-                            <p className="text-xs text-[#5D6B60] leading-relaxed font-sans max-w-3xl">
-                              <span className="font-semibold text-[#3D4C40]">
-                                O que você vai aprender:
-                              </span>{" "}
-                              {session.learningOutcomes}
-                            </p>
-                          )}
+                        <div className="flex flex-wrap items-center gap-3">
+                          <span
+                            className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${style.badge}`}
+                          >
+                            {session.type}
+                          </span>
+                          <span className="text-base font-bold text-[#004B23] tracking-tight">
+                            {session.title}
+                          </span>
                         </div>
-                      </div>
 
-                      {/* Right: Metadata & Save Button */}
-                      <div className="flex items-start gap-3 flex-wrap self-start sm:self-auto">
+                        {session.location && (
+                          <div className="flex items-center gap-1.5 text-xs text-[#4A5D4E]">
+                            <MapPin className="w-3.5 h-3.5" />
+                            {session.location}
+                          </div>
+                        )}
+
+                        {session.track && (
+                          <div className="text-[11px] font-semibold text-[#8B5E3C] bg-[#FFF5EE] border border-[#8B5E3C]/10 px-2.5 py-0.5 rounded-md inline-flex items-center gap-1.5 self-start">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C]" />
+                            Trilha: {session.track}
+                          </div>
+                        )}
+
+                        {session.speakers && session.speakers.length > 0 && (
+                          <div className="text-xs text-[#4A5D4E] flex items-center gap-1.5 flex-wrap">
+                            <Users className="w-3.5 h-3.5 flex-shrink-0" />
+                            <span className="font-semibold">Palestrantes:</span>
+                            <div className="flex flex-wrap gap-1">
+                              {session.speakers.map((speakerName, idx) => {
+                                const speaker = speakersMap.get(speakerName);
+                                return (
+                                  <span key={idx}>
+                                    {speaker ? (
+                                      <button
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          setSelectedSpeaker(speaker);
+                                        }}
+                                        className="text-[#FF6B00] hover:underline font-semibold pointer-events-auto"
+                                      >
+                                        {speakerName}
+                                      </button>
+                                    ) : (
+                                      <span>{speakerName}</span>
+                                    )}
+                                    {idx <
+                                      (session.speakers?.length ?? 0) - 1 &&
+                                      ", "}
+                                  </span>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+
                         {session.target && (
                           <span
-                            className={`text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 ${
+                            className={`text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 self-start ${
                               session.target === "Todos"
                                 ? "bg-[#E2F0D9] text-[#385723]"
                                 : session.target === "Iniciante"
@@ -878,35 +619,6 @@ export default function ProgramacaoPage() {
                             {session.target}
                           </span>
                         )}
-
-                        {session.registrationRequired && (
-                          <span className="text-[10px] font-bold text-[#C65911] border border-[#C65911]/30 px-2.5 py-1 rounded-full bg-[#FFF2EB]">
-                            Inscrição obrigatória
-                          </span>
-                        )}
-
-                        {session.type !== "Intervalo" &&
-                          session.type !== "Credenciamento" && (
-                            <button
-                              onClick={() => toggleSaveSession(session.id)}
-                              className={`p-2 rounded-full transition-all ${
-                                isSaved
-                                  ? "bg-[#FFB800] text-white hover:bg-[#E5A600]"
-                                  : "bg-white/50 text-[#004B23] hover:bg-white border border-[#004B23]/20"
-                              }`}
-                              title={
-                                isSaved
-                                  ? "Remover da agenda"
-                                  : "Adicionar à agenda"
-                              }
-                            >
-                              {isSaved ? (
-                                <BookmarkCheck className="w-5 h-5" />
-                              ) : (
-                                <Bookmark className="w-5 h-5" />
-                              )}
-                            </button>
-                          )}
                       </div>
                     </div>
                   );
@@ -918,6 +630,279 @@ export default function ProgramacaoPage() {
       </main>
 
       <Footer />
+
+      {/* Session Details Modal - Optimized for Mobile */}
+      {selectedSession && (
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center z-50 p-0 sm:p-4"
+          onClick={() => setSelectedSession(null)}
+        >
+          <div
+            className="bg-white rounded-t-3xl sm:rounded-2xl max-w-3xl w-full shadow-2xl max-h-[90vh] sm:max-h-[85vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div
+              className={`p-4 sm:p-6 rounded-t-3xl sm:rounded-t-2xl ${getSessionStyle(selectedSession.type).bg} ${getSessionStyle(selectedSession.type).border} border-t-0 sticky top-0 z-10`}
+            >
+              <div className="flex justify-between items-start gap-3">
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span
+                      className={`text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-1 rounded-full uppercase tracking-wider ${getSessionStyle(selectedSession.type).badge}`}
+                    >
+                      {selectedSession.type}
+                    </span>
+                    {selectedSession.target && (
+                      <span
+                        className={`text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-1 rounded-full flex items-center gap-1 ${
+                          selectedSession.target === "Todos"
+                            ? "bg-[#E2F0D9] text-[#385723]"
+                            : selectedSession.target === "Iniciante"
+                              ? "bg-[#DDEBF7] text-[#1F4E79]"
+                              : selectedSession.target === "Intermediário"
+                                ? "bg-[#FCE4D6] text-[#C65911]"
+                                : "bg-[#E1D5E7] text-[#6C3483]"
+                        }`}
+                      >
+                        <Users className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                        {selectedSession.target}
+                      </span>
+                    )}
+                  </div>
+                  <h2 className="text-lg sm:text-2xl font-bold text-[#004B23] mb-2 leading-tight">
+                    {selectedSession.title}
+                  </h2>
+                  <div className="flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-[#4A5D4E]">
+                    <div className="flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                      <span className="truncate">{selectedSession.time}</span>
+                    </div>
+                    {selectedSession.location && (
+                      <div className="flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                        <span className="truncate">
+                          {selectedSession.location}
+                        </span>
+                      </div>
+                    )}
+                    {selectedSession.duration && (
+                      <div className="flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                        <span>{selectedSession.duration} min</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedSession(null)}
+                  className="p-2 rounded-full hover:bg-black/5 transition-colors flex-shrink-0"
+                  aria-label="Fechar"
+                >
+                  <X className="w-5 h-5 text-[#4A5D4E]" />
+                </button>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
+              {selectedSession.track && (
+                <div>
+                  <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
+                    Trilha
+                  </h3>
+                  <div className="text-xs sm:text-sm font-semibold text-[#8B5E3C] bg-[#FFF5EE] border border-[#8B5E3C]/10 px-3 py-2 rounded-lg inline-flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#8B5E3C] flex-shrink-0" />
+                    <span className="break-words">{selectedSession.track}</span>
+                  </div>
+                </div>
+              )}
+
+              {selectedSession.speakers &&
+                selectedSession.speakers.length > 0 && (
+                  <div>
+                    <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
+                      Palestrantes
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedSession.speakers.map((speakerName, idx) => {
+                        const speaker = speakersMap.get(speakerName);
+                        return speaker ? (
+                          <button
+                            key={idx}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedSpeaker(speaker);
+                            }}
+                            className="text-xs sm:text-sm bg-[#F4FAF5] text-[#FF6B00] px-3 py-1.5 rounded-lg border border-[#FF6B00]/20 hover:bg-[#FF6B00]/10 transition-all font-semibold"
+                          >
+                            {speakerName}
+                          </button>
+                        ) : (
+                          <span
+                            key={idx}
+                            className="text-xs sm:text-sm bg-[#F4FAF5] text-[#004B23] px-3 py-1.5 rounded-lg border border-[#004B23]/10"
+                          >
+                            {speakerName}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+              {selectedSession.description && (
+                <div>
+                  <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
+                    Resumo
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#4A5D4E] leading-relaxed">
+                    {selectedSession.description}
+                  </p>
+                </div>
+              )}
+
+              {/* Actions */}
+              <div className="flex items-center justify-between pt-4 border-t border-[#004B23]/10 sticky bottom-0 bg-white pb-safe">
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      toggleSaveSession(selectedSession.id);
+                    }}
+                    className={`p-3 rounded-xl transition-all ${
+                      savedSessions.has(selectedSession.id)
+                        ? "text-[#FFB800] hover:bg-[#FFB800]/10"
+                        : "text-gray-400 hover:bg-gray-100 hover:text-[#004B23]"
+                    }`}
+                    title={
+                      savedSessions.has(selectedSession.id)
+                        ? "Remover dos favoritos"
+                        : "Adicionar aos favoritos"
+                    }
+                  >
+                    {savedSessions.has(selectedSession.id) ? (
+                      <BookmarkCheck className="w-5 h-5" />
+                    ) : (
+                      <Bookmark className="w-5 h-5" />
+                    )}
+                  </button>
+                  <button
+                    onClick={() => addToGoogleCalendar(selectedSession)}
+                    className="p-3 rounded-xl hover:bg-[#FFB800]/10 text-[#FFB800] transition-all"
+                    title="Adicionar ao Google Calendar"
+                  >
+                    <Calendar className="w-5 h-5" />
+                  </button>
+                </div>
+                <button
+                  onClick={() => setSelectedSession(null)}
+                  className="px-4 py-3 rounded-xl font-bold text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
+                >
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Speaker Modal */}
+      {selectedSpeaker && (
+        <div
+          className="fixed inset-0 bg-black/50 flex items-end sm:items-center justify-center z-50 p-0 sm:p-4"
+          onClick={() => setSelectedSpeaker(null)}
+        >
+          <div
+            className="bg-white w-full sm:max-w-2xl sm:rounded-2xl rounded-t-2xl max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="sticky top-0 bg-white border-b border-[#004B23]/10 p-4 sm:p-6 z-10">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start gap-4 flex-1">
+                  {selectedSpeaker.Imagem ? (
+                    <img
+                      src={selectedSpeaker.Imagem}
+                      alt={selectedSpeaker.Nome}
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover flex-shrink-0"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#004B23]/10 flex items-center justify-center flex-shrink-0">
+                      <User className="w-8 h-8 sm:w-10 sm:h-10 text-[#004B23]" />
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <h2 className="text-xl sm:text-2xl font-bold text-[#004B23] mb-1 break-words">
+                      {selectedSpeaker.Nome}
+                    </h2>
+                    {selectedSpeaker["Títulos das propostas"] &&
+                      selectedSpeaker["Títulos das propostas"].length > 0 && (
+                        <p className="text-xs sm:text-sm text-[#4A5D4E]">
+                          {selectedSpeaker["Títulos das propostas"].length}{" "}
+                          {selectedSpeaker["Títulos das propostas"].length === 1
+                            ? "palestra"
+                            : "palestras"}
+                        </p>
+                      )}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedSpeaker(null)}
+                  className="p-2 rounded-full hover:bg-black/5 transition-colors flex-shrink-0"
+                  aria-label="Fechar"
+                >
+                  <X className="w-5 h-5 text-[#4A5D4E]" />
+                </button>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
+              {selectedSpeaker.Biografia && (
+                <div>
+                  <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
+                    Biografia
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#4A5D4E] leading-relaxed whitespace-pre-wrap">
+                    {selectedSpeaker.Biografia}
+                  </p>
+                </div>
+              )}
+
+              {selectedSpeaker["Títulos das propostas"] &&
+                selectedSpeaker["Títulos das propostas"].length > 0 && (
+                  <div>
+                    <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
+                      Palestras
+                    </h3>
+                    <div className="space-y-2">
+                      {selectedSpeaker["Títulos das propostas"].map(
+                        (title, idx) => (
+                          <div
+                            key={idx}
+                            className="text-xs sm:text-sm bg-[#F4FAF5] text-[#004B23] px-3 py-2 rounded-lg border border-[#004B23]/10"
+                          >
+                            {title}
+                          </div>
+                        ),
+                      )}
+                    </div>
+                  </div>
+                )}
+
+              {/* Close Button */}
+              <div className="pt-4 border-t border-[#004B23]/10 sticky bottom-0 bg-white pb-safe">
+                <button
+                  onClick={() => setSelectedSpeaker(null)}
+                  className="w-full px-4 py-3 rounded-xl font-bold text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
+                >
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

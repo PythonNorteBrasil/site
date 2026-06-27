@@ -1,0 +1,1039 @@
+[
+  {
+    "ID": "8AAGWC",
+    "T\u00edtulo da proposta": "Otimiza\u00e7\u00e3o do Processo de Avalia\u00e7\u00e3o Escolar: Criando um Aplicativo Digital de Corre\u00e7\u00e3o Autom\u00e1tica de Provas Baseada em O.M.R - (Reconhecimento \u00d3ptico de Marcas)",
+    "Estado da proposta": "submitted",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-03T13:14:12.308825+00:00",
+    "Tags": [
+      "Intermedi\u00e1rio"
+    ],
+    "Resumo": "O presente trabalho prop\u00f5e a apresenta\u00e7\u00e3o de um aplicativo projetado para otimizar o fluxo de avalia\u00e7\u00f5es educacionais mediante a automa\u00e7\u00e3o da corre\u00e7\u00e3o de provas. Baseada em linguagem Python  a solu\u00e7\u00e3o permite a leitura e o processamento de gabaritos f\u00edsicos a partir de imagens capturadas por smartphones. Ao identificar com precis\u00e3o os acertos e erros dos alunos, a tecnologia visa solucionar a problem\u00e1tica da inefici\u00eancia operacional, proporcionando maior agilidade aos processos avaliativos e reduzindo drasticamente  erros nas corre\u00e7\u00f5es das avalia\u00e7\u00f5es.",
+    "Descri\u00e7\u00e3o": "O presente projeto formaliza uma solu\u00e7\u00e3o tecnol\u00f3gica desenvolvida com o intuito de otimizar o fluxo avaliativo do Centro Educacional Mosaico.  iniciativa, fundamenta-se na necessidade de modernizar as pr\u00e1ticas administrativas e pedag\u00f3gicas da institui\u00e7\u00e3o. Atualmente, o processo anal\u00f3gico de corre\u00e7\u00e3o manual de simulados tem se mostrado ineficiente, gerando uma extensa sobrecarga de trabalho mec\u00e2nico \u00e0 equipe de educadores e evidenciando a urg\u00eancia de uma transi\u00e7\u00e3o digital no ambiente escolar.\r\nO objetivo central do projeto \u00e9 propor e implementar um aplicativo digital embasado em vis\u00e3o computacional, utilizando a tecnologia de Reconhecimento \u00d3ptico . A ferramenta \u00e9 voltada especificamente para a corre\u00e7\u00e3o automatizada de provas, visando solucionar e mitigar a carga de trabalho manual dos professores e otimizar todo o fluxo avaliativo da escola de forma \u00e1gil e precisa.",
+    "Notas": "2 min. INTRODU\u00c7\u00c3O - CONTEXTUALIZA\u00c7\u00c3O E MOTIVA\u00c7\u00c3O DO PROJETO\r\n5 min. OBJETIVOS E IMPACTO SOCIAL\r\n5 min. DESENVOLVIMENTO: TECNOLOGIAS UTILIZADAS\r\n5 min. TELAS APLICATIVO MOBILE\r\n5 min. RESULTADOS ALCAN\u00c7ADOS\r\n3 min. ATUALIZA\u00c7\u00d5ES FUTURAS\r\n5 min. DEMONSTRA\u00c7\u00c3O DO APP",
+    "Notas internas": null,
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "JJVWAM",
+      "TWKFFE",
+      "WWUBHX",
+      "XHZPCQ",
+      "DCH8KR",
+      "GTXZRJ"
+    ],
+    "Nomes de palestrantes": [
+      "Luiz Felipe Barbosa Pereira",
+      "Matheus Gaia",
+      "Bruno Maia",
+      "Luiz Fernando Lameira Santos",
+      "Lucas Gabriel Morais Machado",
+      "Davi Assaf"
+    ],
+    "Sala": null,
+    "In\u00edcio": null,
+    "In\u00edcio (data)": null,
+    "In\u00edcio (hora)": null,
+    "T\u00e9rmino": null,
+    "T\u00e9rmino (data)": null,
+    "T\u00e9rmino (hora)": null,
+    "Pontua\u00e7\u00e3o mediana": "1.00",
+    "Pontua\u00e7\u00e3o m\u00e9dia": 1.3,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Intermedi\u00e1rio"
+  },
+  {
+    "ID": "8PVRGB",
+    "T\u00edtulo da proposta": "Python como ponto de partida: comunidade, carreira e pertencimento.",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Comunidades, carreira e lideran\u00e7a Tech"
+    },
+    "Criado": "2026-06-19T23:02:48.778990+00:00",
+    "Tags": [
+      "N\u00e3o-t\u00e9cnica"
+    ],
+    "Resumo": "As comunidades de tecnologia t\u00eam um papel fundamental na forma\u00e7\u00e3o de profissionais, especialmente para quem est\u00e1 iniciando na \u00e1rea. Nesta palestra, compartilho minha trajet\u00f3ria desde os desafios enfrentados como estudante de Engenharia de Software at\u00e9 a conquista de oportunidades profissionais por meio do voluntariado, da participa\u00e7\u00e3o em comunidades e do compartilhamento de conhecimento. Mostrarei como iniciativas como PyLadies Manaus, AWS User Group Manaus, DevOps Manaus e o projeto Chicas Digitais contribu\u00edram para o desenvolvimento de habilidades t\u00e9cnicas e comportamentais, al\u00e9m de fortalecer minha confian\u00e7a para ingressar no mercado de tecnologia.",
+    "Descri\u00e7\u00e3o": "Nesta palestra, compartilho como as comunidades de tecnologia transformaram minha trajet\u00f3ria acad\u00eamica e profissional. Em meio aos desafios enfrentados por quem est\u00e1 iniciando na \u00e1rea, como a falta de oportunidades, o isolamento do ensino a dist\u00e2ncia e as inseguran\u00e7as comuns do in\u00edcio da carreira, encontrei nas comunidades um espa\u00e7o de aprendizado, colabora\u00e7\u00e3o e crescimento. Atrav\u00e9s do voluntariado e da atua\u00e7\u00e3o em iniciativas como PyLadies Manaus, AWS User Group Manaus, DevOps Manaus e Chicas Digitais, desenvolvi habilidades t\u00e9cnicas e comportamentais, ampliei minha rede de contatos e conquistei oportunidades que contribu\u00edram para minha entrada no mercado de tecnologia. A palestra busca inspirar estudantes e profissionais iniciantes a enxergarem as comunidades como um caminho para aprendizado, conex\u00f5es e desenvolvimento de carreira.",
+    "Notas": "1 min \u2014 Abertura e agradecimentos\r\n3 min \u2014 Quem sou eu\r\n5 min \u2014 Os desafios de quem est\u00e1 come\u00e7ando\r\n7 min \u2014 Como as comunidades mudaram minha trajet\u00f3ria\r\n7 min \u2014 O projeto Chicas Digitais e os aprendizados\r\n5 min \u2014 Resultados e impacto na carreira\r\n2 min \u2014 Conclus\u00e3o e mensagem final",
+    "Notas internas": null,
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": false,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "7PFJLH",
+      "A9F8VG",
+      "YQN8XY"
+    ],
+    "Nomes de palestrantes": [
+      "Maria Eduarda",
+      "Paula SIlva",
+      "Gabriella Soares"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 3"
+    },
+    "In\u00edcio": "2026-07-03T11:20:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "11:20:00",
+    "T\u00e9rmino": "2026-07-03T11:50:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "11:50:00",
+    "Pontua\u00e7\u00e3o mediana": "1.00",
+    "Pontua\u00e7\u00e3o m\u00e9dia": 1.0,
+    "Recursos": [],
+    "N\u00edvel da atividade": "N\u00e3o-t\u00e9cnica"
+  },
+  {
+    "ID": "8WGLWW",
+    "T\u00edtulo da proposta": "Python e Desenvolvimento Assistido por IA: Vibe vs Spec no Kiro",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Tutorial"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-26T00:37:12.089020+00:00",
+    "Tags": [
+      "Intermedi\u00e1rio"
+    ],
+    "Resumo": "Aprenda, na pr\u00e1tica, como utilizar o Kiro IDE com Python explorando as diferen\u00e7as entre o Vibe Mode e o Spec Mode. Neste workshop hands-on, voc\u00ea ver\u00e1 quando utilizar cada abordagem para desenvolver aplica\u00e7\u00f5es com IA de forma mais produtiva, estruturada e alinhada \u00e0s boas pr\u00e1ticas de engenharia de software.",
+    "Descri\u00e7\u00e3o": "A Intelig\u00eancia Artificial est\u00e1 transformando o desenvolvimento de software, mas gerar c\u00f3digo \u00e9 apenas parte do processo. Neste workshop hands-on, voc\u00ea conhecer\u00e1 o Kiro IDE e explorar\u00e1, na pr\u00e1tica, as diferen\u00e7as entre o **Vibe Mode**, ideal para experimenta\u00e7\u00e3o e prototipa\u00e7\u00e3o r\u00e1pida, e o **Spec Mode**, baseado em desenvolvimento orientado a especifica\u00e7\u00f5es, que transforma ideias em requisitos, arquitetura e tarefas de implementa\u00e7\u00e3o.\r\n\r\nUtilizando Python, construiremos uma aplica\u00e7\u00e3o para demonstrar quando utilizar cada abordagem e como combinar velocidade, organiza\u00e7\u00e3o e qualidade no desenvolvimento. Ao final, voc\u00ea entender\u00e1 como usar o Kiro para ir al\u00e9m da gera\u00e7\u00e3o de c\u00f3digo, aplicando IA de forma estruturada em todo o ciclo de desenvolvimento de software.",
+    "Notas": "Este \u00e9 um workshop pr\u00e1tico. Os participantes dever\u00e3o levar seu pr\u00f3prio notebook, com permiss\u00f5es para instala\u00e7\u00e3o de softwares e acesso \u00e0 internet, para acompanhar as atividades hands-on durante a sess\u00e3o.",
+    "Notas internas": "",
+    "Dura\u00e7\u00e3o": 150,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": false,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "EZKCZA"
+    ],
+    "Nomes de palestrantes": [
+      "Thayana Mamor\u00e9"
+    ],
+    "Sala": {
+      "pt-br": "Sala 102"
+    },
+    "In\u00edcio": "2026-07-03T14:00:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "14:00:00",
+    "T\u00e9rmino": "2026-07-03T16:00:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "16:00:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Intermedi\u00e1rio"
+  },
+  {
+    "ID": "C7RRCY",
+    "T\u00edtulo da proposta": "Compara\u00e7\u00e3o entre Redes Neurais Convolucionais (CNNs) e Vision Transformers (ViTs) em classifica\u00e7\u00e3o de imagens",
+    "Estado da proposta": "accepted",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-10T02:21:02.352723+00:00",
+    "Tags": [
+      "Iniciante"
+    ],
+    "Resumo": "Uma breve analise sobre as estruturas e o desempenho comparado das Redes Neurais Convolucionais (CNNs) e dos Vision Transformers (ViTs).",
+    "Descri\u00e7\u00e3o": "Voc\u00ea sabe como modelos de intelig\u00eancia artificial conseguem ver e aprender em tempo real com o que est\u00e3o vendo? Nesta palestra vamos apresentar as Redes Neurais Convolucionais (CNNs) que dominaram a vis\u00e3o computacional por anos e os Vision Transformers (ViTs) que vem desafiando esse dom\u00ednio. Apresentaremos o b\u00e1sico das estruturas e uma compara\u00e7\u00e3o direta entre as duas arquiteturas e recomenda\u00e7\u00f5es de uso de cada abordagem.",
+    "Notas": "1 min. Apresenta\u00e7\u00f5es\r\n2 min. Abertura do tema\r\n8 min. Funcionamento da CNN\r\n8 min. Funcionamento do ViT\r\n7 min. Compara\u00e7\u00e3o dos resultados\r\n5 min. Discuss\u00f5es finais",
+    "Notas internas": null,
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": false,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "VXEFUK"
+    ],
+    "Nomes de palestrantes": [
+      "Ryan Souza"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-04T10:00:00-03:00",
+    "In\u00edcio (data)": "2026-07-04",
+    "In\u00edcio (hora)": "10:00:00",
+    "T\u00e9rmino": "2026-07-04T10:30:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-04",
+    "T\u00e9rmino (hora)": "10:30:00",
+    "Pontua\u00e7\u00e3o mediana": "2.00",
+    "Pontua\u00e7\u00e3o m\u00e9dia": 2.0,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Iniciante"
+  },
+  {
+    "ID": "DQARKY",
+    "T\u00edtulo da proposta": "Threat Intelligence com Python: Enriquecendo IOCs em Tempo Real",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-03T17:35:04.091739+00:00",
+    "Tags": [
+      "Iniciante"
+    ],
+    "Resumo": "Nesta palestra ser\u00e1 demonstrado como desenvolver uma ferramenta em Python para automatizar a consulta e o enriquecimento de Indicadores de Comprometimento (IOCs) a partir de m\u00faltiplas fontes de Threat Intelligence.\r\n\r\nSer\u00e3o apresentados conceitos de automa\u00e7\u00e3o, OSINT, Threat Hunting e visualiza\u00e7\u00e3o de resultados, mostrando como acelerar investiga\u00e7\u00f5es e fortalecer processos de detec\u00e7\u00e3o e resposta a incidentes.",
+    "Descri\u00e7\u00e3o": "A an\u00e1lise de Indicadores de Comprometimento (IOCs) \u00e9 uma atividade essencial para equipes de seguran\u00e7a, mas a consulta manual a diferentes fontes de intelig\u00eancia pode consumir tempo e dificultar a correla\u00e7\u00e3o de informa\u00e7\u00f5es.\r\n\r\nNesta palestra ser\u00e1 apresentado o desenvolvimento de uma ferramenta em Python capaz de consultar e consolidar dados de diversas plataformas de Threat Intelligence, enriquecendo automaticamente indicadores como endere\u00e7os IP e fornecendo contexto para investiga\u00e7\u00f5es de seguran\u00e7a.\r\n\r\nAo longo da apresenta\u00e7\u00e3o, ser\u00e3o explorados conceitos de automa\u00e7\u00e3o, integra\u00e7\u00e3o com APIs, OSINT, Threat Hunting e visualiza\u00e7\u00e3o de resultados, demonstrando como Python pode ser utilizado para otimizar an\u00e1lises, reduzir o tempo de investiga\u00e7\u00e3o e apoiar equipes de SOC, Blue Team e Resposta a Incidentes na tomada de decis\u00f5es mais r\u00e1pidas e assertivas.",
+    "Notas": "",
+    "Notas internas": "email enviado",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "9JRSXS"
+    ],
+    "Nomes de palestrantes": [
+      "Cleber Soares"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-03T14:20:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "14:20:00",
+    "T\u00e9rmino": "2026-07-03T14:50:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "14:50:00",
+    "Pontua\u00e7\u00e3o mediana": "2.00",
+    "Pontua\u00e7\u00e3o m\u00e9dia": 2.0,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Iniciante"
+  },
+  {
+    "ID": "E33387",
+    "T\u00edtulo da proposta": "Python, Excel e Power BI: Experi\u00eancia de Est\u00e1gio em Dados em uma Institui\u00e7\u00e3o Financeira",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-16T02:11:14.852590+00:00",
+    "Tags": null,
+    "Resumo": "\"Apresentaremos um relato de experi\u00eancia sobre o nosso est\u00e1gio em dados em uma Institui\u00e7\u00e3o Financeira . Mostraremos processos de desenvolvimentos de scripts de automa\u00e7\u00e3o em Python que auxiliaram fluxo de trabalho interno, uso de bibliotecas Python voltadas para an\u00e1lise de Dados (pandas, openpyxl, matplotlib etc), uso de filtros e formata\u00e7\u00e3o em Excel e, finalmente, tratamento e visualiza\u00e7\u00e3o de Dados com Power BI envolvendo cria\u00e7\u00e3o de Dashboards interativos.\r\n\r\nDe forma did\u00e1tica e objetiva e assegurando a sigilosidade dos dados, apresentaremos como foi realizado cada tarefa, quais dados e tipos de dados foram manipulados, a tecnologia utilizada, a finalidade daquele trabalho e quais as conclus\u00f5es tiradas. \"",
+    "Descri\u00e7\u00e3o": "\"1 min.\tAgradecimento e abertura\r\n2 min.\tApresenta\u00e7\u00e3o dos estagi\u00e1rios e do contexto do est\u00e1gio\r\n3 min.\tObjetivo da palestra e import\u00e2ncia dos dados no fluxo interno\r\n5 min.\tTipos de dados manipulados e principais desafios encontrados\r\n7 min.\tScripts de automa\u00e7\u00e3o em Python e bibliotecas utilizadas para an\u00e1lise de Dados\r\n7 min.\tTratamento, filtros e formata\u00e7\u00e3o de dados em Excel\r\n7 min.\tTratamento e visualiza\u00e7\u00e3o de dados no Power BI\r\n4 min.\tResultados alcan\u00e7ados\r\n4 min.\tConsidera\u00e7\u00f5es Finais\r\n\"",
+    "Notas": "",
+    "Notas internas": "",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "L8CZFN",
+      "FZM9LC"
+    ],
+    "Nomes de palestrantes": [
+      "Bel\u00e9m Ribeiro",
+      "Jamile Menezes"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-03T10:00:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "10:00:00",
+    "T\u00e9rmino": "2026-07-03T10:30:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "10:30:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Intermedi\u00e1rio"
+  },
+  {
+    "ID": "FZVYFX",
+    "T\u00edtulo da proposta": "Li\u00e7\u00f5es do Mundo Real: O que os cursos n\u00e3o te mostram",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-19T15:14:23.981071+00:00",
+    "Tags": [
+      "Iniciante"
+    ],
+    "Resumo": "A \u00e1rea de dados costuma ser apresentada como um universo de dashboards impressionantes, intelig\u00eancia artificial e an\u00e1lises sofisticadas. Mas, na pr\u00e1tica, o dia a dia dos profissionais envolve desafios que raramente aparecem nos cursos ou nas redes sociais.\r\nNesta palestra, vou compartilhar uma vis\u00e3o realista da profiss\u00e3o, abordando situa\u00e7\u00f5es comuns como integra\u00e7\u00f5es com APIs limitadas, documenta\u00e7\u00e3o incompleta, problemas de qualidade dos dados, erros dif\u00edceis de diagnosticar e a dificuldade de transformar relat\u00f3rios em decis\u00f5es efetivas dentro das empresas.\r\nA proposta n\u00e3o \u00e9 desmotivar quem est\u00e1 entrando na \u00e1rea, mas apresentar os bastidores do trabalho com dados e mostrar que as habilidades mais importantes muitas vezes v\u00e3o al\u00e9m da programa\u00e7\u00e3o: comunica\u00e7\u00e3o, pensamento cr\u00edtico, resolu\u00e7\u00e3o de problemas e adapta\u00e7\u00e3o.\r\nUma conversa franca sobre os desafios, aprendizados e a realidade de quem trabalha com dados no mundo real.",
+    "Descri\u00e7\u00e3o": "A palestra apresenta uma vis\u00e3o pr\u00e1tica e realista do trabalho na \u00e1rea de dados, contrastando a percep\u00e7\u00e3o frequentemente criada por cursos e conte\u00fados das redes sociais com os desafios encontrados no ambiente corporativo. A inten\u00e7\u00e3o n\u00e3o \u00e9 desanim\u00e1-los, mas sim preparar os estudantes e iniciantes para a realidade do mercado.\r\nSer\u00e3o abordados temas como: Integra\u00e7\u00f5es com APIs, qualidade e confiabilidade dos dados, documenta\u00e7\u00e3o t\u00e9cnica, depura\u00e7\u00e3o de problemas complexos, alinhamento com \u00e1reas de neg\u00f3cios e ado\u00e7\u00e3o de relat\u00f3rios e dashboards pelos usu\u00e1rios finais.\r\nAl\u00e9m dos aspectos t\u00e9cnicos, a apresenta\u00e7\u00e3o destacar\u00e1 a import\u00e2ncia de habilidades como: comunica\u00e7\u00e3o, pensamento cr\u00edtico, resolu\u00e7\u00e3o de problemas e adapta\u00e7\u00e3o a cen\u00e1rios de incerteza.",
+    "Notas": "Sobre mim (2 min);\r\nA imagem que vendem da \u00e1rea de dados (3 min);\r\nO primeiro choque de realidade: os dados n\u00e3o vem prontos (5 min);\r\nOs problemas que n\u00e3o aparecem nos tutoriais (5 min);\r\nO maior desafio n\u00e3o \u00e9 t\u00e9cnico (5 min);\r\nA an\u00e1lise que ningu\u00e9m usa (5 min);\r\nHabilidades al\u00e9m de dados (3 min);\r\nEncerramento (2 min).",
+    "Notas internas": null,
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "99CX7Y"
+    ],
+    "Nomes de palestrantes": [
+      "Beatriz Gomes"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-03T11:55:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "11:55:00",
+    "T\u00e9rmino": "2026-07-03T12:25:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "12:25:00",
+    "Pontua\u00e7\u00e3o mediana": "2.00",
+    "Pontua\u00e7\u00e3o m\u00e9dia": 2.0,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Iniciante"
+  },
+  {
+    "ID": "GE8HPJ",
+    "T\u00edtulo da proposta": "Do Vibe Coding \u00e0 produ\u00e7\u00e3o: como constru\u00ed um bot em Python com OpenCode, Docker e workers",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Open Source, DevOps & Ecossistemas Colaborativos"
+    },
+    "Criado": "2026-06-09T11:36:50.223129+00:00",
+    "Tags": [
+      "Intermedi\u00e1rio"
+    ],
+    "Resumo": "Aprenda como um bot Python nasceu com OpenCode e Vibe Coding, evoluiu para produ\u00e7\u00e3o com Docker e workers, e quais li\u00e7\u00f5es surgiram ao transformar prompts em software real.",
+    "Descri\u00e7\u00e3o": "O bregapop-bot come\u00e7ou como uma experi\u00eancia de desenvolvimento assistido por IA e evoluiu para uma aplica\u00e7\u00e3o funcional em Python, com bot principal, worker local, Docker e integra\u00e7\u00f5es externas. A palestra mostra como OpenCode e Vibe Coding ajudaram a transformar prompts em c\u00f3digo real, mas tamb\u00e9m exp\u00f5e os limites desse processo: a necessidade de revisar decis\u00f5es, validar mudan\u00e7as, diagnosticar bugs e manter a documenta\u00e7\u00e3o alinhada com o projeto.\r\nMais do que uma hist\u00f3ria sobre IA, esta \u00e9 uma conversa sobre construir software de verdade com Python, sair do prot\u00f3tipo e encarar os desafios de produ\u00e7\u00e3o, manuten\u00e7\u00e3o e evolu\u00e7\u00e3o cont\u00ednua.",
+    "Notas": "2 min. Abertura e apresenta\u00e7\u00e3o do tema\r\n3 min. Sobre o projeto bregapop-bot e o contexto inicial\r\n4 min. O que \u00e9 Vibe Coding e como ele entrou no desenvolvimento\r\n5 min. Como o OpenCode ajudou a transformar prompts em c\u00f3digo funcional\r\n5 min. Arquitetura do projeto: bot, worker, Docker e integra\u00e7\u00f5es\r\n5 min. Principais desafios encontrados em produ\u00e7\u00e3o\r\n3 min. Bugs, corre\u00e7\u00f5es e li\u00e7\u00f5es aprendidas\r\n3 min. Documenta\u00e7\u00e3o, manuten\u00e7\u00e3o e pr\u00f3ximos passos",
+    "Notas internas": "email enviado",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "R7WE8P"
+    ],
+    "Nomes de palestrantes": [
+      "Jos\u00e9 Roberto da Costa Ferreira"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 3"
+    },
+    "In\u00edcio": "2026-07-03T10:00:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "10:00:00",
+    "T\u00e9rmino": "2026-07-03T10:30:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "10:30:00",
+    "Pontua\u00e7\u00e3o mediana": "2.00",
+    "Pontua\u00e7\u00e3o m\u00e9dia": 2.0,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Intermedi\u00e1rio"
+  },
+  {
+    "ID": "GKMKDR",
+    "T\u00edtulo da proposta": "Melhores Pr\u00e1ticas de MLOps Usando Apache Airflow",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-16T01:52:19.301729+00:00",
+    "Tags": null,
+    "Resumo": "Palestra voltada \u00e0 aplica\u00e7\u00e3o de boas pr\u00e1ticas de MLOps utilizando o Apache Airflow como orquestrador central de pipelines de machine learning, com foco em confiabilidade, reprodutibilidade e governan\u00e7a de modelos em produ\u00e7\u00e3o. Ser\u00e3o apresentados os principais componentes de uma pipeline de ML de ponta a ponta ingest\u00e3o, prepara\u00e7\u00e3o de dados, treinamento, valida\u00e7\u00e3o, deploy e monitoramento estruturados em DAGs com controle de depend\u00eancias, versionamento e automa\u00e7\u00e3o.",
+    "Descri\u00e7\u00e3o": "1 min. Abertura\r\n3 min. Sobre mim e contexto de atua\u00e7\u00e3o\r\n5 min. O que \u00e9 MLOps e por que ele \u00e9 cr\u00edtico em produ\u00e7\u00e3o\r\n7 min. Arquitetura de pipelines de ML com Apache Airflow\r\n5 min. Estrutura de DAGs: tarefas, depend\u00eancias e agendamento\r\n7 min. Boas pr\u00e1ticas: idempot\u00eancia, versionamento e reprodutibilidade\r\n5 min. Deploy e monitoramento de modelos (drift, retraining, alertas)\r\n4 min. Falhas comuns em pipelines de ML e como evit\u00e1-las\r\n3 min. Papel da l\u00f3gica e valida\u00e7\u00e3o humana em sistemas automatizados\r\n5 min. Demonstra\u00e7\u00e3o pr\u00e1tica / fluxo simplificado\r\n5 min. Encerramento e perguntas",
+    "Notas": "",
+    "Notas internas": "email enviado",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "T8KENA"
+    ],
+    "Nomes de palestrantes": [
+      "Artem\u00edsia Weyl"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-04T11:20:00-03:00",
+    "In\u00edcio (data)": "2026-07-04",
+    "In\u00edcio (hora)": "11:20:00",
+    "T\u00e9rmino": "2026-07-04T11:50:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-04",
+    "T\u00e9rmino (hora)": "11:50:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Intermedi\u00e1rio"
+  },
+  {
+    "ID": "GKTSZ9",
+    "T\u00edtulo da proposta": "Chicas Digitais: Tr\u00eas idiomas, uma linguagem, muitos futuros",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Comunidades, carreira e lideran\u00e7a Tech"
+    },
+    "Criado": "2026-06-08T18:04:41.728756+00:00",
+    "Tags": [
+      "N\u00e3o-t\u00e9cnica"
+    ],
+    "Resumo": "Uma sala com 23 mulheres imigrantes, 3 idiomas diferentes e quase nenhum contato pr\u00e9vio com computadores se transformou em uma comunidade unida pela programa\u00e7\u00e3o, tecnologia e novas oportunidades de futuro.",
+    "Descri\u00e7\u00e3o": "O que acontece quando 23 jovens imigrantes e perif\u00e9ricas, falantes de dois idiomas\r\ndiferentes, entram em uma sala de aula para aprender inform\u00e1tica, programa\u00e7\u00e3o e IA\r\naplicada ao cotidiano? A resposta \u00e9 uma experi\u00eancia de forma\u00e7\u00e3o, acolhimento e\r\nconstru\u00e7\u00e3o coletiva voltada \u00e0 autonomia, \u00e0 empregabilidade e ao protagonismo\r\nfeminino na tecnologia. Esse foi o projeto Chicas Digitais, uma parceria da ACNUR,\r\nHermanitos e PyLadies Manaus.\r\n\r\nO projeto reuniu jovens entre 16 e 21 anos, e ao longo de 120 horas de forma\u00e7\u00e3o, as participantes aprenderam inform\u00e1tica, l\u00f3gica de programa\u00e7\u00e3o, Python e introdu\u00e7\u00e3o ao uso de intelig\u00eancia artificial por meio de engenharia de prompt.\r\n\r\nAo final da forma\u00e7\u00e3o, as alunas seguiram diferentes trajet\u00f3rias: algumas iniciaram\r\npequenos empreendimentos com servi\u00e7os de inform\u00e1tica, outras aplicaram os\r\nconhecimentos em cargos de menor aprendiz ou gradua\u00e7\u00f5es na \u00e1rea de tecnologia.",
+    "Notas": "3 min: Introdu\u00e7\u00e3o da palestra e da comunidade\r\n4 min: Contexto social e problema motivador do projeto\r\n6 min: Estrutura pedag\u00f3gica e organiza\u00e7\u00e3o da forma\u00e7\u00e3o\r\n4 min: Constru\u00e7\u00e3o das aulas\r\n5 min: Introdu\u00e7\u00e3o \u00e0 IA e engenharia de prompt no ensino\r\n5 min: Desafios encontrados durante a execu\u00e7\u00e3o do projeto\r\n7 min: Resultados obtidos e trajet\u00f3rias das participantes\r\n5 min: Impacto social, constru\u00e7\u00e3o de comunidade\r\n3 min: Reflex\u00f5es finais\r\n3 min: Perguntas e encerramento",
+    "Notas internas": "email enviado",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "A9F8VG",
+      "7PFJLH",
+      "YQN8XY"
+    ],
+    "Nomes de palestrantes": [
+      "Paula SIlva",
+      "Maria Eduarda",
+      "Gabriella Soares"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-03T11:20:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "11:20:00",
+    "T\u00e9rmino": "2026-07-03T11:50:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "11:50:00",
+    "Pontua\u00e7\u00e3o mediana": "2.00",
+    "Pontua\u00e7\u00e3o m\u00e9dia": 2.0,
+    "Recursos": [],
+    "N\u00edvel da atividade": "N\u00e3o-t\u00e9cnica"
+  },
+  {
+    "ID": "MBZPNR",
+    "T\u00edtulo da proposta": "Anonimizando documentos com Python e PLN: dados sens\u00edveis que ficam onde devem",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-16T01:56:37.359534+00:00",
+    "Tags": [
+      "Iniciante"
+    ],
+    "Resumo": "Nesta palestra, ser\u00e1 apresentada uma abordagem pr\u00e1tica e acess\u00edvel para anonimiza\u00e7\u00e3o de documentos PDF utilizando Python, mantendo todo o processamento local e sem enviar dados sens\u00edveis a servi\u00e7os externos.\r\n\r\nSer\u00e3o exploradas as capacidades do Reconhecimento de Entidades Nomeadas (NER) da biblioteca spaCy em conjunto com Express\u00f5es Regulares para identificar e censurar automaticamente informa\u00e7\u00f5es sens\u00edveis como nomes pr\u00f3prios, organiza\u00e7\u00f5es, CPFs e e-mails. O p\u00fablico sair\u00e1 com uma vis\u00e3o clara de como estruturar esse tipo de pipeline e poder\u00e1 replic\u00e1-lo em seus pr\u00f3prios contextos.",
+    "Descri\u00e7\u00e3o": "2 min: Apresenta\u00e7\u00e3o\r\n5 min: Contexto: LGPD e o problema da anonimiza\u00e7\u00e3o\r\n5 min: Por que NLP cl\u00e1ssico em vez de LLMs?\r\n8 min: Extra\u00e7\u00e3o de texto de PDFs com PyMuPDF\r\n12 min: Pipeline de anonimiza\u00e7\u00e3o: spaCy (NER) + Regex\r\n5 min: Demonstra\u00e7\u00e3o de resultado com documento real\r\n3 min: Perguntas e encerramento",
+    "Notas": "",
+    "Notas internas": "",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": false,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "TT7PMP"
+    ],
+    "Nomes de palestrantes": [
+      "Carlos Vitor Cardoso da Silva"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-04T10:30:00-03:00",
+    "In\u00edcio (data)": "2026-07-04",
+    "In\u00edcio (hora)": "10:30:00",
+    "T\u00e9rmino": "2026-07-04T11:00:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-04",
+    "T\u00e9rmino (hora)": "11:00:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Iniciante"
+  },
+  {
+    "ID": "MKBYLD",
+    "T\u00edtulo da proposta": "Muito Al\u00e9m do C\u00f3digo: Uma Professora de Computa\u00e7\u00e3o na Amaz\u00f4nia",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Keynote"
+    },
+    "Trilha": {
+      "pt-br": "Comunidades, carreira e lideran\u00e7a Tech"
+    },
+    "Criado": "2026-06-27T15:48:59.730653+00:00",
+    "Tags": null,
+    "Resumo": "\u00e9 uma palestra inspiradora sobre experi\u00eancias, desafios e transforma\u00e7\u00f5es vividas por meio da computa\u00e7\u00e3o e da rob\u00f3tica educacional em contextos amaz\u00f4nicos. A partir de experi\u00eancias reais em escolas p\u00fablicas, forma\u00e7\u00e3o de professores, projetos maker, rob\u00f3tica de baixo custo e pr\u00e1ticas inclusivas, a palestra apresenta como a tecnologia pode se tornar ferramenta de pertencimento, criatividade e transforma\u00e7\u00e3o social, mesmo em cen\u00e1rios com poucos recursos. Mais do que falar sobre programa\u00e7\u00e3o ou rob\u00f4s, esta keynote prop\u00f5e uma reflex\u00e3o sobre o papel humano da computa\u00e7\u00e3o na educa\u00e7\u00e3o e sobre como professores e estudantes podem ocupar espa\u00e7os de inova\u00e7\u00e3o, criando solu\u00e7\u00f5es conectadas \u00e0s suas pr\u00f3prias realidades. Uma conversa sobre tecnologia, educa\u00e7\u00e3o, inclus\u00e3o e esperan\u00e7a constru\u00edda a partir do Norte do Brasil.",
+    "Descri\u00e7\u00e3o": "\u00e9 uma palestra inspiradora sobre experi\u00eancias, desafios e transforma\u00e7\u00f5es vividas por meio da computa\u00e7\u00e3o e da rob\u00f3tica educacional em contextos amaz\u00f4nicos. A partir de experi\u00eancias reais em escolas p\u00fablicas, forma\u00e7\u00e3o de professores, projetos maker, rob\u00f3tica de baixo custo e pr\u00e1ticas inclusivas, a palestra apresenta como a tecnologia pode se tornar ferramenta de pertencimento, criatividade e transforma\u00e7\u00e3o social, mesmo em cen\u00e1rios com poucos recursos. Mais do que falar sobre programa\u00e7\u00e3o ou rob\u00f4s, esta keynote prop\u00f5e uma reflex\u00e3o sobre o papel humano da computa\u00e7\u00e3o na educa\u00e7\u00e3o e sobre como professores e estudantes podem ocupar espa\u00e7os de inova\u00e7\u00e3o, criando solu\u00e7\u00f5es conectadas \u00e0s suas pr\u00f3prias realidades. Uma conversa sobre tecnologia, educa\u00e7\u00e3o, inclus\u00e3o e esperan\u00e7a constru\u00edda a partir do Norte do Brasil.",
+    "Notas": "",
+    "Notas internas": "",
+    "Dura\u00e7\u00e3o": 60,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": false,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "BHJ8BN"
+    ],
+    "Nomes de palestrantes": [
+      "Profa. Me. Samira Rabelo"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-03T08:55:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "08:55:00",
+    "T\u00e9rmino": "2026-07-03T09:55:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "09:55:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Iniciante"
+  },
+  {
+    "ID": "PAUE9U",
+    "T\u00edtulo da proposta": "Seu pip install custa caro? O Futuro do PyPI",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Open Source, DevOps & Ecossistemas Colaborativos"
+    },
+    "Criado": "2026-06-16T02:30:38.610579+00:00",
+    "Tags": null,
+    "Resumo": "\"O PyPI \u00e9 essencial para n\u00f3s, mas seu crescimento explosivo, impulsionado por milh\u00f5es de arquivos bin\u00e1rios (wheels), gera custos imensos e desafios de sustentabilidade, dependendo fortemente de patroc\u00ednios. Esta palestra mergulha nos \"\"custos invis\u00edveis\"\" do pip install, explora os desafios t\u00e9cnicos por tr\u00e1s da hospedagem de pacotes em escala e discute solu\u00e7\u00f5es inovadoras \u2013 como sistemas de build modernos e caches distribu\u00eddos \u2013 para garantir um ecossistema Python mais robusto, eficiente e independente para todos n\u00f3s no Brasil e no mundo.\r\n\r\nO Python Package Index (PyPI) \u00e9 o cora\u00e7\u00e3o pulsante do nosso ecossistema, servindo bilh\u00f5es de downloads diariamente. Usamos pip install sem pensar muito, mas por tr\u00e1s dessa simplicidade existe uma infraestrutura massiva com desafios crescentes. O PyPI hospeda hoje mais de 12 milh\u00f5es de arquivos, com um crescimento exponencial impulsionado principalmente por _wheels_ (bin\u00e1rios pr\u00e9-compilados).\"",
+    "Descri\u00e7\u00e3o": "\"- 3 mins: Intro + Apresentando palestrantes \r\n- 3 mins: Revis\u00e3o sobre o que \u00e9 PyPI\r\n- 8 mins: O que s\u00e3o wheels e o que eles resolvem?\r\n- 5 mins: Problemas modernos (storage, dificuldades de integra\u00e7\u00e3o com C, C++ e etc)\r\n- 3 mins: Apresentando Zig compiler\r\n- 6 mins: Como esse compilador nos ajuda?\r\n- 10 mins: Live coding.\r\n- 2 mins: conclus\u00f5es. \r\n- 5 mins: Espa\u00e7o para perguntas.\"",
+    "Notas": "",
+    "Notas internas": "email enviado",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "QDKTSW"
+    ],
+    "Nomes de palestrantes": [
+      "Pablo Henrique Aguilar"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-04T14:20:00-03:00",
+    "In\u00edcio (data)": "2026-07-04",
+    "In\u00edcio (hora)": "14:20:00",
+    "T\u00e9rmino": "2026-07-04T14:50:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-04",
+    "T\u00e9rmino (hora)": "14:50:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Avan\u00e7ado"
+  },
+  {
+    "ID": "PCZUAR",
+    "T\u00edtulo da proposta": "Utilizando python pra detec\u00e7\u00e3o de fissura em concreto",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-16T02:05:52.011204+00:00",
+    "Tags": [
+      "Intermedi\u00e1rio"
+    ],
+    "Resumo": "Nessa apresenta\u00e7\u00e3o vai ser explicado uma proposta de avalia\u00e7\u00e3o de estrutura com o uso de deep learning, mudando assim o paradigma de avalia\u00e7\u00e3o de estrutura, tornando o processo eficiente e r\u00e1pido e garantindo a seguran\u00e7a da inspe\u00e7\u00e3o",
+    "Descri\u00e7\u00e3o": "\"1 min agradecimento \r\n2 min sobre min\r\n5 min contexto da avalia\u00e7\u00e3o da estrutura de modo tradicional \r\n7 mi panorama do uso de tecnologias pra essa \u00e1rea \r\n15 min mostrando exemplos no c\u00f3digo \r\n3 min conclus\u00e3o \"",
+    "Notas": "",
+    "Notas internas": "email enviado",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "SUE3AX"
+    ],
+    "Nomes de palestrantes": [
+      "Gustavo Ramos"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-04T11:50:00-03:00",
+    "In\u00edcio (data)": "2026-07-04",
+    "In\u00edcio (hora)": "11:50:00",
+    "T\u00e9rmino": "2026-07-04T12:20:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-04",
+    "T\u00e9rmino (hora)": "12:20:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Intermedi\u00e1rio"
+  },
+  {
+    "ID": "RGEV9Q",
+    "T\u00edtulo da proposta": "Django, jazz e nomadismo intelectual",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Keynote"
+    },
+    "Trilha": {
+      "pt-br": "Comunidades, carreira e lideran\u00e7a Tech"
+    },
+    "Criado": "2026-06-26T13:21:00.262816+00:00",
+    "Tags": [
+      "N\u00e3o-t\u00e9cnica"
+    ],
+    "Resumo": "O que Jean \"Django\" Reinhardt pode nos ensinar sobre arte e programa\u00e7\u00e3o.",
+    "Descri\u00e7\u00e3o": "Aprendi na aula de biologia, do cursinho pr\u00e9-vestibular, a palavra etimologia. Desde ent\u00e3o, costumo mergulhar na origem das coisas que me interessam e o termo \u201cDjango\u201d me chamou aten\u00e7\u00e3o. Lendo na wikipedia, e n\u00e3o via IA, acabei esbarrando com a hist\u00f3ria de Django Reinhardt e como sua hist\u00f3ria de vida \u00e9 inspiradora para n\u00f3s da \u00e1rea de TI. Pretendo falar sobre minha trajet\u00f3ria em comunidades de TI e como sobreviver a esse mundo c\u00e3o, atrav\u00e9s da arte.",
+    "Notas": "",
+    "Notas internas": "",
+    "Dura\u00e7\u00e3o": 60,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": false,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "TKYKSF"
+    ],
+    "Nomes de palestrantes": [
+      "Luiz Sanches"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-04T09:00:00-03:00",
+    "In\u00edcio (data)": "2026-07-04",
+    "In\u00edcio (hora)": "09:00:00",
+    "T\u00e9rmino": "2026-07-04T10:00:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-04",
+    "T\u00e9rmino (hora)": "10:00:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "N\u00e3o-t\u00e9cnica"
+  },
+  {
+    "ID": "TMKTQA",
+    "T\u00edtulo da proposta": "Avalia\u00e7\u00f5es de Clientes como Dados: Descobrindo Padr\u00f5es com Python e PLN",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-16T01:59:51.692317+00:00",
+    "Tags": [
+      "Iniciante"
+    ],
+    "Resumo": "Toda avalia\u00e7\u00e3o de cliente \u00e9 uma fonte de dado, mas extrair padr\u00f5es de centenas delas manualmente \u00e9 invi\u00e1vel. Nesta palestra, ser\u00e1 mostrado como tratar avalia\u00e7\u00f5es de produtos como dados estruturados e usar Python para descobrir automaticamente o que os clientes mais elogiam e o que mais criticam.\r\n\r\nO pipeline apresentado combina Pandas para limpeza e prepara\u00e7\u00e3o dos dados, spaCy para identifica\u00e7\u00e3o autom\u00e1tica de adjetivos via POS tagging e Matplotlib para gera\u00e7\u00e3o de visualiza\u00e7\u00f5es prontas para interpretar. Ao final, o p\u00fablico ver\u00e1 como transformar um CSV bruto de avalia\u00e7\u00f5es em um gr\u00e1fico claro sobre a percep\u00e7\u00e3o dos clientes, sem precisar ler linha por linha.",
+    "Descri\u00e7\u00e3o": "2 min: Apresenta\u00e7\u00e3o.\r\n6 min: O problema: volume de avalia\u00e7\u00f5es e o que PLN pode fazer por elas.\r\n6 min: Carregando e limpando os dados com Pandas.\r\n12 min: Extraindo adjetivos com spaCy e contando frequ\u00eancias.\r\n8 min: Visualizando os resultados com Matplotlib.\r\n4 min: Interpretando o gr\u00e1fico, limita\u00e7\u00f5es e pr\u00f3ximos passos.\r\n2 min: Perguntas e encerramento.",
+    "Notas": "",
+    "Notas internas": "",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": false,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "TT7PMP"
+    ],
+    "Nomes de palestrantes": [
+      "Carlos Vitor Cardoso da Silva"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-03T10:35:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "10:35:00",
+    "T\u00e9rmino": "2026-07-03T11:05:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "11:05:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Iniciante"
+  },
+  {
+    "ID": "UHHWWU",
+    "T\u00edtulo da proposta": "RAG est\u00e1 morto? Como construir sistemas de conhecimento com Agentic RAG em Python",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-05T15:51:29.890959+00:00",
+    "Tags": [
+      "Avan\u00e7ado"
+    ],
+    "Resumo": "O Retrieval-Augmented Generation (RAG) revolucionou a forma como conectamos Large Language Models a bases de conhecimento corporativas. No entanto, sistemas reais rapidamente revelaram limita\u00e7\u00f5es importantes: dificuldade em responder perguntas complexas, problemas com racioc\u00ednio multi-etapas, recupera\u00e7\u00e3o inadequada de contexto e desafios para garantir a confiabilidade das respostas.\r\n\r\nNesta palestra, exploraremos a evolu\u00e7\u00e3o do RAG tradicional para o Agentic RAG, uma abordagem que combina agentes inteligentes, m\u00faltiplas estrat\u00e9gias de recupera\u00e7\u00e3o, mem\u00f3ria contextual e mecanismos de valida\u00e7\u00e3o para construir aplica\u00e7\u00f5es mais robustas e precisas. Utilizando Python e ferramentas modernas do ecossistema de IA Generativa, veremos como arquitetar sistemas capazes de buscar, raciocinar, validar e responder de forma mais pr\u00f3xima do comportamento esperado em ambientes de produ\u00e7\u00e3o.\r\n\r\nOs participantes sair\u00e3o com uma vis\u00e3o pr\u00e1tica das tend\u00eancias que est\u00e3o redefinindo o futuro dos sistemas de conhecimento baseados em LLMs e entender\u00e3o como aplicar esses conceitos em seus pr\u00f3prios projetos.",
+    "Descri\u00e7\u00e3o": "O RAG (Retrieval-Augmented Generation) tornou-se uma das principais abordagens para conectar LLMs a bases de conhecimento corporativas. Por\u00e9m, em cen\u00e1rios reais, a recupera\u00e7\u00e3o vetorial tradicional nem sempre \u00e9 suficiente para responder perguntas complexas, correlacionar informa\u00e7\u00f5es distribu\u00eddas ou garantir respostas confi\u00e1veis.\r\n\r\nNesta palestra, apresentarei a evolu\u00e7\u00e3o do RAG para o **Agentic RAG**, uma arquitetura que combina agentes, m\u00faltiplas estrat\u00e9gias de recupera\u00e7\u00e3o, mem\u00f3ria contextual e valida\u00e7\u00e3o de evid\u00eancias. Utilizando Python, veremos como construir sistemas capazes de planejar buscas, selecionar fontes relevantes e produzir respostas mais precisas e fundamentadas. Tamb\u00e9m abordaremos tend\u00eancias como GraphRAG, avalia\u00e7\u00e3o de qualidade e os desafios de levar aplica\u00e7\u00f5es de IA Generativa para produ\u00e7\u00e3o.",
+    "Notas": "Cronograma da Apresenta\u00e7\u00e3o (30 minutos)\r\n1. Introdu\u00e7\u00e3o e Contextualiza\u00e7\u00e3o (3 min)\r\nO crescimento do RAG nas aplica\u00e7\u00f5es de IA Generativa\r\nPrincipais desafios encontrados em produ\u00e7\u00e3o\r\n2. Como Funciona o RAG Tradicional (5 min)\r\nEmbeddings e busca vetorial\r\nFluxo cl\u00e1ssico de recupera\u00e7\u00e3o e gera\u00e7\u00e3o\r\nLimita\u00e7\u00f5es da abordagem\r\n3. Evolu\u00e7\u00e3o para Agentic RAG (8 min)\r\nO papel dos agentes na recupera\u00e7\u00e3o de conhecimento\r\nPlanejamento de consultas\r\nRecupera\u00e7\u00e3o multi-etapas\r\nValida\u00e7\u00e3o de evid\u00eancias\r\n4. Demonstra\u00e7\u00e3o Pr\u00e1tica em Python (10 min)\r\nArquitetura da solu\u00e7\u00e3o\r\nFluxo de execu\u00e7\u00e3o do agente\r\nExemplo de recupera\u00e7\u00e3o e resposta fundamentada\r\n5. Tend\u00eancias e Encerramento (4 min)\r\nGraphRAG\r\nMem\u00f3ria em sistemas agentes\r\nAvalia\u00e7\u00e3o de aplica\u00e7\u00f5es RAG\r\nPerguntas e considera\u00e7\u00f5es finais\r\nTecnologias Utilizadas\r\nPython\r\nLangGraph\r\nLangChain\r\nBancos Vetoriais\r\nLLMs\r\nFerramentas de Avalia\u00e7\u00e3o de RAG",
+    "Notas internas": "email enviado",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "UBMYJV"
+    ],
+    "Nomes de palestrantes": [
+      "Carlos Augusto Oeiras"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-03T15:25:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "15:25:00",
+    "T\u00e9rmino": "2026-07-03T15:55:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "15:55:00",
+    "Pontua\u00e7\u00e3o mediana": "2.00",
+    "Pontua\u00e7\u00e3o m\u00e9dia": 2.0,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Avan\u00e7ado"
+  },
+  {
+    "ID": "VBXWNM",
+    "T\u00edtulo da proposta": "Mind Over Model: Estrat\u00e9gias de Produtividade Humano-IA",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-16T02:28:00.397347+00:00",
+    "Tags": null,
+    "Resumo": "\"Nesta palestra vamos inverter a lente sobre a ado\u00e7\u00e3o de modelos de IA. Antes de perguntar \u201cqual LLM usar?\u201d, precisamos reconhecer que o recurso mais caro da equa\u00e7\u00e3o continua sendo o ser humano. A sess\u00e3o apresenta um framework pragm\u00e1tico para decidir quando delegar a um modelo, qual modelo escolher e como medir retorno sobre investimento de tempo e dinheiro.\r\n\r\nUnindo hist\u00f3rias de projetos reais, m\u00e9tricas simples de custo-benef\u00edcio e demonstra\u00e7\u00f5es ao vivo, mostrarei como alinhar esfor\u00e7o humano, automa\u00e7\u00e3o cl\u00e1ssica e modelos generativos para eliminar desperd\u00edcios, liberar criatividade e acelerar entregas sem cair na armadilha do \u201cmais caro porque est\u00e1 aberto na tela\u201d.\"",
+    "Descri\u00e7\u00e3o": "\"| Dura\u00e7\u00e3o | Conte\u00fado                                                     |\r\n| ------- | ------------------------------------------------------------ |\r\n| 1 min   | Agradecimento e contexto                                     |\r\n| 3 min   | \u201cVoc\u00ea \u00e9 o modelo mais caro\u201d. Hist\u00f3ria que inspirou o tema    |\r\n| 5 min   | Panorama de custos: humanos, automa\u00e7\u00e3o tradicional, LLMs     |\r\n| 7 min   | Framework de triagem de tarefas (Human-First \u2192 Script \u2192 LLM) |\r\n| 8 min   | Demonstra\u00e7\u00f5es pr\u00e1ticas: planilha vs script curto vs LLM      |\r\n| 5 min   | Erros comuns na ado\u00e7\u00e3o impulsiva de IA                       |\r\n| 3 min   | Checklist de decis\u00e3o r\u00e1pida (tempo, complexidade, risco)     |\r\n| 5 min   | Estudos de caso corporativos e resultados mensur\u00e1veis        |\r\n| 3 min   | Perguntas e pr\u00f3ximos passos                                  |\r\n\"",
+    "Notas": "",
+    "Notas internas": "perguntar o melhor horar\u00e1rio - email enviado",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "Q7HMNP"
+    ],
+    "Nomes de palestrantes": [
+      "Ana Lindiner"
+    ],
+    "Sala": null,
+    "In\u00edcio": null,
+    "In\u00edcio (data)": null,
+    "In\u00edcio (hora)": null,
+    "T\u00e9rmino": null,
+    "T\u00e9rmino (data)": null,
+    "T\u00e9rmino (hora)": null,
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Iniciante"
+  },
+  {
+    "ID": "VJYLFC",
+    "T\u00edtulo da proposta": "Caminhos para alavancar a sua entrada no mundo tech",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Comunidades, carreira e lideran\u00e7a Tech"
+    },
+    "Criado": "2026-06-07T12:21:45.181061+00:00",
+    "Tags": [
+      "N\u00e3o-t\u00e9cnica"
+    ],
+    "Resumo": "Esta palestra apresenta os aprendizados que tornaram poss\u00edvel a transi\u00e7\u00e3o de carreira da palestrante para a \u00e1rea de tecnologia, destacando aspectos que v\u00e3o muito al\u00e9m do conhecimento t\u00e9cnico. Ser\u00e3o abordados temas como gest\u00e3o do tempo, planejamento financeiro, networking, desenvolvimento de soft skills e a import\u00e2ncia da comunidade na constru\u00e7\u00e3o de uma nova trajet\u00f3ria profissional. A palestra tamb\u00e9m traz reflex\u00f5es sobre os desafios, sacrif\u00edcios e mudan\u00e7as de mentalidade que contribu\u00edram para essa transforma\u00e7\u00e3o. Uma conversa inspiradora para quem est\u00e1 iniciando, considerando uma mudan\u00e7a de carreira ou buscando motiva\u00e7\u00e3o para seguir em frente.",
+    "Descri\u00e7\u00e3o": "Esta palestra apresenta os aprendizados que tornaram poss\u00edvel a transi\u00e7\u00e3o de carreira da palestrante para a \u00e1rea de tecnologia, destacando aspectos que v\u00e3o muito al\u00e9m do conhecimento t\u00e9cnico. Ser\u00e3o abordados temas como gest\u00e3o do tempo, planejamento financeiro, networking, desenvolvimento de soft skills e a import\u00e2ncia da comunidade na constru\u00e7\u00e3o de uma nova trajet\u00f3ria profissional. A palestra tamb\u00e9m traz reflex\u00f5es sobre os desafios, sacrif\u00edcios e mudan\u00e7as de mentalidade que contribu\u00edram para essa transforma\u00e7\u00e3o. Uma conversa inspiradora para quem est\u00e1 iniciando, considerando uma mudan\u00e7a de carreira ou buscando motiva\u00e7\u00e3o para seguir em frente.",
+    "Notas": "",
+    "Notas internas": "email enviado",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "3NFZGC"
+    ],
+    "Nomes de palestrantes": [
+      "Brenda Freire"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 3"
+    },
+    "In\u00edcio": "2026-07-03T10:35:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "10:35:00",
+    "T\u00e9rmino": "2026-07-03T11:05:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "11:05:00",
+    "Pontua\u00e7\u00e3o mediana": "2.00",
+    "Pontua\u00e7\u00e3o m\u00e9dia": 2.0,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Iniciante"
+  },
+  {
+    "ID": "XLQU7P",
+    "T\u00edtulo da proposta": "Qualidade de Sofwate com Django e IA: explorando o futuro desde agora",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Open Source, DevOps & Ecossistemas Colaborativos"
+    },
+    "Criado": "2026-06-25T15:54:59.592712+00:00",
+    "Tags": [
+      "Intermedi\u00e1rio"
+    ],
+    "Resumo": "Em menos de 3 a IA revolucionou o desenvolvimento de softwares no mundo inteiro. A corrida pelos modelo mais r\u00e1pidos, mais \"inteligentes\", e mais eficazes ocaionou novamente o efeito de uma tecnologia como insumo \u00e0 industria de software.\r\nA ideia de que as IAs est\u00e3o evoluindo vertiginosamente vem causando muita inseguran\u00e7a, ansiedade e at\u00e9 desanimo aos programadores inicintes.\r\nA palavra agora \u00e9 HARNESS, arquitetura de IA constu\u00edda envolta da codifica\u00e7\u00e3o de uma solu\u00e7\u00e3o baseada em software.\r\nMas n\u00e3o adianta saber uma palavra nova, como harness, sem ter o dominio das bases, dos fundamentos, sem ter a autonomia de pensar por si s\u00f3.\r\nPortanto o segredo \u00e9 aprender Django, boas pr\u00e1ticas de codifica\u00e7\u00e3o e a forma certa de utilizar ferramentas modernas no dia a dia.\r\n\r\nPortanto, essa palestra \u00e9 sobre Qualidade de Software, Django, testes e IAs",
+    "Descri\u00e7\u00e3o": "Proponha uma reflex\u00e3o sobre o verdadeiro papel do arquiteto de software na cria\u00e7\u00e3o de sistemas computacionais. Explorando um pouco da hist\u00f3ria do Django, seu contexto de surgimento e como o framework continua evoluindo at\u00e9 hoje.\r\nE como podemos ficar um pouco mais tranquilos em rela\u00e7\u00e3o a euforia das IAs",
+    "Notas": "1 min. Apresenta\u00e7\u00e3o e sobre mim\r\n2 min. Sobre o tema\r\n5 min. um r\u00e1pido panoroma da web at\u00e9 2023 \r\n7 min. a web ap\u00f3s 2024\r\n2 min. Quanlidade vs Quantidade\r\n3 min. Explorando alguns harness para codifica\u00e7\u00e3o\r\n3 min. Django com IA: o canivete sui\u00e7o das solu\u00e7\u00f5es de qualidade.\r\n3 min. O que mercado de trabalho realmente espera dos desenvolvedores de software ?\r\n3 min. Encerramento e considera\u00e7\u00f5es finais",
+    "Notas internas": null,
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": false,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "A3CNP3"
+    ],
+    "Nomes de palestrantes": [
+      "Thalyson W Da Silva"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 3"
+    },
+    "In\u00edcio": "2026-07-03T14:20:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "14:20:00",
+    "T\u00e9rmino": "2026-07-03T14:50:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "14:50:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Intermedi\u00e1rio"
+  },
+  {
+    "ID": "XU8XMY",
+    "T\u00edtulo da proposta": "Debugging em Python (Boas Pr\u00e1ticas)",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Tutorial"
+    },
+    "Trilha": {
+      "pt-br": "Open Source, DevOps & Ecossistemas Colaborativos"
+    },
+    "Criado": "2026-06-15T23:04:37.207163+00:00",
+    "Tags": [
+      "Intermedi\u00e1rio"
+    ],
+    "Resumo": "O Laborat\u00f3rio de Debugging em Python re\u00fane desafios pr\u00e1ticos voltados ao desenvolvimento de habilidades de depura\u00e7\u00e3o, an\u00e1lise de c\u00f3digo e resolu\u00e7\u00e3o de problemas em Python. A proposta segue uma progress\u00e3o gradual, permitindo compreender conceitos e etapas de desenvolvimento enquanto os participantes investigam e corrigem erros.\r\n\r\nOs exerc\u00edcios possuem dificuldade crescente e contam com materiais de apoio em PDF, com contexto, comportamento esperado e orienta\u00e7\u00f5es para auxiliar a an\u00e1lise e a corre\u00e7\u00e3o dos problemas.",
+    "Descri\u00e7\u00e3o": "O Laborat\u00f3rio de Debugging em Python \u00e9 uma atividade pr\u00e1tica voltada ao desenvolvimento de habilidades de an\u00e1lise, depura\u00e7\u00e3o e resolu\u00e7\u00e3o de problemas em Python. Por meio de desafios com dificuldade crescente, os participantes identificam e corrigem erros de sintaxe, l\u00f3gica e interface gr\u00e1fica, explorando aplica\u00e7\u00f5es desenvolvidas tanto em linha de comando quanto com Tkinter. A atividade conta com materiais de apoio que orientam a investiga\u00e7\u00e3o dos problemas e tem como objetivo fortalecer o racioc\u00ednio l\u00f3gico, a interpreta\u00e7\u00e3o de erros e as boas pr\u00e1ticas de desenvolvimento de software.",
+    "Notas": "\ud83d\uddc2\ufe0f Desafios\r\n\r\n\ud83d\udfe2 Problema 1 \u2013 Fun\u00e7\u00e3o de Boas-vindas (F\u00e1cil)\r\nIntrodu\u00e7\u00e3o \u00e0 depura\u00e7\u00e3o por meio da corre\u00e7\u00e3o de erros simples de sintaxe, indenta\u00e7\u00e3o e chamadas de fun\u00e7\u00e3o.\r\n\r\n\ud83d\udfe1 Problema 2 \u2013 Tabuada Interativa (M\u00e9dio)\r\nCorre\u00e7\u00e3o de falhas de l\u00f3gica, manipula\u00e7\u00e3o de vari\u00e1veis, convers\u00e3o de tipos e estruturas de repeti\u00e7\u00e3o.\r\n\r\n\ud83d\udfe1 Problema 3 \u2013 Calculadora Gr\u00e1fica (M\u00e9dio)\r\nIdentifica\u00e7\u00e3o e corre\u00e7\u00e3o de erros em uma aplica\u00e7\u00e3o desenvolvida com Tkinter, envolvendo eventos, valida\u00e7\u00e3o de dados e tratamento de exce\u00e7\u00f5es.\r\n\r\n\ud83d\udd34 Problema 4 \u2013 Jogo da Velha (Dif\u00edcil)\r\nDepura\u00e7\u00e3o de uma aplica\u00e7\u00e3o gr\u00e1fica mais completa, envolvendo regras do jogo, placar persistente, gerenciamento de estado e uma intelig\u00eancia artificial b\u00e1sica.\r\n\r\n\ud83d\udfe0 Problema 5 \u2013 Quiz da Copa em Python (Dif\u00edcil/Avan\u00e7ado)\r\nDepura\u00e7\u00e3o de uma aplica\u00e7\u00e3o gr\u00e1fica desenvolvida com Tkinter, explorando conceitos como gerenciamento de perguntas, controle de pontua\u00e7\u00e3o, atualiza\u00e7\u00e3o din\u00e2mica da interface, eventos, callbacks e feedback ao usu\u00e1rio.\r\n\r\n\u2b50 Desafio Extra \u2013 Splash Screen em Tkinter\r\nAp\u00f3s concluir os desafios principais, os participantes desenvolvem uma tela de apresenta\u00e7\u00e3o utilizando a identidade visual do evento.\r\nO desafio explora conceitos fundamentais de interfaces gr\u00e1ficas, temporiza\u00e7\u00e3o, gerenciamento de janelas e experi\u00eancia do usu\u00e1rio, incentivando a criatividade na constru\u00e7\u00e3o de uma splash screen personalizada.",
+    "Notas internas": "email enviado",
+    "Dura\u00e7\u00e3o": 150,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "WBHZYP"
+    ],
+    "Nomes de palestrantes": [
+      "devhugo"
+    ],
+    "Sala": {
+      "pt-br": "Sala 102"
+    },
+    "In\u00edcio": "2026-07-03T10:00:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "10:00:00",
+    "T\u00e9rmino": "2026-07-03T12:20:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "12:20:00",
+    "Pontua\u00e7\u00e3o mediana": "2.00",
+    "Pontua\u00e7\u00e3o m\u00e9dia": 2.0,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Intermedi\u00e1rio"
+  },
+  {
+    "ID": "Z9PVXJ",
+    "T\u00edtulo da proposta": "Da ideia ao impacto: criando solu\u00e7\u00f5es digitais para a Amaz\u00f4nia com Python",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Open Source, DevOps & Ecossistemas Colaborativos"
+    },
+    "Criado": "2026-06-16T02:24:20.106187+00:00",
+    "Tags": null,
+    "Resumo": "\"A Amaz\u00f4nia apresenta desafios \u00fanicos em \u00e1reas como bioeconomia, log\u00edstica, acesso a mercado e digitaliza\u00e7\u00e3o de processos. Ao mesmo tempo, esses desafios representam oportunidades para cria\u00e7\u00e3o de solu\u00e7\u00f5es tecnol\u00f3gicas com impacto real.\r\n\r\nNesta palestra, ser\u00e1 apresentado um caminho pr\u00e1tico para transformar problemas em solu\u00e7\u00f5es digitais utilizando Python, com foco em constru\u00e7\u00e3o de MVPs, valida\u00e7\u00e3o r\u00e1pida e aplica\u00e7\u00e3o em contextos reais da regi\u00e3o Norte.\r\n\r\nA partir de experi\u00eancias com startups e projetos na Amaz\u00f4nia, ser\u00e3o explorados exemplos concretos de aplica\u00e7\u00f5es, arquiteturas simples e estrat\u00e9gias para sair da ideia e gerar impacto com tecnologia.\r\n\r\nA proposta \u00e9 mostrar como desenvolvedores e empreendedores podem construir solu\u00e7\u00f5es vi\u00e1veis, acess\u00edveis e escal\u00e1veis, conectando c\u00f3digo com problemas reais.\"",
+    "Descri\u00e7\u00e3o": "\"Dura\u00e7\u00e3o\tConte\u00fado\r\n2 min.\tAbertura e contextualiza\u00e7\u00e3o da palestra\r\n3 min.\tApresenta\u00e7\u00e3o do palestrante e atua\u00e7\u00e3o na Amaz\u00f4nia com tecnologia\r\n5 min.\tPanorama: desafios reais da Amaz\u00f4nia (bioeconomia, log\u00edstica, comercializa\u00e7\u00e3o e gest\u00e3o)\r\n5 min.\tO problema: por que muitas solu\u00e7\u00f5es tecnol\u00f3gicas n\u00e3o geram impacto real\r\n7 min.\tFramework pr\u00e1tico para transformar problemas em solu\u00e7\u00f5es digitais (m\u00e9todo aplicado)\r\n8 min.\tAplica\u00e7\u00e3o com Python: arquitetura simples, ferramentas e exemplo pr\u00e1tico (API e automa\u00e7\u00e3o)\r\n7 min.\tCasos de uso reais/simulados na Amaz\u00f4nia (rastreabilidade, pedidos, gest\u00e3o e dados)\r\n2 min.\tCaminho pr\u00e1tico para sair do zero e construir um MVP funcional\r\n1 min.\tConclus\u00e3o e mensagem final\r\n\u2014\t\u2014\r\nTotal: 40 minutos\tIncluindo espa\u00e7o para intera\u00e7\u00e3o breve durante a apresenta\u00e7\u00e3o\"",
+    "Notas": "",
+    "Notas internas": "Email enviado",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "EW9SR3"
+    ],
+    "Nomes de palestrantes": [
+      "Jucivaldo ferreira"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-04T14:50:00-03:00",
+    "In\u00edcio (data)": "2026-07-04",
+    "In\u00edcio (hora)": "14:50:00",
+    "T\u00e9rmino": "2026-07-04T15:20:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-04",
+    "T\u00e9rmino (hora)": "15:20:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Iniciante"
+  },
+  {
+    "ID": "ZK7ANH",
+    "T\u00edtulo da proposta": "Se a cabe\u00e7a n\u00e3o usa, atrofia: LLMs e a ilus\u00e3o do saber",
+    "Estado da proposta": "confirmed",
+    "Estado da proposta pendente": null,
+    "Tipo de sess\u00e3o": {
+      "pt-br": "Palestra"
+    },
+    "Trilha": {
+      "pt-br": "Dados, intelig\u00eancia artificial e machine learning"
+    },
+    "Criado": "2026-06-16T02:20:14.936059+00:00",
+    "Tags": null,
+    "Resumo": "LLMs ajudam a gerar c\u00f3digo e explicar conceitos, mas tamb\u00e9m podem criar a ilus\u00e3o de compreens\u00e3o. A palestra discute como usar essas ferramentas com senso cr\u00edtico e sem deixar o pensamento atrofiar. O autor possui 20 anos de Doc\u00eancia em Ensino de Programa\u00e7\u00e3o em uma Universidade P\u00fablica, al\u00e9m de ter dado centenas de Workshops presenciais para um p\u00fablico diverso.",
+    "Descri\u00e7\u00e3o": "\"1. A chegada das LLMs no cotidiano de quem programa\r\n    Como essas ferramentas passaram rapidamente a fazer parte do aprendizado e do desenvolvimento de software, automa\u00e7\u00e3o de processos repetitivos.\r\n2. A ilus\u00e3o do saber\r\n    Quando respostas convincentes geram sensa\u00e7\u00e3o de entendimento sem que haja compreens\u00e3o real.\r\n3. A ilus\u00e3o de produtividade\r\n    C\u00f3digo gerado automaticamente pode aumentar volume, mas nem sempre melhora qualidade ou entendimento.\r\n4. O desafio no ensino de programa\u00e7\u00e3o\r\n    Como ensinar quando os alunos t\u00eam uma LLM dispon\u00edvel o tempo todo.\r\n5. Estrat\u00e9gias pr\u00e1ticas de uso mais consciente\r\n    o retorno das avalia\u00e7\u00f5es tradicionais, provas individuais e sem consulta\r\n    prompts que incentivam investiga\u00e7\u00e3o\r\n    perguntas que evitam solu\u00e7\u00f5es prontas\r\n    uso da IA como ferramenta de apoio ao racioc\u00ednio\r\n6. Avalia\u00e7\u00e3o na era das LLMs\r\n    leitura e compreens\u00e3o de c\u00f3digo\r\n    modifica\u00e7\u00e3o de solu\u00e7\u00f5es existentes\r\n    an\u00e1lise cr\u00edtica de c\u00f3digo gerado ...",
+    "Notas": "",
+    "Notas internas": "",
+    "Dura\u00e7\u00e3o": 35,
+    "Contagem de blocos": 1,
+    "Idioma": "pt-br",
+    "Mostre esta sess\u00e3o na lista p\u00fablica de sess\u00f5es em destaque.": true,
+    "N\u00e3o grave esta sess\u00e3o.": false,
+    "Imagem da sess\u00e3o": "",
+    "IDs de palestrantes": [
+      "LVGKZR"
+    ],
+    "Nomes de palestrantes": [
+      "Fernando Masanori"
+    ],
+    "Sala": {
+      "pt-br": "Audit\u00f3rio 1 - Principal"
+    },
+    "In\u00edcio": "2026-07-03T14:50:00-03:00",
+    "In\u00edcio (data)": "2026-07-03",
+    "In\u00edcio (hora)": "14:50:00",
+    "T\u00e9rmino": "2026-07-03T15:20:00-03:00",
+    "T\u00e9rmino (data)": "2026-07-03",
+    "T\u00e9rmino (hora)": "15:20:00",
+    "Pontua\u00e7\u00e3o mediana": null,
+    "Pontua\u00e7\u00e3o m\u00e9dia": null,
+    "Recursos": [],
+    "N\u00edvel da atividade": "Iniciante"
+  }
+]

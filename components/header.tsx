@@ -3,12 +3,17 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ButtonLink } from "@/design-system/components/Button";
 import { colors } from "@/design-system/tokens/colors";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCountdownVisible, setIsCountdownVisible] = useState(true);
+  const pathname = usePathname();
+
+  // Check if we're on the home page (where countdown banner exists)
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +38,7 @@ export function Header() {
   return (
     <header
       className={`fixed z-50 w-full border-b transition-all duration-300 ${
-        isCountdownVisible ? "top-[60px]" : "top-0"
+        isHomePage && isCountdownVisible ? "top-[60px]" : "top-0"
       }`}
       style={{
         backgroundColor: colors.background.header,

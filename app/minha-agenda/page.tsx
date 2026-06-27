@@ -16,20 +16,23 @@ import {
   Share2,
 } from "lucide-react";
 import Link from "next/link";
+import sessionsData from "../programacao/python-norte-2026_sessions.json";
 
 interface Session {
   id: string;
   time: string;
   title: string;
-  type: "Keynote" | "Palestra" | "Tutorial" | "Credenciamento" | "Intervalo";
+  type: string;
   location?: string;
-  target?: "Todos" | "Iniciante" | "Intermediário" | "Avançado";
+  target?: string;
   registrationRequired?: boolean;
   track?: string;
-  learningOutcomes?: string;
+  description?: string;
   day: number;
   dayName: string;
   date: string;
+  speakers?: string[];
+  duration?: number;
 }
 
 export default function MinhaAgendaPage() {
@@ -38,392 +41,41 @@ export default function MinhaAgendaPage() {
   const [email, setEmail] = useState("");
   const [emailSent, setEmailSent] = useState(false);
 
-  // All sessions data
-  const allSessions: Session[] = [
-    // Day 1
-    {
-      id: "d1-2",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "08:30 — 08:45",
-      title: "Abertura Oficial do Evento",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    {
-      id: "d1-3",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "08:45 — 09:45",
-      title: "Keynote I - Abertura",
-      type: "Keynote",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    {
-      id: "d1-4",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "09:45 — 12:00",
-      title: "Atividade Prática 1",
-      type: "Tutorial",
-      location: "Lab 1",
-      target: "Iniciante",
-      registrationRequired: true,
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a criar do zero uma aplicação web completa com banco de dados utilizando Django.",
-    },
-    {
-      id: "d1-5",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "09:45 — 12:00",
-      title: "Atividade Prática 2",
-      type: "Tutorial",
-      location: "Lab 2",
-      target: "Iniciante",
-      registrationRequired: true,
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a carregar, limpar, manipular e visualizar conjuntos de dados reais utilizando a biblioteca Pandas.",
-    },
-    {
-      id: "d1-6",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "09:45 — 10:15",
-      title: "Palestra 01",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Intermediário",
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a estruturar prompts eficazes para otimização de tarefas de desenvolvimento com LLMs.",
-    },
-    {
-      id: "d1-7",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "10:15 — 10:45",
-      title: "Palestra 02",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Avançado",
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão as melhores práticas de performance, concorrência e testes de carga em endpoints assíncronos.",
-    },
-    {
-      id: "d1-9",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "11:00 — 11:30",
-      title: "Palestra 03",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-      track: "Comunidades, carreira e liderança Tech",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão estratégias para engajar pessoas, criar conexões duradouras e organizar eventos inclusivos locais.",
-    },
-    {
-      id: "d1-10",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "11:30 — 12:00",
-      title: "Palestra 04",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Iniciante",
-      track: "Open Source, DevOps & Ecossistemas colaborativos",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a empacotar e rodar aplicações em containers isolados de forma simples e rápida.",
-    },
-    {
-      id: "d1-12",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "13:00 — 15:00",
-      title: "Atividade Prática 03",
-      type: "Tutorial",
-      location: "Lab 1",
-      target: "Avançado",
-      registrationRequired: true,
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a orquestrar múltiplos modelos de linguagem para executar ações automatizadas e tomadas de decisão.",
-    },
-    {
-      id: "d1-13",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "13:00 — 15:00",
-      title: "Atividade Prática 04",
-      type: "Tutorial",
-      location: "Lab 2",
-      target: "Intermediário",
-      registrationRequired: true,
-      track: "Open Source, DevOps & Ecossistemas colaborativos",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a estruturar pipelines de teste e deploy automáticos utilizando GitHub Actions.",
-    },
-    {
-      id: "d1-14",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "13:00 — 13:30",
-      title: "Palestra 05",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Avançado",
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a separar responsabilidades, facilitando a manutenção e testes de grandes projetos de software.",
-    },
-    {
-      id: "d1-15",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "13:30 — 14:00",
-      title: "Palestra 06",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-      track: "Open Source, DevOps & Ecossistemas colaborativos",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão como encontrar projetos, abrir issues, e submeter pull requests com confiança.",
-    },
-    {
-      id: "d1-16",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "14:00 — 14:30",
-      title: "Palestra 07",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-      track: "Comunidades, carreira e liderança Tech",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão habilidades de mentoria, delegação de tarefas e planejamento de crescimento profissional.",
-    },
-    {
-      id: "d1-17",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "14:30 — 15:00",
-      title: "Palestra 08",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Iniciante",
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão os conceitos fundamentais de algoritmos de classificação e regressão de forma simples.",
-    },
-    {
-      id: "d1-19",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "15:30 — 16:30",
-      title: "Keynote II - Encerramento do Dia 1",
-      type: "Keynote",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    {
-      id: "d1-20",
-      day: 1,
-      dayName: "Dia 1",
-      date: "03/07",
-      time: "16:30 — 17:00",
-      title: "Dinâmica de encerramento primeiro dia",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    // Day 2
-    {
-      id: "d2-2",
-      day: 2,
-      dayName: "Dia 2",
-      date: "04/07",
-      time: "08:30 — 09:30",
-      title: "Keynote III - Abertura do Dia 2",
-      type: "Keynote",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    {
-      id: "d2-4",
-      day: 2,
-      dayName: "Dia 2",
-      date: "04/07",
-      time: "14:00 — 14:45",
-      title: "Palestra 09",
-      type: "Palestra",
-      location: "Sala 1",
-      target: "Avançado",
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão estratégias de refatoração e migração segura de infraestrutura legada para provedores de nuvem.",
-    },
-    {
-      id: "d2-5",
-      day: 2,
-      dayName: "Dia 2",
-      date: "04/07",
-      time: "14:00 — 14:45",
-      title: "Palestra 10",
-      type: "Palestra",
-      location: "Sala 2",
-      target: "Intermediário",
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a pré-processar texto, remover ruídos e extrair sentimentos usando spaCy.",
-    },
-    {
-      id: "d2-6",
-      day: 2,
-      dayName: "Dia 2",
-      date: "04/07",
-      time: "14:45 — 15:45",
-      title: "Minicurso 01",
-      type: "Tutorial",
-      location: "Lab 1",
-      target: "Iniciante",
-      registrationRequired: true,
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a criar seu primeiro modelo preditivo básico usando Scikit-Learn.",
-    },
-    {
-      id: "d2-7",
-      day: 2,
-      dayName: "Dia 2",
-      date: "04/07",
-      time: "14:45 — 15:45",
-      title: "Minicurso 02",
-      type: "Tutorial",
-      location: "Lab 2",
-      target: "Intermediário",
-      registrationRequired: true,
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a implementar autenticação JWT e prevenir vulnerabilidades como injeção e CSRF.",
-    },
-    {
-      id: "d2-8",
-      day: 2,
-      dayName: "Dia 2",
-      date: "04/07",
-      time: "14:45 — 15:30",
-      title: "Palestra 11",
-      type: "Palestra",
-      location: "Sala 1",
-      target: "Iniciante",
-      track: "Open Source, DevOps & Ecossistemas colaborativos",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a coletar e transmitir dados físicos usando MicroPython e placas de desenvolvimento.",
-    },
-    {
-      id: "d2-9",
-      day: 2,
-      dayName: "Dia 2",
-      date: "04/07",
-      time: "15:30 — 16:45",
-      title: "Palestra 12",
-      type: "Palestra",
-      location: "Sala 1",
-      target: "Intermediário",
-      track: "Web, Cloud & plataforma digitais",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a construir e gerenciar funções serverless scaláveis integradas com gatilhos de nuvem.",
-    },
-    {
-      id: "d2-10",
-      day: 2,
-      dayName: "Dia 2",
-      date: "04/07",
-      time: "15:30 — 16:45",
-      title: "Palestra 13",
-      type: "Palestra",
-      location: "Sala 2",
-      target: "Todos",
-      track: "Dados, inteligência artificial e machine learning",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão como o ecossistema Scipy/Numpy revolucionou as pesquisas científicas e computacionais.",
-    },
-    {
-      id: "d2-11",
-      day: 2,
-      dayName: "Dia 2",
-      date: "04/07",
-      time: "16:15 — 17:00",
-      title: "Palestra 14",
-      type: "Palestra",
-      location: "Sala 1",
-      target: "Avançado",
-      track: "Open Source, DevOps & Ecossistemas colaborativos",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão a estruturar portais internos de desenvolvedor (IDPs) para simplificar a criação de serviços.",
-    },
-    {
-      id: "d2-12",
-      day: 2,
-      dayName: "Dia 2",
-      date: "04/07",
-      time: "16:15 — 17:00",
-      title: "Palestra 15",
-      type: "Palestra",
-      location: "Sala 2",
-      target: "Todos",
-      track: "Comunidades, carreira e liderança Tech",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes aprenderão os bastidores de logística, captação de patrocínios e gestão de voluntariado de eventos regionais.",
-    },
-    // Day 3
-    {
-      id: "d3-1",
-      day: 3,
-      dayName: "Dia 3",
-      date: "05/07",
-      time: "09:00 — 10:00",
-      title: "Keynote IV - Abertura do Dia 3",
-      type: "Keynote",
-      location: "Auditório Principal",
-      target: "Todos",
-    },
-    {
-      id: "d3-3",
-      day: 3,
-      dayName: "Dia 3",
-      date: "05/07",
-      time: "10:30 — 12:00",
-      title: "Mesa redonda",
-      type: "Palestra",
-      location: "Auditório Principal",
-      target: "Todos",
-      track: "Comunidades, carreira e liderança Tech",
-      learningOutcomes:
-        "Ao final desta atividade, os participantes compreenderão os desafios, potenciais e caminhos práticos para a transformação digital regional.",
-    },
-  ];
+  // Process JSON data - same as programacao page
+  const allSessions: Session[] = sessionsData
+    .filter(
+      (s: any) => s["Início (data)"] && s["Estado da proposta"] === "confirmed",
+    )
+    .map((s: any) => {
+      const startDate = s["Início (data)"];
+      const startTime = s["Início (hora)"]?.substring(0, 5) || "";
+      const endTime = s["Término (hora)"]?.substring(0, 5) || "";
+
+      // Determine day (1 = 03/07, 2 = 04/07)
+      const day = startDate === "2026-07-03" ? 1 : 2;
+      const dayName = day === 1 ? "Sexta-feira" : "Sábado";
+      const date = day === 1 ? "03/07" : "04/07";
+
+      return {
+        id: s.ID,
+        time: `${startTime} — ${endTime}`,
+        title: s["Título da proposta"],
+        type: s["Tipo de sessão"]["pt-br"],
+        location: s.Sala?.["pt-br"] || undefined,
+        target: s["Nível da atividade"] || "Todos",
+        track: s.Trilha["pt-br"],
+        description: s.Resumo,
+        day,
+        dayName,
+        date,
+        speakers: s["Nomes de palestrantes"],
+        duration: s.Duração,
+      };
+    })
+    .sort((a, b) => {
+      if (a.day !== b.day) return a.day - b.day;
+      return a.time.localeCompare(b.time);
+    });
 
   // Load saved sessions from localStorage
   useEffect(() => {
@@ -477,7 +129,7 @@ DTSTAMP:${formatDate(new Date())}
 DTSTART:${formatDate(startDate)}
 DTEND:${formatDate(endDate)}
 SUMMARY:${session.title}
-DESCRIPTION:${session.learningOutcomes || session.title}
+DESCRIPTION:${session.description || session.title}
 LOCATION:${session.location || "Python Norte 2026"}
 STATUS:CONFIRMED
 END:VEVENT`;
@@ -510,11 +162,45 @@ END:VCALENDAR`;
     URL.revokeObjectURL(url);
   };
 
+  const addSingleToGoogleCalendar = (session: Session) => {
+    // Parse date and time
+    const [startTime, endTime] = session.time.split(" — ");
+    const dateStr = session.day === 1 ? "2026-07-03" : "2026-07-04";
+
+    // Format: YYYYMMDDTHHmmss
+    const startDateTime = `${dateStr.replace(/-/g, "")}T${startTime.replace(":", "")}00`;
+    const endDateTime = `${dateStr.replace(/-/g, "")}T${endTime.replace(":", "")}00`;
+
+    // Build Google Calendar URL
+    const params = new URLSearchParams({
+      action: "TEMPLATE",
+      text: session.title,
+      dates: `${startDateTime}/${endDateTime}`,
+      details: `${session.description || ""}\n\nTipo: ${session.type}\nTrilha: ${session.track || ""}\nPalestrantes: ${session.speakers?.join(", ") || ""}`,
+      location: session.location || "Python Norte 2026 - Manaus, AM",
+      ctz: "America/Manaus",
+    });
+
+    const url = `https://calendar.google.com/calendar/render?${params.toString()}`;
+    window.open(url, "_blank");
+  };
+
   const addToGoogleCalendar = () => {
-    // Google Calendar doesn't support bulk import via URL, so we'll download ICS
-    downloadICalendar();
+    if (mySessions.length === 0) {
+      alert("Nenhuma sessão salva para adicionar ao Google Calendar");
+      return;
+    }
+
+    // Create Google Calendar URLs for each session
+    mySessions.forEach((session, index) => {
+      // Open in new tab with slight delay to avoid popup blockers
+      setTimeout(() => {
+        addSingleToGoogleCalendar(session);
+      }, index * 300); // 300ms delay between each tab
+    });
+
     alert(
-      "Arquivo .ics baixado! Importe-o no Google Calendar: Configurações > Importar e exportar > Importar",
+      `Abrindo ${mySessions.length} aba(s) do Google Calendar. Clique em "Salvar" em cada uma para adicionar à sua agenda.`,
     );
   };
 
@@ -590,7 +276,7 @@ END:VCALENDAR`;
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
 
-      <main className="flex-grow pt-24 pb-16 bg-[#FAF7F0]">
+      <main className="flex-grow pt-14 pb-16 bg-[#FAF7F0]">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto space-y-8">
             {/* Header */}
@@ -639,43 +325,18 @@ END:VCALENDAR`;
                           : "atividades salvas"}
                       </h3>
                       <p className="text-sm text-[#4A5D4E]">
-                        Exporte sua agenda ou compartilhe por email
+                        Use os botões nos cards para adicionar ao Google
+                        Calendar
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap gap-3">
-                      <button
-                        onClick={downloadICalendar}
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm bg-[#004B23] text-white hover:bg-[#003818] transition-all shadow-md"
-                      >
-                        <Download className="w-4 h-4" />
-                        Baixar .ics
-                      </button>
-
-                      <button
-                        onClick={addToGoogleCalendar}
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm bg-[#FFB800] text-black hover:bg-[#E5A600] transition-all shadow-md"
-                      >
-                        <Calendar className="w-4 h-4" />
-                        Google Calendar
-                      </button>
-
-                      <button
-                        onClick={() => setShowEmailModal(true)}
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm bg-[#FF6B00] text-white hover:bg-[#E55F00] transition-all shadow-md"
-                      >
-                        <Mail className="w-4 h-4" />
-                        Enviar por Email
-                      </button>
-
-                      <button
-                        onClick={clearAllSessions}
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm bg-red-50 text-red-600 hover:bg-red-100 transition-all border border-red-200"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                        Limpar Tudo
-                      </button>
-                    </div>
+                    <button
+                      onClick={clearAllSessions}
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm bg-red-50 text-red-600 hover:bg-red-100 transition-all border border-red-200"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                      Limpar Tudo
+                    </button>
                   </div>
                 </div>
 
@@ -768,8 +429,18 @@ END:VCALENDAR`;
                                   )}
 
                                   <button
+                                    onClick={() =>
+                                      addSingleToGoogleCalendar(session)
+                                    }
+                                    className="p-1.5 rounded-lg hover:bg-[#FFB800]/10 text-[#FFB800] transition-all"
+                                    title="Adicionar ao Google Calendar"
+                                  >
+                                    <Calendar className="w-4 h-4" />
+                                  </button>
+
+                                  <button
                                     onClick={() => removeSession(session.id)}
-                                    className="p-2 rounded-full bg-red-50 text-red-600 hover:bg-red-100 transition-all border border-red-200"
+                                    className="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-600 transition-all"
                                     title="Remover da agenda"
                                   >
                                     <Trash2 className="w-4 h-4" />
