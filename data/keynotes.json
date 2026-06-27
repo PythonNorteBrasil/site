@@ -24,5 +24,31 @@
       "instagram": "https://www.instagram.com/palla.tech/",
       "linkedin": "https://www.linkedin.com/in/mfpalladino/"
     }
+  },
+  {
+    "id": 3,
+    "name": "Ana Lindiner",
+    "role": "Especialista em Estratégia de IA @ Riachuelo",
+    "tag": "Keynote — Dia 1 - 15:30",
+    "title": "Expandindo os limites do código",
+    "description": "Paraense e engenheira de dados, atua na transformação de dados em soluções inovadoras, utilizando Inteligência Artificial para impulsionar organizações e gerar impacto real.",
+    "image": "/Ana.png",
+    "socials": {
+      "instagram": "https://www.instagram.com/lindiner.io/",
+      "linkedin": "https://www.linkedin.com/in/analindiner/"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Luiz Sanches",
+    "role": "Diretor de Tecnologia @ Nômades Tecnologias",
+    "tag": "Keynote — Dia 1 - 15:30",
+    "title": "Expandindo os limites do código",
+    "description": "Programador, professor, poeta e palhaço, Luiz Sanches acredita na tecnologia como ferramenta de transformação e na arte como forma de conectar pessoas e ideias.",
+    "image": "/Luiz.png",
+    "socials": {
+      "instagram": "",
+      "linkedin": "https://www.linkedin.com/in/s4nx/"
+    }
   }
 ]

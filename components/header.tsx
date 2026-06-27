@@ -67,7 +67,7 @@ export function Header() {
             </nav>
 
             <ButtonLink
-              href="https://talks.python.org.br/python-norte-2026/featured/"
+              href="https://talks.python.org.br/python-norte-2026/schedule/"
               target="_blank"
               rel="noopener noreferrer"
               variant="primary"
@@ -118,7 +118,7 @@ export function Header() {
             </nav>
 
             <ButtonLink
-              href="https://talks.python.org.br/python-norte-2026/featured/"
+              href="https://talks.python.org.br/python-norte-2026/schedule/"
               target="_blank"
               rel="noopener noreferrer"
               variant="primary"

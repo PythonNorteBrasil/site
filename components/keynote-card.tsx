@@ -45,7 +45,7 @@ export function KeynoteCard({
         flex-col
         overflow-hidden
         min-h-[380px]
-        sm:min-h-[450px]
+        sm:min-h-[470px]
       "
     >
       {/* FOTO */}
