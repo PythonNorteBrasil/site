@@ -26,10 +26,10 @@ export default function Home() {
           }}
         />
         <About />
+        <Editions />
         <Activities />
         {/* <Tickets /> */}
         <Keynotes />
-        <Editions />
         <Sponsors />
         <Media />
         <Location />

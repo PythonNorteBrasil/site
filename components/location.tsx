@@ -58,12 +58,19 @@ export function Location() {
                 <ul className="space-y-3 text-sm text-gray-600">
                   <li className="flex items-start gap-2">
                     <span className="text-orange font-bold">🚌</span>
-                    <span>Ônibus: Linhas que passam pela BR-316</span>
+                    <span>Ônibus: Linhas que passam pela Rodovia BR-316, Km 03</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-orange font-bold">🚗</span>
                     <span>
-                      Carro: Estacionamento gratuito disponível no campus
+                      Carro: Estacionamento pago (R$ 10 carro / R$ 8 moto —
+                      taxa única, cobrada novamente apenas se sair e retornar)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange font-bold">🚲</span>
+                    <span>
+                      Bicicletário gratuito disponível (leve seu cadeado)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">

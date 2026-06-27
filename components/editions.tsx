@@ -38,9 +38,11 @@ export function Editions() {
               className="text-2xl md:text-4xl font-bold text-white"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Edições que marcaram a comunidade
+              Edições que marcaram a comunidade 
             </h2>
-          </div>
+            <div className="w-14 md:w-16 h-1 bg-white mx-auto rounded-full" />
+            <p className="text-white">Veja momentos especiais das edições anteriores da Python Norte</p>
+          </div> 
 
           {/* Year tabs */}
           <div className="flex justify-center gap-3">
