@@ -82,5 +82,3 @@ export default function ProgramacaoPretalxPage() {
     </div>
   );
 }
-
-// Made with Bob

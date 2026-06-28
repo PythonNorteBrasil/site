@@ -11,5 +11,3 @@ declare namespace JSX {
     >;
   }
 }
-
-// Made with Bob

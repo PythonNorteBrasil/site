@@ -111,5 +111,3 @@ export type PythonNorteTheme = typeof pythonNorteTheme;
 
 // Export default para uso fácil
 export default pythonNorteTheme;
-
-// Made with Bob

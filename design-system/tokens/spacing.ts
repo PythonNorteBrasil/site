@@ -89,5 +89,3 @@ export const componentSpacing = {
 
 export type SpacingToken = typeof spacing;
 export type ComponentSpacingToken = typeof componentSpacing;
-
-// Made with Bob

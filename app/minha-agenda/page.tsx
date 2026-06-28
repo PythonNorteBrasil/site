@@ -94,7 +94,9 @@ export default function MinhaAgendaPage() {
   // Lock body scroll when detail modal is open
   useEffect(() => {
     document.body.style.overflow = selectedSession ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [selectedSession]);
 
   // Persist to localStorage whenever savedSessions changes (only after mount)
@@ -360,100 +362,110 @@ END:VCALENDAR`;
                         <div className="space-y-3">
                           {sessions.map((session) => {
                             const style = getSessionStyle(session.type);
-                            const hasConflict = conflictTimes.has(`${session.day}-${session.time}`);
+                            const hasConflict = conflictTimes.has(
+                              `${session.day}-${session.time}`,
+                            );
 
                             return (
                               <div key={session.id} className="space-y-0">
-                              {hasConflict && (
-                                <div className="flex items-center gap-2 bg-amber-50 border border-amber-300 border-b-0 rounded-t-xl px-3 py-2 text-xs font-semibold text-amber-700">
-                                  <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
-                                  Conflito de horário — você salvou mais de uma palestra para este horário
-                                </div>
-                              )}
-                              <div
-                                onClick={() => setSelectedSession(session)}
-                                className={`flex flex-col sm:flex-row justify-between p-5 ${hasConflict ? "rounded-b-2xl rounded-t-none" : "rounded-2xl"} ${style.bg} ${style.border} shadow-sm border border-[#004B23]/5 ${hasConflict ? "border-t-amber-300" : ""} transition-all duration-200 gap-4 group hover:shadow-md cursor-pointer hover:scale-[1.005]`}
-                              >
-                                {/* Left: Content */}
-                                <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6 flex-grow">
-                                  <div className="flex items-center gap-3">
-                                    <span className="text-sm font-bold text-[#4A5D4E] min-w-[110px] flex items-center gap-2">
-                                      <Clock className="w-4 h-4" />
-                                      {session.time}
-                                    </span>
+                                {hasConflict && (
+                                  <div className="flex items-center gap-2 bg-amber-50 border border-amber-300 border-b-0 rounded-t-xl px-3 py-2 text-xs font-semibold text-amber-700">
+                                    <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                                    Conflito de horário — você salvou mais de
+                                    uma palestra para este horário
                                   </div>
-
-                                  <div className="flex flex-col gap-2 flex-grow">
-                                    <div className="flex flex-wrap items-center gap-3">
-                                      <span
-                                        className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${style.badge}`}
-                                      >
-                                        {session.type}
-                                      </span>
-                                      <span className="text-base font-bold text-[#004B23] tracking-tight">
-                                        {session.title}
+                                )}
+                                <div
+                                  onClick={() => setSelectedSession(session)}
+                                  className={`flex flex-col sm:flex-row justify-between p-5 ${hasConflict ? "rounded-b-2xl rounded-t-none" : "rounded-2xl"} ${style.bg} ${style.border} shadow-sm border border-[#004B23]/5 ${hasConflict ? "border-t-amber-300" : ""} transition-all duration-200 gap-4 group hover:shadow-md cursor-pointer hover:scale-[1.005]`}
+                                >
+                                  {/* Left: Content */}
+                                  <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6 flex-grow">
+                                    <div className="flex items-center gap-3">
+                                      <span className="text-sm font-bold text-[#4A5D4E] min-w-[110px] flex items-center gap-2">
+                                        <Clock className="w-4 h-4" />
+                                        {session.time}
                                       </span>
                                     </div>
 
-                                    {session.location && (
-                                      <div className="flex items-center gap-1.5 text-xs text-[#4A5D4E]">
-                                        <MapPin className="w-3.5 h-3.5" />
-                                        {session.location}
+                                    <div className="flex flex-col gap-2 flex-grow">
+                                      <div className="flex flex-wrap items-center gap-3">
+                                        <span
+                                          className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${style.badge}`}
+                                        >
+                                          {session.type}
+                                        </span>
+                                        <span className="text-base font-bold text-[#004B23] tracking-tight">
+                                          {session.title}
+                                        </span>
                                       </div>
+
+                                      {session.location && (
+                                        <div className="flex items-center gap-1.5 text-xs text-[#4A5D4E]">
+                                          <MapPin className="w-3.5 h-3.5" />
+                                          {session.location}
+                                        </div>
+                                      )}
+
+                                      {session.track && (
+                                        <div className="text-[11px] font-semibold text-[#8B5E3C] bg-[#FFF5EE] border border-[#8B5E3C]/10 px-2.5 py-0.5 rounded-md inline-flex items-center gap-1.5 self-start">
+                                          <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C]" />
+                                          {session.track}
+                                        </div>
+                                      )}
+
+                                      {session.registrationRequired && (
+                                        <div className="flex items-center gap-1.5 text-xs text-[#C65911] bg-[#FFF2EB] border border-[#C65911]/20 px-2.5 py-1 rounded-md self-start">
+                                          <AlertCircle className="w-3.5 h-3.5" />
+                                          Inscrição obrigatória
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+
+                                  {/* Right: Actions */}
+                                  <div className="flex items-start gap-3 flex-wrap self-start sm:self-auto">
+                                    {session.target && (
+                                      <span
+                                        className={`text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 ${
+                                          session.target === "Todos"
+                                            ? "bg-[#E2F0D9] text-[#385723]"
+                                            : session.target === "Iniciante"
+                                              ? "bg-[#DDEBF7] text-[#1F4E79]"
+                                              : session.target ===
+                                                  "Intermediário"
+                                                ? "bg-[#FCE4D6] text-[#C65911]"
+                                                : "bg-[#E1D5E7] text-[#6C3483]"
+                                        }`}
+                                      >
+                                        <Users className="w-3 h-3" />
+                                        {session.target}
+                                      </span>
                                     )}
 
-                                    {session.track && (
-                                      <div className="text-[11px] font-semibold text-[#8B5E3C] bg-[#FFF5EE] border border-[#8B5E3C]/10 px-2.5 py-0.5 rounded-md inline-flex items-center gap-1.5 self-start">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C]" />
-                                        {session.track}
-                                      </div>
-                                    )}
+                                    <button
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        addSingleToGoogleCalendar(session);
+                                      }}
+                                      className="p-1.5 rounded-lg hover:bg-[#FFB800]/10 text-[#FFB800] transition-all"
+                                      title="Adicionar ao Google Calendar"
+                                    >
+                                      <Calendar className="w-4 h-4" />
+                                    </button>
 
-                                    {session.registrationRequired && (
-                                      <div className="flex items-center gap-1.5 text-xs text-[#C65911] bg-[#FFF2EB] border border-[#C65911]/20 px-2.5 py-1 rounded-md self-start">
-                                        <AlertCircle className="w-3.5 h-3.5" />
-                                        Inscrição obrigatória
-                                      </div>
-                                    )}
+                                    <button
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        removeSession(session.id);
+                                      }}
+                                      className="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-600 transition-all"
+                                      title="Remover da agenda"
+                                    >
+                                      <Trash2 className="w-4 h-4" />
+                                    </button>
                                   </div>
                                 </div>
-
-                                {/* Right: Actions */}
-                                <div className="flex items-start gap-3 flex-wrap self-start sm:self-auto">
-                                  {session.target && (
-                                    <span
-                                      className={`text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 ${
-                                        session.target === "Todos"
-                                          ? "bg-[#E2F0D9] text-[#385723]"
-                                          : session.target === "Iniciante"
-                                            ? "bg-[#DDEBF7] text-[#1F4E79]"
-                                            : session.target === "Intermediário"
-                                              ? "bg-[#FCE4D6] text-[#C65911]"
-                                              : "bg-[#E1D5E7] text-[#6C3483]"
-                                      }`}
-                                    >
-                                      <Users className="w-3 h-3" />
-                                      {session.target}
-                                    </span>
-                                  )}
-
-                                  <button
-                                    onClick={(e) => { e.stopPropagation(); addSingleToGoogleCalendar(session); }}
-                                    className="p-1.5 rounded-lg hover:bg-[#FFB800]/10 text-[#FFB800] transition-all"
-                                    title="Adicionar ao Google Calendar"
-                                  >
-                                    <Calendar className="w-4 h-4" />
-                                  </button>
-
-                                  <button
-                                    onClick={(e) => { e.stopPropagation(); removeSession(session.id); }}
-                                    className="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-600 transition-all"
-                                    title="Remover da agenda"
-                                  >
-                                    <Trash2 className="w-4 h-4" />
-                                  </button>
-                                </div>
-                              </div>
                               </div>
                             );
                           })}
@@ -484,7 +496,16 @@ END:VCALENDAR`;
                 <div className="flex items-start gap-2.5 bg-white border border-[#004B23]/10 rounded-xl px-4 py-3 max-w-xl mx-auto">
                   <AlertCircle className="w-4 h-4 text-[#4A5D4E]/60 flex-shrink-0 mt-0.5" />
                   <p className="text-xs text-[#4A5D4E]">
-                    Sua agenda fica salva <span className="font-semibold text-[#004B23]">neste dispositivo</span> — ela não some ao fechar o navegador. Para salvar no Google Agenda, clique no <span className="font-semibold text-[#004B23]">ícone de calendário</span> em cada card.
+                    Sua agenda fica salva{" "}
+                    <span className="font-semibold text-[#004B23]">
+                      neste dispositivo
+                    </span>{" "}
+                    — ela não some ao fechar o navegador. Para salvar no Google
+                    Agenda, clique no{" "}
+                    <span className="font-semibold text-[#004B23]">
+                      ícone de calendário
+                    </span>{" "}
+                    em cada card.
                   </p>
                 </div>
               </>
@@ -503,7 +524,10 @@ END:VCALENDAR`;
             setSelectedSession(null);
           }}
           onAddToCalendar={() => addSingleToGoogleCalendar(selectedSession)}
-          speakers={(selectedSession.speakers ?? []).map((name) => ({ name, imagem: null }))}
+          speakers={(selectedSession.speakers ?? []).map((name) => ({
+            name,
+            imagem: null,
+          }))}
         />
       )}
 
@@ -560,5 +584,3 @@ END:VCALENDAR`;
     </div>
   );
 }
-
-// Made with Bob

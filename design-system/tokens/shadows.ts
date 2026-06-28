@@ -54,5 +54,3 @@ export type ShadowToken = typeof shadows;
 export type ColoredShadowToken = typeof coloredShadows;
 export type TextShadowToken = typeof textShadows;
 export type ComponentShadowToken = typeof componentShadows;
-
-// Made with Bob

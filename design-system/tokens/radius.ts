@@ -33,5 +33,3 @@ export const componentRadius = {
 
 export type RadiusToken = typeof radius;
 export type ComponentRadiusToken = typeof componentRadius;
-
-// Made with Bob

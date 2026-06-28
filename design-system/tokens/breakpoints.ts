@@ -44,5 +44,3 @@ export const mediaQueries = {
 
 export type BreakpointToken = typeof breakpoints;
 export type MediaQueryToken = typeof mediaQueries;
-
-// Made with Bob

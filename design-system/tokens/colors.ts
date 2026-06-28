@@ -115,5 +115,3 @@ export type ColorToken = typeof colors;
 export type BrandColor = keyof typeof colors.brand;
 export type SemanticColor = keyof typeof colors.semantic;
 export type NeutralColor = keyof typeof colors.neutral;
-
-// Made with Bob

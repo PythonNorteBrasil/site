@@ -324,5 +324,3 @@ export function ButtonExamples() {
 }
 
 export default ButtonExamples;
-
-// Made with Bob

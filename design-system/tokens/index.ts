@@ -36,5 +36,3 @@ export type {
 
 export { breakpoints, breakpointsPx, mediaQueries } from "./breakpoints";
 export type { BreakpointToken, MediaQueryToken } from "./breakpoints";
-
-// Made with Bob

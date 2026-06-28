@@ -6,5 +6,3 @@
 
 export { Button, ButtonLink, ButtonGroup, buttonVariants } from "./Button";
 export type { ButtonProps, ButtonLinkProps, ButtonGroupProps } from "./Button";
-
-// Made with Bob

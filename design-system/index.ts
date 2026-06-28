@@ -27,5 +27,3 @@ export type { Theme, PythonNorteTheme } from "./theme/theme";
 
 // Components
 export * from "./components";
-
-// Made with Bob

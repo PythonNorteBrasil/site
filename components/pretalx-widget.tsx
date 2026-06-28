@@ -91,7 +91,10 @@ export function PretalxWidget({
           {/* Day tabs skeleton */}
           <div className="flex gap-2 mb-4">
             {[1, 2].map((i) => (
-              <div key={i} className="h-8 w-32 rounded-full bg-[#004B23]/10 animate-pulse" />
+              <div
+                key={i}
+                className="h-8 w-32 rounded-full bg-[#004B23]/10 animate-pulse"
+              />
             ))}
           </div>
           {/* Grid skeleton rows */}
@@ -234,7 +237,6 @@ export function PretalxWidget({
           outline-offset: 2px;
         }
 
-
         /* ===== MODAL FIXES FOR MOBILE ===== */
 
         /* Modal overlay do Pretalx */
@@ -357,5 +359,3 @@ export function PretalxWidget({
     </>
   );
 }
-
-// Made with Bob

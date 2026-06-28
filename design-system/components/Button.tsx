@@ -301,5 +301,3 @@ const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
 ButtonGroup.displayName = "ButtonGroup";
 
 export { Button, ButtonLink, ButtonGroup, buttonVariants };
-
-// Made with Bob

@@ -141,5 +141,3 @@ export const textStyles = {
 
 export type TypographyToken = typeof typography;
 export type TextStyle = keyof typeof textStyles;
-
-// Made with Bob

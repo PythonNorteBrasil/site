@@ -123,5 +123,3 @@ const PythonNorteLinkButton = React.forwardRef<
 PythonNorteLinkButton.displayName = "PythonNorteLinkButton";
 
 export { PythonNorteButton, PythonNorteLinkButton, pythonNorteButtonVariants };
-
-// Made with Bob

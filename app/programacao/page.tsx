@@ -19,7 +19,6 @@ import speakersData from "./python-norte-2026_speakers.json";
 import { SessionDetailModal } from "@/components/session-detail-modal";
 import { SpeakerModal } from "@/components/speaker-modal";
 import { SectionHeader } from "@/components/sectionHeader";
-import { StatsCard } from "@/components/statsCards";
 import { ScheduleStats } from "@/components/scheduleStats";
 import { DaySwitcher } from "@/components/daySwitcher";
 
@@ -734,5 +733,3 @@ export default function ProgramacaoPage() {
     </div>
   );
 }
-
-// Made with Bob

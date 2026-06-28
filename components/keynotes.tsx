@@ -78,5 +78,3 @@ export function Keynotes() {
     </section>
   );
 }
-
-// Made with Bob
