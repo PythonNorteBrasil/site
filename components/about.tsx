@@ -87,6 +87,7 @@ export function About() {
           </div>
 
           {/* MAIN BOX (compactado desktop) */}
+          {/* MAIN BOX */}
           <div className="bg-[#004B23] rounded-2xl md:rounded-2xl p-6 md:p-8 text-white shadow-lg">
             <div className="max-w-4xl mx-auto space-y-3 md:space-y-4">
               <h3 className="text-lg md:text-2xl font-bold leading-tight">
@@ -96,18 +97,27 @@ export function About() {
               <div className="space-y-3 text-white/90 text-xs md:text-sm leading-snug md:leading-relaxed">
                 <p>
                   A Python Norte é o principal encontro da comunidade Python da
-                  Região Norte, reunindo estudantes, profissionais e entusiastas
-                  de tecnologia em um ambiente de aprendizado, colaboração e
-                  networking.
+                  Região Norte, reunindo estudantes, profissionais,
+                  pesquisadores e entusiastas da tecnologia em um ambiente de
+                  aprendizado, colaboração e networking.
                 </p>
+
                 <p>
                   Durante <strong>2 dias de programação</strong>, os
-                  participantes exploram temas como{" "}
-                  <strong>desenvolvimento de software</strong>,
-                  <strong> ciência de dados</strong> e{" "}
-                  <strong>inteligência artificial</strong>, fortalecendo a
-                  comunidade tecnológica da Amazônia e impulsionando novas
-                  conexões e oportunidades.
+                  participantes acompanham palestras, workshops e momentos de
+                  interação, explorando temas como{" "}
+                  <strong>desenvolvimento de software</strong>,{" "}
+                  <strong>ciência de dados</strong>,{" "}
+                  <strong>inteligência artificial</strong>, computação em nuvem,
+                  automação e tecnologias open source.
+                </p>
+
+                <p>
+                  Mais do que um evento técnico, a Python Norte fortalece a
+                  comunidade tecnológica da Amazônia, incentiva a troca de
+                  conhecimento, cria novas conexões profissionais e impulsiona
+                  oportunidades para estudantes, empresas e desenvolvedores da
+                  região.
                 </p>
               </div>
             </div>

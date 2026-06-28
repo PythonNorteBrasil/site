@@ -59,22 +59,25 @@ export function Header() {
           {/* Desktop */}
           <div className="hidden lg:flex items-center gap-8">
             <nav className="flex items-center gap-5 xl:gap-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium transition-opacity hover:opacity-70"
-                  style={{ color: colors.semantic.navigation }}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const href = !isHomePage && link.href.startsWith("#")
+                  ? `/${link.href}`
+                  : link.href;
+                return (
+                  <a
+                    key={link.href}
+                    href={href}
+                    className="text-sm font-medium transition-opacity hover:opacity-70"
+                    style={{ color: colors.semantic.navigation }}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </nav>
 
             <ButtonLink
-              href="https://talks.python.org.br/python-norte-2026/schedule/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/programacao-pretalx"
               variant="primary"
               size="sm"
             >
@@ -109,23 +112,26 @@ export function Header() {
         >
           <div className="container mx-auto px-6 lg:px-12 xl:px-16 py-4">
             <nav className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium py-1"
-                  style={{ color: colors.semantic.navigation }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const href = !isHomePage && link.href.startsWith("#")
+                  ? `/${link.href}`
+                  : link.href;
+                return (
+                  <a
+                    key={link.href}
+                    href={href}
+                    className="text-sm font-medium py-1"
+                    style={{ color: colors.semantic.navigation }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </nav>
 
             <ButtonLink
-              href="https://talks.python.org.br/python-norte-2026/schedule/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/programacao-pretalx"
               variant="primary"
               size="sm"
               fullWidth

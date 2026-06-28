@@ -14,9 +14,12 @@ import {
   AlertCircle,
   ExternalLink,
   Share2,
+  X,
+  BookmarkCheck,
 } from "lucide-react";
 import Link from "next/link";
 import sessionsData from "../programacao/python-norte-2026_sessions.json";
+import { SessionDetailModal } from "@/components/session-detail-modal";
 
 interface Session {
   id: string;
@@ -37,6 +40,8 @@ interface Session {
 
 export default function MinhaAgendaPage() {
   const [savedSessions, setSavedSessions] = useState<Set<string>>(new Set());
+  const [isMounted, setIsMounted] = useState(false);
+  const [selectedSession, setSelectedSession] = useState<Session | null>(null);
   const [showEmailModal, setShowEmailModal] = useState(false);
   const [email, setEmail] = useState("");
   const [emailSent, setEmailSent] = useState(false);
@@ -83,24 +88,46 @@ export default function MinhaAgendaPage() {
     if (saved) {
       setSavedSessions(new Set(JSON.parse(saved)));
     }
+    setIsMounted(true);
   }, []);
 
+  // Lock body scroll when detail modal is open
+  useEffect(() => {
+    document.body.style.overflow = selectedSession ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [selectedSession]);
+
+  // Persist to localStorage whenever savedSessions changes (only after mount)
+  useEffect(() => {
+    if (!isMounted) return;
+    localStorage.setItem(
+      "pythonNorteAgenda",
+      JSON.stringify(Array.from(savedSessions)),
+    );
+  }, [savedSessions, isMounted]);
+
   const mySessions = allSessions.filter((s) => savedSessions.has(s.id));
+
+  // Detect time conflicts (same day + same time slot, more than one session)
+  const conflictTimes = new Set<string>();
+  const timeCount: Record<string, number> = {};
+  mySessions.forEach((s) => {
+    const key = `${s.day}-${s.time}`;
+    timeCount[key] = (timeCount[key] || 0) + 1;
+  });
+  Object.entries(timeCount).forEach(([key, count]) => {
+    if (count > 1) conflictTimes.add(key);
+  });
 
   const removeSession = (sessionId: string) => {
     const newSet = new Set(savedSessions);
     newSet.delete(sessionId);
     setSavedSessions(newSet);
-    localStorage.setItem(
-      "pythonNorteAgenda",
-      JSON.stringify(Array.from(newSet)),
-    );
   };
 
   const clearAllSessions = () => {
     if (confirm("Tem certeza que deseja limpar toda sua agenda?")) {
       setSavedSessions(new Set());
-      localStorage.removeItem("pythonNorteAgenda");
     }
   };
 
@@ -235,26 +262,26 @@ END:VCALENDAR`;
     switch (type) {
       case "Keynote":
         return {
-          bg: "bg-[#F4FAF5]",
-          border: "border-l-[6px] border-[#004B23]",
-          badge: "bg-[#004B23] text-white",
+          bg: "bg-[#FFFBF0]",
+          border: "border-l-[5px] border-[#FFB800]",
+          badge: "bg-[#FFB800] text-[#1a1a1a]",
         };
       case "Palestra":
         return {
-          bg: "bg-[#FFFDF0]",
-          border: "border-l-[6px] border-[#FFB800]",
-          badge: "bg-[#FFB800] text-white",
+          bg: "bg-[#F4FAF5]",
+          border: "border-l-[5px] border-[#004B23]",
+          badge: "bg-[#004B23] text-white",
         };
       case "Tutorial":
         return {
           bg: "bg-[#FFF6F2]",
-          border: "border-l-[6px] border-[#FF6B00]",
+          border: "border-l-[5px] border-[#FF6B00]",
           badge: "bg-[#FF6B00] text-white",
         };
       default:
         return {
           bg: "bg-white",
-          border: "border-l-[6px] border-gray-300",
+          border: "border-l-[5px] border-gray-300",
           badge: "bg-gray-500 text-white",
         };
     }
@@ -276,11 +303,11 @@ END:VCALENDAR`;
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
 
-      <main className="flex-grow pt-14 pb-16 bg-[#FAF7F0]">
+      <main className="flex-grow pt-24 pb-16 bg-[#FAF7F0]">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto space-y-8">
             {/* Header */}
-            <div className="text-center space-y-3">
+            <div className="text-center space-y-3 mb-2">
               <h1
                 className="text-3xl md:text-5xl font-bold text-[#004B23]"
                 style={{ fontFamily: "var(--font-display)" }}
@@ -314,32 +341,6 @@ END:VCALENDAR`;
               </div>
             ) : (
               <>
-                {/* Stats & Actions */}
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-[#004B23]/10">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                    <div>
-                      <h3 className="text-lg font-bold text-[#004B23] mb-1">
-                        {mySessions.length}{" "}
-                        {mySessions.length === 1
-                          ? "atividade salva"
-                          : "atividades salvas"}
-                      </h3>
-                      <p className="text-sm text-[#4A5D4E]">
-                        Use os botões nos cards para adicionar ao Google
-                        Calendar
-                      </p>
-                    </div>
-
-                    <button
-                      onClick={clearAllSessions}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm bg-red-50 text-red-600 hover:bg-red-100 transition-all border border-red-200"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                      Limpar Tudo
-                    </button>
-                  </div>
-                </div>
-
                 {/* Sessions by Day */}
                 <div className="space-y-8">
                   {Object.entries(sessionsByDay)
@@ -359,11 +360,19 @@ END:VCALENDAR`;
                         <div className="space-y-3">
                           {sessions.map((session) => {
                             const style = getSessionStyle(session.type);
+                            const hasConflict = conflictTimes.has(`${session.day}-${session.time}`);
 
                             return (
+                              <div key={session.id} className="space-y-0">
+                              {hasConflict && (
+                                <div className="flex items-center gap-2 bg-amber-50 border border-amber-300 border-b-0 rounded-t-xl px-3 py-2 text-xs font-semibold text-amber-700">
+                                  <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                                  Conflito de horário — você salvou mais de uma palestra para este horário
+                                </div>
+                              )}
                               <div
-                                key={session.id}
-                                className={`flex flex-col sm:flex-row justify-between p-5 rounded-2xl ${style.bg} ${style.border} shadow-sm border border-[#004B23]/5 transition-all duration-200 gap-4 group hover:shadow-md`}
+                                onClick={() => setSelectedSession(session)}
+                                className={`flex flex-col sm:flex-row justify-between p-5 ${hasConflict ? "rounded-b-2xl rounded-t-none" : "rounded-2xl"} ${style.bg} ${style.border} shadow-sm border border-[#004B23]/5 ${hasConflict ? "border-t-amber-300" : ""} transition-all duration-200 gap-4 group hover:shadow-md cursor-pointer hover:scale-[1.005]`}
                               >
                                 {/* Left: Content */}
                                 <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6 flex-grow">
@@ -429,9 +438,7 @@ END:VCALENDAR`;
                                   )}
 
                                   <button
-                                    onClick={() =>
-                                      addSingleToGoogleCalendar(session)
-                                    }
+                                    onClick={(e) => { e.stopPropagation(); addSingleToGoogleCalendar(session); }}
                                     className="p-1.5 rounded-lg hover:bg-[#FFB800]/10 text-[#FFB800] transition-all"
                                     title="Adicionar ao Google Calendar"
                                   >
@@ -439,13 +446,14 @@ END:VCALENDAR`;
                                   </button>
 
                                   <button
-                                    onClick={() => removeSession(session.id)}
+                                    onClick={(e) => { e.stopPropagation(); removeSession(session.id); }}
                                     className="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-600 transition-all"
                                     title="Remover da agenda"
                                   >
                                     <Trash2 className="w-4 h-4" />
                                   </button>
                                 </div>
+                              </div>
                               </div>
                             );
                           })}
@@ -471,11 +479,33 @@ END:VCALENDAR`;
                     <ExternalLink className="w-4 h-4" />
                   </Link>
                 </div>
+
+                {/* localStorage notice — bottom of page */}
+                <div className="flex items-start gap-2.5 bg-white border border-[#004B23]/10 rounded-xl px-4 py-3 max-w-xl mx-auto">
+                  <AlertCircle className="w-4 h-4 text-[#4A5D4E]/60 flex-shrink-0 mt-0.5" />
+                  <p className="text-xs text-[#4A5D4E]">
+                    Sua agenda fica salva <span className="font-semibold text-[#004B23]">neste dispositivo</span> — ela não some ao fechar o navegador. Para salvar no Google Agenda, clique no <span className="font-semibold text-[#004B23]">ícone de calendário</span> em cada card.
+                  </p>
+                </div>
               </>
             )}
           </div>
         </div>
       </main>
+
+      {selectedSession && (
+        <SessionDetailModal
+          session={selectedSession}
+          onClose={() => setSelectedSession(null)}
+          isSaved={true}
+          onRemove={() => {
+            removeSession(selectedSession.id);
+            setSelectedSession(null);
+          }}
+          onAddToCalendar={() => addSingleToGoogleCalendar(selectedSession)}
+          speakers={(selectedSession.speakers ?? []).map((name) => ({ name, imagem: null }))}
+        />
+      )}
 
       {/* Email Modal */}
       {showEmailModal && (

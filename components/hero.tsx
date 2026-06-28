@@ -89,23 +89,19 @@ export function Hero() {
                 {/* Mobile: Botões empilhados */}
                 <div className="flex flex-col gap-3 lg:hidden mb-4">
                   <ButtonLink
-                    href="https://talks.python.org.br/python-norte-2026/schedule/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/programacao-pretalx"
                     variant="primary"
                     size="md"
                     className="w-full"
                   >
-                    Ver Programação Inicial
+                    Ver Programação
                   </ButtonLink>
                 </div>
 
                 {/* Desktop: Botões lado a lado */}
                 <div className="hidden lg:flex gap-4">
                   <ButtonLink
-                    href="https://talks.python.org.br/python-norte-2026/schedule/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/programacao-pretalx"
                     variant="primary"
                     size="md"
                   >

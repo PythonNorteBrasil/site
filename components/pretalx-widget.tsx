@@ -2,7 +2,7 @@
 
 /// <reference path="../types/pretalx.d.ts" />
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface PretalxWidgetProps {
   eventUrl?: string;
@@ -19,11 +19,21 @@ export function PretalxWidget({
   primaryColor = "#de7130",
   className = "",
 }: PretalxWidgetProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     // Verificar se o script já foi carregado
     const existingScript = document.querySelector(
       'script[src*="pretalx"][src*="schedule.js"]',
     );
+
+    const onScriptReady = () => {
+      // Espera o custom element ser registrado pelo script do pretalx
+      customElements.whenDefined("pretalx-schedule").then(() => {
+        // Pequeno delay para o elemento renderizar o conteúdo
+        setTimeout(() => setIsLoaded(true), 600);
+      });
+    };
 
     if (!existingScript) {
       const script = document.createElement("script");
@@ -31,14 +41,21 @@ export function PretalxWidget({
       script.src = `${eventUrl}widgets/schedule.js`;
       script.async = true;
       script.defer = true;
+      script.onload = onScriptReady;
       document.head.appendChild(script);
 
       return () => {
-        // Cleanup: remover o script quando o componente for desmontado
         if (script.parentNode) {
           script.parentNode.removeChild(script);
         }
       };
+    } else {
+      // Script já estava na página — verifica se o elemento já foi definido
+      if (customElements.get("pretalx-schedule")) {
+        setTimeout(() => setIsLoaded(true), 600);
+      } else {
+        onScriptReady();
+      }
     }
   }, [eventUrl]);
 
@@ -63,8 +80,41 @@ export function PretalxWidget({
 
   return (
     <>
+      {/* Loading skeleton — shown until the widget script defines the custom element */}
+      {!isLoaded && (
+        <div className="w-full py-6 px-2 space-y-4">
+          {/* Pulse bar */}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-5 w-5 rounded-full bg-[#004B23]/10 animate-pulse" />
+            <div className="h-4 w-48 rounded-full bg-[#004B23]/10 animate-pulse" />
+          </div>
+          {/* Day tabs skeleton */}
+          <div className="flex gap-2 mb-4">
+            {[1, 2].map((i) => (
+              <div key={i} className="h-8 w-32 rounded-full bg-[#004B23]/10 animate-pulse" />
+            ))}
+          </div>
+          {/* Grid skeleton rows */}
+          {[1, 2, 3, 4].map((row) => (
+            <div key={row} className="grid grid-cols-3 gap-3">
+              <div className="h-6 w-16 rounded bg-[#004B23]/10 animate-pulse" />
+              {[1, 2].map((col) => (
+                <div
+                  key={col}
+                  className="h-20 rounded-xl bg-[#004B23]/10 animate-pulse"
+                  style={{ animationDelay: `${(row + col) * 80}ms` }}
+                />
+              ))}
+            </div>
+          ))}
+          <p className="text-center text-sm text-[#4A5D4E] pt-2 animate-pulse">
+            Carregando programação…
+          </p>
+        </div>
+      )}
+
       <div
-        className={`w-full max-w-full overflow-x-auto ${className}`}
+        className={`w-full max-w-full overflow-x-auto ${className} ${!isLoaded ? "hidden" : ""}`}
         dangerouslySetInnerHTML={{ __html: widgetHtml }}
       />
       <style jsx global>{`
@@ -184,15 +234,6 @@ export function PretalxWidget({
           outline-offset: 2px;
         }
 
-        /* Loading state */
-        pretalx-schedule:empty::before {
-          content: "Carregando programação...";
-          display: block;
-          text-align: center;
-          padding: 2rem;
-          color: #666;
-          font-size: 1rem;
-        }
 
         /* ===== MODAL FIXES FOR MOBILE ===== */
 

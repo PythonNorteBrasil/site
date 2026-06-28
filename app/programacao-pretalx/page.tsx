@@ -23,12 +23,12 @@ export default function ProgramacaoPretalxPage() {
               </h1>
               <div className="w-12 md:w-16 h-1 mx-auto rounded-full bg-gradient-to-r from-[#004B23] to-[#FF6B00]" />
               <p className="text-sm md:text-base lg:text-lg text-[#4A5D4E] max-w-3xl mx-auto leading-relaxed">
-                Confira a programação completa do evento diretamente do Pretalx
+                Confira a programação completa do evento
               </p>
             </div>
 
             {/* Info Banner - Mobile Friendly */}
-            <div className="bg-gradient-to-r from-[#004B23]/5 to-[#FF6B00]/5 rounded-xl md:rounded-2xl p-4 md:p-6 border border-[#004B23]/10">
+            {/*   <div className="bg-gradient-to-r from-[#004B23]/5 to-[#FF6B00]/5 rounded-xl md:rounded-2xl p-4 md:p-6 border border-[#004B23]/10">
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-[#FFB800]/20 rounded-full flex items-center justify-center">
                   <Info className="w-4 h-4 md:w-5 md:h-5 text-[#FFB800]" />
@@ -43,7 +43,7 @@ export default function ProgramacaoPretalxPage() {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Widget Pretalx - Otimizado para Mobile */}
             <div className="bg-white rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg border border-[#004B23]/10 overflow-hidden">

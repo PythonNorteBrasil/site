@@ -5,22 +5,19 @@ import { Header } from "@/components/header";
 import Link from "next/link";
 import { Footer } from "@/components/footer";
 import {
-  Star,
   Bookmark,
   BookmarkCheck,
-  Download,
   Filter,
   X,
   Calendar,
   MapPin,
   Users,
   Clock,
-  ExternalLink,
-  Info,
-  User,
 } from "lucide-react";
 import sessionsData from "./python-norte-2026_sessions.json";
 import speakersData from "./python-norte-2026_speakers.json";
+import { SessionDetailModal } from "@/components/session-detail-modal";
+import { SpeakerModal } from "@/components/speaker-modal";
 
 interface Session {
   id: string;
@@ -45,23 +42,40 @@ interface Speaker {
   Imagem: string | null;
   "IDs de proposta": string[];
   "Títulos das propostas": string[];
+  Instagram?: string | null;
+  LinkedIn?: string | null;
 }
 
 export default function ProgramacaoPage() {
+  const [isMounted, setIsMounted] = useState(false);
   const [activeDay, setActiveDay] = useState(0);
   const [activeFilters, setActiveFilters] = useState<{
     type: string[];
     target: string[];
     track: string[];
+    location: string[];
   }>({
     type: [],
     target: [],
     track: [],
+    location: [],
   });
   const [savedSessions, setSavedSessions] = useState<Set<string>>(new Set());
   const [showFilters, setShowFilters] = useState(false);
   const [selectedSession, setSelectedSession] = useState<Session | null>(null);
   const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
+
+  // Mark client-side mount (enables localStorage hydration + removes skeleton)
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Prevent background scroll when any modal is open
+  useEffect(() => {
+    const isOpen = !!selectedSession || !!selectedSpeaker;
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [selectedSession, selectedSpeaker]);
 
   // Create a map of speaker names to speaker data
   const speakersMap = new Map<string, Speaker>();
@@ -101,21 +115,23 @@ export default function ProgramacaoPage() {
       return a.time.localeCompare(b.time);
     });
 
-  // Load saved sessions from localStorage
+  // Load saved sessions from localStorage (sets isMounted=true when done)
   useEffect(() => {
     const saved = localStorage.getItem("pythonNorteAgenda");
     if (saved) {
       setSavedSessions(new Set(JSON.parse(saved)));
     }
+    setIsMounted(true);
   }, []);
 
-  // Save to localStorage whenever savedSessions changes
+  // Save to localStorage only after initial load to avoid overwriting with empty state
   useEffect(() => {
+    if (!isMounted) return;
     localStorage.setItem(
       "pythonNorteAgenda",
       JSON.stringify(Array.from(savedSessions)),
     );
-  }, [savedSessions]);
+  }, [savedSessions, isMounted]);
 
   // Add session to Google Calendar
   const addToGoogleCalendar = (session: Session) => {
@@ -141,6 +157,15 @@ export default function ProgramacaoPage() {
     window.open(url, "_blank");
   };
 
+  const getLevelStyle = (target: string) => {
+    switch (target) {
+      case "Todos":        return { bg: "bg-[#E2F0D9]", text: "text-[#385723]" };
+      case "Iniciante":    return { bg: "bg-[#DDEBF7]", text: "text-[#1F4E79]" };
+      case "Intermediário":return { bg: "bg-[#FCE4D6]", text: "text-[#C65911]" };
+      default:             return { bg: "bg-[#E1D5E7]", text: "text-[#6C3483]" };
+    }
+  };
+
   const days = [
     { name: "Sexta-feira", date: "03/07", dayNum: 1 },
     { name: "Sábado", date: "04/07", dayNum: 2 },
@@ -152,9 +177,9 @@ export default function ProgramacaoPage() {
       label: type,
       color:
         type === "Keynote"
-          ? "bg-[#004B23]"
+          ? "bg-[#FFB800]"
           : type === "Palestra"
-            ? "bg-[#FFB800]"
+            ? "bg-[#004B23]"
             : type === "Tutorial"
               ? "bg-[#FF6B00]"
               : "bg-[#7F8C8D]",
@@ -164,12 +189,19 @@ export default function ProgramacaoPage() {
     ).map((target) => ({
       value: target!,
       label: target!,
+      color: getLevelStyle(target!),
     })),
     track: Array.from(
       new Set(allSessions.map((s) => s.track).filter(Boolean)),
     ).map((track) => ({
       value: track!,
       label: track!.length > 30 ? track!.substring(0, 30) + "..." : track!,
+    })),
+    location: Array.from(
+      new Set(allSessions.map((s) => s.location).filter(Boolean)),
+    ).map((location) => ({
+      value: location!,
+      label: location!,
     })),
   };
 
@@ -187,7 +219,7 @@ export default function ProgramacaoPage() {
   };
 
   const clearAllFilters = () => {
-    setActiveFilters({ type: [], target: [], track: [] });
+    setActiveFilters({ type: [], target: [], track: [], location: [] });
   };
 
   const toggleSaveSession = (sessionId: string) => {
@@ -200,24 +232,6 @@ export default function ProgramacaoPage() {
       }
       return newSet;
     });
-  };
-
-  const exportAgenda = () => {
-    const saved = allSessions.filter((s) => savedSessions.has(s.id));
-    const text = saved
-      .map(
-        (s) =>
-          `${days[s.day - 1].name} (${days[s.day - 1].date}) - ${s.time}\n${s.title}${s.location ? ` - ${s.location}` : ""}\n`,
-      )
-      .join("\n");
-
-    const blob = new Blob([text], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "minha-agenda-python-norte-2026.txt";
-    a.click();
-    URL.revokeObjectURL(url);
   };
 
   // Filter sessions
@@ -236,39 +250,50 @@ export default function ProgramacaoPage() {
       activeFilters.track.length === 0 ||
       (session.track && activeFilters.track.includes(session.track));
 
-    return dayMatch && typeMatch && targetMatch && trackMatch;
+    const locationMatch =
+      activeFilters.location.length === 0 ||
+      (session.location && activeFilters.location.includes(session.location));
+
+    return dayMatch && typeMatch && targetMatch && trackMatch && locationMatch;
   });
 
-  const hasActiveFilters =
-    activeFilters.type.length > 0 ||
-    activeFilters.target.length > 0 ||
-    activeFilters.track.length > 0;
+  const totalActiveFilters =
+    activeFilters.type.length +
+    activeFilters.target.length +
+    activeFilters.track.length +
+    activeFilters.location.length;
+
+  const hasActiveFilters = totalActiveFilters > 0;
 
   const getSessionStyle = (type: string) => {
     switch (type) {
       case "Keynote":
         return {
-          bg: "bg-[#F4FAF5]",
-          border: "border-l-[6px] border-[#004B23]",
-          badge: "bg-[#004B23] text-white",
+          bg: "bg-[#FFFBF0]",
+          border: "border-l-[5px] border-[#FFB800]",
+          badge: "bg-[#FFB800] text-[#1a1a1a]",
+          isKeynote: true,
         };
       case "Palestra":
         return {
-          bg: "bg-[#FFFDF0]",
-          border: "border-l-[6px] border-[#FFB800]",
-          badge: "bg-[#FFB800] text-white",
+          bg: "bg-[#F4FAF5]",
+          border: "border-l-[5px] border-[#004B23]",
+          badge: "bg-[#004B23] text-white",
+          isKeynote: false,
         };
       case "Tutorial":
         return {
           bg: "bg-[#FFF6F2]",
           border: "border-l-[6px] border-[#FF6B00]",
           badge: "bg-[#FF6B00] text-white",
+          isKeynote: false,
         };
       default:
         return {
           bg: "bg-[#F5F7F8]",
           border: "border-l-[6px] border-[#7F8C8D]",
           badge: "bg-[#7F8C8D] text-white",
+          isKeynote: false,
         };
     }
   };
@@ -277,16 +302,16 @@ export default function ProgramacaoPage() {
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
 
-      <main className="flex-grow pt-14 pb-16 bg-[#FAF7F0]">
+      <main className="flex-grow pt-20 pb-16 bg-[#FAF7F0]">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto space-y-8">
+          <div className="max-w-7xl mx-auto space-y-6">
             {/* Header */}
-            <div className="text-center space-y-3">
+            <div className="text-center space-y-3 mb-8">
               <h1
                 className="text-3xl md:text-5xl font-bold text-[#004B23]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Programação Completa
+                Programação Python Norte 2026
               </h1>
               <div className="w-16 h-1 mx-auto rounded-full bg-gradient-to-r from-[#004B23] to-[#FF6B00]" />
               <p className="text-[#4A5D4E] text-base md:text-lg max-w-3xl mx-auto">
@@ -295,48 +320,36 @@ export default function ProgramacaoPage() {
               </p>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
-              <div className="bg-white rounded-xl p-3 md:p-4 text-center shadow-sm border border-[#004B23]/10">
-                <div className="text-xl md:text-2xl font-bold text-[#004B23]">
+            {/* Stats - Compact */}
+            <div className="flex items-center justify-center gap-4 md:gap-6 flex-wrap max-w-3xl mx-auto">
+              <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-[#004B23]/10">
+                <div className="text-xl font-bold text-[#004B23]">
                   {allSessions.filter((s) => s.type === "Keynote").length}
                 </div>
-                <div className="text-[10px] md:text-xs text-[#4A5D4E] mt-0.5 md:mt-1">
-                  Keynotes
-                </div>
+                <div className="text-xs text-[#4A5D4E]">Keynotes</div>
               </div>
-              <div className="bg-white rounded-xl p-3 md:p-4 text-center shadow-sm border border-[#004B23]/10">
-                <div className="text-xl md:text-2xl font-bold text-[#FFB800]">
+              <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-[#004B23]/10">
+                <div className="text-xl font-bold text-[#FFB800]">
                   {allSessions.filter((s) => s.type === "Palestra").length}
                 </div>
-                <div className="text-[10px] md:text-xs text-[#4A5D4E] mt-0.5 md:mt-1">
-                  Palestras
-                </div>
+                <div className="text-xs text-[#4A5D4E]">Palestras</div>
               </div>
-              <div className="bg-white rounded-xl p-3 md:p-4 text-center shadow-sm border border-[#004B23]/10">
-                <div className="text-xl md:text-2xl font-bold text-[#FF6B00]">
+              <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-[#004B23]/10">
+                <div className="text-xl font-bold text-[#FF6B00]">
                   {allSessions.filter((s) => s.type === "Tutorial").length}
                 </div>
-                <div className="text-[10px] md:text-xs text-[#4A5D4E] mt-0.5 md:mt-1">
-                  Tutoriais
-                </div>
+                <div className="text-xs text-[#4A5D4E]">Tutoriais</div>
               </div>
-              <div className="bg-gradient-to-br from-[#004B23] to-[#003318] rounded-xl p-3 md:p-4 text-center shadow-sm border border-[#004B23]/10">
-                <div className="text-xl md:text-2xl font-bold text-white mb-2">
+              <Link
+                href="/minha-agenda"
+                className="flex items-center gap-2 bg-gradient-to-br from-[#004B23] to-[#003318] rounded-lg px-3 py-2 shadow-sm border border-[#004B23]/10 hover:scale-105 active:scale-95 transition-transform cursor-pointer group"
+              >
+                <Calendar className="w-5 h-5 text-[#FFB800] group-hover:text-[#FF6B00] transition-colors" />
+                <div className="text-xl font-bold text-white">
                   {savedSessions.size}
                 </div>
-                <div className="text-[10px] md:text-xs text-white/80 mb-2">
-                  Sessões Favoritas
-                </div>
-                {savedSessions.size > 0 && (
-                  <Link
-                    href="/minha-agenda"
-                    className="inline-flex items-center gap-1 text-[10px] md:text-xs font-bold text-[#FFB800] hover:text-[#FF6B00] transition-colors"
-                  >
-                    Ver Agenda →
-                  </Link>
-                )}
-              </div>
+                <div className="text-xs text-white/80">Minha Agenda</div>
+              </Link>
             </div>
 
             {/* Day Switcher & Actions */}
@@ -370,113 +383,195 @@ export default function ProgramacaoPage() {
                   Filtros
                   {hasActiveFilters && (
                     <span className="bg-white text-[#FF6B00] rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
-                      {activeFilters.type.length +
-                        activeFilters.target.length +
-                        activeFilters.track.length}
+                      {totalActiveFilters}
                     </span>
                   )}
                 </button>
-
-                {savedSessions.size > 0 && (
-                  <button
-                    onClick={exportAgenda}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-full font-bold text-sm bg-[#004B23] text-white border-2 border-[#004B23] hover:bg-[#003818] transition-all"
-                  >
-                    <Download className="w-4 h-4" />
-                    Exportar Agenda
-                  </button>
-                )}
               </div>
             </div>
 
             {/* Filters Panel */}
             {showFilters && (
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-[#004B23]/10 space-y-6">
-                <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-bold text-[#004B23]">Filtros</h3>
-                  {hasActiveFilters && (
+              <div className="bg-white rounded-2xl shadow-lg border border-[#004B23]/10 overflow-hidden">
+                {/* Panel Header */}
+                <div className="flex justify-between items-center px-5 py-4 border-b border-[#004B23]/10 bg-[#F4FAF5]">
+                  <div className="flex items-center gap-2">
+                    <Filter className="w-4 h-4 text-[#004B23]" />
+                    <h3 className="text-sm font-bold text-[#004B23]">
+                      Filtros
+                    </h3>
+                    {hasActiveFilters && (
+                      <span className="bg-[#FF6B00] text-white rounded-full px-2 py-0.5 text-[10px] font-bold">
+                        {totalActiveFilters} ativos
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-3">
+                    {hasActiveFilters && (
+                      <button
+                        onClick={clearAllFilters}
+                        className="px-3 py-1.5 rounded-full text-xs font-bold bg-[#FF6B00] text-white hover:bg-[#e05e00] transition-colors"
+                      >
+                        Limpar filtros
+                      </button>
+                    )}
                     <button
-                      onClick={clearAllFilters}
-                      className="text-sm text-[#FF6B00] hover:underline font-semibold flex items-center gap-1"
+                      onClick={() => setShowFilters(false)}
+                      className="p-1.5 rounded-lg hover:bg-[#004B23]/10 text-[#4A5D4E] transition-colors"
+                      aria-label="Fechar filtros"
                     >
                       <X className="w-4 h-4" />
-                      Limpar todos
                     </button>
-                  )}
-                </div>
-
-                {/* Type Filters */}
-                <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-[#4A5D4E]">
-                    Tipo de Atividade
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {filterOptions.type.map((option) => (
-                      <button
-                        key={option.value}
-                        onClick={() => toggleFilter("type", option.value)}
-                        className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-                          activeFilters.type.includes(option.value)
-                            ? `${option.color} text-white`
-                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                        }`}
-                      >
-                        {option.label}
-                      </button>
-                    ))}
                   </div>
                 </div>
 
-                {/* Target Filters */}
-                <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-[#4A5D4E]">
-                    Nível
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {filterOptions.target.map((option) => (
-                      <button
-                        key={option.value}
-                        onClick={() => toggleFilter("target", option.value)}
-                        className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-                          activeFilters.target.includes(option.value)
-                            ? "bg-[#004B23] text-white"
-                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                        }`}
-                      >
-                        {option.label}
-                      </button>
-                    ))}
+                {/* Filter Groups Grid */}
+                <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {/* Type Filters */}
+                  <div className="space-y-2">
+                    <h4 className="text-xs font-bold text-[#004B23] uppercase tracking-wider flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#004B23]" />
+                      Tipo de Atividade
+                    </h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {filterOptions.type.map((option) => (
+                        <button
+                          key={option.value}
+                          onClick={() => toggleFilter("type", option.value)}
+                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all border ${
+                            activeFilters.type.includes(option.value)
+                              ? `${option.color} text-white border-transparent`
+                              : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
+                          }`}
+                        >
+                          {option.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Target Filters */}
+                  <div className="space-y-2">
+                    <h4 className="text-xs font-bold text-[#004B23] uppercase tracking-wider flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#004B23]" />
+                      Nível
+                    </h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {filterOptions.target.map((option) => (
+                        <button
+                          key={option.value}
+                          onClick={() => toggleFilter("target", option.value)}
+                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all border ${
+                            activeFilters.target.includes(option.value)
+                              ? `${option.color.bg} ${option.color.text} border-transparent`
+                              : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
+                          }`}
+                        >
+                          {option.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Location Filters */}
+                  <div className="space-y-2">
+                    <h4 className="text-xs font-bold text-[#004B23] uppercase tracking-wider flex items-center gap-1.5">
+                      <MapPin className="w-3 h-3 text-[#004B23]" />
+                      Local / Sala
+                    </h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {filterOptions.location.map((option) => (
+                        <button
+                          key={option.value}
+                          onClick={() => toggleFilter("location", option.value)}
+                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all border ${
+                            activeFilters.location.includes(option.value)
+                              ? "bg-[#3B82F6] text-white border-transparent"
+                              : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
+                          }`}
+                        >
+                          {option.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Track Filters */}
+                  <div className="space-y-2">
+                    <h4 className="text-xs font-bold text-[#004B23] uppercase tracking-wider flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
+                      Trilha
+                    </h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {filterOptions.track.map((option) => (
+                        <button
+                          key={option.value}
+                          onClick={() => toggleFilter("track", option.value)}
+                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all border ${
+                            activeFilters.track.includes(option.value!)
+                              ? "bg-[#FF6B00] text-white border-transparent"
+                              : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
+                          }`}
+                          title={option.value!}
+                        >
+                          {option.label!}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Track Filters */}
-                <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-[#4A5D4E]">
-                    Trilha
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {filterOptions.track.map((option) => (
-                      <button
-                        key={option.value}
-                        onClick={() => toggleFilter("track", option.value)}
-                        className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-                          activeFilters.track.includes(option.value!)
-                            ? "bg-[#FF6B00] text-white"
-                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                        }`}
-                        title={option.value!}
-                      >
-                        {option.label!}
-                      </button>
-                    ))}
-                  </div>
+                {/* Footer */}
+                <div className="px-5 py-4 border-t border-[#004B23]/10 bg-[#F4FAF5] flex justify-end">
+                  <button
+                    onClick={() => setShowFilters(false)}
+                    className="px-5 py-2.5 rounded-full font-bold text-sm bg-[#004B23] text-white hover:bg-[#003318] transition-colors"
+                  >
+                    Mostrar resultados
+                    {hasActiveFilters && (
+                      <span className="ml-2 bg-white/20 rounded-full px-1.5 py-0.5 text-[10px]">
+                        {filteredSessions.length}
+                      </span>
+                    )}
+                  </button>
                 </div>
               </div>
             )}
 
             {/* Sessions List */}
             <div className="space-y-4">
-              {filteredSessions.length === 0 ? (
+              {!isMounted ? (
+                /* Loading skeleton — matches real card layout */
+                <>
+                  {[...Array(5)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="relative flex flex-col p-5 rounded-2xl bg-white border border-[#004B23]/5 shadow-sm gap-4"
+                      style={{ animationDelay: `${i * 60}ms` }}
+                    >
+                      {/* time */}
+                      <div className="h-4 w-28 rounded-full bg-[#004B23]/10 animate-pulse" />
+                      {/* type badge + title */}
+                      <div className="flex flex-wrap items-center gap-2">
+                        <div className="h-5 w-16 rounded-full bg-[#004B23]/10 animate-pulse" />
+                        <div className="h-5 w-5 rounded-full bg-[#004B23]/10 animate-pulse" />
+                        <div className="h-5 rounded-full bg-[#004B23]/10 animate-pulse"
+                          style={{ width: `${180 + (i % 3) * 60}px` }} />
+                      </div>
+                      {/* location */}
+                      <div className="h-3.5 w-32 rounded-full bg-[#004B23]/10 animate-pulse" />
+                      {/* track */}
+                      <div className="h-4 w-48 rounded-md bg-[#004B23]/10 animate-pulse" />
+                      {/* speakers */}
+                      <div className="flex items-center gap-2">
+                        <div className="h-3.5 w-3.5 rounded-full bg-[#004B23]/10 animate-pulse" />
+                        <div className="h-3.5 w-20 rounded-full bg-[#004B23]/10 animate-pulse" />
+                        <div className="h-3.5 w-24 rounded-full bg-[#004B23]/10 animate-pulse" />
+                      </div>
+                    </div>
+                  ))}
+                </>
+              ) : filteredSessions.length === 0 ? (
                 <div className="bg-white rounded-2xl p-12 text-center shadow-sm border border-[#004B23]/10">
                   <Calendar className="w-12 h-12 text-[#004B23]/30 mx-auto mb-4" />
                   <p className="text-[#4A5D4E] text-lg">
@@ -489,7 +584,7 @@ export default function ProgramacaoPage() {
                     Limpar filtros
                   </button>
                 </div>
-              ) : (
+              ) : !isMounted ? null : (
                 filteredSessions.map((session) => {
                   const style = getSessionStyle(session.type);
                   const isSaved = savedSessions.has(session.id);
@@ -498,7 +593,7 @@ export default function ProgramacaoPage() {
                     <div
                       key={session.id}
                       onClick={() => setSelectedSession(session)}
-                      className={`relative flex flex-col p-5 rounded-2xl ${style.bg} ${style.border} shadow-sm border border-[#004B23]/5 transition-all duration-200 gap-4 group hover:shadow-md cursor-pointer hover:scale-[1.01]`}
+                      className={`relative flex flex-col p-5 rounded-2xl ${style.bg} ${style.border} border border-[#004B23]/8 shadow-sm transition-all duration-200 gap-3 group hover:shadow-md cursor-pointer hover:scale-[1.005]`}
                     >
                       {/* Action Buttons - Top Right */}
                       <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
@@ -507,7 +602,7 @@ export default function ProgramacaoPage() {
                             e.stopPropagation();
                             toggleSaveSession(session.id);
                           }}
-                          className={`p-1.5 rounded-lg transition-all pointer-events-auto ${
+                          className={`p-1.5 rounded-lg transition-all pointer-events-auto active:scale-90 ${
                             isSaved
                               ? "text-[#FFB800] hover:bg-[#FFB800]/10"
                               : "text-gray-400 hover:bg-gray-100 hover:text-[#004B23]"
@@ -530,7 +625,7 @@ export default function ProgramacaoPage() {
                             e.stopPropagation();
                             addToGoogleCalendar(session);
                           }}
-                          className="p-1.5 rounded-lg hover:bg-[#FFB800]/10 text-[#FFB800] transition-all pointer-events-auto"
+                          className="p-1.5 rounded-lg transition-all pointer-events-auto active:scale-90 text-[#FFB800] hover:bg-[#FFB800]/10"
                           title="Adicionar ao Google Calendar"
                         >
                           <Calendar className="w-4 h-4" />
@@ -540,62 +635,75 @@ export default function ProgramacaoPage() {
                       {/* Content */}
                       <div className="flex flex-col gap-3 pointer-events-none pr-16">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm font-bold text-[#4A5D4E] flex items-center gap-2">
+                          <span className="text-sm font-bold flex items-center gap-2 text-[#4A5D4E]">
                             <Clock className="w-4 h-4" />
                             {session.time}
                           </span>
                         </div>
 
-                        <div className="flex flex-wrap items-center gap-3">
+                        <div className="flex flex-wrap items-center gap-2">
                           <span
                             className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${style.badge}`}
                           >
                             {session.type}
                           </span>
-                          <span className="text-base font-bold text-[#004B23] tracking-tight">
+                          {session.target && (() => {
+                            const ls = getLevelStyle(session.target);
+                            return (
+                              <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${ls.bg} ${ls.text}`}>
+                                {session.target}
+                              </span>
+                            );
+                          })()}
+                          <span className={`font-bold tracking-tight text-[#004B23] ${style.isKeynote ? "text-lg sm:text-xl" : "text-base"}`}>
                             {session.title}
                           </span>
                         </div>
 
                         {session.location && (
-                          <div className="flex items-center gap-1.5 text-xs text-[#4A5D4E]">
+                          <div className="flex items-center gap-1.5 text-xs font-medium text-[#2D3E31]">
                             <MapPin className="w-3.5 h-3.5" />
                             {session.location}
                           </div>
                         )}
 
                         {session.track && (
-                          <div className="text-[11px] font-semibold text-[#8B5E3C] bg-[#FFF5EE] border border-[#8B5E3C]/10 px-2.5 py-0.5 rounded-md inline-flex items-center gap-1.5 self-start">
+                          <div className="text-[11px] font-semibold px-2.5 py-0.5 rounded-md inline-flex items-center gap-1.5 self-start text-[#8B5E3C] bg-[#FFF5EE] border border-[#8B5E3C]/10">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C]" />
-                            Trilha: {session.track}
+                            {session.track}
                           </div>
                         )}
 
                         {session.speakers && session.speakers.length > 0 && (
-                          <div className="text-xs text-[#4A5D4E] flex items-center gap-1.5 flex-wrap">
+                          <div className="text-xs flex items-center gap-1.5 flex-wrap text-[#4A5D4E]">
                             <Users className="w-3.5 h-3.5 flex-shrink-0" />
-                            <span className="font-semibold">Palestrantes:</span>
-                            <div className="flex flex-wrap gap-1">
+                            <span className="font-semibold">
+                              {session.speakers.length === 1 ? "Palestrante:" : "Palestrantes:"}
+                            </span>
+                            <div className="flex flex-wrap gap-1 items-center">
                               {session.speakers.map((speakerName, idx) => {
                                 const speaker = speakersMap.get(speakerName);
+                                const total = session.speakers?.length ?? 0;
+                                const isLast = idx === total - 1;
+                                const isSecondToLast = idx === total - 2;
                                 return (
-                                  <span key={idx}>
+                                  <span key={idx} className="flex items-center gap-1">
                                     {speaker ? (
                                       <button
                                         onClick={(e) => {
                                           e.stopPropagation();
                                           setSelectedSpeaker(speaker);
                                         }}
-                                        className="text-[#FF6B00] hover:underline font-semibold pointer-events-auto"
+                                        className="hover:underline font-semibold pointer-events-auto text-[#FF6B00]"
                                       >
                                         {speakerName}
                                       </button>
                                     ) : (
                                       <span>{speakerName}</span>
                                     )}
-                                    {idx <
-                                      (session.speakers?.length ?? 0) - 1 &&
-                                      ", "}
+                                    {!isLast && (
+                                      <span>{isSecondToLast ? " e" : ","}</span>
+                                    )}
                                   </span>
                                 );
                               })}
@@ -603,22 +711,6 @@ export default function ProgramacaoPage() {
                           </div>
                         )}
 
-                        {session.target && (
-                          <span
-                            className={`text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 self-start ${
-                              session.target === "Todos"
-                                ? "bg-[#E2F0D9] text-[#385723]"
-                                : session.target === "Iniciante"
-                                  ? "bg-[#DDEBF7] text-[#1F4E79]"
-                                  : session.target === "Intermediário"
-                                    ? "bg-[#FCE4D6] text-[#C65911]"
-                                    : "bg-[#E1D5E7] text-[#6C3483]"
-                            }`}
-                          >
-                            <Users className="w-3 h-3" />
-                            {session.target}
-                          </span>
-                        )}
                       </div>
                     </div>
                   );
@@ -631,277 +723,29 @@ export default function ProgramacaoPage() {
 
       <Footer />
 
-      {/* Session Details Modal - Optimized for Mobile */}
       {selectedSession && (
-        <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center z-50 p-0 sm:p-4"
-          onClick={() => setSelectedSession(null)}
-        >
-          <div
-            className="bg-white rounded-t-3xl sm:rounded-2xl max-w-3xl w-full shadow-2xl max-h-[90vh] sm:max-h-[85vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header */}
-            <div
-              className={`p-4 sm:p-6 rounded-t-3xl sm:rounded-t-2xl ${getSessionStyle(selectedSession.type).bg} ${getSessionStyle(selectedSession.type).border} border-t-0 sticky top-0 z-10`}
-            >
-              <div className="flex justify-between items-start gap-3">
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span
-                      className={`text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-1 rounded-full uppercase tracking-wider ${getSessionStyle(selectedSession.type).badge}`}
-                    >
-                      {selectedSession.type}
-                    </span>
-                    {selectedSession.target && (
-                      <span
-                        className={`text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-1 rounded-full flex items-center gap-1 ${
-                          selectedSession.target === "Todos"
-                            ? "bg-[#E2F0D9] text-[#385723]"
-                            : selectedSession.target === "Iniciante"
-                              ? "bg-[#DDEBF7] text-[#1F4E79]"
-                              : selectedSession.target === "Intermediário"
-                                ? "bg-[#FCE4D6] text-[#C65911]"
-                                : "bg-[#E1D5E7] text-[#6C3483]"
-                        }`}
-                      >
-                        <Users className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                        {selectedSession.target}
-                      </span>
-                    )}
-                  </div>
-                  <h2 className="text-lg sm:text-2xl font-bold text-[#004B23] mb-2 leading-tight">
-                    {selectedSession.title}
-                  </h2>
-                  <div className="flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-[#4A5D4E]">
-                    <div className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                      <span className="truncate">{selectedSession.time}</span>
-                    </div>
-                    {selectedSession.location && (
-                      <div className="flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                        <span className="truncate">
-                          {selectedSession.location}
-                        </span>
-                      </div>
-                    )}
-                    {selectedSession.duration && (
-                      <div className="flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                        <span>{selectedSession.duration} min</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <button
-                  onClick={() => setSelectedSession(null)}
-                  className="p-2 rounded-full hover:bg-black/5 transition-colors flex-shrink-0"
-                  aria-label="Fechar"
-                >
-                  <X className="w-5 h-5 text-[#4A5D4E]" />
-                </button>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
-              {selectedSession.track && (
-                <div>
-                  <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
-                    Trilha
-                  </h3>
-                  <div className="text-xs sm:text-sm font-semibold text-[#8B5E3C] bg-[#FFF5EE] border border-[#8B5E3C]/10 px-3 py-2 rounded-lg inline-flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#8B5E3C] flex-shrink-0" />
-                    <span className="break-words">{selectedSession.track}</span>
-                  </div>
-                </div>
-              )}
-
-              {selectedSession.speakers &&
-                selectedSession.speakers.length > 0 && (
-                  <div>
-                    <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
-                      Palestrantes
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedSession.speakers.map((speakerName, idx) => {
-                        const speaker = speakersMap.get(speakerName);
-                        return speaker ? (
-                          <button
-                            key={idx}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedSpeaker(speaker);
-                            }}
-                            className="text-xs sm:text-sm bg-[#F4FAF5] text-[#FF6B00] px-3 py-1.5 rounded-lg border border-[#FF6B00]/20 hover:bg-[#FF6B00]/10 transition-all font-semibold"
-                          >
-                            {speakerName}
-                          </button>
-                        ) : (
-                          <span
-                            key={idx}
-                            className="text-xs sm:text-sm bg-[#F4FAF5] text-[#004B23] px-3 py-1.5 rounded-lg border border-[#004B23]/10"
-                          >
-                            {speakerName}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-
-              {selectedSession.description && (
-                <div>
-                  <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
-                    Resumo
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#4A5D4E] leading-relaxed">
-                    {selectedSession.description}
-                  </p>
-                </div>
-              )}
-
-              {/* Actions */}
-              <div className="flex items-center justify-between pt-4 border-t border-[#004B23]/10 sticky bottom-0 bg-white pb-safe">
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => {
-                      toggleSaveSession(selectedSession.id);
-                    }}
-                    className={`p-3 rounded-xl transition-all ${
-                      savedSessions.has(selectedSession.id)
-                        ? "text-[#FFB800] hover:bg-[#FFB800]/10"
-                        : "text-gray-400 hover:bg-gray-100 hover:text-[#004B23]"
-                    }`}
-                    title={
-                      savedSessions.has(selectedSession.id)
-                        ? "Remover dos favoritos"
-                        : "Adicionar aos favoritos"
-                    }
-                  >
-                    {savedSessions.has(selectedSession.id) ? (
-                      <BookmarkCheck className="w-5 h-5" />
-                    ) : (
-                      <Bookmark className="w-5 h-5" />
-                    )}
-                  </button>
-                  <button
-                    onClick={() => addToGoogleCalendar(selectedSession)}
-                    className="p-3 rounded-xl hover:bg-[#FFB800]/10 text-[#FFB800] transition-all"
-                    title="Adicionar ao Google Calendar"
-                  >
-                    <Calendar className="w-5 h-5" />
-                  </button>
-                </div>
-                <button
-                  onClick={() => setSelectedSession(null)}
-                  className="px-4 py-3 rounded-xl font-bold text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
-                >
-                  Fechar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SessionDetailModal
+          session={selectedSession}
+          onClose={() => setSelectedSession(null)}
+          isSaved={savedSessions.has(selectedSession.id)}
+          onToggleSave={() => toggleSaveSession(selectedSession.id)}
+          onAddToCalendar={() => addToGoogleCalendar(selectedSession)}
+          speakers={(selectedSession.speakers ?? []).map((name) => {
+            const sp = speakersMap.get(name);
+            return {
+              name,
+              imagem: sp?.Imagem ?? null,
+              onClick: sp ? () => setSelectedSpeaker(sp) : undefined,
+            };
+          })}
+        />
       )}
 
-      {/* Speaker Modal */}
       {selectedSpeaker && (
-        <div
-          className="fixed inset-0 bg-black/50 flex items-end sm:items-center justify-center z-50 p-0 sm:p-4"
-          onClick={() => setSelectedSpeaker(null)}
-        >
-          <div
-            className="bg-white w-full sm:max-w-2xl sm:rounded-2xl rounded-t-2xl max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="sticky top-0 bg-white border-b border-[#004B23]/10 p-4 sm:p-6 z-10">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-start gap-4 flex-1">
-                  {selectedSpeaker.Imagem ? (
-                    <img
-                      src={selectedSpeaker.Imagem}
-                      alt={selectedSpeaker.Nome}
-                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover flex-shrink-0"
-                    />
-                  ) : (
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#004B23]/10 flex items-center justify-center flex-shrink-0">
-                      <User className="w-8 h-8 sm:w-10 sm:h-10 text-[#004B23]" />
-                    </div>
-                  )}
-                  <div className="flex-1 min-w-0">
-                    <h2 className="text-xl sm:text-2xl font-bold text-[#004B23] mb-1 break-words">
-                      {selectedSpeaker.Nome}
-                    </h2>
-                    {selectedSpeaker["Títulos das propostas"] &&
-                      selectedSpeaker["Títulos das propostas"].length > 0 && (
-                        <p className="text-xs sm:text-sm text-[#4A5D4E]">
-                          {selectedSpeaker["Títulos das propostas"].length}{" "}
-                          {selectedSpeaker["Títulos das propostas"].length === 1
-                            ? "palestra"
-                            : "palestras"}
-                        </p>
-                      )}
-                  </div>
-                </div>
-                <button
-                  onClick={() => setSelectedSpeaker(null)}
-                  className="p-2 rounded-full hover:bg-black/5 transition-colors flex-shrink-0"
-                  aria-label="Fechar"
-                >
-                  <X className="w-5 h-5 text-[#4A5D4E]" />
-                </button>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
-              {selectedSpeaker.Biografia && (
-                <div>
-                  <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
-                    Biografia
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#4A5D4E] leading-relaxed whitespace-pre-wrap">
-                    {selectedSpeaker.Biografia}
-                  </p>
-                </div>
-              )}
-
-              {selectedSpeaker["Títulos das propostas"] &&
-                selectedSpeaker["Títulos das propostas"].length > 0 && (
-                  <div>
-                    <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
-                      Palestras
-                    </h3>
-                    <div className="space-y-2">
-                      {selectedSpeaker["Títulos das propostas"].map(
-                        (title, idx) => (
-                          <div
-                            key={idx}
-                            className="text-xs sm:text-sm bg-[#F4FAF5] text-[#004B23] px-3 py-2 rounded-lg border border-[#004B23]/10"
-                          >
-                            {title}
-                          </div>
-                        ),
-                      )}
-                    </div>
-                  </div>
-                )}
-
-              {/* Close Button */}
-              <div className="pt-4 border-t border-[#004B23]/10 sticky bottom-0 bg-white pb-safe">
-                <button
-                  onClick={() => setSelectedSpeaker(null)}
-                  className="w-full px-4 py-3 rounded-xl font-bold text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
-                >
-                  Fechar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SpeakerModal
+          speaker={selectedSpeaker}
+          onClose={() => setSelectedSpeaker(null)}
+        />
       )}
     </div>
   );

@@ -266,11 +266,24 @@
     ]
   },
   {
+    "ID": "WBHPPM",
+    "Nome": "Marcelo Rocha de S\u00e1",
+    "Biografia": "Nome : Marcelo Rocha de S\u00e1\r\nMinibio: Engenheiro Eletricista, mestre em Computa\u00e7\u00e3o Aplicada, Doutorando em Ci\u00eancia da Computa\u00e7\u00e3o, Pesquisador das Infraestruturas Publicas Digitais, Empreendedor serial com mais de 30 anos de experi\u00eancia em projetos de tecnologia da Informa\u00e7\u00e3o. CEO da Jambu Tecnologia e da JambuLabs Software Studio, Coordenador e mantenedor da Rede Belem Aberta (uma rede para o empreendedorismo digital); Membro fundador e vice-presidente da Associa\u00e7\u00e3o PARATIC (Empresas Paraenses de Software e TIC), membro da diretoria do A\u00e7a\u00ed Valley, vice-presidente da Junior Achievement (ONG dedicada a educa\u00e7\u00e3o para o empeendedorismo de jovens)",
+    "E-mail": "marcelo@jambu.com.br",
+    "Imagem": "https://talks.python.org.br/media/avatars/WDUZED_qnu8K6b.webp",
+    "IDs de proposta": [
+      "SAXAJD"
+    ],
+    "T\u00edtulos das propostas": [
+      "Engenharia de Software Ag\u00eantica: M\u00e9todos \u00e1geis, TUI Opensource e IA Generativa"
+    ]
+  },
+  {
     "ID": "WBHZYP",
-    "Nome": "devhugo",
+    "Nome": "Hugo de Souza da Silva",
     "Biografia": "Ol\u00e1! Me chamo Hugo, sou de Bel\u00e9m-PA e estou no T\u00e9cnico em Desenvolvimento de Sistemas pelo Senac \u2014 meu primeiro curso ap\u00f3s o ensino m\u00e9dio.\r\nMinha trajet\u00f3ria come\u00e7ou com Python e foi se expandindo naturalmente para MySQL, Git, MVC e interfaces desktop com CustomTkinter. Hoje desenvolvo projetos open source p\u00fablicos no GitHub, onde pratico boas pr\u00e1ticas de c\u00f3digo, versionamento e arquitetura de software de forma colaborativa e transparente.\r\nUm marco importante foi a Semana S do Senac 2026, onde desenvolvi exerc\u00edcios de debugging em Python e um Jogo da Velha com Tkinter. Este projeto ser\u00e1 apresentado aqui em sua vers\u00e3o atual, e j\u00e1 tenho planejado como pr\u00f3ximo passo a implementa\u00e7\u00e3o de uma tela splash \u2014 \u00e9 um projeto vivo, que continua evoluindo.\r\nAcredito que contribuir com c\u00f3digo aberto \u00e9 uma das formas mais genu\u00ednas de crescer como desenvolvedor e retribuir \u00e0 comunidade. Estou buscando meu primeiro est\u00e1gio e cada projeto open source que entrego \u00e9 um passo nessa dire\u00e7\u00e3o.",
     "E-mail": "hugosouza09106@gmail.com",
-    "Imagem": null,
+    "Imagem": "https://talks.python.org.br/media/avatars/LWMPNE_artGF5q.webp",
     "IDs de proposta": [
       "XU8XMY"
     ],
