@@ -18,6 +18,10 @@ import sessionsData from "./python-norte-2026_sessions.json";
 import speakersData from "./python-norte-2026_speakers.json";
 import { SessionDetailModal } from "@/components/session-detail-modal";
 import { SpeakerModal } from "@/components/speaker-modal";
+import { SectionHeader } from "@/components/sectionHeader";
+import { StatsCard } from "@/components/statsCards";
+import { ScheduleStats } from "@/components/scheduleStats";
+import { DaySwitcher } from "@/components/daySwitcher";
 
 interface Session {
   id: string;
@@ -74,7 +78,9 @@ export default function ProgramacaoPage() {
   useEffect(() => {
     const isOpen = !!selectedSession || !!selectedSpeaker;
     document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [selectedSession, selectedSpeaker]);
 
   // Create a map of speaker names to speaker data
@@ -159,10 +165,14 @@ export default function ProgramacaoPage() {
 
   const getLevelStyle = (target: string) => {
     switch (target) {
-      case "Todos":        return { bg: "bg-[#E2F0D9]", text: "text-[#385723]" };
-      case "Iniciante":    return { bg: "bg-[#DDEBF7]", text: "text-[#1F4E79]" };
-      case "Intermediário":return { bg: "bg-[#FCE4D6]", text: "text-[#C65911]" };
-      default:             return { bg: "bg-[#E1D5E7]", text: "text-[#6C3483]" };
+      case "Todos":
+        return { bg: "bg-[#E2F0D9]", text: "text-[#385723]" };
+      case "Iniciante":
+        return { bg: "bg-[#DDEBF7]", text: "text-[#1F4E79]" };
+      case "Intermediário":
+        return { bg: "bg-[#FCE4D6]", text: "text-[#C65911]" };
+      default:
+        return { bg: "bg-[#E1D5E7]", text: "text-[#6C3483]" };
     }
   };
 
@@ -298,6 +308,12 @@ export default function ProgramacaoPage() {
     }
   };
 
+  const keynoteCount = allSessions.filter((s) => s.type === "Keynote").length;
+
+  const talkCount = allSessions.filter((s) => s.type === "Palestra").length;
+
+  const tutorialCount = allSessions.filter((s) => s.type === "Tutorial").length;
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
@@ -305,70 +321,27 @@ export default function ProgramacaoPage() {
       <main className="flex-grow pt-20 pb-16 bg-[#FAF7F0]">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto space-y-6">
-            {/* Header */}
-            <div className="text-center space-y-3 mb-8">
-              <h1
-                className="text-3xl md:text-5xl font-bold text-[#004B23]"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Programação Python Norte 2026
-              </h1>
-              <div className="w-16 h-1 mx-auto rounded-full bg-gradient-to-r from-[#004B23] to-[#FF6B00]" />
-              <p className="text-[#4A5D4E] text-base md:text-lg max-w-3xl mx-auto">
-                Explore todas as atividades dos dois dias de evento e monte sua
-                agenda personalizada
-              </p>
-            </div>
+            <SectionHeader
+              title="Programação Python Norte 2026"
+              description="Explore todas as atividades dos dois dias de evento e monte sua
+                agenda personalizada"
+            />
 
             {/* Stats - Compact */}
-            <div className="flex items-center justify-center gap-4 md:gap-6 flex-wrap max-w-3xl mx-auto">
-              <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-[#004B23]/10">
-                <div className="text-xl font-bold text-[#004B23]">
-                  {allSessions.filter((s) => s.type === "Keynote").length}
-                </div>
-                <div className="text-xs text-[#4A5D4E]">Keynotes</div>
-              </div>
-              <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-[#004B23]/10">
-                <div className="text-xl font-bold text-[#FFB800]">
-                  {allSessions.filter((s) => s.type === "Palestra").length}
-                </div>
-                <div className="text-xs text-[#4A5D4E]">Palestras</div>
-              </div>
-              <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-[#004B23]/10">
-                <div className="text-xl font-bold text-[#FF6B00]">
-                  {allSessions.filter((s) => s.type === "Tutorial").length}
-                </div>
-                <div className="text-xs text-[#4A5D4E]">Tutoriais</div>
-              </div>
-              <Link
-                href="/minha-agenda"
-                className="flex items-center gap-2 bg-gradient-to-br from-[#004B23] to-[#003318] rounded-lg px-3 py-2 shadow-sm border border-[#004B23]/10 hover:scale-105 active:scale-95 transition-transform cursor-pointer group"
-              >
-                <Calendar className="w-5 h-5 text-[#FFB800] group-hover:text-[#FF6B00] transition-colors" />
-                <div className="text-xl font-bold text-white">
-                  {savedSessions.size}
-                </div>
-                <div className="text-xs text-white/80">Minha Agenda</div>
-              </Link>
-            </div>
+            <ScheduleStats
+              keynote={keynoteCount}
+              talks={talkCount}
+              tutorials={tutorialCount}
+              saved={savedSessions.size}
+            />
 
             {/* Day Switcher & Actions */}
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="flex gap-3">
-                {days.map((day, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveDay(idx)}
-                    className={`px-5 py-2.5 rounded-full font-bold text-sm border-2 transition-all duration-300 ${
-                      idx === activeDay
-                        ? "bg-[#004B23] text-white border-[#004B23] shadow-md"
-                        : "bg-white text-[#004B23] border-[#004B23]/30 hover:border-[#004B23]"
-                    }`}
-                  >
-                    {day.name} - {day.date}
-                  </button>
-                ))}
-              </div>
+              <DaySwitcher
+                days={days}
+                activeDay={activeDay}
+                onChange={setActiveDay}
+              />
 
               <div className="flex gap-3">
                 <button
@@ -555,8 +528,10 @@ export default function ProgramacaoPage() {
                       <div className="flex flex-wrap items-center gap-2">
                         <div className="h-5 w-16 rounded-full bg-[#004B23]/10 animate-pulse" />
                         <div className="h-5 w-5 rounded-full bg-[#004B23]/10 animate-pulse" />
-                        <div className="h-5 rounded-full bg-[#004B23]/10 animate-pulse"
-                          style={{ width: `${180 + (i % 3) * 60}px` }} />
+                        <div
+                          className="h-5 rounded-full bg-[#004B23]/10 animate-pulse"
+                          style={{ width: `${180 + (i % 3) * 60}px` }}
+                        />
                       </div>
                       {/* location */}
                       <div className="h-3.5 w-32 rounded-full bg-[#004B23]/10 animate-pulse" />
@@ -647,15 +622,20 @@ export default function ProgramacaoPage() {
                           >
                             {session.type}
                           </span>
-                          {session.target && (() => {
-                            const ls = getLevelStyle(session.target);
-                            return (
-                              <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${ls.bg} ${ls.text}`}>
-                                {session.target}
-                              </span>
-                            );
-                          })()}
-                          <span className={`font-bold tracking-tight text-[#004B23] ${style.isKeynote ? "text-lg sm:text-xl" : "text-base"}`}>
+                          {session.target &&
+                            (() => {
+                              const ls = getLevelStyle(session.target);
+                              return (
+                                <span
+                                  className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${ls.bg} ${ls.text}`}
+                                >
+                                  {session.target}
+                                </span>
+                              );
+                            })()}
+                          <span
+                            className={`font-bold tracking-tight text-[#004B23] ${style.isKeynote ? "text-lg sm:text-xl" : "text-base"}`}
+                          >
                             {session.title}
                           </span>
                         </div>
@@ -678,7 +658,9 @@ export default function ProgramacaoPage() {
                           <div className="text-xs flex items-center gap-1.5 flex-wrap text-[#4A5D4E]">
                             <Users className="w-3.5 h-3.5 flex-shrink-0" />
                             <span className="font-semibold">
-                              {session.speakers.length === 1 ? "Palestrante:" : "Palestrantes:"}
+                              {session.speakers.length === 1
+                                ? "Palestrante:"
+                                : "Palestrantes:"}
                             </span>
                             <div className="flex flex-wrap gap-1 items-center">
                               {session.speakers.map((speakerName, idx) => {
@@ -687,7 +669,10 @@ export default function ProgramacaoPage() {
                                 const isLast = idx === total - 1;
                                 const isSecondToLast = idx === total - 2;
                                 return (
-                                  <span key={idx} className="flex items-center gap-1">
+                                  <span
+                                    key={idx}
+                                    className="flex items-center gap-1"
+                                  >
                                     {speaker ? (
                                       <button
                                         onClick={(e) => {
@@ -710,7 +695,6 @@ export default function ProgramacaoPage() {
                             </div>
                           </div>
                         )}
-
                       </div>
                     </div>
                   );
