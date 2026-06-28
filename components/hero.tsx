@@ -105,7 +105,7 @@ export function Hero() {
                     variant="primary"
                     size="md"
                   >
-                    Ver Programação Inicial
+                    Ver Programação
                   </ButtonLink>
                 </div>
               </div>

@@ -60,9 +60,10 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-8">
             <nav className="flex items-center gap-5 xl:gap-6">
               {navLinks.map((link) => {
-                const href = !isHomePage && link.href.startsWith("#")
-                  ? `/${link.href}`
-                  : link.href;
+                const href =
+                  !isHomePage && link.href.startsWith("#")
+                    ? `/${link.href}`
+                    : link.href;
                 return (
                   <a
                     key={link.href}
@@ -76,12 +77,8 @@ export function Header() {
               })}
             </nav>
 
-            <ButtonLink
-              href="/programacao-pretalx"
-              variant="primary"
-              size="sm"
-            >
-              Ver Programação Inicial
+            <ButtonLink href="/programacao-pretalx" variant="primary" size="sm">
+              Ver Programação
             </ButtonLink>
           </div>
 
@@ -113,9 +110,10 @@ export function Header() {
           <div className="container mx-auto px-6 lg:px-12 xl:px-16 py-4">
             <nav className="flex flex-col gap-3">
               {navLinks.map((link) => {
-                const href = !isHomePage && link.href.startsWith("#")
-                  ? `/${link.href}`
-                  : link.href;
+                const href =
+                  !isHomePage && link.href.startsWith("#")
+                    ? `/${link.href}`
+                    : link.href;
                 return (
                   <a
                     key={link.href}
@@ -138,7 +136,7 @@ export function Header() {
               className="mt-4"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Ver Programação Inicial
+              Ver Programação
             </ButtonLink>
           </div>
         </div>
