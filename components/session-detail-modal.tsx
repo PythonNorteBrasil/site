@@ -1,17 +1,12 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import {
-  X,
-  Clock,
-  MapPin,
-  Users,
-  Calendar,
-  Star,
-  User,
-} from "lucide-react";
+import { X, Clock, MapPin, Users, Calendar, Star, User } from "lucide-react";
 import speakersData from "@/app/programacao/python-norte-2026_speakers.json";
-import { RemoveConfirmDialog, AddedToAgendaToast } from "@/components/programacao/SessionActions";
+import {
+  RemoveConfirmDialog,
+  AddedToAgendaToast,
+} from "@/components/programacao/SessionActions";
 
 // ─── Shared types ─────────────────────────────────────────────────────────────
 
@@ -41,7 +36,10 @@ export interface SpeakerChip {
 
 // Build a map once at module level so every modal instance shares it
 const speakersMap = new Map<string, string | null>(
-  (speakersData as any[]).map((s) => [s.Nome as string, s.Imagem as string | null])
+  (speakersData as any[]).map((s) => [
+    s.Nome as string,
+    s.Imagem as string | null,
+  ]),
 );
 
 interface Props {
@@ -58,22 +56,42 @@ interface Props {
 function getSessionStyle(type: string) {
   switch (type) {
     case "Keynote":
-      return { bg: "bg-[#FFFBF0]", border: "border-l-[5px] border-[#FFB800]", badge: "bg-[#FFB800] text-[#1a1a1a]" };
+      return {
+        bg: "bg-[#FFFBF0]",
+        border: "border-l-[5px] border-[#FFB800]",
+        badge: "bg-[#FFB800] text-[#1a1a1a]",
+      };
     case "Palestra":
-      return { bg: "bg-[#F4FAF5]", border: "border-l-[5px] border-[#004B23]", badge: "bg-[#004B23] text-white" };
+      return {
+        bg: "bg-[#F4FAF5]",
+        border: "border-l-[5px] border-[#004B23]",
+        badge: "bg-[#004B23] text-white",
+      };
     case "Tutorial":
-      return { bg: "bg-[#FFF6F2]", border: "border-l-[5px] border-[#FF6B00]", badge: "bg-[#FF6B00] text-white" };
+      return {
+        bg: "bg-[#FFF6F2]",
+        border: "border-l-[5px] border-[#FF6B00]",
+        badge: "bg-[#FF6B00] text-white",
+      };
     default:
-      return { bg: "bg-[#F5F7F8]", border: "border-l-[5px] border-[#7F8C8D]", badge: "bg-[#7F8C8D] text-white" };
+      return {
+        bg: "bg-[#F5F7F8]",
+        border: "border-l-[5px] border-[#7F8C8D]",
+        badge: "bg-[#7F8C8D] text-white",
+      };
   }
 }
 
 function getLevelStyle(target: string) {
   switch (target) {
-    case "Todos":         return { bg: "bg-[#E2F0D9]", text: "text-[#385723]" };
-    case "Iniciante":     return { bg: "bg-[#DDEBF7]", text: "text-[#1F4E79]" };
-    case "Intermediário": return { bg: "bg-[#FCE4D6]", text: "text-[#C65911]" };
-    default:              return { bg: "bg-[#E1D5E7]", text: "text-[#6C3483]" };
+    case "Todos":
+      return { bg: "bg-[#E2F0D9]", text: "text-[#385723]" };
+    case "Iniciante":
+      return { bg: "bg-[#DDEBF7]", text: "text-[#1F4E79]" };
+    case "Intermediário":
+      return { bg: "bg-[#FCE4D6]", text: "text-[#C65911]" };
+    default:
+      return { bg: "bg-[#E1D5E7]", text: "text-[#6C3483]" };
   }
 }
 
@@ -92,7 +110,9 @@ function Avatar({ src, alt }: { src: string | null; alt: string }) {
   }
   return (
     <div className="w-9 h-9 rounded-full relative flex-shrink-0 overflow-hidden">
-      {!loaded && <div className="absolute inset-0 bg-[#004B23]/10 animate-pulse" />}
+      {!loaded && (
+        <div className="absolute inset-0 bg-[#004B23]/10 animate-pulse" />
+      )}
       <img
         src={src}
         alt={alt}
@@ -214,7 +234,9 @@ export function SessionDetailModal({
           <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
             {session.track && (
               <div>
-                <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">Trilha</h3>
+                <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
+                  Trilha
+                </h3>
                 <div className="text-xs sm:text-sm font-semibold text-[#8B5E3C] bg-[#FFF5EE] border border-[#8B5E3C]/10 px-3 py-2 rounded-lg inline-flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#8B5E3C] flex-shrink-0" />
                   <span className="break-words">{session.track}</span>
@@ -230,7 +252,9 @@ export function SessionDetailModal({
                 <div className="flex flex-wrap gap-3">
                   {speakers.map((s, idx) => {
                     const img =
-                      s.imagem !== undefined ? s.imagem : (speakersMap.get(s.name) ?? null);
+                      s.imagem !== undefined
+                        ? s.imagem
+                        : (speakersMap.get(s.name) ?? null);
                     return s.onClick ? (
                       <button
                         key={idx}
@@ -248,7 +272,9 @@ export function SessionDetailModal({
                         className="flex items-center gap-3 bg-[#F4FAF5] border border-[#004B23]/10 rounded-xl px-3 py-2"
                       >
                         <Avatar src={img} alt={s.name} />
-                        <span className="text-xs sm:text-sm text-[#004B23]">{s.name}</span>
+                        <span className="text-xs sm:text-sm text-[#004B23]">
+                          {s.name}
+                        </span>
                       </div>
                     );
                   })}
@@ -258,7 +284,9 @@ export function SessionDetailModal({
 
             {session.description && (
               <div>
-                <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">Resumo</h3>
+                <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
+                  Resumo
+                </h3>
                 <p className="text-xs sm:text-sm text-[#4A5D4E] leading-relaxed">
                   {session.description}
                 </p>
@@ -288,7 +316,6 @@ export function SessionDetailModal({
                         {isSaved ? "Salvo" : "Salvar"}
                       </span>
                     </button>
-                    {showToast && <AddedToAgendaToast />}
                   </div>
                 )}
 
@@ -302,6 +329,7 @@ export function SessionDetailModal({
                   <span className="text-xs">Google Agenda</span>
                 </button>
               </div>
+              {showToast && <AddedToAgendaToast />}
 
               <button
                 onClick={onClose}
