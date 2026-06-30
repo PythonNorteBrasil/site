@@ -19,11 +19,11 @@ export default function ProgramacaoPretalxPage() {
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#004B23] leading-tight"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Programação Python Norte 2026
+                Programação
               </h1>
               <div className="w-12 md:w-16 h-1 mx-auto rounded-full bg-gradient-to-r from-[#004B23] to-[#FF6B00]" />
               <p className="text-sm md:text-base lg:text-lg text-[#4A5D4E] max-w-3xl mx-auto leading-relaxed">
-                Confira a programação completa do evento
+                Confira a programação completa da Python Norte 2026
               </p>
             </div>
 

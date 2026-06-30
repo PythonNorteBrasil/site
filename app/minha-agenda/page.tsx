@@ -519,7 +519,7 @@ END:VCALENDAR`;
           session={selectedSession}
           onClose={() => setSelectedSession(null)}
           isSaved={true}
-          onRemove={() => {
+          onToggleSave={() => {
             removeSession(selectedSession.id);
             setSelectedSession(null);
           }}

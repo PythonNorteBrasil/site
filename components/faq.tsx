@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Há vagas para voluntários?",
     answer:
-      "Sim! Precisamos de voluntários para ajudar na organização do evento. Se você tem interesse, entre em contato pelo e-mail contato@pythonnorte.org.",
+      "Sim! Precisamos de voluntários para ajudar na organização do evento. Se você tem interesse, entre em contato pelo e-mail norte@python.org.br.",
   },
   {
     question: "Quais são as formas de pagamento aceitas?",

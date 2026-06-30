@@ -14,6 +14,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+  /* offset for fixed header (56px) + a bit of breathing room */
+  scroll-padding-top: 72px;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #1a1a1a;
