@@ -66,6 +66,7 @@ export function Sponsors() {
     {
       name: "Abicora",
       src: "/abicora.jpeg",
+      href: "https://abicora.com/?locale=pt-BR",
     },
   ];
 
