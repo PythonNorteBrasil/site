@@ -1,4 +1,4 @@
-import { Bookmark, BookmarkCheck, Calendar, ChevronLeft, Filter } from "lucide-react";
+import { Star, Calendar, ChevronLeft, Filter } from "lucide-react";
 import { SessionCard } from "@/components/programacao/SessionCard";
 import { getSessionStyle, DAYS } from "@/hooks/useProgramacao";
 import type { Session, Speaker } from "@/hooks/useProgramacao";
@@ -49,11 +49,16 @@ export function AgendaView({
   if (agendaCount === 0) {
     return (
       <div className="bg-white rounded-2xl p-12 text-center shadow-sm border border-[#004B23]/10">
-        <Bookmark className="w-12 h-12 text-[#FFB800]/50 mx-auto mb-4" />
-        <p className="text-[#4A5D4E] text-lg font-semibold">Sua agenda está vazia</p>
+        <Star className="w-12 h-12 text-[#FFB800]/50 mx-auto mb-4" />
+        <p className="text-[#4A5D4E] text-lg font-semibold">
+          Sua agenda está vazia
+        </p>
         <p className="text-[#4A5D4E]/70 text-sm mt-1 mb-6">
-          Salve atividades clicando no{" "}
-          <BookmarkCheck className="w-3.5 h-3.5 inline text-[#FFB800]" />{" "}
+          Salve atividades clicando na{" "}
+          <Star
+            className="w-3.5 h-3.5 inline text-[#FFB800]"
+            fill="currentColor"
+          />{" "}
           em qualquer sessão
         </p>
         <button
@@ -77,8 +82,8 @@ export function AgendaView({
         </p>
         <p className="text-[#4A5D4E]/70 text-sm mt-1 mb-6">
           Você tem {agendaCount}{" "}
-          {agendaCount === 1 ? "atividade salva" : "atividades salvas"}, mas os filtros ativos
-          não mostram nenhuma delas.
+          {agendaCount === 1 ? "atividade salva" : "atividades salvas"}, mas os
+          filtros ativos não mostram nenhuma delas.
         </p>
         <div className="flex items-center justify-center gap-3 flex-wrap">
           <button
@@ -121,8 +126,8 @@ export function AgendaView({
             </div>
 
             {group.sessions.map((session) => {
-              const hasConflict = group.sessions.some(
-                (other) => timesOverlap(session, other),
+              const hasConflict = group.sessions.some((other) =>
+                timesOverlap(session, other),
               );
               return (
                 <SessionCard
