@@ -16,6 +16,7 @@ interface Props {
   session: Session;
   style: SessionStyle;
   isSaved: boolean;
+  hasConflict?: boolean;
   getLevelStyle: (target: string) => { bg: string; text: string };
   speakersMap: Map<string, Speaker>;
   onOpen: () => void;
@@ -28,6 +29,7 @@ export function SessionCard({
   session,
   style,
   isSaved,
+  hasConflict = false,
   getLevelStyle,
   speakersMap,
   onOpen,
@@ -65,6 +67,16 @@ export function SessionCard({
       >
         {/* "Added" toast */}
         {showToast && <AddedToAgendaToast />}
+
+        {/* Conflict warning */}
+        {hasConflict && (
+          <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-amber-50 border border-amber-300/60 pointer-events-none">
+            <AlertTriangle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+            <span className="text-[11px] font-bold text-amber-700">
+              Conflito de horário com outra atividade da sua agenda
+            </span>
+          </div>
+        )}
 
         {/* Content */}
         <div className="flex flex-col gap-3">

@@ -3,6 +3,17 @@ import { SessionCard } from "@/components/programacao/SessionCard";
 import { getSessionStyle, DAYS } from "@/hooks/useProgramacao";
 import type { Session, Speaker } from "@/hooks/useProgramacao";
 
+/** Returns true if two sessions overlap in time (HH:MM string comparison) */
+function timesOverlap(a: Session, b: Session): boolean {
+  if (a.id === b.id) return false;
+  // time format: "10:00 — 10:35"
+  const [startA, endA] = a.time.split(" — ");
+  const [startB, endB] = b.time.split(" — ");
+  if (!startA || !endA || !startB || !endB) return false;
+  // Overlap: A starts before B ends AND B starts before A ends
+  return startA < endB && startB < endA;
+}
+
 interface Props {
   agendaByDay: { day: (typeof DAYS)[number]; sessions: Session[] }[];
   agendaCount: number;
@@ -109,20 +120,26 @@ export function AgendaView({
               </span>
             </div>
 
-            {group.sessions.map((session) => (
-              <SessionCard
-                key={session.id}
-                session={session}
-                style={getSessionStyle(session.type)}
-                isSaved={savedSessions.has(session.id)}
-                getLevelStyle={getLevelStyle}
-                speakersMap={speakersMap}
-                onOpen={() => onOpenSession(session)}
-                onToggleSave={() => onToggleSave(session.id)}
-                onAddToCalendar={() => onAddToCalendar(session)}
-                onOpenSpeaker={onOpenSpeaker}
-              />
-            ))}
+            {group.sessions.map((session) => {
+              const hasConflict = group.sessions.some(
+                (other) => timesOverlap(session, other),
+              );
+              return (
+                <SessionCard
+                  key={session.id}
+                  session={session}
+                  style={getSessionStyle(session.type)}
+                  isSaved={savedSessions.has(session.id)}
+                  hasConflict={hasConflict}
+                  getLevelStyle={getLevelStyle}
+                  speakersMap={speakersMap}
+                  onOpen={() => onOpenSession(session)}
+                  onToggleSave={() => onToggleSave(session.id)}
+                  onAddToCalendar={() => onAddToCalendar(session)}
+                  onOpenSpeaker={onOpenSpeaker}
+                />
+              );
+            })}
           </div>
         ))}
 
