@@ -60,8 +60,13 @@ export function Sponsors() {
     },
   ];
 
-  const pyeguaBadges: string[] = [
-    // Placeholder data for PyEgua badges
+  const pyeguaBadges: string[] = [];
+
+  const pydeguaSponsors: SponsorLogo[] = [
+    {
+      name: "Abicora",
+      src: "/abicora.jpeg",
+    },
   ];
 
   const communityBadges: CommunityBadge[] = [
@@ -221,6 +226,54 @@ export function Sponsors() {
               );
             })}
           </div>
+
+          {pydeguaSponsors.length > 0 && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-center gap-3">
+                <div className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-transparent to-neutral-300" />
+                <span className="text-[10px] md:text-xs font-black uppercase tracking-widest text-[#0077b6]">
+                  Patrocínio Py D'égua
+                </span>
+                <div className="h-px flex-1 max-w-[120px] bg-gradient-to-l from-transparent to-neutral-300" />
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-5">
+                {pydeguaSponsors.map((logo) => (
+                  <a
+                    key={logo.name}
+                    href={logo.href}
+                    target={logo.href ? "_blank" : undefined}
+                    rel={logo.href ? "noopener noreferrer" : undefined}
+                    className={`relative overflow-hidden w-full max-w-[160px] rounded-lg border border-[#90e0ef] bg-white p-3 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center ${logo.href ? "cursor-pointer" : "pointer-events-none"}`}
+                  >
+                    <div className="flex flex-1 items-center justify-center w-full min-h-[48px] mb-3">
+                      {logo.src ? (
+                        <Image
+                          src={logo.src}
+                          alt={logo.name}
+                          width={120}
+                          height={44}
+                          className="h-8 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                        />
+                      ) : (
+                        <span className="text-xs font-extrabold text-neutral-800">
+                          {logo.name}
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-center">
+                      <p className="text-xs font-bold text-neutral-800 leading-tight">
+                        {logo.name}
+                      </p>
+                      <span className="mt-1.5 inline-block text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded border bg-[#caf0f8] text-[#0077b6] border-[#90e0ef]">
+                        Py D'égua
+                      </span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
 
           {pyeguaBadges.length > 0 && (
             <div className="mx-auto w-full max-w-[340px] rounded-xl border border-[#b6cc92] bg-[#d8e5bd] px-6 py-4 text-center">
