@@ -40,7 +40,9 @@ function SessionCardSkeleton({ index }: { index: number }) {
       <div className="flex flex-wrap items-center gap-2">
         <div className="h-5 w-16 rounded-full bg-[#004B23]/10 animate-pulse" />
         <div className="h-5 w-20 rounded-full bg-[#004B23]/10 animate-pulse" />
-        <div className={`h-5 ${titleWidth} rounded-full bg-[#004B23]/10 animate-pulse`} />
+        <div
+          className={`h-5 ${titleWidth} rounded-full bg-[#004B23]/10 animate-pulse`}
+        />
       </div>
       {/* Row 3: location */}
       <div className="flex items-center gap-1.5">
@@ -120,7 +122,9 @@ function ProgramacaoInner() {
   const anyOverlayOpen = !!selectedSession || !!selectedSpeaker || showFilters;
   useEffect(() => {
     document.body.style.overflow = anyOverlayOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [anyOverlayOpen]);
 
   const keynoteCount = allSessions.filter((s) => s.type === "Keynote").length;
@@ -136,7 +140,7 @@ function ProgramacaoInner() {
           <div className="max-w-7xl mx-auto space-y-6">
             <SectionHeader
               title="Programação"
-              description="Explore todas as atividades dos dois dias de evento e monte sua agenda personalizada"
+              description="Explore as atividades e monte sua agenda"
             />
 
             {/*   <ScheduleStats
@@ -148,68 +152,70 @@ function ProgramacaoInner() {
             {/* Content — show full skeleton (toolbar included) while loading */}
             {isLoading ? (
               <SessionsSkeleton />
-            ) : (<>
-            <ScheduleToolbar
-              days={DAYS}
-              activeDay={activeDay}
-              onDayChange={setActiveDay}
-              showAgenda={showAgenda}
-              onToggleAgenda={toggleAgenda}
-              savedCount={savedSessions.size}
-              hasActiveFilters={hasActiveFilters}
-              totalActiveFilters={totalActiveFilters}
-              onToggleFilters={() => setShowFilters(!showFilters)}
-              agendaCount={agendaSessions.length}
-            />
-
-            {/* Filters panel — both views */}
-            {showFilters && (
-              <FiltersPanel
-                filterOptions={filterOptions}
-                activeFilters={activeFilters}
-                hasActiveFilters={hasActiveFilters}
-                totalActiveFilters={totalActiveFilters}
-                filteredCount={
-                  showAgenda
-                    ? filteredAgendaSessions.length
-                    : filteredSessions.length
-                }
-                onToggle={toggleFilter}
-                onClear={clearAllFilters}
-                onClose={() => setShowFilters(false)}
-              />
-            )}
-
-            {showAgenda ? (
-              <AgendaView
-                agendaByDay={agendaByDay}
-                agendaCount={agendaSessions.length}
-                filteredCount={filteredAgendaSessions.length}
-                hasActiveFilters={hasActiveFilters}
-                savedSessions={savedSessions}
-                speakersMap={speakersMap}
-                getLevelStyle={getLevelStyle}
-                onOpenSession={setSelectedSession}
-                onToggleSave={toggleSaveSession}
-                onAddToCalendar={addToGoogleCalendar}
-                onOpenSpeaker={setSelectedSpeaker}
-                onExitAgenda={toggleAgenda}
-                onClearFilters={clearAllFilters}
-              />
             ) : (
-              <SessionsList
-                sessions={filteredSessions}
-                savedSessions={savedSessions}
-                speakersMap={speakersMap}
-                getLevelStyle={getLevelStyle}
-                onOpenSession={setSelectedSession}
-                onToggleSave={toggleSaveSession}
-                onAddToCalendar={addToGoogleCalendar}
-                onOpenSpeaker={setSelectedSpeaker}
-                onClearFilters={clearAllFilters}
-              />
+              <>
+                <ScheduleToolbar
+                  days={DAYS}
+                  activeDay={activeDay}
+                  onDayChange={setActiveDay}
+                  showAgenda={showAgenda}
+                  onToggleAgenda={toggleAgenda}
+                  savedCount={savedSessions.size}
+                  hasActiveFilters={hasActiveFilters}
+                  totalActiveFilters={totalActiveFilters}
+                  onToggleFilters={() => setShowFilters(!showFilters)}
+                  agendaCount={agendaSessions.length}
+                />
+
+                {/* Filters panel — both views */}
+                {showFilters && (
+                  <FiltersPanel
+                    filterOptions={filterOptions}
+                    activeFilters={activeFilters}
+                    hasActiveFilters={hasActiveFilters}
+                    totalActiveFilters={totalActiveFilters}
+                    filteredCount={
+                      showAgenda
+                        ? filteredAgendaSessions.length
+                        : filteredSessions.length
+                    }
+                    onToggle={toggleFilter}
+                    onClear={clearAllFilters}
+                    onClose={() => setShowFilters(false)}
+                  />
+                )}
+
+                {showAgenda ? (
+                  <AgendaView
+                    agendaByDay={agendaByDay}
+                    agendaCount={agendaSessions.length}
+                    filteredCount={filteredAgendaSessions.length}
+                    hasActiveFilters={hasActiveFilters}
+                    savedSessions={savedSessions}
+                    speakersMap={speakersMap}
+                    getLevelStyle={getLevelStyle}
+                    onOpenSession={setSelectedSession}
+                    onToggleSave={toggleSaveSession}
+                    onAddToCalendar={addToGoogleCalendar}
+                    onOpenSpeaker={setSelectedSpeaker}
+                    onExitAgenda={toggleAgenda}
+                    onClearFilters={clearAllFilters}
+                  />
+                ) : (
+                  <SessionsList
+                    sessions={filteredSessions}
+                    savedSessions={savedSessions}
+                    speakersMap={speakersMap}
+                    getLevelStyle={getLevelStyle}
+                    onOpenSession={setSelectedSession}
+                    onToggleSave={toggleSaveSession}
+                    onAddToCalendar={addToGoogleCalendar}
+                    onOpenSpeaker={setSelectedSpeaker}
+                    onClearFilters={clearAllFilters}
+                  />
+                )}
+              </>
             )}
-            </>)}
           </div>
         </div>
       </main>
