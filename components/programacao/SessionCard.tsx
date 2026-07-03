@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { Calendar, Clock, MapPin, Star, Users } from "lucide-react";
+import { AlertTriangle, Calendar, Clock, Laptop, MapPin, Star, Users } from "lucide-react";
 import type { Session, Speaker } from "@/hooks/useProgramacao";
 import { RemoveConfirmDialog, AddedToAgendaToast } from "@/components/programacao/SessionActions";
 
@@ -123,6 +123,20 @@ export function SessionCard({
             <div className="flex items-center gap-1.5 text-xs font-medium text-[#2D3E31] pointer-events-none">
               <MapPin className="w-3.5 h-3.5" />
               {session.location}
+            </div>
+          )}
+
+          {/* Tutorial notice chips */}
+          {session.type === "Tutorial" && (
+            <div className="flex flex-wrap gap-1.5 pointer-events-none">
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#FFF6F2] text-[#FF6B00] border border-[#FF6B00]/20">
+                <AlertTriangle className="w-3 h-3" />
+                30 vagas
+              </span>
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#FFF6F2] text-[#FF6B00] border border-[#FF6B00]/20">
+                <Laptop className="w-3 h-3" />
+                Traga seu notebook
+              </span>
             </div>
           )}
 

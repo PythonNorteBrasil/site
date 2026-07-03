@@ -78,7 +78,7 @@ export function Header() {
   const navLinks = [
     { href: "#sobre", label: "Sobre" },
     { href: "#keynotes", label: "Keynotes" },
-    /*   { href: "/programacao?agenda=1", label: "Minha Agenda" }, */
+    { href: "/programacao?agenda=1", label: "Minha Agenda" },
     { href: "#patrocinadores", label: "Patrocinadores" },
     { href: "#localizacao", label: "Localização" },
     { href: "/codigo-de-conduta", label: "Código de Conduta" },

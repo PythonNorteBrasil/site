@@ -1,0 +1,473 @@
+[
+  {
+    "id": "MKBYLD",
+    "time": "08:55 — 09:55",
+    "title": "Muito Além do Código: Uma Professora de Computação na Amazônia",
+    "type": "Keynote",
+    "location": "Auditório 1 - Principal",
+    "target": "Iniciante",
+    "track": null,
+    "description": "É uma palestra inspiradora sobre experiências, desafios e transformações vividas por meio da computação e da robótica educacional em contextos amazônicos. A partir de experiências reais em escolas públicas, formação de professores, projetos maker, robótica de baixo custo e práticas inclusivas, a palestra apresenta como a tecnologia pode se tornar ferramenta de pertencimento, criatividade e transformação social, mesmo em cenários com poucos recursos. Mais do que falar sobre programação ou robôs, esta keynote propõe uma reflexão sobre o papel humano da computação na educação e sobre como professores e estudantes podem ocupar espaços de inovação, criando soluções conectadas às suas próprias realidades. Uma conversa sobre tecnologia, educação, inclusão e esperança construída a partir do Norte do Brasil.",
+    "day": 1,
+    "speakers": [
+      "Profa. Me. Samira Rabelo"
+    ],
+    "duration": 60
+  },
+  {
+    "id": "E33387",
+    "time": "10:00 — 10:30",
+    "title": "Python, Excel e Power BI: Experiência de Estágio em Dados em uma Instituição Financeira",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Intermediário",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "\"Apresentaremos um relato de experiência sobre o nosso estágio em dados em uma Instituição Financeira . Mostraremos processos de desenvolvimentos de scripts de automação em Python que auxiliaram fluxo de trabalho interno, uso de bibliotecas Python voltadas para análise de Dados (pandas, openpyxl, matplotlib etc), uso de filtros e formatação em Excel e, finalmente, tratamento e visualização de Dados com Power BI envolvendo criação de Dashboards interativos.\r\n\r\nDe forma didática e objetiva e assegurando a sigilosidade dos dados, apresentaremos como foi realizado cada tarefa, quais dados e tipos de dados foram manipulados, a tecnologia utilizada, a finalidade daquele trabalho e quais as conclusões tiradas. \"",
+    "day": 1,
+    "speakers": [
+      "Belém Ribeiro",
+      "Jamile Menezes"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "GE8HPJ",
+    "time": "10:00 — 10:30",
+    "title": "Do Vibe Coding à produção: como construí um bot em Python com OpenCode, Docker e workers",
+    "type": "Palestra",
+    "location": "Auditório 3",
+    "target": "Intermediário",
+    "track": "Open Source, DevOps & Ecossistemas Colaborativos",
+    "description": "Aprenda como um bot Python nasceu com OpenCode e Vibe Coding, evoluiu para produção com Docker e workers, e quais lições surgiram ao transformar prompts em software real.",
+    "day": 1,
+    "speakers": [
+      "José Roberto da Costa Ferreira"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "PP7KUW",
+    "time": "10:00 — 12:00",
+    "title": "LLMs na Prática: Como Controlar o Comportamento dos Modelos com os Parâmetros Certos",
+    "type": "Tutorial",
+    "location": "Sala 103",
+    "target": "Iniciante",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "Neste tutorial você vai aprender quais parâmetros usar para controlar o comportamento de um LLM, além de entender como usar o Ollama/vLLM para rodá-los em sua máquina ou em GPU na nuvem.",
+    "day": 1,
+    "speakers": [
+      "Antonio Anerão",
+      "Gabriel Henrique"
+    ],
+    "duration": 140
+  },
+  {
+    "id": "XU8XMY",
+    "time": "10:00 — 12:00",
+    "title": "Debugging em Python (Boas Práticas)",
+    "type": "Tutorial",
+    "location": "Sala 102",
+    "target": "Intermediário",
+    "track": "Open Source, DevOps & Ecossistemas Colaborativos",
+    "description": "O Laboratório de Debugging em Python reúne desafios práticos voltados ao desenvolvimento de habilidades de depuração, análise de código e resolução de problemas em Python. A proposta segue uma progressão gradual, permitindo compreender conceitos e etapas de desenvolvimento enquanto os participantes investigam e corrigem erros.\r\n\r\nOs exercícios possuem dificuldade crescente e contam com materiais de apoio em PDF, com contexto, comportamento esperado e orientações para auxiliar a análise e a correção dos problemas.",
+    "day": 1,
+    "speakers": [
+      "Hugo de Souza da Silva"
+    ],
+    "duration": 150
+  },
+  {
+    "id": "8PVRGB",
+    "time": "10:35 — 11:05",
+    "title": "Python como ponto de partida: comunidade, carreira e pertencimento.",
+    "type": "Palestra",
+    "location": "Auditório 3",
+    "target": "Não-técnica",
+    "track": "Comunidades, carreira e liderança Tech",
+    "description": "As comunidades de tecnologia têm um papel fundamental na formação de profissionais, especialmente para quem está iniciando na área. Nesta palestra, compartilho minha trajetória desde os desafios enfrentados como estudante de Engenharia de Software até a conquista de oportunidades profissionais por meio do voluntariado, da participação em comunidades e do compartilhamento de conhecimento. Mostrarei como iniciativas como PyLadies Manaus, AWS User Group Manaus, DevOps Manaus e o projeto Chicas Digitais contribuíram para o desenvolvimento de habilidades técnicas e comportamentais, além de fortalecer minha confiança para ingressar no mercado de tecnologia.",
+    "day": 1,
+    "speakers": [
+      "Maria Eduarda",
+      "Paula SIlva",
+      "Gabriella Soares"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "TMKTQA",
+    "time": "10:35 — 11:05",
+    "title": "Avaliações de Clientes como Dados: Descobrindo Padrões com Python e PLN",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Iniciante",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "Toda avaliação de cliente é uma fonte de dado, mas extrair padrões de centenas delas manualmente é inviável. Nesta palestra, será mostrado como tratar avaliações de produtos como dados estruturados e usar Python para descobrir automaticamente o que os clientes mais elogiam e o que mais criticam.\r\n\r\nO pipeline apresentado combina Pandas para limpeza e preparação dos dados, spaCy para identificação automática de adjetivos via POS tagging e Matplotlib para geração de visualizações prontas para interpretar. Ao final, o público verá como transformar um CSV bruto de avaliações em um gráfico claro sobre a percepção dos clientes, sem precisar ler linha por linha.",
+    "day": 1,
+    "speakers": [
+      "Carlos Vitor Cardoso da Silva"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "FZVYFX",
+    "time": "11:25 — 11:55",
+    "title": "Lições do Mundo Real: O que os cursos não te mostram",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Iniciante",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "A área de dados costuma ser apresentada como um universo de dashboards impressionantes, inteligência artificial e análises sofisticadas. Mas, na prática, o dia a dia dos profissionais envolve desafios que raramente aparecem nos cursos ou nas redes sociais.\r\nNesta palestra, vou compartilhar uma visão realista da profissão, abordando situações comuns como integrações com APIs limitadas, documentação incompleta, problemas de qualidade dos dados, erros difíceis de diagnosticar e a dificuldade de transformar relatórios em decisões efetivas dentro das empresas.\r\nA proposta não é desmotivar quem está entrando na área, mas apresentar os bastidores do trabalho com dados e mostrar que as habilidades mais importantes muitas vezes vão além da programação: comunicação, pensamento crítico, resolução de problemas e adaptação.\r\nUma conversa franca sobre os desafios, aprendizados e a realidade de quem trabalha com dados no mundo real.",
+    "day": 1,
+    "speakers": [
+      "Beatriz Gomes"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "SSBX7K",
+    "time": "11:25 — 11:55",
+    "title": "Suco de Monolito que parece Lambda e tem gosto de Máquina de boot rápido",
+    "type": "Palestra",
+    "location": "Auditório 3",
+    "target": "Intermediário",
+    "track": "Web, Cloud & Plataforma digitais",
+    "description": "Como escalar um monolito sem vender a alma nos custos de infra por simplesmente deixar sua máquina… dormir.",
+    "day": 1,
+    "speakers": [
+      "Lubien"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "8WGLWW",
+    "time": "14:00 — 16:00",
+    "title": "Python e Desenvolvimento Assistido por IA: Vibe vs Spec no Kiro",
+    "type": "Tutorial",
+    "location": "Sala 102",
+    "target": "Intermediário",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "Aprenda, na prática, como utilizar o Kiro IDE com Python explorando as diferenças entre o Vibe Mode e o Spec Mode. Neste workshop hands-on, você verá quando utilizar cada abordagem para desenvolver aplicações com IA de forma mais produtiva, estruturada e alinhada às boas práticas de engenharia de software.",
+    "day": 1,
+    "speakers": [
+      "Thayana Mamoré"
+    ],
+    "duration": 150
+  },
+  {
+    "id": "UHHWWU",
+    "time": "14:10 — 14:40",
+    "title": "RAG está morto? Como construir sistemas de conhecimento com Agentic RAG em Python",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Avançado",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "O Retrieval-Augmented Generation (RAG) revolucionou a forma como conectamos Large Language Models a bases de conhecimento corporativas. No entanto, sistemas reais rapidamente revelaram limitações importantes: dificuldade em responder perguntas complexas, problemas com raciocínio multi-etapas, recuperação inadequada de contexto e desafios para garantir a confiabilidade das respostas.\r\n\r\nNesta palestra, exploraremos a evolução do RAG tradicional para o Agentic RAG, uma abordagem que combina agentes inteligentes, múltiplas estratégias de recuperação, memória contextual e mecanismos de validação para construir aplicações mais robustas e precisas. Utilizando Python e ferramentas modernas do ecossistema de IA Generativa, veremos como arquitetar sistemas capazes de buscar, raciocinar, validar e responder de forma mais próxima do comportamento esperado em ambientes de produção.\r\n\r\nOs participantes sairão com uma visão prática das tendências que estão redefinindo o futuro dos sistemas de conhecimento baseados em LLMs e entenderão como aplicar esses conceitos em seus próprios projetos.",
+    "day": 1,
+    "speakers": [
+      "Carlos Augusto Oeiras"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "XLQU7P",
+    "time": "14:10 — 14:40",
+    "title": "Qualidade de Sofwate com Django e IA: explorando o futuro desde agora",
+    "type": "Palestra",
+    "location": "Auditório 3",
+    "target": "Intermediário",
+    "track": "Open Source, DevOps & Ecossistemas Colaborativos",
+    "description": "Em menos de 3 a IA revolucionou o desenvolvimento de softwares no mundo inteiro. A corrida pelos modelo mais rápidos, mais \"inteligentes\", e mais eficazes ocaionou novamente o efeito de uma tecnologia como insumo à industria de software.\r\nA ideia de que as IAs estão evoluindo vertiginosamente vem causando muita insegurança, ansiedade e até desanimo aos programadores inicintes.\r\nA palavra agora é HARNESS, arquitetura de IA constuída envolta da codificação de uma solução baseada em software.\r\nMas não adianta saber uma palavra nova, como harness, sem ter o dominio das bases, dos fundamentos, sem ter a autonomia de pensar por si só.\r\nPortanto o segredo é aprender Django, boas práticas de codificação e a forma certa de utilizar ferramentas modernas no dia a dia.\r\n\r\nPortanto, essa palestra é sobre Qualidade de Software, Django, testes e IAs",
+    "day": 1,
+    "speakers": [
+      "Thalyson Silva"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "MUHPNJ",
+    "time": "14:45 — 15:15",
+    "title": "Sem Mapa, a IA se Perde: Estruturando o desenvolvimento de aplicações públicas com o System Design Document.",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Iniciante",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "Sem uma arquitetura bem definida, aplicações de IA tendem a se tornar complexas, frágeis e difíceis de manter. Nesta palestra, exploraremos como o System Design Document pode servir como guia estratégico para estruturar soluções de IA no setor público, promovendo governança, escalabilidade e sustentabilidade.",
+    "day": 1,
+    "speakers": [
+      "Paulo Sergio Rodrigues Lima"
+    ],
+    "duration": 30
+  },
+  {
+    "id": "QJFZSG",
+    "time": "14:45 — 15:15",
+    "title": "Informática para as ilhas: Introdução a educação digital na ilha do Combu",
+    "type": "Palestra",
+    "location": "Auditório 3",
+    "target": "Não-técnica",
+    "track": "Comunidades, carreira e liderança Tech",
+    "description": "Atividade que visa trazer uma interação com computadores. Ensinar as crianças a aprender a usar computadores por meio de jogos e de dinâmicas lúdicas de aprendizado para estimular o raciocínio logico e resolução de problemas",
+    "day": 1,
+    "speakers": [
+      "Philiphe Siqueira Ferreira"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "K9AXAZ",
+    "time": "15:20 — 15:55",
+    "title": "Como o Ministério Público do Acre usa Agentes de IA para apoiar o combate à desinformação",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Iniciante",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "Nesta palestra, apresentarei como o Ministério Público do Estado do Acre está utilizando agentes de inteligência artificial para apoiar o processo de análise e combate à desinformação. Abordarei como o `LangChain` e `LangGraph` são utilizados para realizar a tarefa.",
+    "day": 1,
+    "speakers": [
+      "Antonio Anerão"
+    ],
+    "duration": 30
+  },
+  {
+    "id": "VBXWNM",
+    "time": "16:20 — 17:20",
+    "title": "Ana Lindner • Keynote Python Norte 2026",
+    "type": "Keynote",
+    "location": "Auditório 1 - Principal",
+    "target": "Iniciante",
+    "track": null,
+    "description": "Keynote Python Norte 2026",
+    "day": 1,
+    "speakers": [
+      "Ana Lindiner"
+    ],
+    "duration": 60
+  },
+  {
+    "id": "RGEV9Q",
+    "time": "08:55 — 09:55",
+    "title": "Django, jazz e nomadismo intelectual",
+    "type": "Keynote",
+    "location": "Auditório 1 - Principal",
+    "target": "Não-técnica",
+    "track": null,
+    "description": "O que Jean \"Django\" Reinhardt pode nos ensinar sobre arte e programação.",
+    "day": 2,
+    "speakers": [
+      "Luiz Sanches"
+    ],
+    "duration": 60
+  },
+  {
+    "id": "AFXY9K",
+    "time": "10:00 — 10:30",
+    "title": "Espaco Geografico, Inteligencia Artificial e Amazonia: perspectivas desde a Geografia latino-americana",
+    "type": "Palestra",
+    "location": "Auditório 3",
+    "target": "Iniciante",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "A palestra aborda a integração entre o pensamento geográfico, as geotecnologias e a inteligência artificial no estudo da Amazônia. Com base em sua trajetória acadêmica entre o Peru e o Brasil, o palestrante mostrará como conceitos da Geografia e da análise espacial podem ser combinados com técnicas de aprendizado de máquina para compreender e enfrentar desafios concretos do território amazônico.",
+    "day": 2,
+    "speakers": [
+      "Lucho Ferrer"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "MBZPNR",
+    "time": "10:00 — 10:30",
+    "title": "Anonimizando documentos com Python e PLN: dados sensíveis que ficam onde devem",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Iniciante",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "Nesta palestra, será apresentada uma abordagem prática e acessível para anonimização de documentos PDF utilizando Python, mantendo todo o processamento local e sem enviar dados sensíveis a serviços externos.\r\n\r\nSerão exploradas as capacidades do Reconhecimento de Entidades Nomeadas (NER) da biblioteca spaCy em conjunto com Expressões Regulares para identificar e censurar automaticamente informações sensíveis como nomes próprios, organizações, CPFs e e-mails. O público sairá com uma visão clara de como estruturar esse tipo de pipeline e poderá replicá-lo em seus próprios contextos.",
+    "day": 2,
+    "speakers": [
+      "Carlos Vitor Cardoso da Silva"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "GKTSZ9",
+    "time": "10:30 — 11:00",
+    "title": "Chicas Digitais: Três idiomas, uma linguagem, muitos futuros",
+    "type": "Palestra",
+    "location": "Auditório 3",
+    "target": "Não-técnica",
+    "track": "Comunidades, carreira e liderança Tech",
+    "description": "Uma sala com 23 mulheres imigrantes, 3 idiomas diferentes e quase nenhum contato prévio com computadores se transformou em uma comunidade unida pela programação, tecnologia e novas oportunidades de futuro.",
+    "day": 2,
+    "speakers": [
+      "Paula SIlva",
+      "Maria Eduarda",
+      "Gabriella Soares"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "PCZUAR",
+    "time": "10:30 — 11:00",
+    "title": "Utilizando python pra detecção de fissura em concreto",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Intermediário",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "Nessa apresentação vai ser explicado uma proposta de avaliação de estrutura com o uso de deep learning, mudando assim o paradigma de avaliação de estrutura, tornando o processo eficiente e rápido e garantindo a segurança da inspeção",
+    "day": 2,
+    "speakers": [
+      "Gustavo Ramos"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "BACT8T",
+    "time": "11:20 — 11:50",
+    "title": "FastApi em produção - Desafios e dicas",
+    "type": "Palestra",
+    "location": "Auditório 3",
+    "target": "Intermediário",
+    "track": "Web, Cloud & Plataforma digitais",
+    "description": "Vamos abordar alguns desafios em produção que tive em diversos projetos usando python e fastApi. E mostrar boas práticas e anti-patterns que todo desenvolvedor deve saber ao desenvolver aplicações web escaláveis.",
+    "day": 2,
+    "speakers": [
+      "Paulo Moura"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "GKMKDR",
+    "time": "11:20 — 11:50",
+    "title": "Melhores Práticas de MLOps Usando Apache Airflow",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Intermediário",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "Palestra voltada à aplicação de boas práticas de MLOps utilizando o Apache Airflow como orquestrador central de pipelines de machine learning, com foco em confiabilidade, reprodutibilidade e governança de modelos em produção. Serão apresentados os principais componentes de uma pipeline de ML de ponta a ponta ingestão, preparação de dados, treinamento, validação, deploy e monitoramento estruturados em DAGs com controle de dependências, versionamento e automação.",
+    "day": 2,
+    "speakers": [
+      "Artemísia Weyl"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "DQARKY",
+    "time": "11:50 — 12:20",
+    "title": "Threat Intelligence com Python: Enriquecendo IOCs em Tempo Real",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Iniciante",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "Nesta palestra será demonstrado como desenvolver uma ferramenta em Python para automatizar a consulta e o enriquecimento de Indicadores de Comprometimento (IOCs) a partir de múltiplas fontes de Threat Intelligence.\r\n\r\nSerão apresentados conceitos de automação, OSINT, Threat Hunting e visualização de resultados, mostrando como acelerar investigações e fortalecer processos de detecção e resposta a incidentes.",
+    "day": 2,
+    "speakers": [
+      "Cleber Soares"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "QBXVGA",
+    "time": "14:00 — 16:00",
+    "title": "Construindo um servidor MCP com Python para análise geoespacial da Amazônia",
+    "type": "Tutorial",
+    "location": "Sala 102",
+    "target": "Intermediário",
+    "track": null,
+    "description": "Workshop prático de nível intermediário no qual os participantes aprendem o que é o Model Context Protocol (MCP) — protocolo aberto proposto pela Anthropic (nov/2024) que padroniza a conexão entre assistentes de IA e fontes de dados/ferramentas externas — e constroem, do zero, um servidor MCP em Python capaz de expor ferramentas de análise geoespacial.",
+    "day": 2,
+    "speakers": [
+      "Lucho Ferrer"
+    ],
+    "duration": 150
+  },
+  {
+    "id": "PAUE9U",
+    "time": "14:20 — 14:50",
+    "title": "Seu pip install custa caro? O Futuro do PyPI",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Avançado",
+    "track": "Open Source, DevOps & Ecossistemas Colaborativos",
+    "description": "\"O PyPI é essencial para nós, mas seu crescimento explosivo, impulsionado por milhões de arquivos binários (wheels), gera custos imensos e desafios de sustentabilidade, dependendo fortemente de patrocínios. Esta palestra mergulha nos \"\"custos invisíveis\"\" do pip install, explora os desafios técnicos por trás da hospedagem de pacotes em escala e discute soluções inovadoras – como sistemas de build modernos e caches distribuídos – para garantir um ecossistema Python mais robusto, eficiente e independente para todos nós no Brasil e no mundo.\r\n\r\nO Python Package Index (PyPI) é o coração pulsante do nosso ecossistema, servindo bilhões de downloads diariamente. Usamos pip install sem pensar muito, mas por trás dessa simplicidade existe uma infraestrutura massiva com desafios crescentes. O PyPI hospeda hoje mais de 12 milhões de arquivos, com um crescimento exponencial impulsionado principalmente por _wheels_ (binários pré-compilados).\"",
+    "day": 2,
+    "speakers": [
+      "Pablo Henrique Aguilar"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "VJYLFC",
+    "time": "14:20 — 14:50",
+    "title": "Caminhos para alavancar a sua entrada no mundo tech",
+    "type": "Palestra",
+    "location": "Auditório 3",
+    "target": "Iniciante",
+    "track": "Comunidades, carreira e liderança Tech",
+    "description": "Esta palestra apresenta os aprendizados que tornaram possível a transição de carreira da palestrante para a área de tecnologia, destacando aspectos que vão muito além do conhecimento técnico. Serão abordados temas como gestão do tempo, planejamento financeiro, networking, desenvolvimento de soft skills e a importância da comunidade na construção de uma nova trajetória profissional. A palestra também traz reflexões sobre os desafios, sacrifícios e mudanças de mentalidade que contribuíram para essa transformação. Uma conversa inspiradora para quem está iniciando, considerando uma mudança de carreira ou buscando motivação para seguir em frente.",
+    "day": 2,
+    "speakers": [
+      "Brenda Freire"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "SAXAJD",
+    "time": "14:55 — 15:25",
+    "title": "Engenharia de Software Agêntica: Métodos ágeis, TUI Opensource e IA Generativa",
+    "type": "Palestra",
+    "location": "Auditório 3",
+    "target": "Intermediário",
+    "track": "Open Source, DevOps & Ecossistemas Colaborativos",
+    "description": "Esta palestra traça a transformação radical no ciclo de vida de desenvolvimento de software (SDLC) de equipes ágeis que migraram do uso de \"copilotos\" (assistentes de sintaxe) para \"agentes autônomos\" (executores de tarefas). Será apresentada uma introdução às ferramentas opensource modulares e agênticas — capazes de planejar, documentar, codificar, testar e corrigir erros independentemente — e uma perspectiva de ajuste dos processos de software de times ágeis.",
+    "day": 2,
+    "speakers": [
+      "Marcelo Rocha de Sá"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "ULUKSF",
+    "time": "14:55 — 15:25",
+    "title": "AI Collective e projeto de impacto social com IA: Mariasbot",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Não-técnica",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "MariasBot é um chatbot WhatsApp que oferece acolhimento emocional e orientação jurídica para mulheres vítimas de violência doméstica, 24/7. Usando arquitetura RAG que consulta Lei Maria da Penha, protocolos OMS e pesquisa acadêmica da UFPA, evita alucinações de LLMs tradicionais. Mulheres em vulnerabilidades e nas zonas ribeirinhas enfrentam barreiras simultâneas: temporal (defensoria fecha 17h), geográfica (40+ km), psicológica (medo de perder filhos), informativa (desinformação) e institucional (revitimização). MariasBot remove essas barreiras via WhatsApp usando sistema inbound. Quando sofre agressão à madrugada entra em contato, a mulher recebe resposta imediata com acolhimento empático, esclarecimentos jurídicos precisos e dossiê estruturado para defensoria. O impacto é oferecer acesso à justiça online o tempo todo, ajuda na redução da revitimização institucional e capacitar mulheres com informação confiável no momento da crise.",
+    "day": 2,
+    "speakers": [
+      "Priscila Canaan"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "ZK7ANH",
+    "time": "15:30 — 16:00",
+    "title": "Se a cabeça não usa, atrofia: LLMs e a ilusão do saber",
+    "type": "Palestra",
+    "location": "Auditório 1 - Principal",
+    "target": "Iniciante",
+    "track": "Dados, inteligência artificial e machine learning",
+    "description": "LLMs ajudam a gerar código e explicar conceitos, mas também podem criar a ilusão de compreensão. A palestra discute como usar essas ferramentas com senso crítico e sem deixar o pensamento atrofiar. O autor possui 20 anos de Docência em Ensino de Programação em uma Universidade Pública, além de ter dado centenas de Workshops presenciais para um público diverso.",
+    "day": 2,
+    "speakers": [
+      "Fernando Masanori"
+    ],
+    "duration": 35
+  },
+  {
+    "id": "3LVFDW",
+    "time": "16:20 — 17:20",
+    "title": "Marcelo Palladino • Keynote Python Norte 2026",
+    "type": "Keynote",
+    "location": "Auditório 1 - Principal",
+    "target": "Iniciante",
+    "track": null,
+    "description": "Keynote Python Norte 2026",
+    "day": 2,
+    "speakers": [
+      "Marcelo Palladino"
+    ],
+    "duration": 60
+  }
+]

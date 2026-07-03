@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
-import sessionsData from "@/app/programacao/python-norte-2026_sessions.json";
 import speakersData from "@/app/programacao/python-norte-2026_speakers.json";
+import levelsData from "@/app/programacao/levels.json";
+import fallbackData from "@/app/programacao/fallback-sessions.json";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -60,6 +61,9 @@ const EMPTY_FILTERS: ActiveFilters = {
   track: [],
   location: [],
 };
+
+const SCHEDULE_URL =
+  "https://talks.python.org.br/python-norte-2026/schedule/export/schedule.json";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -125,6 +129,70 @@ export function addToGoogleCalendar(session: Session) {
   window.open(`https://calendar.google.com/calendar/render?${params.toString()}`, "_blank");
 }
 
+/** Converts "00:35" → 35 (minutes) */
+function parseDuration(hhmm: string): number {
+  const [h, m] = hhmm.split(":").map(Number);
+  return h * 60 + m;
+}
+
+/** Adds HH:MM + "00:35" → "HH:MM" end time */
+function calcEndTime(start: string, durationHhmm: string): string {
+  const [sh, sm] = start.split(":").map(Number);
+  const totalMinutes = sh * 60 + sm + parseDuration(durationHhmm);
+  const endH = Math.floor(totalMinutes / 60) % 24;
+  const endM = totalMinutes % 60;
+  return `${String(endH).padStart(2, "0")}:${String(endM).padStart(2, "0")}`;
+}
+
+/** Parses the Pretalx schedule.json and returns a flat array of Session */
+function parseSchedule(json: any): Session[] {
+  const levels = levelsData as Record<string, string>;
+  const sessions: Session[] = [];
+
+  const days: any[] = json?.schedule?.conference?.days ?? [];
+  for (const day of days) {
+    const date: string = day.date; // e.g. "2026-07-03"
+    const dayNum = date === "2026-07-03" ? 1 : 2;
+    const rooms: Record<string, any[]> = day.rooms ?? {};
+
+    for (const [roomName, slots] of Object.entries(rooms)) {
+      for (const slot of slots) {
+        // Pretalx schedule.json: submission code is in `code` (e.g. "MKBYLD").
+        // Fallback: extract it from the talk URL (".../talk/MKBYLD/").
+        // levels.json keys are uppercase — normalise.
+        const codeFromUrl: string =
+          typeof slot.url === "string"
+            ? (slot.url.match(/\/talk\/([^/]+)\/?$/) ?? [])[1] ?? ""
+            : "";
+        const slug: string = String(
+          slot.code ?? codeFromUrl ?? slot.id ?? "",
+        ).toUpperCase();
+        const start: string = slot.start; // "10:35"
+        const duration: string = slot.duration; // "00:35"
+        const endTime = calcEndTime(start, duration);
+
+        sessions.push({
+          id: slug,
+          time: `${start} — ${endTime}`,
+          title: slot.title,
+          type: slot.type ?? "Palestra",
+          location: roomName || undefined,
+          target: levels[slug] ?? undefined,
+          track: slot.track ?? undefined,
+          description: slot.abstract ?? undefined,
+          day: dayNum,
+          speakers: (slot.persons ?? []).map((p: any) => (p.name ?? p.public_name) as string),
+          duration: parseDuration(duration),
+        });
+      }
+    }
+  }
+
+  return sessions.sort((a, b) =>
+    a.day !== b.day ? a.day - b.day : a.time.localeCompare(b.time),
+  );
+}
+
 // ── Hook ──────────────────────────────────────────────────────────────────────
 
 export function useProgramacao() {
@@ -136,13 +204,34 @@ export function useProgramacao() {
   const [showFilters, setShowFilters] = useState(false);
   const [showAgenda, setShowAgenda] = useState(false);
 
+  // Live sessions fetched from Pretalx (null = still loading)
+  const [liveSessions, setLiveSessions] = useState<Session[] | null>(null);
+
   // Hydrate saved sessions from localStorage + open agenda if ?agenda=1
   useEffect(() => {
     const saved = localStorage.getItem("pythonNorteAgenda");
     if (saved) setSavedSessions(new Set(JSON.parse(saved)));
     if (searchParams.get("agenda") === "1") setShowAgenda(true);
     setIsMounted(true);
-  }, []);  // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Fetch live schedule from Pretalx
+  useEffect(() => {
+    let cancelled = false;
+    fetch(SCHEDULE_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((json) => {
+        if (!cancelled) setLiveSessions(parseSchedule(json));
+      })
+      .catch(() => {
+        // Fetch failed — use bundled fallback-sessions.json
+        if (!cancelled) setLiveSessions(fallbackData as Session[]);
+      });
+    return () => { cancelled = true; };
+  }, []);
 
   // Persist to localStorage
   useEffect(() => {
@@ -157,26 +246,10 @@ export function useProgramacao() {
     return map;
   }, []);
 
-  // All sessions parsed + sorted
+  // All sessions: live data when available, fallback while loading (skeleton shows until resolved)
   const allSessions: Session[] = useMemo(
-    () =>
-      (sessionsData as any[])
-        .filter((s) => s["Início (data)"] && s["Estado da proposta"] === "confirmed")
-        .map((s) => ({
-          id: s.ID,
-          time: `${s["Início (hora)"]?.substring(0, 5) || ""} — ${s["Término (hora)"]?.substring(0, 5) || ""}`,
-          title: s["Título da proposta"],
-          type: s["Tipo de sessão"]["pt-br"],
-          location: s.Sala?.["pt-br"] || undefined,
-          target: s["Nível da atividade"] || undefined,
-          track: s.Trilha?.["pt-br"] || undefined,
-          description: s.Resumo,
-          day: s["Início (data)"] === "2026-07-03" ? 1 : 2,
-          speakers: s["Nomes de palestrantes"],
-          duration: s.Duração,
-        }))
-        .sort((a, b) => a.day !== b.day ? a.day - b.day : a.time.localeCompare(b.time)),
-    [],
+    () => liveSessions ?? [],
+    [liveSessions],
   );
 
   // Filter options derived from all sessions
@@ -301,9 +374,13 @@ export function useProgramacao() {
     setShowAgenda((v) => !v);
   }
 
+  // isLoading: true until the fetch resolves (success or fallback)
+  const isLoading = !isMounted || liveSessions === null;
+
   return {
     // state
     isMounted,
+    isLoading,
     activeDay,
     setActiveDay,
     activeFilters,

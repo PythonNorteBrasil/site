@@ -41,6 +41,19 @@
     ]
   },
   {
+    "ID": "7XCXMQ",
+    "Nome": "Gabriel Henrique",
+    "Biografia": "Sou desenvolvedor, interessado em tecnologia, desenvolvimento web, intelig\u00eancia artificial e automa\u00e7\u00f5es.",
+    "E-mail": "gabriellina640@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/VYN3EL_oyE4R0c.webp",
+    "IDs de proposta": [
+      "PP7KUW"
+    ],
+    "T\u00edtulos das propostas": [
+      "LLMs na Pr\u00e1tica: Como Controlar o Comportamento dos Modelos com os Par\u00e2metros Certos"
+    ]
+  },
+  {
     "ID": "99CX7Y",
     "Nome": "Beatriz Gomes",
     "Biografia": "Beatriz Gomes atua na \u00e1rea de Dados desde 2020, com experi\u00eancia em An\u00e1lise de Dados, Business Intelligence e desenvolvimento de solu\u00e7\u00f5es anal\u00edticas voltadas ao apoio \u00e0 tomada de decis\u00f5es.\r\nAtualmente \u00e9 Coordenadora de Produtos na Solus IT\u2060, onde participa da cria\u00e7\u00e3o e evolu\u00e7\u00e3o de produtos e solu\u00e7\u00f5es tecnol\u00f3gicas. Possui certifica\u00e7\u00e3o Microsoft Power BI Data Analyst Associate e experi\u00eancia no desenvolvimento de dashboards, integra\u00e7\u00f5es de APIs com Python e automa\u00e7\u00e3o de processos, transformando dados em informa\u00e7\u00f5es estrat\u00e9gicas para neg\u00f3cios.",
@@ -51,6 +64,21 @@
     ],
     "T\u00edtulos das propostas": [
       "Li\u00e7\u00f5es do Mundo Real: O que os cursos n\u00e3o te mostram"
+    ]
+  },
+  {
+    "ID": "9FZ93Z",
+    "Nome": "Lucho Ferrer",
+    "Biografia": "Lucho \u00e9 Geografo pela Universidad Nacional Mayor de San Marcos (Lima, Peru), atualmente cursando Mestrado em Business Analytics e Inteligencia Artificial na Universidad Nacional de Ingenieria (UNI), com mencao honrosa (primeiro lugar). Possui estudos previos de mestrado em Geografia com mencao em Gestao e Ordenamento Territorial (UNMSM). Atua como Gerente de SIG e Inovacao na Walsh Peru By SGS, liderando projetos de cartografia tematica, geoprocessamento e inovacao aplicada com tecnologias como QGIS, PostGIS, GeoServer, Mergin Maps,Google Earth Engine, Copilot, Claude, etc. Vicepresidente da Associacao QGIS Peru e Vocal da Associacao QGIS Espanha. Palestrante internacional em eventos como Python Norte 2025 (Belem, Brasil), FOSS4G 2024 Belem, QGIS User Conference 2023 (Holanda), LatinR 2019 (Chile), Jornadas SIG Libre da Universitat de Girona 2018-2019 (Espanha). Com mais de 13 anos de experiencia profissional em geotecnologias aplicadas a educacao, saude, meio ambiente, geomarketing e gestao de riscos, tem contribuido ativamente com a difusao de tecnologias espaciais de codigo aberto \u00e9 privativo na America Latina . Colaborador voluntario na organizacao da Python Norte 2026 e diferente iniciativas (Meninas Das Tecnologias, HOT OSM)",
+    "E-mail": "luis.ferrer.c@uni.pe",
+    "Imagem": "https://talks.python.org.br/media/avatars/FW9YVS_ocFFiOM.webp",
+    "IDs de proposta": [
+      "AFXY9K",
+      "QBXVGA"
+    ],
+    "T\u00edtulos das propostas": [
+      "Espaco Geografico, Inteligencia Artificial e Amazonia: perspectivas desde a Geografia latino-americana",
+      "Construindo um servidor MCP com Python para an\u00e1lise geoespacial da Amaz\u00f4nia"
     ]
   },
   {
@@ -68,7 +96,7 @@
   },
   {
     "ID": "A3CNP3",
-    "Nome": "Thalyson W Da Silva",
+    "Nome": "Thalyson Silva",
     "Biografia": "Programador Python S\u00eanior, com experi\u00eancia em APIs com Django\r\nEntusiasta de tecnologia, criador da comunidade Python Par\u00e1 e volunt\u00e1rio por paix\u00e3o.\r\nTorcedor do Paysandu",
     "E-mail": "thalison.wilker@gmail.com",
     "Imagem": "https://talks.python.org.br/media/avatars/FMBRXM_ELEXQXT.webp",
@@ -92,6 +120,19 @@
     "T\u00edtulos das propostas": [
       "Python como ponto de partida: comunidade, carreira e pertencimento.",
       "Chicas Digitais: Tr\u00eas idiomas, uma linguagem, muitos futuros"
+    ]
+  },
+  {
+    "ID": "AYYJBC",
+    "Nome": "Philiphe Siqueira Ferreira",
+    "Biografia": "Engenheiro da computa\u00e7\u00e3o, desenvolvedor full-stacker, analise de testes e sistemas embarcados. Apaixonado por aprender e todo dia lutando para ficar menos ignorante a cerca do mundo a minha volta",
+    "E-mail": "philipheferreira@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/JGF3F7_iPw8UgP.webp",
+    "IDs de proposta": [
+      "QJFZSG"
+    ],
+    "T\u00edtulos das propostas": [
+      "Inform\u00e1tica para as ilhas: Introdu\u00e7\u00e3o a educa\u00e7\u00e3o digital na ilha do Combu"
     ]
   },
   {
@@ -135,7 +176,7 @@
   },
   {
     "ID": "KRFAZE",
-    "Nome": "Priscila CaNaan",
+    "Nome": "Priscila Canaan",
     "Biografia": "Cofundadora da AgroZenith e da Safety in Relationships, s\u00f3cia para a Am\u00e9rica Latina, Priscila Canaan \u00e9 uma  solucionadora  de problemas e  criadora  de solu\u00e7\u00f5es inovadoras. Atua como uma  orquestradora  global que desenha arquiteturas de solu\u00e7\u00f5es e impulsiona a transforma\u00e7\u00e3o de neg\u00f3cios baseada em Intelig\u00eancia Artificial.\r\n\r\nComo  Regional Director para a Regi\u00e3o Norte  e  co-l\u00edder  do AI Collective em Bel\u00e9m, ela trabalha na vanguarda da tecnologia, unindo governan\u00e7a tecnol\u00f3gica, \u00e9tica e inclus\u00e3o \u00e0 bioeconomia amaz\u00f4nica por meio do impacto social real gerado pela IA.\r\n\r\nCom uma trajet\u00f3ria que conecta o desenvolvimento de tecnologias de alto impacto ao valor estrat\u00e9gico e bem-estar regional, Priscila \u00e9 movida por conversas francas, inova\u00e7\u00e3o e pelo fortalecimento sustent\u00e1vel de Bel\u00e9m e sua regi\u00e3o de ilhas, rios e floresta tropical.",
     "E-mail": "priscila@aicollecrtive.com",
     "Imagem": "https://talks.python.org.br/media/avatars/8G79W7_XKdIx7U.webp",
@@ -173,16 +214,31 @@
     ]
   },
   {
+    "ID": "LWPTYU",
+    "Nome": "Lubien",
+    "Biografia": "Desenvolvedor voltado ao ecossistema Elixir/Phoenix, com foco em Phoenix LiveView. Publica videos e blogs para tornar o LiveView acess\u00edvel a devs iniciantes tanto em ingl\u00eas quanto em portugu\u00eas. Atualmente trabalha na Fly.io e ajuda na comunidade DevsNorte.",
+    "E-mail": "lubien1996@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/MT8KML_Edtcfjz.webp",
+    "IDs de proposta": [
+      "SSBX7K"
+    ],
+    "T\u00edtulos das propostas": [
+      "Suco de Monolito que parece Lambda e tem gosto de M\u00e1quina de boot r\u00e1pido"
+    ]
+  },
+  {
     "ID": "MUFNEJ",
     "Nome": "Antonio Aner\u00e3o",
     "Biografia": "Atualmente fa\u00e7o parte do SeringalLab, o laborat\u00f3rio de inova\u00e7\u00e3o do Minist\u00e9rio P\u00fablico do Acre, onde eu desenvolvo ferramentas de intelig\u00eancia artificial e agentes de IA.",
     "E-mail": "anerao.junior@gmail.com",
     "Imagem": "https://talks.python.org.br/media/avatars/BBBZC7_yOSKtTY.jpg",
     "IDs de proposta": [
-      "PP7KUW"
+      "PP7KUW",
+      "K9AXAZ"
     ],
     "T\u00edtulos das propostas": [
-      "LLMs na Pr\u00e1tica: Como Controlar o Comportamento dos Modelos com os Par\u00e2metros Certos"
+      "LLMs na Pr\u00e1tica: Como Controlar o Comportamento dos Modelos com os Par\u00e2metros Certos",
+      "Como o Minist\u00e9rio P\u00fablico do Acre usa Agentes de IA para apoiar o combate \u00e0 desinforma\u00e7\u00e3o"
     ]
   },
   {
@@ -214,7 +270,7 @@
   {
     "ID": "R7WE8P",
     "Nome": "Jos\u00e9 Roberto da Costa Ferreira",
-    "Biografia": "Jos\u00e9 Roberto da Costa Ferreira \u00e9 profissional de Tecnologia da Informa\u00e7\u00e3o com forma\u00e7\u00e3o em Tecnologia em Processamento de Dados, especialista em desenvolvimento web com Joomla! e atuante em comunidades de Software Livre no Par\u00e1. Tamb\u00e9m \u00e9 fundador do Projeto Agenda TI Par\u00e1 e j\u00e1 ministrou palestras e oficinas em diversos eventos de tecnologia",
+    "Biografia": "Jos\u00e9 Roberto da Costa Ferreira \u00e9 profissional de Tecnologia da Informa\u00e7\u00e3o, formado em Tecnologia em Processamento de Dados, com atua\u00e7\u00e3o especializada em desenvolvimento web utilizando Joomla!. \u00c9 ativo em comunidades de Software Livre no Par\u00e1, contribuindo com a dissemina\u00e7\u00e3o de conhecimento e pr\u00e1ticas abertas. Tamb\u00e9m possui experi\u00eancia na comunidade em eventos de tecnologia, tendo atuado tanto como palestrante e ministrante de oficinas quanto na organiza\u00e7\u00e3o de eventos, colaborando na constru\u00e7\u00e3o e fortalecimento do ecossistema local.",
     "E-mail": "joserobertocferreira@gmail.com",
     "Imagem": "https://talks.python.org.br/media/avatars/UZJNMS_V2wVgFg.webp",
     "IDs de proposta": [
@@ -281,7 +337,7 @@
   {
     "ID": "TUVBWA",
     "Nome": "Paulo Sergio Rodrigues Lima",
-    "Biografia": "Assessor Especializado do Comit\u00ea de Inova\u00e7\u00e3o e Intelig\u00eancia Artificial do Minist\u00e9rio P\u00fablico do Estado do Par\u00e1",
+    "Biografia": "Doutor em Engenharia El\u00e9trica com \u00eanfase em Computa\u00e7\u00e3o Aplicada pela UFPA e Mestre em Ci\u00eancias da Computa\u00e7\u00e3o pela UFRGS. Especialista em Analytics e Business Intelligence pela PUC-Minas e em Redes de Computadores pela UFPA. Graduado em Ci\u00eancia da Computa\u00e7\u00e3o pela UFPA e em Processamento de Dados pela UNAMA. Atua nas \u00e1reas de an\u00e1lise de dados, business Intelligence, Intelig\u00eancia Artificial e Internet das Coisas.",
     "E-mail": "paulolima@uepa.br",
     "Imagem": "https://talks.python.org.br/media/avatars/EVQ8GU_MXAe40u.webp",
     "IDs de proposta": [

@@ -47,8 +47,11 @@ function SpeakerAvatar({
       <img
         src={src}
         alt={alt}
+        width={80}
+        height={80}
         loading="lazy"
         decoding="async"
+        fetchPriority="low"
         onLoad={() => setLoaded(true)}
         onError={() => setError(true)}
         className={`w-full h-full object-cover transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}

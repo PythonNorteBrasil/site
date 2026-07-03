@@ -1,7 +1,17 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { X, Clock, MapPin, Users, Calendar, Star, User } from "lucide-react";
+import {
+  X,
+  Clock,
+  MapPin,
+  Users,
+  Calendar,
+  Star,
+  User,
+  Laptop,
+  AlertTriangle,
+} from "lucide-react";
 import speakersData from "@/app/programacao/python-norte-2026_speakers.json";
 import {
   RemoveConfirmDialog,
@@ -116,8 +126,11 @@ function Avatar({ src, alt }: { src: string | null; alt: string }) {
       <img
         src={src}
         alt={alt}
+        width={36}
+        height={36}
         loading="lazy"
         decoding="async"
+        fetchPriority="low"
         onLoad={() => setLoaded(true)}
         onError={() => setError(true)}
         className={`w-full h-full object-cover transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
@@ -284,12 +297,43 @@ export function SessionDetailModal({
 
             {session.description && (
               <div>
-                <h3 className="text-xs sm:text-sm font-bold text-[#004B23] mb-2">
+                <h3 className="text-sm font-bold text-[#004B23] mb-2">
                   Resumo
                 </h3>
-                <p className="text-xs sm:text-sm text-[#4A5D4E] leading-relaxed">
+                <p className="text-sm sm:text-base text-[#4A5D4E] leading-relaxed">
                   {session.description}
                 </p>
+              </div>
+            )}
+
+            {/* ── Tutorial notices ── */}
+            {session.type === "Tutorial" && (
+              <div className="rounded-xl border border-[#FF6B00]/20 bg-[#FFF6F2] divide-y divide-[#FF6B00]/10">
+                <div className="flex items-start gap-3 px-4 py-3">
+                  <AlertTriangle className="w-4 h-4 text-[#FF6B00] mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-xs sm:text-sm font-bold text-[#FF6B00]">
+                      Vagas limitadas
+                    </p>
+                    <p className="text-xs text-[#4A5D4E] mt-0.5">
+                      Este tutorial tem capacidade para{" "}
+                      <strong>30 participantes</strong>. As vagas serão
+                      preenchidas por ordem de chegada.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 px-4 py-3">
+                  <Laptop className="w-4 h-4 text-[#FF6B00] mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-xs sm:text-sm font-bold text-[#FF6B00]">
+                      Traga seu notebook
+                    </p>
+                    <p className="text-xs text-[#4A5D4E] mt-0.5">
+                      Este tutorial é prático. Lembre-se de trazer seu notebook
+                      para acompanhar os exercícios.
+                    </p>
+                  </div>
+                </div>
               </div>
             )}
 
