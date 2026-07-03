@@ -12,17 +12,9 @@ const SECTION_IDS = ["sobre", "keynotes", "patrocinadores", "localizacao"];
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCountdownVisible, setIsCountdownVisible] = useState(true);
   const [activeSection, setActiveSection] = useState<string>("");
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-
-  // ── Countdown banner visibility ──────────────────────────────────────────────
-  useEffect(() => {
-    const handleScroll = () => setIsCountdownVisible(window.scrollY < 100);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // ── Active section via IntersectionObserver (home page only) ─────────────────
   useEffect(() => {
@@ -76,19 +68,17 @@ export function Header() {
   );
 
   const navLinks = [
-    { href: "#sobre", label: "Sobre" },
-    { href: "#keynotes", label: "Keynotes" },
+    /* { href: "#sobre", label: "Sobre" }, */
+    /*   { href: "#keynotes", label: "Keynotes" }, */
+    { href: "#localizacao", label: "Localização" },
     { href: "/programacao?agenda=1", label: "Minha Agenda" },
     { href: "#patrocinadores", label: "Patrocinadores" },
-    { href: "#localizacao", label: "Localização" },
     { href: "/codigo-de-conduta", label: "Código de Conduta" },
   ];
 
   return (
     <header
-      className={`fixed z-50 w-full border-b transition-all duration-300 ${
-        isHomePage && isCountdownVisible ? "top-[60px]" : "top-0"
-      }`}
+      className="fixed top-0 z-50 w-full border-b"
       style={{
         backgroundColor: colors.background.header,
         borderColor: colors.border.light,
@@ -117,10 +107,15 @@ export function Header() {
                 const sectionId = link.href.startsWith("#")
                   ? link.href.slice(1)
                   : null;
+                // Route links: active when pathname matches (strip query)
+                const routePath = !link.href.startsWith("#")
+                  ? link.href.split("?")[0]
+                  : null;
                 const isActive =
-                  isHomePage &&
-                  sectionId !== null &&
-                  activeSection === sectionId;
+                  (sectionId !== null &&
+                    isHomePage &&
+                    activeSection === sectionId) ||
+                  (routePath !== null && pathname === routePath);
 
                 return (
                   <a
@@ -151,7 +146,7 @@ export function Header() {
               })}
             </nav>
 
-            <ButtonLink href="/programacao-pretalx" variant="primary" size="sm">
+            <ButtonLink href="/programacao-evento" variant="primary" size="sm">
               Ver Programação
             </ButtonLink>
           </div>
@@ -191,10 +186,14 @@ export function Header() {
                 const sectionId = link.href.startsWith("#")
                   ? link.href.slice(1)
                   : null;
+                const routePath = !link.href.startsWith("#")
+                  ? link.href.split("?")[0]
+                  : null;
                 const isActive =
-                  isHomePage &&
-                  sectionId !== null &&
-                  activeSection === sectionId;
+                  (sectionId !== null &&
+                    isHomePage &&
+                    activeSection === sectionId) ||
+                  (routePath !== null && pathname === routePath);
 
                 return (
                   <a
@@ -219,7 +218,7 @@ export function Header() {
             </nav>
 
             <ButtonLink
-              href="/programacao-pretalx"
+              href="/programacao-evento"
               variant="primary"
               size="sm"
               fullWidth

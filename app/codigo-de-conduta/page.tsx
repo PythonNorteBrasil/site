@@ -204,7 +204,7 @@ export default function CodigoDeConductaPage() {
             <p className="text-center text-xs text-[#4A5D4E]/70 mt-6 leading-relaxed">
               Este Código de Conduta baseia-se na versão elaborada pela{" "}
               <a
-                href="https://pythonbrasil.org.br/coc/"
+                href="https://apyb.python.org.br/pythonbrasil/cdc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:text-[#004B23] transition-colors"

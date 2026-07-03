@@ -89,7 +89,7 @@ export function Hero() {
                 {/* Mobile: Botões empilhados */}
                 <div className="flex flex-col gap-3 lg:hidden mb-4">
                   <ButtonLink
-                    href="/programacao-pretalx"
+                    href="/programacao-evento"
                     variant="primary"
                     size="md"
                     className="w-full"
@@ -101,7 +101,7 @@ export function Hero() {
                 {/* Desktop: Botões lado a lado */}
                 <div className="hidden lg:flex gap-4">
                   <ButtonLink
-                    href="/programacao-pretalx"
+                    href="/programacao-evento"
                     variant="primary"
                     size="md"
                   >
@@ -194,6 +194,17 @@ xl:max-w-[600px] lg:ml-auto"
                       UNAMA Ananindeua – PA
                     </p>
                   </div>
+
+                  <a
+                    href="https://maps.google.com/?q=UNAMA+Ananindeua+PA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1.5 rounded-md bg-accent/10 hover:bg-accent/20 text-accent transition-all transform hover:scale-110 active:scale-95 shrink-0"
+                    title="Abrir no Google Maps"
+                    aria-label="Abrir no Google Maps"
+                  >
+                    <MapPin className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
 

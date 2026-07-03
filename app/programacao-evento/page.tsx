@@ -3,7 +3,7 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PretalxWidget } from "@/components/pretalx-widget";
-import { Calendar, Info } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 export default function ProgramacaoPretalxPage() {
   return (
@@ -25,27 +25,19 @@ export default function ProgramacaoPretalxPage() {
               <p className="text-sm md:text-base lg:text-lg text-[#4A5D4E] max-w-3xl mx-auto leading-relaxed">
                 Confira a programação completa da Python Norte 2026
               </p>
+
+              {/* CTA — programação detalhada */}
+              <div className="pt-2">
+                <a
+                  href="/programacao"
+                  className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all hover:shadow-xl active:scale-95 text-sm md:text-base"
+                >
+                  <Calendar className="w-4 h-4" /> Monte sua programação
+                </a>
+              </div>
             </div>
 
-            {/* Info Banner - Mobile Friendly */}
-            {/*   <div className="bg-gradient-to-r from-[#004B23]/5 to-[#FF6B00]/5 rounded-xl md:rounded-2xl p-4 md:p-6 border border-[#004B23]/10">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-[#FFB800]/20 rounded-full flex items-center justify-center">
-                  <Info className="w-4 h-4 md:w-5 md:h-5 text-[#FFB800]" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm md:text-base font-bold text-[#004B23] mb-1">
-                    Dica de Navegação
-                  </h3>
-                  <p className="text-xs md:text-sm text-[#4A5D4E] leading-relaxed">
-                    Em dispositivos móveis, deslize horizontalmente para ver
-                    toda a programação. Toque nas palestras para mais detalhes.
-                  </p>
-                </div>
-              </div>
-            </div> */}
-
-            {/* Widget Pretalx - Otimizado para Mobile */}
+            {/* Widget Pretalx */}
             <div className="bg-white rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg border border-[#004B23]/10 overflow-hidden">
               <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#004B23]/10">
                 <Calendar className="w-5 h-5 text-[#004B23]" />
@@ -61,18 +53,6 @@ export default function ProgramacaoPretalxPage() {
                 primaryColor="#de7130"
                 className="w-full"
               />
-            </div>
-
-            {/* Informações Adicionais - Mobile Optimized */}
-
-            {/* CTA - Mobile Friendly */}
-            <div className="text-center py-4 md:py-6">
-              <a
-                href="/programacao"
-                className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-xl shadow-lg transition-all hover:shadow-xl active:scale-95 text-sm md:text-base"
-              >
-                Ver Programação Detalhada
-              </a>
             </div>
           </div>
         </div>
