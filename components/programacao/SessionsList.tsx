@@ -80,6 +80,8 @@ interface Props {
   onClearFilters: () => void;
   /** Dia ativo (índice de DAYS, 0-based) para saber qual dia mostrar */
   activeDay?: number;
+  /** Quando há filtros ativos, cards fixos não devem aparecer */
+  hasActiveFilters?: boolean;
 }
 
 export function SessionsList({
@@ -93,12 +95,15 @@ export function SessionsList({
   onOpenSpeaker,
   onClearFilters,
   activeDay = 0,
+  hasActiveFilters = false,
 }: Props) {
   // Dia numérico atual (1 = sexta, 2 = sábado)
   const currentDayNum = DAYS[activeDay]?.dayNum ?? 1;
 
-  // Eventos fixos para o dia atual
-  const fixedForDay = FIXED_EVENTS.filter((e) => e.day === currentDayNum);
+  // Eventos fixos para o dia atual — ocultos quando há filtros ativos
+  const fixedForDay = hasActiveFilters
+    ? []
+    : FIXED_EVENTS.filter((e) => e.day === currentDayNum);
 
   // Mescla sessões reais + eventos fixos ordenados por horário de início
   type Item =

@@ -213,6 +213,7 @@ function ProgramacaoInner() {
                     onOpenSpeaker={setSelectedSpeaker}
                     onClearFilters={clearAllFilters}
                     activeDay={activeDay}
+                    hasActiveFilters={hasActiveFilters}
                   />
                 )}
               </>
