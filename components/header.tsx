@@ -146,7 +146,7 @@ export function Header() {
               })}
             </nav>
 
-            <ButtonLink href="/programacao-evento" variant="primary" size="sm">
+            <ButtonLink href="/programacao" variant="primary" size="sm">
               Ver Programação
             </ButtonLink>
           </div>
@@ -218,7 +218,7 @@ export function Header() {
             </nav>
 
             <ButtonLink
-              href="/programacao-evento"
+              href="/programacao"
               variant="primary"
               size="sm"
               fullWidth

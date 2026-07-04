@@ -198,7 +198,7 @@ function parseSchedule(json: any): Session[] {
 export function useProgramacao() {
   const searchParams = useSearchParams();
   const [isMounted, setIsMounted] = useState(false);
-  const [activeDay, setActiveDay] = useState(0);
+  const [activeDay, setActiveDay] = useState(1);
   const [activeFilters, setActiveFilters] = useState<ActiveFilters>(EMPTY_FILTERS);
   const [savedSessions, setSavedSessions] = useState<Set<string>>(new Set());
   const [showFilters, setShowFilters] = useState(false);

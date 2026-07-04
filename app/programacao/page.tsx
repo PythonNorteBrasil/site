@@ -212,6 +212,7 @@ function ProgramacaoInner() {
                     onAddToCalendar={addToGoogleCalendar}
                     onOpenSpeaker={setSelectedSpeaker}
                     onClearFilters={clearAllFilters}
+                    activeDay={activeDay}
                   />
                 )}
               </>

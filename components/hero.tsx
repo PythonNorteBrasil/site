@@ -89,7 +89,7 @@ export function Hero() {
                 {/* Mobile: Botões empilhados */}
                 <div className="flex flex-col gap-3 lg:hidden mb-4">
                   <ButtonLink
-                    href="/programacao-evento"
+                    href="/programacao"
                     variant="primary"
                     size="md"
                     className="w-full"
@@ -101,7 +101,7 @@ export function Hero() {
                 {/* Desktop: Botões lado a lado */}
                 <div className="hidden lg:flex gap-4">
                   <ButtonLink
-                    href="/programacao-evento"
+                    href="/programacao"
                     variant="primary"
                     size="md"
                   >
