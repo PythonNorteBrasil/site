@@ -19,10 +19,12 @@
     "E-mail": "brendajoycefreire@gmail.com",
     "Imagem": "https://talks.python.org.br/media/avatars/NN7QY7_8zaIkEh.webp",
     "IDs de proposta": [
-      "VJYLFC"
+      "VJYLFC",
+      "HYBL7T"
     ],
     "T\u00edtulos das propostas": [
-      "Caminhos para alavancar a sua entrada no mundo tech"
+      "Caminhos para alavancar a sua entrada no mundo tech",
+      "Primeiros passos com Python - Pyladies Bel\u00e9m"
     ]
   },
   {
@@ -146,6 +148,19 @@
     ],
     "T\u00edtulos das propostas": [
       "Muito Al\u00e9m do C\u00f3digo: Uma Professora de Computa\u00e7\u00e3o na Amaz\u00f4nia"
+    ]
+  },
+  {
+    "ID": "CWEHZQ",
+    "Nome": "Pyladies Bel\u00e9m",
+    "Biografia": "Comunidade de Mulheres paraenses codando em Python, conectando saberes e fortalecendo a tecnologia na terra do a\u00e7a\u00ed. \ud83d\udc0d",
+    "E-mail": "belem@pyladies.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/DYGPTJ_pRnmlqP.webp",
+    "IDs de proposta": [
+      "HYBL7T"
+    ],
+    "T\u00edtulos das propostas": [
+      "Primeiros passos com Python - Pyladies Bel\u00e9m"
     ]
   },
   {
@@ -384,6 +399,19 @@
     ],
     "T\u00edtulos das propostas": [
       "Debugging em Python (Boas Pr\u00e1ticas)"
+    ]
+  },
+  {
+    "ID": "WQYJVK",
+    "Nome": "Rafaela Corr\u00eaa",
+    "Biografia": "Desenvolvedora Python e DevOps, embaixadora do LinuxTips Local em Bel\u00e9m e l\u00edder da comunidade PyLadies Bel\u00e9m. Tamb\u00e9m \u00e9 empreendedora, atuando na cria\u00e7\u00e3o e comercializa\u00e7\u00e3o de artes e adesivos, unindo tecnologia, criatividade e comunidade.",
+    "E-mail": "rafaela.f.c.correa@gmail.com",
+    "Imagem": "https://talks.python.org.br/media/avatars/S3B9Z9_yOzQ4oj.webp",
+    "IDs de proposta": [
+      "HYBL7T"
+    ],
+    "T\u00edtulos das propostas": [
+      "Primeiros passos com Python - Pyladies Bel\u00e9m"
     ]
   },
   {
